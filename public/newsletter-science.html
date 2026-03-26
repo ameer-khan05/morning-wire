@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Morning Wire: Science & Health Deep Dive — March 26, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #f8f7f4; color: #1a1a2e; line-height: 1.6; }
+
+  .header { background: linear-gradient(135deg, #0c4a6e 0%, #075985 50%, #0284c7 100%); color: #fff; padding: 36px 0 28px; position: relative; }
+  .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #7dd3fc, #38bdf8, #0ea5e9, #0284c7); }
+  .header-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  .back-link { font-size: 0.82rem; color: rgba(255,255,255,0.5); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; }
+  .back-link:hover { color: rgba(255,255,255,0.9); }
+  .header-date { font-size: 0.8rem; color: rgba(255,255,255,0.5); font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; }
+  .brand { font-family: 'Playfair Display', Georgia, serif; font-size: 2rem; font-weight: 800; margin: 4px 0 6px; }
+  .brand-accent { color: #7dd3fc; }
+  .subtitle { font-size: 1.05rem; color: rgba(255,255,255,0.7); }
+  .tag { display: inline-block; background: rgba(125,211,252,0.2); color: #bae6fd; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border-radius: 6px; margin-top: 12px; }
+
+  .content { max-width: 760px; margin: 0 auto; padding: 32px 24px 60px; }
+
+  .section-divider { display: flex; align-items: center; gap: 12px; margin: 36px 0 20px; }
+  .section-divider h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.2rem; font-weight: 700; color: #0c4a6e; white-space: nowrap; }
+  .section-divider::after { content: ''; flex: 1; height: 2px; background: #e5e7eb; }
+
+  .lead { background: #fff; border-radius: 16px; padding: 32px; margin-bottom: 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06); border-left: 5px solid #0ea5e9; }
+  .lead-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #0ea5e9; margin-bottom: 10px; }
+  .lead h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.55rem; font-weight: 800; line-height: 1.25; margin-bottom: 14px; color: #0f0f23; }
+  .lead p { font-size: 0.95rem; color: #374151; line-height: 1.7; margin-bottom: 10px; }
+
+  .story { background: #fff; border-radius: 12px; padding: 24px; margin-bottom: 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.04); transition: transform 0.15s ease; }
+  .story:hover { transform: translateY(-1px); box-shadow: 0 2px 4px rgba(0,0,0,0.06), 0 8px 20px rgba(0,0,0,0.08); }
+  .story h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; line-height: 1.35; }
+  .story h3 a { color: #0f0f23; text-decoration: none; }
+  .story h3 a:hover { color: #0284c7; }
+  .story p { font-size: 0.9rem; color: #4b5563; line-height: 1.65; margin-bottom: 8px; }
+  .source { font-size: 0.78rem; color: #9ca3af; font-weight: 500; }
+  .source a { color: #0284c7; text-decoration: none; font-weight: 600; }
+  .meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .tag-sm { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; background: #e0f2fe; color: #075985; }
+
+  .quick-hit { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid #f3f4f6; }
+  .quick-hit:last-child { border-bottom: none; }
+  .qh-bullet { width: 8px; height: 8px; background: #0ea5e9; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+  .qh-text { font-size: 0.9rem; color: #374151; line-height: 1.55; }
+  .qh-text a { color: #0284c7; text-decoration: none; font-weight: 600; }
+
+  .footer { text-align: center; padding: 40px 24px; border-top: 1px solid #e5e7eb; color: #9ca3af; font-size: 0.8rem; }
+  .footer-brand { font-family: 'Playfair Display', Georgia, serif; font-size: 1rem; color: #6b7280; margin-bottom: 4px; }
+
+  @media (max-width: 600px) { .brand { font-size: 1.6rem; } .lead { padding: 24px 20px; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <a href="daily-newsletter.html" class="back-link">← Back to The Morning Wire</a>
+    <div class="header-date">Thursday, March 26, 2026</div>
+    <div class="brand">Science & Health<span class="brand-accent"> Deep Dive</span></div>
+    <div class="subtitle">Breakthroughs, discoveries, and the research reshaping medicine and our understanding of the world.</div>
+    <div class="tag">10 stories · 8 min read</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- LEAD -->
+  <div class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>"Mirror" Molecule Can Starve Cancer Cells Without Harming Healthy Ones</h2>
+    <p>Scientists have discovered that D-cysteine — a rare mirror-image version of the amino acid cysteine — can dramatically slow the growth of certain cancers while leaving healthy cells largely untouched. The molecule is preferentially taken up by cancer cells and shuts down a crucial mitochondrial enzyme they rely on for energy production and DNA maintenance. This represents a fundamentally new approach to targeted cancer therapy — starving tumors at the metabolic level rather than attacking them with toxic chemotherapy.</p>
+    <div class="source">Source: <a href="https://www.sciencedaily.com/releases/2026/03/260311213453.htm" target="_blank">ScienceDaily</a></div>
+  </div>
+
+  <!-- CANCER RESEARCH -->
+  <div class="section-divider"><h3>Cancer Research</h3></div>
+
+  <div class="story">
+    <h3><a href="https://www.sciencedaily.com/" target="_blank">Protein Loss in Small Cell Lung Cancer Triggers Pro-Tumor Inflammation</a></h3>
+    <p>Scientists discovered that losing a key protein in small cell lung cancer triggers an inflammatory response that paradoxically helps tumors grow and spread. Understanding this mechanism opens a new avenue for immunotherapy approaches that target the tumor's inflammatory environment rather than the cancer cells directly.</p>
+    <div class="meta">
+      <span class="tag-sm">Oncology</span>
+      <span class="source"><a href="https://www.sciencedaily.com/" target="_blank">ScienceDaily</a></span>
+    </div>
+  </div>
+
+  <div class="story">
+    <h3><a href="https://yesilscience.com/weekly-health-ai-digest-march-23-2026/" target="_blank">New Blood Test Could Catch Pancreatic Cancer Far Earlier</a></h3>
+    <p>Researchers identified two previously unknown proteins that could form the basis of a new blood test for early pancreatic cancer detection. Pancreatic cancer has one of the lowest survival rates precisely because it's typically caught late — a reliable early-detection blood test could dramatically change outcomes for this devastating disease.</p>
+    <div class="meta">
+      <span class="tag-sm">Diagnostics</span>
+      <span class="source"><a href="https://yesilscience.com/weekly-health-ai-digest-march-23-2026/" target="_blank">Yesil Science</a></span>
+    </div>
+  </div>
+
+  <!-- BRAIN & NEUROSCIENCE -->
+  <div class="section-divider"><h3>Brain & Neuroscience</h3></div>
+
+  <div class="story">
+    <h3><a href="https://www.sciencedaily.com/releases/2026/03/260312020104.htm" target="_blank">Blood Protein Shapes May Detect Alzheimer's Years Before Symptoms</a></h3>
+    <p>Researchers found that subtle structural changes in three blood proteins closely track Alzheimer's progression. Unlike existing biomarkers that measure protein quantities, this approach detects shape changes — a more sensitive signal that could identify the disease years before cognitive symptoms appear.</p>
+    <div class="meta">
+      <span class="tag-sm">Alzheimer's</span>
+      <span class="source"><a href="https://www.sciencedaily.com/releases/2026/03/260312020104.htm" target="_blank">ScienceDaily</a></span>
+    </div>
+  </div>
+
+  <div class="story">
+    <h3><a href="https://www.sciencedaily.com/" target="_blank">Scientists Find Hidden "Death Switch" Driving Alzheimer's — and Turn It Off in Mice</a></h3>
+    <p>A separate team uncovered a previously unknown cellular mechanism — a "death switch" — that triggers neuronal death in Alzheimer's disease. In a promising proof of concept, they successfully deactivated this switch in mouse models, slowing disease progression. The finding offers a new therapeutic target distinct from the amyloid plaques that current drugs focus on.</p>
+    <div class="meta">
+      <span class="tag-sm">Neuroscience</span>
+      <span class="source"><a href="https://www.sciencedaily.com/" target="_blank">ScienceDaily</a></span>
+    </div>
+  </div>
+
+  <div class="story">
+    <h3><a href="https://www.sciencedaily.com/releases/2026/03/260312020107.htm" target="_blank">Depression May Be a Metabolic Disorder, Not Just a Chemical Imbalance</a></h3>
+    <p>Brain and blood cells in young adults with major depressive disorder produce more energy molecules at rest but struggle to increase energy when under stress. This reframes depression as potentially a metabolic or energy-regulation problem — a paradigm shift from the "chemical imbalance" model that has dominated for decades. It suggests entirely new treatment approaches targeting cellular energy pathways.</p>
+    <div class="meta">
+      <span class="tag-sm">Mental Health</span>
+      <span class="source"><a href="https://www.sciencedaily.com/releases/2026/03/260312020107.htm" target="_blank">ScienceDaily</a></span>
+    </div>
+  </div>
+
+  <!-- METABOLIC & AGING -->
+  <div class="section-divider"><h3>Metabolic Health & Aging</h3></div>
+
+  <div class="story">
+    <h3><a href="https://yesilscience.com/weekly-health-ai-digest-march-23-2026/" target="_blank">Vitamin B3 Shuts Down Key Genetic Driver of Fatty Liver Disease</a></h3>
+    <p>Researchers identified microRNA-93 as a key genetic driver of non-alcoholic fatty liver disease and discovered that vitamin B3 (niacin) can effectively suppress it. Given that fatty liver disease affects roughly 25% of the global population, a cheap and widely available intervention like B3 could have enormous public health implications.</p>
+    <div class="meta">
+      <span class="tag-sm">Liver</span>
+      <span class="source"><a href="https://yesilscience.com/weekly-health-ai-digest-march-23-2026/" target="_blank">Yesil Science</a></span>
+    </div>
+  </div>
+
+  <div class="story">
+    <h3><a href="https://www.sciencedaily.com/" target="_blank">Metformin Works Through the Brain — Not Just the Body</a></h3>
+    <p>The diabetes drug metformin was found to lower blood sugar through a previously hidden brain pathway — switching off a key protein and activating specific neurons. This dual mechanism explains why metformin has such broad health effects beyond glucose control, including potential anti-aging properties, and opens the door to more targeted treatments.</p>
+    <div class="meta">
+      <span class="tag-sm">Diabetes</span>
+      <span class="source"><a href="https://www.sciencedaily.com/" target="_blank">ScienceDaily</a></span>
+    </div>
+  </div>
+
+  <div class="story">
+    <h3><a href="https://yesilscience.com/weekly-health-ai-digest-march-23-2026/" target="_blank">NAD+ Emerges as Key Molecule in Aging Research</a></h3>
+    <p>A global team of scientists is zeroing in on NAD+ — a molecule crucial for keeping cells energized and repairing DNA damage. As we age, NAD+ levels decline sharply, and researchers believe boosting it could reshape how we age. The research has attracted significant longevity-focused funding and is moving toward clinical trials.</p>
+    <div class="meta">
+      <span class="tag-sm">Longevity</span>
+      <span class="source"><a href="https://yesilscience.com/weekly-health-ai-digest-march-23-2026/" target="_blank">Yesil Science</a></span>
+    </div>
+  </div>
+
+  <!-- DISCOVERIES -->
+  <div class="section-divider"><h3>Discoveries</h3></div>
+  <div style="background:#fff;border-radius:12px;padding:22px 24px;box-shadow:0 1px 2px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.04);">
+    <div class="quick-hit">
+      <div class="qh-bullet"></div>
+      <div class="qh-text"><strong>New microscope uses terahertz light</strong> to reveal hidden quantum motions inside superconductors — MIT physicists call it a breakthrough for materials science. <a href="https://www.sciencedaily.com/" target="_blank">ScienceDaily</a></div>
+    </div>
+    <div class="quick-hit">
+      <div class="qh-bullet"></div>
+      <div class="qh-text"><strong>24 new species</strong> of amphipods discovered in the Pacific's Clarion-Clipperton Zone, including an entirely new superfamily — a reminder of how much ocean biodiversity remains unknown. <a href="https://planet.news/article/global-scientific-breakthroughs-march-2026" target="_blank">Planet News</a></div>
+    </div>
+    <div class="quick-hit">
+      <div class="qh-bullet"></div>
+      <div class="qh-text"><strong>Ruby-like crystals found in Martian rocks</strong> by astronomers, which may also hide sapphires created during meteorite impacts. <a href="https://www.sciencedaily.com/" target="_blank">ScienceDaily</a></div>
+    </div>
+    <div class="quick-hit">
+      <div class="qh-bullet"></div>
+      <div class="qh-text"><strong>Single-atom catalyst</strong> turns CO2 into methanol more efficiently than ever before — engineered with individual indium atoms actively driving the reaction. <a href="https://planet.news/article/global-scientific-breakthroughs-march-2026" target="_blank">Planet News</a></div>
+    </div>
+    <div class="quick-hit">
+      <div class="qh-bullet"></div>
+      <div class="qh-text"><strong>Hormone therapy + tirzepatide:</strong> Postmenopausal women using menopausal HRT alongside the obesity drug lost 35% more weight than those on the drug alone. <a href="https://yesilscience.com/weekly-health-ai-digest-march-23-2026/" target="_blank">Yesil Science</a></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-brand">The Morning Wire<span style="color:#7dd3fc">.</span> Science & Health Edition</div>
+  <p>Curated by Cowork · Thursday, March 26, 2026</p>
+  <p style="margin-top:4px;"><a href="daily-newsletter.html" style="color:#0284c7;text-decoration:none;font-weight:600;">← Return to main newsletter</a></p>
+</div>
+
+</body>
+</html>

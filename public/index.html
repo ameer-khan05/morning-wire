@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Morning Wire — March 26, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f8f7f4;
+    color: #1a1a2e;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b4e 100%);
+    color: #fff;
+    padding: 40px 0 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #f59e0b, #ef4444, #8b5cf6, #3b82f6);
+  }
+  .header-inner {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .brand {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+  .brand-accent { color: #f59e0b; }
+  .header-date {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  .greeting {
+    margin-top: 20px;
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.85);
+    font-weight: 400;
+  }
+
+  /* ── MARKET TICKER ── */
+  .ticker-bar {
+    background: #1a1a2e;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 14px 0;
+    overflow-x: auto;
+  }
+  .ticker-inner {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .ticker-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  .ticker-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .ticker-value {
+    font-size: 0.85rem;
+    color: #fff;
+    font-weight: 700;
+  }
+  .ticker-change {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  .down { background: rgba(239,68,68,0.2); color: #f87171; }
+  .up { background: rgba(34,197,94,0.2); color: #4ade80; }
+
+  /* ── MAIN CONTENT ── */
+  .content {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  /* ── TOP STORY ── */
+  .top-story {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 36px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+    border-left: 5px solid #ef4444;
+  }
+  .top-story-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ef4444;
+    margin-bottom: 12px;
+  }
+  .top-story h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.65rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 14px;
+    color: #0f0f23;
+  }
+  .top-story p {
+    font-size: 1rem;
+    color: #374151;
+    line-height: 1.7;
+  }
+  .top-story .source {
+    margin-top: 14px;
+    font-size: 0.8rem;
+    color: #9ca3af;
+    font-weight: 500;
+  }
+  .top-story .source a {
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .top-story .source a:hover { text-decoration: underline; }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 36px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e5e7eb;
+  }
+  .section-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0f0f23;
+  }
+  .icon-tech { background: #ede9fe; }
+  .icon-business { background: #dcfce7; }
+  .icon-world { background: #fee2e2; }
+  .icon-crypto { background: #fef3c7; }
+  .icon-science { background: #dbeafe; }
+  .icon-worth { background: #f3e8ff; }
+
+  .deep-dive-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    padding: 10px 18px;
+    background: linear-gradient(135deg, #f8f7f4 0%, #ede9fe 100%);
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #6366f1;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+  .deep-dive-link:hover {
+    background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(99,102,241,0.15);
+  }
+  .deep-dive-link.green { color: #16a34a; background: linear-gradient(135deg, #f8f7f4 0%, #dcfce7 100%); }
+  .deep-dive-link.green:hover { background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); box-shadow: 0 2px 8px rgba(22,163,74,0.15); }
+  .deep-dive-link.red { color: #dc2626; background: linear-gradient(135deg, #f8f7f4 0%, #fee2e2 100%); }
+  .deep-dive-link.red:hover { background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); box-shadow: 0 2px 8px rgba(220,38,38,0.15); }
+  .deep-dive-link.amber { color: #d97706; background: linear-gradient(135deg, #f8f7f4 0%, #fef3c7 100%); }
+  .deep-dive-link.amber:hover { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); box-shadow: 0 2px 8px rgba(217,119,6,0.15); }
+  .deep-dive-link.blue { color: #0284c7; background: linear-gradient(135deg, #f8f7f4 0%, #e0f2fe 100%); }
+  .deep-dive-link.blue:hover { background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); box-shadow: 0 2px 8px rgba(2,132,199,0.15); }
+
+  /* ── STORY CARD ── */
+  .story {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.04);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .story:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06), 0 8px 20px rgba(0,0,0,0.08);
+  }
+  .story h3 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.35;
+  }
+  .story h3 a {
+    color: #0f0f23;
+    text-decoration: none;
+  }
+  .story h3 a:hover { color: #6366f1; }
+  .story p {
+    font-size: 0.92rem;
+    color: #4b5563;
+    line-height: 1.65;
+  }
+  .story .source {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: #9ca3af;
+    font-weight: 500;
+  }
+  .story .source a {
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* ── ALSO WORTH KNOWING ── */
+  .worth-item {
+    display: flex;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .worth-item:last-child { border-bottom: none; }
+  .worth-bullet {
+    width: 8px;
+    height: 8px;
+    background: #8b5cf6;
+    border-radius: 50%;
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+  .worth-text {
+    font-size: 0.92rem;
+    color: #374151;
+    line-height: 1.55;
+  }
+  .worth-text a {
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 40px 24px;
+    border-top: 1px solid #e5e7eb;
+    color: #9ca3af;
+    font-size: 0.8rem;
+  }
+  .footer-brand {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .brand { font-size: 1.8rem; }
+    .top-story { padding: 24px 20px; }
+    .top-story h2 { font-size: 1.35rem; }
+    .story { padding: 18px 20px; }
+    .ticker-inner { gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<div class="header">
+  <div class="header-inner">
+    <div class="header-date">Thursday, March 26, 2026</div>
+    <div class="brand">The Morning Wire<span class="brand-accent">.</span></div>
+    <div class="greeting">Good morning, Ameer. Here's what matters today.</div>
+  </div>
+</div>
+
+<!-- ═══ MARKET TICKER ═══ -->
+<div class="ticker-bar">
+  <div class="ticker-inner">
+    <div class="ticker-item">
+      <span class="ticker-label">S&P 500</span>
+      <span class="ticker-value">6,535</span>
+      <span class="ticker-change down">-0.86%</span>
+    </div>
+    <div class="ticker-item">
+      <span class="ticker-label">Nasdaq</span>
+      <span class="ticker-value">16,736</span>
+      <span class="ticker-change down">-0.39%</span>
+    </div>
+    <div class="ticker-item">
+      <span class="ticker-label">Oil (WTI)</span>
+      <span class="ticker-value">$94.80</span>
+      <span class="ticker-change up">+4.95%</span>
+    </div>
+    <div class="ticker-item">
+      <span class="ticker-label">Bitcoin</span>
+      <span class="ticker-value">$71,300</span>
+      <span class="ticker-change down">-2.7%</span>
+    </div>
+    <div class="ticker-item">
+      <span class="ticker-label">Gold</span>
+      <span class="ticker-value">$2,924</span>
+      <span class="ticker-change down">-3.7%</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MAIN CONTENT ═══ -->
+<div class="content">
+
+  <!-- TOP STORY -->
+  <div class="top-story">
+    <div class="top-story-label">Top Story</div>
+    <h2>Meta & YouTube Found Negligent in Landmark Social Media Addiction Trial</h2>
+    <p>A jury found Meta and YouTube negligent in a landmark trial over social media addiction, ruling that the companies harmed a young user with design features that were addictive and led to mental health distress. This verdict could set a major legal precedent for how tech platforms are held accountable for their impact on children and teens.</p>
+    <div class="source">Source: <a href="https://www.nytimes.com/2026/03/25/technology/social-media-trial-verdict.html" target="_blank">The New York Times</a></div>
+  </div>
+
+  <!-- ═══ TECH & AI ═══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-tech">🤖</div>
+      <div class="section-title">Tech & AI</div>
+    </div>
+
+    <div class="story">
+      <h3><a href="https://www.nbcnews.com/tech/tech-news/openai-shuttering-sora-video-generating-service-rcna264989" target="_blank">OpenAI Shuts Down Sora Video-Generating App</a></h3>
+      <p>OpenAI is pulling the plug on its Sora video-generation service, marking a significant retreat from the AI-generated video space. The move comes as the company refocuses resources, even as rivals push deeper into multimodal AI generation.</p>
+      <div class="source">Source: <a href="https://www.nbcnews.com/tech/tech-news/openai-shuttering-sora-video-generating-service-rcna264989" target="_blank">NBC News</a></div>
+    </div>
+
+    <div class="story">
+      <h3><a href="https://www.manilatimes.net/2026/03/26/tmt-newswire/pr-newswire/clarivate-reveals-the-ai50-the-organizations-leading-artificial-intelligence-invention/2308158" target="_blank">Clarivate Unveils the AI50 — The Organizations Leading AI Invention</a></h3>
+      <p>A new data-driven benchmark ranks the top 50 organizations driving high-impact AI patents. Alphabet, Huawei, IBM, Microsoft, NVIDIA, and Tencent dominate, alongside leading Chinese universities advancing breakthroughs in model architecture and hardware.</p>
+      <div class="source">Source: <a href="https://www.manilatimes.net/2026/03/26/tmt-newswire/pr-newswire/clarivate-reveals-the-ai50-the-organizations-leading-artificial-intelligence-invention/2308158" target="_blank">The Manila Times</a></div>
+    </div>
+
+    <div class="story">
+      <h3><a href="https://buildez.ai/blog/ai-trending-march-2026-developments" target="_blank">AI Infrastructure Spending Set to Hit $1.37 Trillion in 2026</a></h3>
+      <p>Hyperscalers Meta, Microsoft, and Alphabet are expected to spend roughly $600 billion on AI infrastructure this year alone, driving total global AI infrastructure investment toward $1.37 trillion. Meanwhile, Alibaba's Qwen 3.5 small models now rival GPT-class performance on standard laptops.</p>
+      <div class="source">Source: <a href="https://buildez.ai/blog/ai-trending-march-2026-developments" target="_blank">BuildEZ</a></div>
+    </div>
+
+    <div class="story">
+      <h3><a href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank">OpenAI Tops $25B Revenue; Anthropic Approaches $19B</a></h3>
+      <p>OpenAI has surpassed $25 billion in annualized revenue and is reportedly taking early steps toward a public listing. Anthropic is close behind at $19 billion in annualized revenue, underscoring the explosive growth in the foundation model market.</p>
+      <div class="source">Source: <a href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank">Mean CEO</a></div>
+    </div>
+
+    <a href="newsletter-tech-ai.html" class="deep-dive-link">Read the full Tech & AI deep dive →</a>
+  </div>
+
+  <!-- ═══ MARKETS & BUSINESS ═══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-business">📈</div>
+      <div class="section-title">Markets & Business</div>
+    </div>
+
+    <div class="story">
+      <h3><a href="https://247wallst.com/investing/2026/03/26/stock-market-live-march-26-2026-sp-500-spy-slips-on-oil-again/" target="_blank">Markets Slide as Oil Surges and Geopolitical Risk Escalates</a></h3>
+      <p>The S&P 500 dropped 0.86% to 6,535 while the Nasdaq fell 1.07% in early Thursday trading. Oil's 5% jump to $94.80 — driven by Strait of Hormuz tensions — is fueling a broad risk-off move. Initial jobless claims came in at 210,000, in line with expectations.</p>
+      <div class="source">Source: <a href="https://247wallst.com/investing/2026/03/26/stock-market-live-march-26-2026-sp-500-spy-slips-on-oil-again/" target="_blank">24/7 Wall St</a> · <a href="https://www.cnbc.com/2026/03/25/stock-market-today-live-updates.html" target="_blank">CNBC</a></div>
+    </div>
+
+    <div class="story">
+      <h3><a href="https://www.bbc.com/news/articles/cg547ljepvzo" target="_blank">Oil Traders Bet Millions Minutes Before Trump's Iran Post</a></h3>
+      <p>The BBC reports suspicious trading activity in oil markets just minutes before President Trump posted about Iran negotiations and a "significant" offer related to the Strait of Hormuz, raising questions about information leaks and market manipulation.</p>
+      <div class="source">Source: <a href="https://www.bbc.com/news/articles/cg547ljepvzo" target="_blank">BBC News</a></div>
+    </div>
+
+    <div class="story">
+      <h3><a href="https://dealroom.net/blog/upcoming-m-a" target="_blank">2026 M&A: Fewer Deals, Bigger Checks</a></h3>
+      <p>Deal activity in 2026 is defined by concentration — fewer but massively larger transactions. A consortium led by GIP and EQT agreed to acquire AES Corp for $33.4B, while Paramount's $111B acquisition of Warner Bros. Discovery reshapes the media landscape.</p>
+      <div class="source">Source: <a href="https://dealroom.net/blog/upcoming-m-a" target="_blank">Dealroom</a></div>
+    </div>
+
+    <a href="newsletter-markets.html" class="deep-dive-link green">Read the full Markets & Business deep dive →</a>
+  </div>
+
+  <!-- ═══ WORLD NEWS ═══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-world">🌍</div>
+      <div class="section-title">World News</div>
+    </div>
+
+    <div class="story">
+      <h3><a href="https://www.foxnews.com/world/nato-scrambles-jets-russia-fires-nearly-400-drones-toward-ukraine-signaling-new-spring-offensive" target="_blank">Russia Launches 400 Drones at Ukraine; NATO Scrambles Jets</a></h3>
+      <p>Russia fired nearly 400 drones and dozens of missiles at Ukraine overnight in what appears to be the start of a new spring offensive. Poland and Romania scrambled NATO fighter jets as strikes neared allied airspace, dramatically escalating tensions on the alliance's eastern flank.</p>
+      <div class="source">Source: <a href="https://www.foxnews.com/world/nato-scrambles-jets-russia-fires-nearly-400-drones-toward-ukraine-signaling-new-spring-offensive" target="_blank">Fox News</a></div>
+    </div>
+
+    <div class="story">
+      <h3><a href="https://www.foxnews.com/politics/trump-touts-significant-iran-present-linked-strait-hormuz-deal-talks-heat-up" target="_blank">Trump Touts 'Significant' Iran Offer as Nuclear Deal Talks Heat Up</a></h3>
+      <p>President Trump says Iran has offered a "significant present" tied to the Strait of Hormuz, signaling progress in nuclear negotiations. The developments are moving oil markets and reshaping the geopolitical calculus across the Middle East.</p>
+      <div class="source">Source: <a href="https://www.foxnews.com/politics/trump-touts-significant-iran-present-linked-strait-hormuz-deal-talks-heat-up" target="_blank">Fox News</a></div>
+    </div>
+
+    <div class="story">
+      <h3><a href="https://www.foxnews.com/politics/reporters-notebook-gop-eyes-dhs-deal-funding-ice-probes-not-removals-shutdown-drags" target="_blank">Government Shutdown Drags as GOP Eyes Partial DHS Deal</a></h3>
+      <p>Senate Republicans are crafting a plan to fund most of the Department of Homeland Security while leaving ICE enforcement and removal operations unfunded. The partial government shutdown continues with no resolution in sight.</p>
+      <div class="source">Source: <a href="https://www.foxnews.com/politics/reporters-notebook-gop-eyes-dhs-deal-funding-ice-probes-not-removals-shutdown-drags" target="_blank">Fox News</a></div>
+    </div>
+
+    <div class="story">
+      <h3><a href="https://www.nytimes.com/2026/03/24/us/politics/florida-special-election-emily-gregory.html" target="_blank">Democrat Flips Mar-a-Lago's District in Florida Special Election</a></h3>
+      <p>Emily Gregory won a Florida special election in the district that includes Mar-a-Lago, delivering an unexpected Democratic victory in Trump's backyard. The result signals continued suburban shifts and could shape midterm expectations.</p>
+      <div class="source">Source: <a href="https://www.nytimes.com/2026/03/24/us/politics/florida-special-election-emily-gregory.html" target="_blank">The New York Times</a></div>
+    </div>
+
+    <a href="newsletter-world.html" class="deep-dive-link red">Read the full World News deep dive →</a>
+  </div>
+
+  <!-- ═══ CRYPTO ═══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-crypto">🪙</div>
+      <div class="section-title">Crypto</div>
+    </div>
+
+    <div class="story">
+      <h3><a href="https://sergeytereshkin.com/publications/cryptocurrency-news-march-24-2026-bitcoin-ethereum-etfs-and-top-10-cryptocurrencies" target="_blank">Bitcoin Slides Below $71K as Risk-Off Mood Takes Hold</a></h3>
+      <p>Bitcoin dropped to $71,300 amid rising oil prices and falling equities. The token has traded in a tight range for nearly 50 days, signaling structural consolidation. Meanwhile, Bhutan continues liquidating its Bitcoin reserves — down from 13,000 BTC to just 4,453.</p>
+      <div class="source">Source: <a href="https://sergeytereshkin.com/publications/cryptocurrency-news-march-24-2026-bitcoin-ethereum-etfs-and-top-10-cryptocurrencies" target="_blank">Sergey Tereshkin</a> · <a href="https://www.theblock.co/" target="_blank">The Block</a></div>
+    </div>
+
+    <div class="story">
+      <h3><a href="https://www.coindesk.com" target="_blank">X Money Hires Crypto Veteran as Payments Push Accelerates</a></h3>
+      <p>Elon Musk's X hired Benji Taylor — former CPO at Aave Labs and design head at Coinbase's Base — as the platform's payments initiative inches closer to launch. Separately, new stablecoin legislation language would prohibit rewards on stablecoin balances, drawing industry pushback.</p>
+      <div class="source">Source: <a href="https://www.coindesk.com" target="_blank">CoinDesk</a></div>
+    </div>
+
+    <a href="newsletter-crypto.html" class="deep-dive-link amber">Read the full Crypto deep dive →</a>
+  </div>
+
+  <!-- ═══ SCIENCE & HEALTH ═══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-science">🔬</div>
+      <div class="section-title">Science & Health</div>
+    </div>
+
+    <div class="story">
+      <h3><a href="https://www.sciencedaily.com/releases/2026/03/260311213453.htm" target="_blank">"Mirror" Molecule Can Starve Cancer Cells Without Harming Healthy Ones</a></h3>
+      <p>Scientists discovered that D-cysteine, a rare mirror-image amino acid, dramatically slows certain cancers by shutting down a mitochondrial enzyme that cancer cells rely on — while leaving healthy cells largely untouched. A potential game-changer for targeted therapy.</p>
+      <div class="source">Source: <a href="https://www.sciencedaily.com/releases/2026/03/260311213453.htm" target="_blank">ScienceDaily</a></div>
+    </div>
+
+    <div class="story">
+      <h3><a href="https://www.sciencedaily.com/releases/2026/03/260312020104.htm" target="_blank">Blood Protein Pattern May Detect Alzheimer's Years Earlier</a></h3>
+      <p>Researchers found that subtle structural changes in three blood proteins closely track the progression of Alzheimer's disease. Separately, scientists uncovered a "death switch" in the brain driving the disease — and managed to turn it off in mice.</p>
+      <div class="source">Source: <a href="https://www.sciencedaily.com/releases/2026/03/260312020104.htm" target="_blank">ScienceDaily</a></div>
+    </div>
+
+    <div class="story">
+      <h3><a href="https://www.sciencedaily.com/releases/2026/03/260312020107.htm" target="_blank">Depression May Start With an Energy Problem in Brain Cells</a></h3>
+      <p>A surprising new finding: brain and blood cells in young adults with major depressive disorder produce more energy at rest but fail to ramp up when under stress. The discovery reframes depression as potentially a metabolic disorder, opening new treatment avenues.</p>
+      <div class="source">Source: <a href="https://www.sciencedaily.com/releases/2026/03/260312020107.htm" target="_blank">ScienceDaily</a></div>
+    </div>
+
+    <a href="newsletter-science.html" class="deep-dive-link blue">Read the full Science & Health deep dive →</a>
+  </div>
+
+  <!-- ═══ ALSO WORTH KNOWING ═══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-worth">💡</div>
+      <div class="section-title">Also Worth Knowing</div>
+    </div>
+
+    <div style="background:#fff;border-radius:12px;padding:22px 24px;box-shadow:0 1px 2px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.04);">
+      <div class="worth-item">
+        <div class="worth-bullet"></div>
+        <div class="worth-text"><strong>Denmark elections:</strong> Social Democrats came first in parliamentary elections; PM Mette Frederiksen will lead coalition talks. <a href="https://www.theguardian.com/world/live/2026/mar/25/denmark-election-results-mette-frederiksen-europe-latest-news-updates" target="_blank">The Guardian</a></div>
+      </div>
+      <div class="worth-item">
+        <div class="worth-bullet"></div>
+        <div class="worth-text"><strong>Google Gemini 3.1 Flash-Lite:</strong> 2.5x faster responses and 45% faster output than earlier versions, priced at just $0.25/M input tokens. <a href="https://www.devflokers.com/blog/ai-news-march-24-2026-releases-breakthroughs" target="_blank">devFlokers</a></div>
+      </div>
+      <div class="worth-item">
+        <div class="worth-bullet"></div>
+        <div class="worth-text"><strong>Vitamin B3 vs fatty liver:</strong> Researchers identified microRNA-93 as a key genetic driver of fatty liver disease and found vitamin B3 can effectively shut it down. <a href="https://yesilscience.com/weekly-health-ai-digest-march-23-2026/" target="_blank">Yesil Science</a></div>
+      </div>
+      <div class="worth-item">
+        <div class="worth-bullet"></div>
+        <div class="worth-text"><strong>NVIDIA + Alpamayo:</strong> New partnership to streamline autonomous vehicle development using NVIDIA's DRIVE Orin/Thor platforms with Alpamayo's digital twin technology. <a href="https://buildez.ai/blog/ai-trending-march-2026-developments" target="_blank">BuildEZ</a></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<div class="footer">
+  <div class="footer-brand">The Morning Wire<span style="color:#f59e0b">.</span></div>
+  <p>Curated by Cowork · Thursday, March 26, 2026</p>
+  <p style="margin-top:6px; font-size:0.72rem; color:#d1d5db;">All stories sourced from reputable outlets. Links go to original reporting.</p>
+</div>
+
+</body>
+</html>

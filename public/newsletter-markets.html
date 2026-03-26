@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Morning Wire: Markets & Business Deep Dive — March 26, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #f8f7f4; color: #1a1a2e; line-height: 1.6; }
+
+  .header { background: linear-gradient(135deg, #052e16 0%, #14532d 50%, #166534 100%); color: #fff; padding: 36px 0 28px; position: relative; }
+  .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #4ade80, #22c55e, #16a34a, #15803d); }
+  .header-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  .back-link { font-size: 0.82rem; color: rgba(255,255,255,0.5); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; }
+  .back-link:hover { color: rgba(255,255,255,0.9); }
+  .header-date { font-size: 0.8rem; color: rgba(255,255,255,0.5); font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; }
+  .brand { font-family: 'Playfair Display', Georgia, serif; font-size: 2rem; font-weight: 800; margin: 4px 0 6px; }
+  .brand-accent { color: #4ade80; }
+  .subtitle { font-size: 1.05rem; color: rgba(255,255,255,0.7); }
+  .tag { display: inline-block; background: rgba(74,222,128,0.2); color: #bbf7d0; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border-radius: 6px; margin-top: 12px; }
+
+  .content { max-width: 760px; margin: 0 auto; padding: 32px 24px 60px; }
+
+  .market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 32px; }
+  .market-card { background: #fff; border-radius: 12px; padding: 16px; box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.04); }
+  .market-name { font-size: 0.72rem; color: #6b7280; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .market-val { font-size: 1.25rem; font-weight: 800; color: #1a1a2e; font-family: 'JetBrains Mono', monospace; margin: 3px 0 2px; }
+  .market-chg { font-size: 0.78rem; font-weight: 600; }
+  .down { color: #ef4444; }
+  .up { color: #22c55e; }
+
+  .section-divider { display: flex; align-items: center; gap: 12px; margin: 36px 0 20px; }
+  .section-divider h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.2rem; font-weight: 700; color: #052e16; white-space: nowrap; }
+  .section-divider::after { content: ''; flex: 1; height: 2px; background: #e5e7eb; }
+
+  .lead { background: #fff; border-radius: 16px; padding: 32px; margin-bottom: 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06); border-left: 5px solid #16a34a; }
+  .lead-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #16a34a; margin-bottom: 10px; }
+  .lead h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.55rem; font-weight: 800; line-height: 1.25; margin-bottom: 14px; color: #0f0f23; }
+  .lead p { font-size: 0.95rem; color: #374151; line-height: 1.7; margin-bottom: 10px; }
+
+  .story { background: #fff; border-radius: 12px; padding: 24px; margin-bottom: 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.04); transition: transform 0.15s ease; }
+  .story:hover { transform: translateY(-1px); box-shadow: 0 2px 4px rgba(0,0,0,0.06), 0 8px 20px rgba(0,0,0,0.08); }
+  .story h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; line-height: 1.35; }
+  .story h3 a { color: #0f0f23; text-decoration: none; }
+  .story h3 a:hover { color: #16a34a; }
+  .story p { font-size: 0.9rem; color: #4b5563; line-height: 1.65; margin-bottom: 8px; }
+  .source { font-size: 0.78rem; color: #9ca3af; font-weight: 500; }
+  .source a { color: #16a34a; text-decoration: none; font-weight: 600; }
+  .meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .tag-sm { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; background: #dcfce7; color: #166534; }
+
+  .callout { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 20px 24px; margin-bottom: 14px; }
+  .callout-title { font-size: 0.82rem; font-weight: 700; color: #166534; margin-bottom: 6px; }
+  .callout p { font-size: 0.9rem; color: #374151; line-height: 1.6; }
+
+  .quick-hit { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid #f3f4f6; }
+  .quick-hit:last-child { border-bottom: none; }
+  .qh-bullet { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+  .qh-text { font-size: 0.9rem; color: #374151; line-height: 1.55; }
+  .qh-text a { color: #16a34a; text-decoration: none; font-weight: 600; }
+
+  .footer { text-align: center; padding: 40px 24px; border-top: 1px solid #e5e7eb; color: #9ca3af; font-size: 0.8rem; }
+  .footer-brand { font-family: 'Playfair Display', Georgia, serif; font-size: 1rem; color: #6b7280; margin-bottom: 4px; }
+
+  @media (max-width: 600px) {
+    .brand { font-size: 1.6rem; }
+    .lead { padding: 24px 20px; }
+    .market-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <a href="daily-newsletter.html" class="back-link">← Back to The Morning Wire</a>
+    <div class="header-date">Thursday, March 26, 2026</div>
+    <div class="brand">Markets & Business<span class="brand-accent"> Deep Dive</span></div>
+    <div class="subtitle">Equities, earnings, economic data, and the deals shaping tomorrow.</div>
+    <div class="tag">10 stories · 8 min read</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- MARKET SNAPSHOT -->
+  <div class="section-divider"><h3>Market Close</h3></div>
+  <div class="market-grid">
+    <div class="market-card">
+      <div class="market-name">Dow Jones</div>
+      <div class="market-val">39,065</div>
+      <div class="market-chg down">-605 pts (-1.53%)</div>
+    </div>
+    <div class="market-card">
+      <div class="market-name">S&P 500</div>
+      <div class="market-val">5,267</div>
+      <div class="market-chg down">-0.74%</div>
+    </div>
+    <div class="market-card">
+      <div class="market-name">Nasdaq</div>
+      <div class="market-val">16,736</div>
+      <div class="market-chg down">-0.39%</div>
+    </div>
+    <div class="market-card">
+      <div class="market-name">Oil (WTI)</div>
+      <div class="market-val">$94.80</div>
+      <div class="market-chg up">+4.95%</div>
+    </div>
+    <div class="market-card">
+      <div class="market-name">Gold</div>
+      <div class="market-val">-$111</div>
+      <div class="market-chg down">Sell-off</div>
+    </div>
+    <div class="market-card">
+      <div class="market-name">OECD Inflation Est.</div>
+      <div class="market-val">4.2%</div>
+      <div class="market-chg down">Up from 2.8%</div>
+    </div>
+  </div>
+
+  <!-- LEAD -->
+  <div class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Dow Plummets 606 Points as Oil Surge and Rate Fears Spark Worst Session in Over a Year</h2>
+    <p>Blue-chip stocks faced their worst session in over a year as the Dow fell 605.78 points (-1.53%). A sharp tech divergence emerged: NVIDIA surged past $1,000 while the broader market sold off on fears that the Iran conflict will keep oil prices elevated and inflation sticky. The S&P 500 fell 0.74% and the Nasdaq held up relatively better at -0.39%, propped up by mega-cap tech names.</p>
+    <div class="source">Source: <a href="https://stockmarketwatch.com/live/stock-market-today/" target="_blank">Stock Market Watch</a> · <a href="https://www.cnbc.com/2026/03/25/stock-market-today-live-updates.html" target="_blank">CNBC</a></div>
+  </div>
+
+  <!-- MACRO -->
+  <div class="section-divider"><h3>Macro & Economic Data</h3></div>
+
+  <div class="callout">
+    <div class="callout-title">Key Data Point: OECD Revises US Inflation Forecast Sharply Higher</div>
+    <p>The OECD now forecasts US all-items inflation at 4.2% for 2026 — up sharply from the prior 2.8% projection and well above the Fed's 2.7% estimate. The primary driver: the Iran war's impact on global energy markets. This revision is rattling bond markets and equity valuations.</p>
+  </div>
+
+  <div class="story">
+    <h3><a href="https://www.schwab.com/learn/story/stock-market-update-open" target="_blank">Initial Jobless Claims Hold Steady at 210K</a></h3>
+    <p>Weekly jobless claims came in at 210,000, right in line with expectations. The labor market remains resilient despite inflationary headwinds, giving the Fed little reason to cut rates anytime soon. The disconnect between a strong jobs picture and elevated inflation is the central tension in markets right now.</p>
+    <div class="meta">
+      <span class="tag-sm">Jobs</span>
+      <span class="source"><a href="https://www.schwab.com/learn/story/stock-market-update-open" target="_blank">Charles Schwab</a></span>
+    </div>
+  </div>
+
+  <div class="story">
+    <h3><a href="https://www.schwab.com/learn/story/weekly-traders-outlook" target="_blank">All Eyes on PCE Data Next Week</a></h3>
+    <p>Market participants are bracing for next week's Personal Consumption Expenditures (PCE) price index — the Fed's preferred inflation gauge. A hot reading could push rate cut expectations further out and trigger another leg down in equities. A tame reading would be a major relief.</p>
+    <div class="meta">
+      <span class="tag-sm">Fed Watch</span>
+      <span class="source"><a href="https://www.schwab.com/learn/story/weekly-traders-outlook" target="_blank">Charles Schwab</a></span>
+    </div>
+  </div>
+
+  <!-- OIL & GEOPOLITICS -->
+  <div class="section-divider"><h3>Oil & Geopolitical Premium</h3></div>
+
+  <div class="story">
+    <h3><a href="https://www.bbc.com/news/articles/cg547ljepvzo" target="_blank">Suspicious Oil Trades Minutes Before Trump's Iran Post</a></h3>
+    <p>The BBC reports that millions of dollars in oil futures trades were placed just minutes before President Trump posted about Iran negotiations and a "significant" offer related to the Strait of Hormuz. The timing raises serious questions about information leaks and market manipulation at the highest levels.</p>
+    <div class="meta">
+      <span class="tag-sm">Oil</span>
+      <span class="source"><a href="https://www.bbc.com/news/articles/cg547ljepvzo" target="_blank">BBC News</a></span>
+    </div>
+  </div>
+
+  <div class="story">
+    <h3><a href="https://www.schwab.com/learn/story/stock-market-update-open" target="_blank">Oil Jumps 5% to $94.80 on Strait of Hormuz Tensions</a></h3>
+    <p>WTI crude surged nearly 5% to $94.80/barrel as Strait of Hormuz tensions intensified. The spike is the primary driver behind today's risk-off trade, as higher energy costs flow directly into inflation expectations and corporate margin compression — particularly for transport, industrials, and consumer staples.</p>
+    <div class="meta">
+      <span class="tag-sm">Energy</span>
+      <span class="source"><a href="https://www.schwab.com/learn/story/stock-market-update-open" target="_blank">Charles Schwab</a></span>
+    </div>
+  </div>
+
+  <!-- EARNINGS & CORPORATE -->
+  <div class="section-divider"><h3>Earnings & Corporate</h3></div>
+
+  <div class="story">
+    <h3><a href="https://stockmarketwatch.com/live/stock-market-today/" target="_blank">NVIDIA Surges Past $1,000 — Tech Divergence Widens</a></h3>
+    <p>NVIDIA broke through the $1,000 mark even as the broader market sold off, highlighting the growing divergence between AI beneficiaries and the rest of the market. Meanwhile, Arm announced its entrance into the AI chip market with a new data center chip, sending shares up 12% in extended trading.</p>
+    <div class="meta">
+      <span class="tag-sm">Earnings</span>
+      <span class="source"><a href="https://stockmarketwatch.com/live/stock-market-today/" target="_blank">Stock Market Watch</a></span>
+    </div>
+  </div>
+
+  <div class="story">
+    <h3><a href="https://finance.yahoo.com/calendar/earnings/" target="_blank">Snowflake Beats, Target Warns of "Thrifty" Consumers</a></h3>
+    <p>Snowflake rose 4% after providing a fiscal 2026 outlook that exceeded analyst estimates. In contrast, Target shares fell nearly 2% after warning of a "thrifty" consumer environment heading into summer — a signal that discretionary spending may be softening. Intuit beat on top and bottom lines; Workday dipped after hours despite a beat.</p>
+    <div class="meta">
+      <span class="tag-sm">Earnings</span>
+      <span class="source"><a href="https://finance.yahoo.com/calendar/earnings/" target="_blank">Yahoo Finance</a></span>
+    </div>
+  </div>
+
+  <!-- M&A -->
+  <div class="section-divider"><h3>Deals & M&A</h3></div>
+
+  <div class="story">
+    <h3><a href="https://dealroom.net/blog/upcoming-m-a" target="_blank">2026 M&A: Fewer Deals, Bigger Checks</a></h3>
+    <p>Deal activity this year is defined by concentration — fewer but massively larger transactions. A consortium led by GIP and EQT agreed to acquire AES Corp for $33.4B, while Paramount's $111B acquisition of Warner Bros. Discovery is reshaping the media landscape. SanDisk's $1B investment in Nanya Technology underscores how memory supply is becoming strategic.</p>
+    <div class="meta">
+      <span class="tag-sm">M&A</span>
+      <span class="source"><a href="https://dealroom.net/blog/upcoming-m-a" target="_blank">Dealroom</a></span>
+    </div>
+  </div>
+
+  <!-- WHAT TO WATCH -->
+  <div class="section-divider"><h3>What to Watch</h3></div>
+  <div style="background:#fff;border-radius:12px;padding:22px 24px;box-shadow:0 1px 2px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.04);">
+    <div class="quick-hit">
+      <div class="qh-bullet"></div>
+      <div class="qh-text"><strong>PCE data (next week):</strong> The Fed's preferred inflation gauge — a hot print could push rate cuts further out; a tame one would rally bonds and equities.</div>
+    </div>
+    <div class="quick-hit">
+      <div class="qh-bullet"></div>
+      <div class="qh-text"><strong>Iran negotiations:</strong> Any Strait of Hormuz resolution would immediately ease oil prices and relieve the inflation premium. Watch for Pakistan-mediated indirect talks to produce framework language.</div>
+    </div>
+    <div class="quick-hit">
+      <div class="qh-bullet"></div>
+      <div class="qh-text"><strong>Tech vs. everything:</strong> The NVIDIA-led AI trade is diverging from the broad market. If the Dow keeps dropping while NVIDIA surges, breadth will narrow further — historically a warning sign.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-brand">The Morning Wire<span style="color:#4ade80">.</span> Markets Edition</div>
+  <p>Curated by Cowork · Thursday, March 26, 2026</p>
+  <p style="margin-top:4px;"><a href="daily-newsletter.html" style="color:#16a34a;text-decoration:none;font-weight:600;">← Return to main newsletter</a></p>
+</div>
+
+</body>
+</html>

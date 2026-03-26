@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Morning Wire: World News Deep Dive — March 26, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #f8f7f4; color: #1a1a2e; line-height: 1.6; }
+
+  .header { background: linear-gradient(135deg, #450a0a 0%, #7f1d1d 50%, #b91c1c 100%); color: #fff; padding: 36px 0 28px; position: relative; }
+  .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #fca5a5, #ef4444, #dc2626, #b91c1c); }
+  .header-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  .back-link { font-size: 0.82rem; color: rgba(255,255,255,0.5); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; }
+  .back-link:hover { color: rgba(255,255,255,0.9); }
+  .header-date { font-size: 0.8rem; color: rgba(255,255,255,0.5); font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; }
+  .brand { font-family: 'Playfair Display', Georgia, serif; font-size: 2rem; font-weight: 800; margin: 4px 0 6px; }
+  .brand-accent { color: #fca5a5; }
+  .subtitle { font-size: 1.05rem; color: rgba(255,255,255,0.7); }
+  .tag { display: inline-block; background: rgba(252,165,165,0.2); color: #fecaca; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border-radius: 6px; margin-top: 12px; }
+
+  .content { max-width: 760px; margin: 0 auto; padding: 32px 24px 60px; }
+
+  .section-divider { display: flex; align-items: center; gap: 12px; margin: 36px 0 20px; }
+  .section-divider h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.2rem; font-weight: 700; color: #450a0a; white-space: nowrap; }
+  .section-divider::after { content: ''; flex: 1; height: 2px; background: #e5e7eb; }
+
+  .lead { background: #fff; border-radius: 16px; padding: 32px; margin-bottom: 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06); border-left: 5px solid #ef4444; }
+  .lead-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #ef4444; margin-bottom: 10px; }
+  .lead h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.55rem; font-weight: 800; line-height: 1.25; margin-bottom: 14px; color: #0f0f23; }
+  .lead p { font-size: 0.95rem; color: #374151; line-height: 1.7; margin-bottom: 10px; }
+
+  .story { background: #fff; border-radius: 12px; padding: 24px; margin-bottom: 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.04); transition: transform 0.15s ease; }
+  .story:hover { transform: translateY(-1px); box-shadow: 0 2px 4px rgba(0,0,0,0.06), 0 8px 20px rgba(0,0,0,0.08); }
+  .story h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; line-height: 1.35; }
+  .story h3 a { color: #0f0f23; text-decoration: none; }
+  .story h3 a:hover { color: #dc2626; }
+  .story p { font-size: 0.9rem; color: #4b5563; line-height: 1.65; margin-bottom: 8px; }
+  .source { font-size: 0.78rem; color: #9ca3af; font-weight: 500; }
+  .source a { color: #dc2626; text-decoration: none; font-weight: 600; }
+  .meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .tag-sm { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; background: #fee2e2; color: #991b1b; }
+
+  .callout { background: #fef2f2; border: 1px solid #fecaca; border-radius: 12px; padding: 20px 24px; margin-bottom: 14px; }
+  .callout-title { font-size: 0.82rem; font-weight: 700; color: #991b1b; margin-bottom: 6px; }
+  .callout p { font-size: 0.9rem; color: #374151; line-height: 1.6; }
+
+  .quick-hit { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid #f3f4f6; }
+  .quick-hit:last-child { border-bottom: none; }
+  .qh-bullet { width: 8px; height: 8px; background: #ef4444; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+  .qh-text { font-size: 0.9rem; color: #374151; line-height: 1.55; }
+  .qh-text a { color: #dc2626; text-decoration: none; font-weight: 600; }
+
+  .footer { text-align: center; padding: 40px 24px; border-top: 1px solid #e5e7eb; color: #9ca3af; font-size: 0.8rem; }
+  .footer-brand { font-family: 'Playfair Display', Georgia, serif; font-size: 1rem; color: #6b7280; margin-bottom: 4px; }
+
+  @media (max-width: 600px) { .brand { font-size: 1.6rem; } .lead { padding: 24px 20px; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <a href="daily-newsletter.html" class="back-link">← Back to The Morning Wire</a>
+    <div class="header-date">Thursday, March 26, 2026</div>
+    <div class="brand">World News<span class="brand-accent"> Deep Dive</span></div>
+    <div class="subtitle">Geopolitics, conflict, diplomacy, and the forces reshaping the global order.</div>
+    <div class="tag">9 stories · 8 min read</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- LEAD -->
+  <div class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Russia Launches 400 Drones at Ukraine; NATO Scrambles Jets as Spring Offensive Begins</h2>
+    <p>Russia fired nearly 400 drones and dozens of missiles at Ukraine overnight in what appears to be the opening salvo of a new spring offensive. Poland and Romania scrambled NATO fighter jets as strikes neared allied airspace, dramatically escalating tensions on the alliance's eastern flank. The scale of the attack represents one of the largest single-day drone barrages since the war began.</p>
+    <div class="source">Source: <a href="https://www.foxnews.com/world/nato-scrambles-jets-russia-fires-nearly-400-drones-toward-ukraine-signaling-new-spring-offensive" target="_blank">Fox News</a></div>
+  </div>
+
+  <!-- IRAN & MIDDLE EAST -->
+  <div class="section-divider"><h3>Iran & the Middle East</h3></div>
+
+  <div class="callout">
+    <div class="callout-title">Situation Overview: US-Iran Conflict</div>
+    <p>The war in the Gulf has sent oil above $94/barrel, revised global inflation forecasts sharply higher, and drawn in multiple diplomatic intermediaries. The central question: can Pakistan-mediated indirect talks produce a ceasefire framework, or will Strait of Hormuz tensions escalate further?</p>
+  </div>
+
+  <div class="story">
+    <h3><a href="https://www.foxnews.com/politics/trump-touts-significant-iran-present-linked-strait-hormuz-deal-talks-heat-up" target="_blank">Trump Touts 'Significant' Iran Offer Linked to Strait of Hormuz</a></h3>
+    <p>President Trump says Iran has offered a "significant present" tied to the Strait of Hormuz, signaling progress in nuclear negotiations. The statement moved oil markets and reshaped the diplomatic calculus across the Middle East. However, Iran has simultaneously rejected Trump's ceasefire plan and publicized a counterproposal that includes sovereignty protections.</p>
+    <div class="meta">
+      <span class="tag-sm">Diplomacy</span>
+      <span class="source"><a href="https://www.foxnews.com/politics/trump-touts-significant-iran-present-linked-strait-hormuz-deal-talks-heat-up" target="_blank">Fox News</a></span>
+    </div>
+  </div>
+
+  <div class="story">
+    <h3><a href="https://www.deccanchronicle.com/world/why-pakistan-is-involved-in-diplomatic-push-to-end-iran-conflict-1946477" target="_blank">Pakistan Emerges as Key Intermediary in US-Iran Indirect Talks</a></h3>
+    <p>Pakistan's Foreign Minister Ishaq Dar confirmed on March 26 that indirect negotiations between the US and Iran are being conducted through Islamabad. Pakistan's geographic proximity to Iran and its relationships with both sides make it a natural mediator, though the talks remain fragile and no formal framework has been agreed.</p>
+    <div class="meta">
+      <span class="tag-sm">Mediation</span>
+      <span class="source"><a href="https://www.deccanchronicle.com/world/why-pakistan-is-involved-in-diplomatic-push-to-end-iran-conflict-1946477" target="_blank">Deccan Chronicle</a></span>
+    </div>
+  </div>
+
+  <div class="story">
+    <h3><a href="https://thefederal.com/category/international/march-26-news-live-updates-iran-war-and-more-236065" target="_blank">Missile Debris Kills Indian National in Abu Dhabi</a></h3>
+    <p>Missile debris from the Iran conflict killed an Indian national in Abu Dhabi, highlighting how the war's effects are reaching beyond the direct theater of conflict. The incident underscores the risks to Gulf state populations and foreign workers in the region, and adds to diplomatic pressure for a ceasefire.</p>
+    <div class="meta">
+      <span class="tag-sm">Casualties</span>
+      <span class="source"><a href="https://thefederal.com/category/international/march-26-news-live-updates-iran-war-and-more-236065" target="_blank">The Federal</a></span>
+    </div>
+  </div>
+
+  <!-- G7 & DIPLOMACY -->
+  <div class="section-divider"><h3>G7 & Western Diplomacy</h3></div>
+
+  <div class="story">
+    <h3><a href="https://www.ey.com/en_us/insights/geostrategy/geostrategic-analysis" target="_blank">Rubio Heads to France to Sell G7 on Iran War</a></h3>
+    <p>Secretary of State Marco Rubio is traveling to France to convince skeptical G7 allies of the American position on the Iran war. European leaders are concerned about soaring fuel costs and are pushing for a diplomatic resolution. The UK has specifically cited the conflict's impact on Gulf allies and the desire to contain oil prices.</p>
+    <div class="meta">
+      <span class="tag-sm">G7</span>
+      <span class="source"><a href="https://www.ey.com/en_us/insights/geostrategy/geostrategic-analysis" target="_blank">EY Geostrategic Analysis</a></span>
+    </div>
+  </div>
+
+  <!-- EUROPE -->
+  <div class="section-divider"><h3>Europe</h3></div>
+
+  <div class="story">
+    <h3><a href="https://www.theguardian.com/world/live/2026/mar/25/denmark-election-results-mette-frederiksen-europe-latest-news-updates" target="_blank">Denmark's Social Democrats Win Election — Frederiksen to Lead Coalition Talks</a></h3>
+    <p>The Social Democrats came first in Denmark's parliamentary elections, positioning PM Mette Frederiksen to lead coalition talks. The result is seen as a vote for stability in a turbulent European political landscape, though forming a coalition will require navigating a fragmented parliament.</p>
+    <div class="meta">
+      <span class="tag-sm">Elections</span>
+      <span class="source"><a href="https://www.theguardian.com/world/live/2026/mar/25/denmark-election-results-mette-frederiksen-europe-latest-news-updates" target="_blank">The Guardian</a></span>
+    </div>
+  </div>
+
+  <!-- US POLITICS -->
+  <div class="section-divider"><h3>US Politics</h3></div>
+
+  <div class="story">
+    <h3><a href="https://www.nytimes.com/2026/03/24/us/politics/florida-special-election-emily-gregory.html" target="_blank">Democrat Flips Mar-a-Lago's District in Florida Special Election</a></h3>
+    <p>Emily Gregory won a Florida special election in the district that includes Mar-a-Lago, delivering an unexpected Democratic victory in Trump's backyard. The result signals continued suburban shifts away from the GOP and could shape expectations for the 2026 midterm cycle.</p>
+    <div class="meta">
+      <span class="tag-sm">Elections</span>
+      <span class="source"><a href="https://www.nytimes.com/2026/03/24/us/politics/florida-special-election-emily-gregory.html" target="_blank">The New York Times</a></span>
+    </div>
+  </div>
+
+  <div class="story">
+    <h3><a href="https://www.foxnews.com/politics/reporters-notebook-gop-eyes-dhs-deal-funding-ice-probes-not-removals-shutdown-drags" target="_blank">Government Shutdown Continues — GOP Crafts Partial DHS Deal</a></h3>
+    <p>Senate Republicans are crafting a plan to fund most of the Department of Homeland Security while leaving ICE enforcement and removal operations unfunded. The partial government shutdown continues with no resolution in sight, affecting federal workers and government services.</p>
+    <div class="meta">
+      <span class="tag-sm">Shutdown</span>
+      <span class="source"><a href="https://www.foxnews.com/politics/reporters-notebook-gop-eyes-dhs-deal-funding-ice-probes-not-removals-shutdown-drags" target="_blank">Fox News</a></span>
+    </div>
+  </div>
+
+  <!-- GLOBAL RISKS -->
+  <div class="section-divider"><h3>Big Picture</h3></div>
+  <div style="background:#fff;border-radius:12px;padding:22px 24px;box-shadow:0 1px 2px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.04);">
+    <div class="quick-hit">
+      <div class="qh-bullet"></div>
+      <div class="qh-text"><strong>WEF Global Risks 2026:</strong> Geoeconomic confrontation, interstate conflict, and extreme weather are the top three risks for the year. Governments are increasingly treating AI as a national security priority. <a href="https://www.weforum.org/press/2026/01/global-risks-report-2026-geopolitical-and-economic-risks-rise-in-new-age-of-competition/" target="_blank">WEF</a></div>
+    </div>
+    <div class="quick-hit">
+      <div class="qh-bullet"></div>
+      <div class="qh-text"><strong>Flight disruptions:</strong> Delhi airport allocated extra slots to foreign airlines due to capacity issues linked to the West Asia crisis, affecting international travel routes across the region.</div>
+    </div>
+    <div class="quick-hit">
+      <div class="qh-bullet"></div>
+      <div class="qh-text"><strong>AI & geopolitics converge:</strong> The geopolitics surrounding AI are driving market fragmentation and reshaping investment strategies, with nations treating compute infrastructure as a strategic asset. <a href="https://www.ey.com/en_us/insights/geostrategy/geostrategic-analysis" target="_blank">EY</a></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-brand">The Morning Wire<span style="color:#fca5a5">.</span> World News Edition</div>
+  <p>Curated by Cowork · Thursday, March 26, 2026</p>
+  <p style="margin-top:4px;"><a href="daily-newsletter.html" style="color:#dc2626;text-decoration:none;font-weight:600;">← Return to main newsletter</a></p>
+</div>
+
+</body>
+</html>
