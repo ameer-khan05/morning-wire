@@ -1,0 +1,24 @@
+{
+  "rewrites": [
+    {
+      "source": "/tech",
+      "destination": "/newsletter-tech-ai.html"
+    },
+    {
+      "source": "/crypto",
+      "destination": "/newsletter-crypto.html"
+    },
+    {
+      "source": "/markets",
+      "destination": "/newsletter-markets.html"
+    },
+    {
+      "source": "/world",
+      "destination": "/newsletter-world.html"
+    },
+    {
+      "source": "/science",
+      "destination": "/newsletter-science.html"
+    }
+  ]
+}
