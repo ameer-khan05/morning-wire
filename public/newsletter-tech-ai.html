@@ -1,268 +1,467 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Morning Wire: Tech & AI Deep Dive — March 26, 2026</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap');
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Inter', -apple-system, sans-serif; background: #f8f7f4; color: #1a1a2e; line-height: 1.6; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Morning Wire - Tech & AI Deep Dive</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  .header { background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%); color: #fff; padding: 36px 0 28px; position: relative; }
-  .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #818cf8, #6366f1, #4f46e5, #4338ca); }
-  .header-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-  .back-link { font-size: 0.82rem; color: rgba(255,255,255,0.5); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; transition: color 0.15s; }
-  .back-link:hover { color: rgba(255,255,255,0.9); }
-  .header-date { font-size: 0.8rem; color: rgba(255,255,255,0.5); font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; }
-  .brand { font-family: 'Playfair Display', Georgia, serif; font-size: 2rem; font-weight: 800; margin: 4px 0 6px; }
-  .brand-accent { color: #818cf8; }
-  .subtitle { font-size: 1.05rem; color: rgba(255,255,255,0.7); }
-  .tag { display: inline-block; background: rgba(129,140,248,0.2); color: #c7d2fe; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border-radius: 6px; margin-top: 12px; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
 
-  .content { max-width: 760px; margin: 0 auto; padding: 32px 24px 60px; }
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-  /* Lead story */
-  .lead { background: #fff; border-radius: 16px; padding: 32px; margin-bottom: 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06); border-left: 5px solid #6366f1; }
-  .lead-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #6366f1; margin-bottom: 10px; }
-  .lead h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.55rem; font-weight: 800; line-height: 1.25; margin-bottom: 14px; color: #0f0f23; }
-  .lead p { font-size: 0.95rem; color: #374151; line-height: 1.7; margin-bottom: 10px; }
-  .source { font-size: 0.78rem; color: #9ca3af; font-weight: 500; }
-  .source a { color: #6366f1; text-decoration: none; font-weight: 600; }
-  .source a:hover { text-decoration: underline; }
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1e1b4b 0%, #4338ca 100%);
+            color: white;
+            padding: 40px 20px;
+            margin: -20px -20px 40px -20px;
+            text-align: center;
+            position: relative;
+        }
 
-  /* Section dividers */
-  .section-divider { display: flex; align-items: center; gap: 12px; margin: 36px 0 20px; }
-  .section-divider h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.2rem; font-weight: 700; color: #1e1b4b; white-space: nowrap; }
-  .section-divider::after { content: ''; flex: 1; height: 2px; background: #e5e7eb; }
+        .back-link {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
 
-  /* Story cards */
-  .story { background: #fff; border-radius: 12px; padding: 24px; margin-bottom: 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.04); transition: transform 0.15s ease, box-shadow 0.15s ease; }
-  .story:hover { transform: translateY(-1px); box-shadow: 0 2px 4px rgba(0,0,0,0.06), 0 8px 20px rgba(0,0,0,0.08); }
-  .story h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; line-height: 1.35; }
-  .story h3 a { color: #0f0f23; text-decoration: none; }
-  .story h3 a:hover { color: #6366f1; }
-  .story p { font-size: 0.9rem; color: #4b5563; line-height: 1.65; margin-bottom: 8px; }
-  .story .meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-  .story .tag-sm { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; background: #ede9fe; color: #6366f1; }
+        .back-link:hover {
+            opacity: 1;
+        }
 
-  /* Stat box */
-  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 32px; }
-  .stat-card { background: #fff; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.04); }
-  .stat-value { font-size: 1.6rem; font-weight: 800; color: #4338ca; font-family: 'JetBrains Mono', monospace; }
-  .stat-label { font-size: 0.78rem; color: #6b7280; margin-top: 4px; font-weight: 500; }
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
 
-  /* Quick hits */
-  .quick-hit { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid #f3f4f6; }
-  .quick-hit:last-child { border-bottom: none; }
-  .qh-bullet { width: 8px; height: 8px; background: #818cf8; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
-  .qh-text { font-size: 0.9rem; color: #374151; line-height: 1.55; }
-  .qh-text a { color: #6366f1; text-decoration: none; font-weight: 600; }
+        .header .subtitle {
+            font-size: 16px;
+            opacity: 0.95;
+            font-weight: 500;
+        }
 
-  .footer { text-align: center; padding: 40px 24px; border-top: 1px solid #e5e7eb; color: #9ca3af; font-size: 0.8rem; }
-  .footer-brand { font-family: 'Playfair Display', Georgia, serif; font-size: 1rem; color: #6b7280; margin-bottom: 4px; }
+        .header .date {
+            font-size: 14px;
+            opacity: 0.85;
+            margin-top: 8px;
+        }
 
-  @media (max-width: 600px) {
-    .brand { font-size: 1.6rem; }
-    .lead { padding: 24px 20px; }
-    .stat-grid { grid-template-columns: 1fr 1fr; }
-  }
-</style>
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: box-shadow 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Lead Story */
+        .lead-story {
+            border-left: 5px solid #4338ca;
+            padding-left: 25px;
+        }
+
+        .lead-story h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin-bottom: 16px;
+            color: #1e1b4b;
+            line-height: 1.3;
+        }
+
+        /* Story */
+        .story h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #1e1b4b;
+            line-height: 1.3;
+        }
+
+        .story-content {
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .story-meta {
+            font-size: 13px;
+            color: #666;
+            border-top: 1px solid #eee;
+            padding-top: 12px;
+        }
+
+        .story-meta a {
+            color: #4338ca;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .story-meta a:hover {
+            color: #1e1b4b;
+            text-decoration: underline;
+        }
+
+        /* Section Headers */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #1e1b4b;
+            margin-top: 40px;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #4338ca;
+        }
+
+        /* Funding Cards */
+        .funding-item {
+            display: inline-block;
+            width: 48%;
+            margin-right: 4%;
+            margin-bottom: 16px;
+            vertical-align: top;
+        }
+
+        .funding-item:nth-child(even) {
+            margin-right: 0;
+        }
+
+        .funding-box {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            font-size: 14px;
+        }
+
+        .funding-box strong {
+            display: block;
+            color: #1e1b4b;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+
+        .funding-amount {
+            color: #4338ca;
+            font-weight: 600;
+        }
+
+        .funding-valuation {
+            color: #666;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        /* Quick Hits */
+        .quick-hit {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .quick-hit:last-child {
+            border-bottom: none;
+        }
+
+        .quick-hit strong {
+            color: #1e1b4b;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+        }
+
+        .footer a {
+            color: #4338ca;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #1e1b4b;
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 16px;
+            }
+
+            .header {
+                margin: -16px -16px 32px -16px;
+                padding: 32px 16px;
+            }
+
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .lead-story h2 {
+                font-size: 26px;
+            }
+
+            .story h3 {
+                font-size: 20px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .funding-item {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
+            <h1>The Morning Wire</h1>
+            <div class="subtitle">Tech & AI Deep Dive</div>
+            <div class="date">Friday, March 27, 2026</div>
+        </div>
 
-<div class="header">
-  <div class="header-inner">
-    <a href="daily-newsletter.html" class="back-link">← Back to The Morning Wire</a>
-    <div class="header-date">Thursday, March 26, 2026</div>
-    <div class="brand">Tech & AI<span class="brand-accent"> Deep Dive</span></div>
-    <div class="subtitle">Everything happening in technology and artificial intelligence today.</div>
-    <div class="tag">15 stories · 10 min read</div>
-  </div>
-</div>
+        <!-- Lead Story -->
+        <div class="card lead-story story">
+            <h2>Apple to Open Siri to Rival AI Assistants in iOS 27</h2>
+            <div class="story-content">
+                <p>Apple is preparing a fundamental shift in its approach to artificial intelligence integration, planning to open Siri to competing AI services in iOS 27. The move represents a major strategic pivot that signals Apple's willingness to let third-party AI assistants—including rivals to ChatGPT—operate alongside its native Siri assistant. This represents one of the most significant changes to Apple's closed ecosystem in recent memory.</p>
+                <p>The overhaul is part of a broader iOS 27 update that underscores Apple's recognition that no single AI provider can dominate every use case. Rather than forcing users into a single AI experience, Apple will allow developers to integrate competing AI assistants directly into iOS, giving users genuine choice in their AI interactions. Industry observers view this as a tacit acknowledgment that Apple's proprietary AI capabilities, while strong, benefit from complementary options that specialize in different domains.</p>
+                <p>This opening could reshape the competitive landscape in AI assistants, potentially leveling the playing field between OpenAI, Google, Meta, and other contenders while simultaneously strengthening iOS's appeal to developers and users seeking customized AI workflows.</p>
+            </div>
+            <div class="story-meta">
+                Source: <a href="https://www.bloomberg.com/news/articles/2026-03-26/apple-plans-to-open-up-siri-to-rival-ai-assistants-beyond-chatgpt-in-ios-27" target="_blank">Bloomberg</a>
+            </div>
+        </div>
 
-<div class="content">
+        <!-- Stories Section -->
+        <h2 class="section-title">Top Stories</h2>
 
-  <!-- BY THE NUMBERS -->
-  <div class="section-divider"><h3>By the Numbers</h3></div>
-  <div class="stat-grid">
-    <div class="stat-card">
-      <div class="stat-value">$1.37T</div>
-      <div class="stat-label">Global AI infrastructure spend (2026 est.)</div>
+        <!-- Story 1 -->
+        <div class="card story">
+            <h3>Meta & YouTube Found Negligent in Landmark Social Media Addiction Trial</h3>
+            <div class="story-content">
+                <p>Juries in California and New Mexico have found Meta and YouTube liable for their roles in fostering social media addiction among minors. A Los Angeles jury awarded $6 million in damages in a landmark verdict that marks the first major courtroom victory against the tech giants over addiction claims. The verdicts establish critical legal precedent that platforms may bear responsibility for designing features that knowingly exploit psychological vulnerabilities in younger users.</p>
+                <p>The cases centered on allegations that Meta and YouTube deliberately used manipulative design techniques—infinite scroll, algorithmic feeds, and notification systems—to maximize user engagement at the expense of child welfare. The findings suggest that future litigation against these platforms may succeed based on similar arguments, potentially opening the door to broader regulatory action.</p>
+            </div>
+            <div class="story-meta">
+                Source: <a href="https://www.nytimes.com/2026/03/25/technology/social-media-trial-verdict.html" target="_blank">New York Times</a>
+            </div>
+        </div>
+
+        <!-- Story 2 -->
+        <div class="card story">
+            <h3>OpenAI Surpasses $25B Annualized Revenue, Eyes IPO</h3>
+            <div class="story-content">
+                <p>OpenAI's commercial momentum continues to accelerate, with the company now running at an annualized revenue rate exceeding $25 billion. The achievement reflects explosive demand for ChatGPT and enterprise AI solutions, establishing OpenAI as one of the fastest-growing AI companies globally. The company recently raised $110 billion in funding at a $730 billion valuation, with backing from Amazon, Nvidia, and SoftBank, signaling investor confidence in a potential late-2026 IPO.</p>
+            </div>
+            <div class="story-meta">
+                Source: <a href="https://techstartups.com/2026/03/26/top-tech-news-today-march-26-2026/" target="_blank">Tech Startups</a>
+            </div>
+        </div>
+
+        <!-- Story 3 -->
+        <div class="card story">
+            <h3>Meta Cuts 700 Jobs While Unveiling $921M Executive Stock Program</h3>
+            <div class="story-content">
+                <p>Meta announced workforce reductions affecting 700 employees across Reality Labs, recruiting, and sales divisions, continuing CEO Mark Zuckerberg's pivot toward AI. Simultaneously, the company unveiled a $921 million executive stock option program, signaling Zuckerberg's conviction in his "superintelligence" roadmap. The contrasting moves underscore Meta's aggressive reallocation of resources from hardware toward large-scale AI model development and deployment.</p>
+            </div>
+            <div class="story-meta">
+                Source: <a href="https://techstartups.com/2026/03/25/top-tech-news-today-march-25-2026/" target="_blank">Tech Startups</a>
+            </div>
+        </div>
+
+        <!-- Story 4 -->
+        <div class="card story">
+            <h3>NVIDIA Unveils "Vera Rubin" AI Platform</h3>
+            <div class="story-content">
+                <p>NVIDIA announced its next-generation AI platform codenamed "Vera Rubin," following the Blackwell architecture with radical improvements in processing power and memory bandwidth. The platform is expected to enable unprecedented scale in AI model training and inference, reinforcing NVIDIA's dominance in the AI infrastructure market and setting the stage for the next wave of AI capabilities.</p>
+            </div>
+            <div class="story-meta">
+                Source: <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">Crescendo AI</a>
+            </div>
+        </div>
+
+        <!-- Story 5 -->
+        <div class="card story">
+            <h3>OpenAI's GPT-5.4 "Thinking" Scores 83% on GDPVal</h3>
+            <div class="story-content">
+                <p>OpenAI's latest reasoning model, GPT-5.4 "Thinking," achieved an 83% success rate on GDPVal, a benchmark measuring performance on economically valuable tasks. The score places the model at or above human expert level on many economically significant problems, marking another milestone in AI capability advancement and raising questions about labor market disruption across high-skill professions.</p>
+            </div>
+            <div class="story-meta">
+                Source: <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">Crescendo AI</a>
+            </div>
+        </div>
+
+        <!-- Story 6 -->
+        <div class="card story">
+            <h3>Google Launches Gemini 3.1 Flash-Lite</h3>
+            <div class="story-content">
+                <p>Google released Gemini 3.1 Flash-Lite, delivering 2.5x faster response times and 45% faster output generation compared to earlier Gemini versions. The performance improvements position Google's model as a competitive alternative for latency-sensitive applications and edge deployments, expanding Gemini's addressable market.</p>
+            </div>
+            <div class="story-meta">
+                Source: <a href="https://techstartups.com/2026/03/26/top-tech-news-today-march-26-2026/" target="_blank">Tech Startups</a>
+            </div>
+        </div>
+
+        <!-- Story 7 -->
+        <div class="card story">
+            <h3>Three Charged with Smuggling $2.5B in AI Chips to China</h3>
+            <div class="story-content">
+                <p>U.S. authorities charged three individuals, including a Super Micro Computer cofounder, with smuggling an estimated $2.5 billion in advanced AI chips to China, circumventing export controls. The case underscores heightened geopolitical tensions around AI compute access and Washington's determination to prevent sophisticated semiconductor technology from reaching China amid deteriorating U.S.-China relations.</p>
+            </div>
+            <div class="story-meta">
+                Source: <a href="https://www.aljazeera.com/news/2026/3/20/three-charged-in-the-us-with-smuggling-ai-chips-into-china" target="_blank">Al Jazeera</a>
+            </div>
+        </div>
+
+        <!-- Story 8 -->
+        <div class="card story">
+            <h3>Morgan Stanley Warns Massive AI Breakthrough Coming H1 2026</h3>
+            <div class="story-content">
+                <p>Morgan Stanley published research warning of unprecedented compute accumulation at top AI labs, signaling that transformative AI breakthroughs could emerge in the first half of 2026. The analysis suggests leading AI companies are poised to cross critical capability thresholds, potentially reshaping AI's economic impact and competitive dynamics.</p>
+            </div>
+            <div class="story-meta">
+                Source: <a href="https://fortune.com/2026/03/13/elon-musk-morgan-stanley-ai-leap-2026/" target="_blank">Fortune</a>
+            </div>
+        </div>
+
+        <!-- Story 9 -->
+        <div class="card story">
+            <h3>Google Personal Intelligence Feature Rolling Out to All US Users</h3>
+            <div class="story-content">
+                <p>Google extended its Personal Intelligence feature to all U.S. users, enabling Gemini to draw upon data from Gmail, Photos, and YouTube to provide hyper-personalized assistance. The feature represents a deepening of Google's integration of AI with its vast ecosystem of user data, raising privacy questions while simultaneously offering convenience that may accelerate Gemini adoption.</p>
+            </div>
+            <div class="story-meta">
+                Source: <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">Crescendo AI</a>
+            </div>
+        </div>
+
+        <!-- Story 10 -->
+        <div class="card story">
+            <h3>OpenAI Launches Safety Bug Bounty Program</h3>
+            <div class="story-content">
+                <p>OpenAI established a dedicated safety bug bounty program focused on identifying AI abuse vectors and safety risks within ChatGPT and its API. The initiative reflects growing attention to adversarial prompt techniques and model misuse scenarios as AI systems become more capable and widely accessible.</p>
+            </div>
+            <div class="story-meta">
+                Source: <a href="https://techstartups.com/2026/03/26/top-tech-news-today-march-26-2026/" target="_blank">Tech Startups</a>
+            </div>
+        </div>
+
+        <!-- Funding Corner -->
+        <h2 class="section-title">Funding Corner</h2>
+        <div class="card">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+                <div class="funding-item">
+                    <div class="funding-box">
+                        <strong>OpenAI</strong>
+                        <span class="funding-amount">$110B Raised</span>
+                        <div class="funding-valuation">Valuation: $730B</div>
+                    </div>
+                </div>
+                <div class="funding-item">
+                    <div class="funding-box">
+                        <strong>Nscale</strong>
+                        <span class="funding-amount">$2B Series C</span>
+                        <div class="funding-valuation">Valuation: $14.6B (NVIDIA-backed)</div>
+                    </div>
+                </div>
+                <div class="funding-item">
+                    <div class="funding-box">
+                        <strong>Ayar Labs</strong>
+                        <span class="funding-amount">$500M Series E</span>
+                        <div class="funding-valuation">Silicon-photonic chips</div>
+                    </div>
+                </div>
+                <div class="funding-item">
+                    <div class="funding-box">
+                        <strong>Decagon</strong>
+                        <span class="funding-amount">$250M Series D</span>
+                        <div class="funding-valuation">Valuation: $4.5B (AI customer support)</div>
+                    </div>
+                </div>
+                <div class="funding-item">
+                    <div class="funding-box">
+                        <strong>Granola</strong>
+                        <span class="funding-amount">$125M Series C</span>
+                        <div class="funding-valuation">Valuation: $1.5B</div>
+                    </div>
+                </div>
+                <div class="funding-item">
+                    <div class="funding-box">
+                        <strong>Sunday Robotics</strong>
+                        <span class="funding-amount">$165M Series B</span>
+                        <div class="funding-valuation">Now unicorn status</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Hits -->
+        <h2 class="section-title">Quick Hits</h2>
+        <div class="card">
+            <div class="quick-hit">
+                <strong>OpenAI Shelves Erotic Chatbot Plans</strong> — OpenAI abandoned development of an adult-oriented conversational AI product, citing brand risk concerns and focus on mainstream markets.
+            </div>
+            <div class="quick-hit">
+                <strong>AI Advertising Projected to Grow 63% to $57B in 2026</strong> — Generative AI is reshaping digital advertising markets, with AI-driven ad creation and targeting driving explosive growth across the industry.
+            </div>
+            <div class="quick-hit">
+                <strong>NVIDIA GTC Conference Catalyzes Shift to Autonomous Agentic Systems</strong> — NVIDIA's annual developer conference highlighted an industry-wide pivot toward autonomous AI agents, moving beyond traditional chatbot and completion-based applications.
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>The Morning Wire | Tech & AI Deep Dive | Friday, March 27, 2026</p>
+            <p style="margin-top: 16px;"><a href="daily-newsletter.html">← Back to Daily Newsletter</a></p>
+            <p style="margin-top: 16px; font-size: 12px;">Published by The Morning Wire Editorial Team</p>
+        </div>
     </div>
-    <div class="stat-card">
-      <div class="stat-value">$25B+</div>
-      <div class="stat-label">OpenAI annualized revenue</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-value">$19B</div>
-      <div class="stat-label">Anthropic annualized revenue</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-value">97M</div>
-      <div class="stat-label">MCP installs (as of Mar 25)</div>
-    </div>
-  </div>
-
-  <!-- LEAD STORY -->
-  <div class="lead">
-    <div class="lead-label">Lead Story</div>
-    <h2>Meta & YouTube Found Negligent in Landmark Social Media Addiction Trial</h2>
-    <p>A Los Angeles jury found Alphabet's YouTube and Meta liable for harm done to a young user, ordering the companies to pay $3 million in compensatory damages. The plaintiff said Instagram and YouTube contributed to depression and suicidal thoughts. A separate New Mexico jury delivered a similar verdict. These rulings could set a sweeping legal precedent for how tech platforms are held accountable for their design choices — particularly features engineered for engagement and retention among young users.</p>
-    <div class="source">Source: <a href="https://techstartups.com/2026/03/26/top-tech-news-today-march-26-2026/" target="_blank">Tech Startups</a> · <a href="https://finance.yahoo.com/news/live/tech-stocks-today-microsoft-shakes-up-ai-leadership-nvidias-jensen-huang-kicks-off-gtc-event-144220414.html" target="_blank">Yahoo Finance</a></div>
-  </div>
-
-  <!-- FRONTIER MODELS -->
-  <div class="section-divider"><h3>Frontier Models & Releases</h3></div>
-
-  <div class="story">
-    <h3><a href="https://www.digitalapplied.com/blog/march-2026-ai-roundup-month-that-changed-everything" target="_blank">March 2026: The Month That Changed AI Forever</a></h3>
-    <p>Three major frontier models launched within a 23-day window: OpenAI's GPT-5.4 (in 3 distinct configurations for different cost/capability trade-offs), Google's Gemini 3.1 Ultra (focused on multimodal depth), and xAI's Grok 4.20 (optimized for real-time information). Additionally, Mistral Small 4 launched during the same period — compressing more model releases into one month than most years deliver in total.</p>
-    <div class="meta">
-      <span class="tag-sm">Models</span>
-      <span class="source"><a href="https://www.digitalapplied.com/blog/march-2026-ai-roundup-month-that-changed-everything" target="_blank">Digital Applied</a></span>
-    </div>
-  </div>
-
-  <div class="story">
-    <h3><a href="https://www.devflokers.com/blog/ai-news-march-24-2026-releases-breakthroughs" target="_blank">Google Gemini 3.1 Flash-Lite: 2.5x Faster, Fraction of the Cost</a></h3>
-    <p>Google's latest lightweight model delivers 2.5x faster responses and 45% faster output than its predecessors, priced at just $0.25 per million input tokens. It's positioned as the go-to for high-volume, cost-sensitive applications where speed matters more than peak reasoning capability.</p>
-    <div class="meta">
-      <span class="tag-sm">Google</span>
-      <span class="source"><a href="https://www.devflokers.com/blog/ai-news-march-24-2026-releases-breakthroughs" target="_blank">devFlokers</a></span>
-    </div>
-  </div>
-
-  <div class="story">
-    <h3><a href="https://www.nbcnews.com/tech/tech-news/openai-shuttering-sora-video-generating-service-rcna264989" target="_blank">OpenAI Pulls the Plug on Sora</a></h3>
-    <p>OpenAI is shutting down its Sora video-generation service entirely, marking a significant retreat from the AI video space. The Sora API was discontinued March 24. The move suggests OpenAI is refocusing resources on core language and reasoning capabilities, even as competitors like Runway, Kling, and Google's Veo push deeper into multimodal generation.</p>
-    <div class="meta">
-      <span class="tag-sm">OpenAI</span>
-      <span class="source"><a href="https://www.nbcnews.com/tech/tech-news/openai-shuttering-sora-video-generating-service-rcna264989" target="_blank">NBC News</a></span>
-    </div>
-  </div>
-
-  <!-- FUNDING & DEALS -->
-  <div class="section-divider"><h3>Funding & Deals</h3></div>
-
-  <div class="story">
-    <h3><a href="https://techcrunch.com/2026/03/20/ai-startups-are-eating-the-venture-industry-and-the-returns-so-far-are-good/" target="_blank">AI Is Eating Venture Capital — And the Returns Are Good</a></h3>
-    <p>AI startups accounted for 41% of the $128 billion in venture dollars raised on Carta last year — a record share. February 2026 became the single largest month of startup funding ever at $189 billion globally, driven by three rounds: OpenAI ($110B), Anthropic ($30B), and Waymo ($16B). Two and a half weeks into March, the month has already produced more $100M+ AI rounds than any comparable period in venture history.</p>
-    <div class="meta">
-      <span class="tag-sm">Funding</span>
-      <span class="source"><a href="https://techcrunch.com/2026/03/20/ai-startups-are-eating-the-venture-industry-and-the-returns-so-far-are-good/" target="_blank">TechCrunch</a></span>
-    </div>
-  </div>
-
-  <div class="story">
-    <h3><a href="https://aifundingtracker.com/ai-startup-funding-news-today/" target="_blank">ElevenLabs Triples Valuation to $11B; Sunday Hits Unicorn Status</a></h3>
-    <p>ElevenLabs closed a $500M Series D led by Sequoia Capital — the largest funding round in voice AI history — tripling its valuation from $3.3B to $11B. Meanwhile, household robotics startup Sunday reached unicorn status with a $165M Series B, signaling that AI investment is diversifying well beyond foundation models.</p>
-    <div class="meta">
-      <span class="tag-sm">Startups</span>
-      <span class="source"><a href="https://aifundingtracker.com/ai-startup-funding-news-today/" target="_blank">AI Funding Tracker</a></span>
-    </div>
-  </div>
-
-  <!-- INFRASTRUCTURE & CHIPS -->
-  <div class="section-divider"><h3>Infrastructure & Chips</h3></div>
-
-  <div class="story">
-    <h3><a href="https://buildez.ai/blog/ai-trending-march-2026-developments" target="_blank">Hyperscalers Set to Spend $600B on AI Infrastructure This Year</a></h3>
-    <p>Meta, Microsoft, and Alphabet are collectively expected to spend roughly $600 billion on AI infrastructure in 2026, driving total global investment toward $1.37 trillion. The spending is concentrated in data centers, custom silicon, and cooling systems as the race to scale training clusters intensifies.</p>
-    <div class="meta">
-      <span class="tag-sm">Infrastructure</span>
-      <span class="source"><a href="https://buildez.ai/blog/ai-trending-march-2026-developments" target="_blank">BuildEZ</a></span>
-    </div>
-  </div>
-
-  <div class="story">
-    <h3><a href="https://finance.yahoo.com/news/live/tech-stocks-today-microsoft-shakes-up-ai-leadership-nvidias-jensen-huang-kicks-off-gtc-event-144220414.html" target="_blank">Arm Enters the AI Chip Race — Stock Jumps 12%</a></h3>
-    <p>Arm announced its entrance into the AI chip market with a new data center chip and server rack design, sending shares more than 12% higher in extended trading. The move positions Arm as a direct competitor to NVIDIA in the AI accelerator space, while SanDisk invested $1B in Nanya Technology as memory supply becomes increasingly strategic.</p>
-    <div class="meta">
-      <span class="tag-sm">Chips</span>
-      <span class="source"><a href="https://finance.yahoo.com/news/live/tech-stocks-today-microsoft-shakes-up-ai-leadership-nvidias-jensen-huang-kicks-off-gtc-event-144220414.html" target="_blank">Yahoo Finance</a></span>
-    </div>
-  </div>
-
-  <div class="story">
-    <h3><a href="https://buildez.ai/blog/ai-trending-march-2026-developments" target="_blank">Alibaba's Qwen 3.5 Runs GPT-Class Performance on Standard Laptops</a></h3>
-    <p>Alibaba's latest small models in the Qwen 3.5 family now rival GPT-class performance while running locally on consumer hardware. This represents a major milestone in model efficiency and suggests the era of requiring expensive cloud compute for competitive AI may be ending faster than expected.</p>
-    <div class="meta">
-      <span class="tag-sm">Open Source</span>
-      <span class="source"><a href="https://buildez.ai/blog/ai-trending-march-2026-developments" target="_blank">BuildEZ</a></span>
-    </div>
-  </div>
-
-  <!-- ENTERPRISE AI -->
-  <div class="section-divider"><h3>Enterprise AI</h3></div>
-
-  <div class="story">
-    <h3><a href="https://ragaboutit.com/rag-in-enterprise-ai-15-key-news-announcements-march-26-2026/" target="_blank">15 RAG Announcements Drop on a Single Day</a></h3>
-    <p>Fifteen enterprise AI announcements landed on March 26 alone, spanning platform updates, research findings, partnerships, governance features, and open source releases — all focused on Retrieval-Augmented Generation. The focus across vendors is making RAG more reliable, scalable, and easier to integrate into existing enterprise workflows.</p>
-    <div class="meta">
-      <span class="tag-sm">Enterprise</span>
-      <span class="source"><a href="https://ragaboutit.com/rag-in-enterprise-ai-15-key-news-announcements-march-26-2026/" target="_blank">RAG About It</a></span>
-    </div>
-  </div>
-
-  <div class="story">
-    <h3><a href="https://www.manilatimes.net/2026/03/26/tmt-newswire/pr-newswire/clarivate-reveals-the-ai50-the-organizations-leading-artificial-intelligence-invention/2308158" target="_blank">Clarivate Unveils the AI50 — Who's Actually Leading AI Invention</a></h3>
-    <p>A new data-driven ranking of the top 50 organizations driving high-impact AI patents puts Alphabet, Huawei, IBM, Microsoft, NVIDIA, and Tencent at the top. Chinese universities feature prominently alongside Western tech giants, advancing breakthroughs in model architecture and hardware design.</p>
-    <div class="meta">
-      <span class="tag-sm">Research</span>
-      <span class="source"><a href="https://www.manilatimes.net/2026/03/26/tmt-newswire/pr-newswire/clarivate-reveals-the-ai50-the-organizations-leading-artificial-intelligence-invention/2308158" target="_blank">The Manila Times</a></span>
-    </div>
-  </div>
-
-  <!-- BIG TECH MOVES -->
-  <div class="section-divider"><h3>Big Tech Moves</h3></div>
-
-  <div class="story">
-    <h3><a href="https://finance.yahoo.com/news/live/tech-stocks-today-microsoft-shakes-up-ai-leadership-nvidias-jensen-huang-kicks-off-gtc-event-144220414.html" target="_blank">Microsoft Shakes Up AI Leadership, Restructures HR Around AI</a></h3>
-    <p>Microsoft's chief diversity officer Lindsay-Rae McIntyre is departing as part of a broader people-function overhaul under Chief People Officer Amy Coleman. HR teams are being restructured to improve speed and alignment with AI initiatives — a signal that Microsoft is reorganizing its entire corporate structure around its AI bet.</p>
-    <div class="meta">
-      <span class="tag-sm">Microsoft</span>
-      <span class="source"><a href="https://finance.yahoo.com/news/live/tech-stocks-today-microsoft-shakes-up-ai-leadership-nvidias-jensen-huang-kicks-off-gtc-event-144220414.html" target="_blank">Yahoo Finance</a></span>
-    </div>
-  </div>
-
-  <div class="story">
-    <h3><a href="https://www.prismnews.com/news/nvidia-google-and-microsoft-converge-on-houston-to-rewire" target="_blank">NVIDIA, Google & Microsoft Converge on Houston at CERAWeek</a></h3>
-    <p>The three tech giants gathered at CERAWeek 2026 to discuss AI's role in the energy sector — from optimizing drilling operations to accelerating materials discovery for cleaner energy. The convergence signals AI's expanding footprint beyond pure tech into heavy industry.</p>
-    <div class="meta">
-      <span class="tag-sm">Energy + AI</span>
-      <span class="source"><a href="https://www.prismnews.com/news/nvidia-google-and-microsoft-converge-on-houston-to-rewire" target="_blank">Prism News</a></span>
-    </div>
-  </div>
-
-  <!-- QUICK HITS -->
-  <div class="section-divider"><h3>Quick Hits</h3></div>
-  <div style="background:#fff;border-radius:12px;padding:22px 24px;box-shadow:0 1px 2px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.04);">
-    <div class="quick-hit">
-      <div class="qh-bullet"></div>
-      <div class="qh-text"><strong>Apple CEO Tim Cook</strong> says the company is seeing "strong enthusiasm" for the new low-cost MacBook. <a href="https://techstartups.com/2026/03/26/top-tech-news-today-march-26-2026/" target="_blank">Tech Startups</a></div>
-    </div>
-    <div class="quick-hit">
-      <div class="qh-bullet"></div>
-      <div class="qh-text"><strong>NVIDIA + Alpamayo</strong> partner to streamline autonomous vehicle development using DRIVE Orin/Thor platforms with digital twin tech. <a href="https://buildez.ai/blog/ai-trending-march-2026-developments" target="_blank">BuildEZ</a></div>
-    </div>
-    <div class="quick-hit">
-      <div class="qh-bullet"></div>
-      <div class="qh-text"><strong>OpenAI revenue</strong> surpasses $25B annualized and the company is taking early steps toward a public listing. <a href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank">Mean CEO</a></div>
-    </div>
-    <div class="quick-hit">
-      <div class="qh-bullet"></div>
-      <div class="qh-text"><strong>X hires Aave Labs' former CPO</strong> Benji Taylor as the platform's payments initiative inches closer to launch. <a href="https://www.coindesk.com" target="_blank">CoinDesk</a></div>
-    </div>
-  </div>
-
-</div>
-
-<div class="footer">
-  <div class="footer-brand">The Morning Wire<span style="color:#818cf8">.</span> Tech & AI Edition</div>
-  <p>Curated by Cowork · Thursday, March 26, 2026</p>
-  <p style="margin-top:4px;"><a href="daily-newsletter.html" style="color:#6366f1;text-decoration:none;font-weight:600;">← Return to main newsletter</a></p>
-</div>
-
 </body>
 </html>
