@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Morning Wire - Science & Health</title>
+    <title>The Morning Wire — Science & Health Deep Dive</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,8 +16,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
+            background-color: #f8fafc;
+            color: #1e293b;
             line-height: 1.6;
         }
 
@@ -27,346 +27,385 @@
             padding: 20px;
         }
 
-        header {
+        /* Header */
+        .header {
             background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);
             color: white;
             padding: 40px 30px;
-            border-radius: 8px 8px 0 0;
-            margin-bottom: 0;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            margin-bottom: 8px;
-        }
-
-        header p {
+        .back-link {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
             font-size: 14px;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .date {
+            font-size: 16px;
             opacity: 0.95;
             font-weight: 500;
         }
 
-        .header-nav {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .header-nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: opacity 0.2s;
-        }
-
-        .header-nav a:hover {
-            opacity: 0.8;
-        }
-
-        .arrow {
-            font-size: 16px;
-        }
-
-        .content {
+        /* Cards */
+        .card {
             background: white;
-            padding: 40px 30px;
-            border-radius: 0 0 8px 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
-        }
-
-        .lead-story {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            border-left: 4px solid #0284c7;
             padding: 30px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
         }
 
-        .lead-story h2 {
+        /* By the Numbers */
+        .by-numbers {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .number-item {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .number-item .stat {
             font-family: 'Playfair Display', serif;
             font-size: 32px;
-            color: #0c4a6e;
-            margin-bottom: 16px;
-            line-height: 1.3;
-        }
-
-        .lead-story p {
-            font-size: 15px;
-            margin-bottom: 12px;
-            color: #1f2937;
-        }
-
-        .lead-story .source-links {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(2, 132, 199, 0.2);
-        }
-
-        .source-link {
-            display: inline-block;
-            margin-right: 16px;
-            margin-bottom: 8px;
-        }
-
-        .source-link a {
             color: #0284c7;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            transition: color 0.2s;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
 
-        .source-link a:hover {
-            color: #0c4a6e;
-            text-decoration: underline;
-        }
-
-        .stories-section {
-            margin-bottom: 40px;
-        }
-
-        .stories-section h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            color: #0c4a6e;
-            margin-bottom: 24px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #e5e7eb;
-        }
-
-        .story-card {
-            background: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 24px;
-            margin-bottom: 16px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            transition: box-shadow 0.2s, transform 0.2s;
-        }
-
-        .story-card:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-            transform: translateY(-2px);
-        }
-
-        .story-card h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            color: #0c4a6e;
-            margin-bottom: 12px;
+        .number-item .label {
+            font-size: 14px;
+            color: #64748b;
             line-height: 1.4;
         }
 
-        .story-card p {
-            font-size: 14px;
-            color: #4b5563;
-            margin-bottom: 12px;
+        /* Section Headings */
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #0c4a6e;
+            margin-bottom: 20px;
+            margin-top: 30px;
+            padding-top: 20px;
         }
 
-        .story-card .story-source {
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid #f3f4f6;
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #0c4a6e;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        /* Story Items */
+        .story {
+            margin-bottom: 25px;
+        }
+
+        .story-number {
+            display: inline-block;
+            background-color: #0284c7;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .story p {
+            margin-bottom: 10px;
+            color: #334155;
+            line-height: 1.7;
+        }
+
+        .story-source {
+            font-size: 12px;
+            color: #94a3b8;
+            font-style: italic;
+            padding-top: 10px;
+            border-top: 1px solid #e2e8f0;
         }
 
         .story-source a {
             color: #0284c7;
             text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            transition: color 0.2s;
         }
 
         .story-source a:hover {
-            color: #0c4a6e;
             text-decoration: underline;
         }
 
+        /* Quick Hits */
         .quick-hits {
-            background: #fafafa;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 24px;
-            margin-bottom: 40px;
+            background: #f1f5f9;
+            padding: 20px;
+            border-left: 4px solid #0284c7;
+            border-radius: 4px;
         }
 
         .quick-hits h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            color: #0c4a6e;
-            margin-bottom: 16px;
+            margin-top: 0;
+            font-size: 18px;
         }
 
-        .quick-hit-item {
-            font-size: 14px;
-            color: #4b5563;
-            margin-bottom: 12px;
-            padding-left: 20px;
-            position: relative;
+        .quick-hits ul {
+            list-style: none;
+            padding-left: 0;
         }
 
-        .quick-hit-item::before {
+        .quick-hits li {
+            padding: 8px 0;
+            font-size: 15px;
+            color: #334155;
+            line-height: 1.5;
+        }
+
+        .quick-hits li:before {
             content: "•";
-            position: absolute;
-            left: 0;
             color: #0284c7;
             font-weight: bold;
+            margin-right: 10px;
         }
 
-        .quick-hit-item:last-child {
-            margin-bottom: 0;
+        /* Outlook Section */
+        .outlook-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #0284c7;
+            margin-top: 30px;
         }
 
-        footer {
-            background: white;
-            padding: 24px 30px;
-            border-top: 1px solid #e5e7eb;
-            border-radius: 0 0 8px 8px;
+        .outlook-box h3 {
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .outlook-box p {
+            color: #334155;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Footer */
+        .footer {
             text-align: center;
-            font-size: 13px;
-            color: #6b7280;
+            padding: 30px;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #64748b;
         }
 
-        footer a {
+        .footer a {
             color: #0284c7;
             text-decoration: none;
-            margin: 0 8px;
-            transition: color 0.2s;
         }
 
-        footer a:hover {
-            color: #0c4a6e;
+        .footer a:hover {
+            text-decoration: underline;
         }
 
-        .footer-nav {
-            margin-top: 16px;
-            padding-top: 16px;
-            border-top: 1px solid #e5e7eb;
+        .copyright {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #94a3b8;
         }
 
-        .date {
-            font-weight: 600;
-            color: #0284c7;
+        /* Responsive */
+        @media (max-width: 640px) {
+            .by-numbers {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .number-item {
+                padding: 20px;
+            }
+
+            .number-item .stat {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
+        <!-- Header -->
+        <div class="header">
+            <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
             <h1>The Morning Wire</h1>
-            <p>Science & Health Deep Dive • <span class="date">Friday, March 27, 2026</span></p>
-            <div class="header-nav">
-                <a href="daily-newsletter.html"><span class="arrow">←</span> Back to Daily Newsletter</a>
+            <p style="font-size: 20px; margin-bottom: 5px;">Science & Health Deep Dive</p>
+            <div class="date">Saturday, March 28, 2026</div>
+        </div>
+
+        <!-- By the Numbers -->
+        <h2>By the Numbers</h2>
+        <div class="by-numbers">
+            <div class="number-item">
+                <div class="stat">1 in 10</div>
+                <div class="label">People affected by Long COVID after initial infection</div>
             </div>
-        </header>
-
-        <div class="content">
-            <!-- LEAD STORY -->
-            <div class="lead-story">
-                <h2>CRISPR-GPT: Stanford's AI Copilot Designs Gene Editing Experiments in Months, Not Years</h2>
-                <p>Stanford researchers have unveiled CRISPR-GPT, a groundbreaking AI system that dramatically accelerates the design of CRISPR gene-editing experiments. What once took years now takes months—a significant leap forward in making personalized genetic medicine accessible.</p>
-                <p>The implications became real recently when a 6-year-old child received the first fully personalized CRISPR treatment, dramatically reducing their need for medication. This patient represents the first person to receive a customized CRISPR treatment tailored specifically to their genetic profile.</p>
-                <p>2025 proved to be a breakthrough year for gene therapy overall, and 2026 is expected to bring even more innovations as AI-assisted design accelerates clinical development and personalization becomes standard practice in genetic medicine.</p>
-                <div class="source-links">
-                    <div class="source-link">
-                        <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">Crescendo AI</a>
-                    </div>
-                    <div class="source-link">
-                        <a href="https://www.livescience.com/health/from-gene-therapy-breakthroughs-to-preventable-disease-outbreaks-the-health-trends-that-will-shape-2026" target="_blank">Live Science</a>
-                    </div>
-                </div>
+            <div class="number-item">
+                <div class="stat">225%</div>
+                <div class="label">Increase in mass spectrometry sensitivity with new prototype</div>
             </div>
-
-            <!-- STORIES SECTION -->
-            <div class="stories-section">
-                <h3>In This Issue</h3>
-
-                <div class="story-card">
-                    <h4>New Blood Test Could Revolutionize Early Pancreatic Cancer Detection</h4>
-                    <p>Researchers have developed a breakthrough blood test that can detect pancreatic cancer much earlier than current methods, potentially transforming survival rates and treatment outcomes.</p>
-                    <div class="story-source">
-                        <a href="https://www.cityofhope.org/cancer-research-and-care-in-2026-5-big-shifts-that-will-redefine-survival-and-access" target="_blank">City of Hope</a>
-                    </div>
-                </div>
-
-                <div class="story-card">
-                    <h4>MicroRNA-93: Key Driver of Fatty Liver Disease</h4>
-                    <p>Scientists have identified microRNA-93 as a genetic driver of fatty liver disease—and discovered that vitamin B3 effectively blocks it. This finding opens new pathways for treating one of the most common liver conditions.</p>
-                    <div class="story-source">
-                        <a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a>
-                    </div>
-                </div>
-
-                <div class="story-card">
-                    <h4>Scientists Discover Immune Cell Linked to Long COVID Fatigue</h4>
-                    <p>A new immune cell has been identified as a potential driver of debilitating fatigue in Long COVID patients. Long COVID affects up to 1 in 10 people, making this discovery crucial for millions seeking relief.</p>
-                    <div class="story-source">
-                        <a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a>
-                    </div>
-                </div>
-
-                <div class="story-card">
-                    <h4>Suzetrigine (Journavax): FDA-Approved Opioid-Free Pain Relief</h4>
-                    <p>FDA approval in January 2025 marked a major milestone with suzetrigine, a non-opioid pain medication that renews hope for a pain management revolution. The drug offers effective relief without the addiction risks of traditional opioids.</p>
-                    <div class="story-source">
-                        <a href="https://www.massgeneralbrigham.org/en/about/newsroom/articles/2026-predictions-on-scientific-advancements" target="_blank">Mass General Brigham</a>
-                    </div>
-                </div>
-
-                <div class="story-card">
-                    <h4>De Novo Protein Design Enables Engineered Enzymes</h4>
-                    <p>Advances in protein engineering are enabling the creation of enzymes designed to perform tasks that evolution never created. This synthetic biology breakthrough could revolutionize everything from manufacturing to medicine.</p>
-                    <div class="story-source">
-                        <a href="https://www.cas.org/resources/cas-insights/scientific-breakthroughs-2026-emerging-trends-watch" target="_blank">CAS</a>
-                    </div>
-                </div>
-
-                <div class="story-card">
-                    <h4>Epigenetic Clock Trials Test Anti-Aging Interventions</h4>
-                    <p>Larger clinical trials in 2026 are testing how various anti-aging interventions affect epigenetic aging biomarkers. These trials could provide evidence for treatments that slow biological aging at the cellular level.</p>
-                    <div class="story-source">
-                        <a href="https://www.livescience.com/health/from-gene-therapy-breakthroughs-to-preventable-disease-outbreaks-the-health-trends-that-will-shape-2026" target="_blank">Live Science</a>
-                    </div>
-                </div>
-
-                <div class="story-card">
-                    <h4>Cancer Research: Understanding Aging-Cancer Links</h4>
-                    <p>Aging is the main risk factor for cancer, and researchers are uncovering the cell biology behind this relationship. Understanding these connections could improve treatment response across all age groups and lead to better prevention strategies.</p>
-                    <div class="story-source">
-                        <a href="https://www.aacr.org/blog/2026/01/08/experts-forecast-cancer-research-and-treatment-advances-in-2026/" target="_blank">AACR</a>
-                    </div>
-                </div>
-
-                <div class="story-card">
-                    <h4>Two UCSF Breakthroughs Advance Neurological Disorders and Cancer Research</h4>
-                    <p>UCSF researchers have announced two significant breakthroughs: one advancing treatment options for neurological disorders and another opening new avenues in cancer research, both showing promise for clinical applications.</p>
-                    <div class="story-source">
-                        <a href="https://www.ucsf.edu/news/2026/01/431411/two-new-breakthroughs-advance-neurological-disorders-and-cancer-research" target="_blank">UCSF</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- QUICK HITS -->
-            <div class="quick-hits">
-                <h3>Quick Hits</h3>
-                <div class="quick-hit-item">AI-driven drug discovery accelerating clinical trials</div>
-                <div class="quick-hit-item">Stem cell therapies advancing for age-related conditions</div>
-                <div class="quick-hit-item">Biotech outlook: 10 breakthrough trends to watch in 2026</div>
-                <div class="quick-hit-item">D'Artagnan's remains believed found under Dutch church (archaeology)</div>
+            <div class="number-item">
+                <div class="stat">Tens of thousands</div>
+                <div class="label">Extra cardiovascular deaths from cold weather annually in US</div>
             </div>
         </div>
 
-        <footer>
-            <p>The Morning Wire | Science & Health Deep Dive</p>
-            <p style="font-size: 12px; margin-top: 8px;">Friday, March 27, 2026</p>
-            <div class="footer-nav">
-                <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
+        <!-- Lead Story -->
+        <div class="card">
+            <h2>Lead Story</h2>
+            <h3>Depression May Start With an Energy Problem in Brain Cells</h3>
+            <p>Researchers have discovered that depression may be linked to unusual changes in how brain and blood cells generate energy — a breakthrough that could help scientists detect the condition earlier and develop more targeted treatments. The finding shifts the understanding of depression from purely chemical imbalance theories to a more nuanced view involving cellular energy metabolism. This could open pathways for entirely new classes of antidepressants targeting mitochondrial function.</p>
+            <div class="story-source">
+                Source: <a href="https://www.sciencedaily.com/releases/2026/03/260312020107.htm" target="_blank">ScienceDaily</a>
             </div>
-        </footer>
+        </div>
+
+        <!-- Stories -->
+        <div class="card">
+            <h2>Stories</h2>
+
+            <div class="story">
+                <span class="story-number">1</span>
+                <h3>Probiotic Bacteria Engineered as Tumor-Seeking Drug Factories</h3>
+                <p>Scientists have engineered probiotic bacteria to act as tumor-seeking drug factories that infiltrated tumors and produced a cancer-fighting drug right where it was needed in mice. This innovative approach to drug delivery could revolutionize cancer treatment by delivering targeted therapy directly to tumors while minimizing side effects on healthy tissue. The approach represents a convergence of synthetic biology and oncology.</p>
+                <div class="story-source">
+                    Source: <a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a>
+                </div>
+            </div>
+
+            <div class="story">
+                <span class="story-number">2</span>
+                <h3>Deepfake X-Rays Now Fool Both Doctors and AI</h3>
+                <p>Deepfake X-rays created by AI are now convincing enough to fool both human radiologists and AI diagnostic models. Radiologists had limited success identifying fake images, raising serious concerns about the integrity of medical imaging and potential for insurance fraud or misdiagnosis. The finding highlights the urgent need for verification tools in medical AI.</p>
+                <div class="story-source">
+                    Source: <a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a>
+                </div>
+            </div>
+
+            <div class="story">
+                <span class="story-number">3</span>
+                <h3>Long COVID Clue Found Deep in the Immune System</h3>
+                <p>Long COVID remains a frustrating medical mystery, affecting up to 1 in 10 people long after the initial infection fades. Scientists have now uncovered a crucial clue hidden deep within the immune system that may explain persistent symptoms. The discovery could lead to both diagnostic tests and potential treatments for the millions still suffering from the condition worldwide.</p>
+                <div class="story-source">
+                    Source: <a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a>
+                </div>
+            </div>
+
+            <div class="story">
+                <span class="story-number">4</span>
+                <h3>Vitamin B3 May Shut Down Key Driver of Fatty Liver Disease</h3>
+                <p>A key genetic driver of fatty liver disease has been identified as microRNA-93, and researchers found that vitamin B3 can effectively shut it down. The discovery offers a potentially simple and accessible treatment pathway for a condition that affects millions worldwide and is closely linked to obesity and metabolic syndrome.</p>
+                <div class="story-source">
+                    Source: <a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a>
+                </div>
+            </div>
+
+            <div class="story">
+                <span class="story-number">5</span>
+                <h3>Cold Weather Linked to Far More Deaths Than Heat</h3>
+                <p>New research shows cold weather is linked to far more cardiovascular deaths than heat, accounting for tens of thousands of extra deaths each year in the United States. The finding challenges the predominant focus on heat-related deaths in climate change discussions and highlights the ongoing threat of cold exposure, particularly for elderly and vulnerable populations.</p>
+                <div class="story-source">
+                    Source: <a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a>
+                </div>
+            </div>
+
+            <div class="story">
+                <span class="story-number">6</span>
+                <h3>Immersive Dreaming Makes Sleep Feel Deeper and More Refreshing</h3>
+                <p>Researchers found that immersive dreaming can actually make sleep feel deeper and more refreshing, even when brain activity is high. The counterintuitive finding suggests that vivid dreams may play a more important restorative role than previously understood, potentially opening new approaches to treating sleep disorders.</p>
+                <div class="story-source">
+                    Source: <a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a>
+                </div>
+            </div>
+
+            <div class="story">
+                <span class="story-number">7</span>
+                <h3>New Prototype Supercharges Mass Spectrometry</h3>
+                <p>A new prototype could supercharge mass spectrometry by analyzing thousands of molecules at once instead of one by one, boosting sensitivity by 225% — enough to reveal rare, hidden compounds. The breakthrough could accelerate drug discovery, disease diagnostics, and environmental monitoring.</p>
+                <div class="story-source">
+                    Source: <a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Hits -->
+        <div class="card">
+            <div class="quick-hits">
+                <h3>Quick Hits</h3>
+                <ul>
+                    <li>Gene therapy breakthroughs expected to shape healthcare in 2026</li>
+                    <li>Obesity drugs expanding access but still not available for everyone</li>
+                    <li>Cancer research seeing 5 big shifts redefining survival and access</li>
+                    <li>AI being used in manufacturing to eliminate manual ERP data entry</li>
+                    <li>Preventable disease outbreaks remain a key health trend to watch</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 2026 Science Outlook -->
+        <div class="outlook-box">
+            <h3>2026 Science Outlook</h3>
+            <p>Key trends include the continued rise of gene therapy, expanding access to GLP-1 obesity drugs, AI integration in diagnostics and drug discovery, and growing concerns about AI-generated medical misinformation. These developments signal a shift toward more personalized medicine, innovative drug delivery systems, and the critical need for medical AI oversight and validation.</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
+            <div class="copyright">The Morning Wire © 2026</div>
+        </div>
     </div>
 </body>
 </html>

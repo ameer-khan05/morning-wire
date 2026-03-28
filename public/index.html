@@ -1,216 +1,593 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Morning Wire — Friday, March 27, 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#f4f4f8;color:#1a1a2e}
-a{color:inherit;text-decoration:none}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Morning Wire - Saturday, March 28, 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* HEADER */
-.header{background:linear-gradient(135deg,#0f0f23 0%,#1a1a3e 100%);color:#fff;padding:40px 20px 30px;text-align:center}
-.header h1{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;letter-spacing:-1px;margin-bottom:4px}
-.header .tagline{font-size:.85rem;opacity:.6;letter-spacing:3px;text-transform:uppercase;margin-bottom:6px}
-.header .date{font-size:.95rem;opacity:.8;margin-top:8px}
-.accent-bar{height:4px;display:flex}
-.accent-bar span{flex:1}
-.accent-bar .c1{background:#7c3aed}
-.accent-bar .c2{background:#d97706}
-.accent-bar .c3{background:#16a34a}
-.accent-bar .c4{background:#dc2626}
-.accent-bar .c5{background:#0284c7}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f8f9;
+            line-height: 1.6;
+            color: #2d2d2d;
+        }
 
-/* TICKER */
-.ticker-wrap{background:#0f0f23;overflow:hidden;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-.ticker{display:flex;gap:36px;justify-content:center;flex-wrap:wrap;max-width:760px;margin:0 auto;padding:0 20px}
-.ticker-item{display:flex;align-items:center;gap:6px;font-size:.82rem;color:rgba(255,255,255,.85)}
-.ticker-item .label{opacity:.55;font-weight:500}
-.ticker-item .value{font-weight:700;font-family:'Inter',sans-serif}
-.ticker-item .change{font-size:.75rem;font-weight:600;margin-left:2px}
-.down{color:#f87171}.up{color:#4ade80}
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
 
-/* CONTAINER */
-.container{max-width:760px;margin:0 auto;padding:24px 20px 60px}
+        .header-content {
+            max-width: 760px;
+            margin: 0 auto;
+        }
 
-/* TOP STORY */
-.top-story{background:#fff;border-radius:12px;padding:32px 28px;margin-bottom:28px;box-shadow:0 1px 4px rgba(0,0,0,.06);border-left:5px solid #7c3aed}
-.top-story .badge{display:inline-block;background:linear-gradient(135deg,#7c3aed,#a78bfa);color:#fff;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:4px 10px;border-radius:20px;margin-bottom:14px}
-.top-story h2{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:800;line-height:1.25;margin-bottom:12px}
-.top-story p{font-size:.95rem;line-height:1.7;color:#444;margin-bottom:10px}
-.top-story .source{font-size:.75rem;color:#888}
-.top-story .source a{color:#7c3aed;text-decoration:underline}
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
 
-/* SECTION */
-.section{margin-bottom:32px}
-.section-header{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.section-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.section-header h3{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700}
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
 
-.card{background:#fff;border-radius:10px;padding:20px 22px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:box-shadow .2s}
-.card:hover{box-shadow:0 3px 12px rgba(0,0,0,.1)}
-.card h4{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;margin-bottom:6px;line-height:1.3}
-.card p{font-size:.88rem;line-height:1.65;color:#555}
-.card .source{font-size:.72rem;color:#999;margin-top:6px}
-.card .source a{text-decoration:underline}
+        .date-display {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-top: 0.75rem;
+            font-weight: 500;
+        }
 
-.deep-dive-btn{display:inline-block;padding:10px 22px;border-radius:8px;color:#fff;font-weight:600;font-size:.85rem;margin-top:8px;transition:opacity .2s;letter-spacing:.3px}
-.deep-dive-btn:hover{opacity:.85}
+        /* Accent Bar */
+        .accent-bar {
+            height: 6px;
+            background: linear-gradient(90deg,
+                #7c3aed 0%,
+                #d97706 20%,
+                #16a34a 40%,
+                #dc2626 60%,
+                #0284c7 100%);
+            width: 100%;
+        }
 
-.footer{text-align:center;padding:40px 20px;font-size:.78rem;color:#888;border-top:1px solid #e5e5e5;margin-top:20px}
-.footer a{color:#7c3aed}
-</style>
+        /* Main Container */
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Market Ticker */
+        .market-ticker {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #1a1a3e;
+        }
+
+        .market-ticker h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: #0f0f23;
+        }
+
+        .ticker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .ticker-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .ticker-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .ticker-value {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #0f0f23;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .ticker-change {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .ticker-change.down {
+            color: #dc2626;
+        }
+
+        .ticker-change.up {
+            color: #16a34a;
+        }
+
+        /* Top Story */
+        .top-story {
+            background: linear-gradient(135deg, #1a1a3e 0%, #2d2d5f 100%);
+            color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+        }
+
+        .top-story-label {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .top-story h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .top-story p {
+            font-size: 1rem;
+            opacity: 0.95;
+            margin-bottom: 0.75rem;
+        }
+
+        .story-source {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        /* Category Sections */
+        .categories {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .category-section {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .category-section:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .category-header {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 3px solid;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .category-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f0f23;
+        }
+
+        .category-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+
+        .category-tech .category-header {
+            border-bottom-color: #7c3aed;
+            background: rgba(124, 58, 237, 0.03);
+        }
+
+        .category-tech .category-icon {
+            background: #7c3aed;
+        }
+
+        .category-crypto .category-header {
+            border-bottom-color: #d97706;
+            background: rgba(217, 119, 6, 0.03);
+        }
+
+        .category-crypto .category-icon {
+            background: #d97706;
+        }
+
+        .category-markets .category-header {
+            border-bottom-color: #16a34a;
+            background: rgba(22, 163, 74, 0.03);
+        }
+
+        .category-markets .category-icon {
+            background: #16a34a;
+        }
+
+        .category-world .category-header {
+            border-bottom-color: #dc2626;
+            background: rgba(220, 38, 38, 0.03);
+        }
+
+        .category-world .category-icon {
+            background: #dc2626;
+        }
+
+        .category-science .category-header {
+            border-bottom-color: #0284c7;
+            background: rgba(2, 132, 199, 0.03);
+        }
+
+        .category-science .category-icon {
+            background: #0284c7;
+        }
+
+        .category-content {
+            padding: 1.5rem;
+        }
+
+        .story {
+            margin-bottom: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .story:last-of-type {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .story h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #0f0f23;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .story-source {
+            font-size: 0.85rem;
+            color: #999;
+            font-style: italic;
+        }
+
+        .deep-dive-button {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.6rem 1.25rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .deep-dive-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .category-tech .deep-dive-button {
+            background: #7c3aed;
+        }
+
+        .category-tech .deep-dive-button:hover {
+            background: #6d28d9;
+        }
+
+        .category-crypto .deep-dive-button {
+            background: #d97706;
+        }
+
+        .category-crypto .deep-dive-button:hover {
+            background: #b45309;
+        }
+
+        .category-markets .deep-dive-button {
+            background: #16a34a;
+        }
+
+        .category-markets .deep-dive-button:hover {
+            background: #15803d;
+        }
+
+        .category-world .deep-dive-button {
+            background: #dc2626;
+        }
+
+        .category-world .deep-dive-button:hover {
+            background: #b91c1c;
+        }
+
+        .category-science .deep-dive-button {
+            background: #0284c7;
+        }
+
+        .category-science .deep-dive-button:hover {
+            background: #0369a1;
+        }
+
+        /* Footer */
+        footer {
+            background: #f8f8f9;
+            border-top: 1px solid #e0e0e0;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            color: #666;
+        }
+
+        .footer-content {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-branding {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0f0f23;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-date {
+            font-size: 0.9rem;
+            color: #999;
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .top-story h2 {
+                font-size: 1.5rem;
+            }
+
+            .category-header h3 {
+                font-size: 1.25rem;
+            }
+
+            .ticker-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="header-content">
+            <h1>The Morning Wire</h1>
+            <p>Your Daily Intelligence Briefing</p>
+            <div class="date-display">Saturday, March 28, 2026</div>
+        </div>
+    </header>
 
-<div class="header">
-<div class="tagline">Your Daily Intelligence Briefing</div>
-<h1>The Morning Wire</h1>
-<div class="date">Friday, March 27, 2026</div>
-</div>
-<div class="accent-bar"><span class="c1"></span><span class="c2"></span><span class="c3"></span><span class="c4"></span><span class="c5"></span></div>
+    <div class="accent-bar"></div>
 
-<!-- MARKET TICKER -->
-<div class="ticker-wrap">
-<div class="ticker">
-<div class="ticker-item"><span class="label">S&P 500</span><span class="value">6,477</span><span class="change down">▼ 1.74%</span></div>
-<div class="ticker-item"><span class="label">Nasdaq</span><span class="value">21,408</span><span class="change down">▼ 2.38%</span></div>
-<div class="ticker-item"><span class="label">Dow</span><span class="value">45,960</span><span class="change down">▼ 1.01%</span></div>
-<div class="ticker-item"><span class="label">Bitcoin</span><span class="value">$68,878</span><span class="change down">▼ 3.4%</span></div>
-<div class="ticker-item"><span class="label">Gold</span><span class="value">$4,429</span><span class="change down">▼ 0.6%</span></div>
-<div class="ticker-item"><span class="label">Oil (Brent)</span><span class="value">$105.85</span><span class="change up">▲ 6.1%</span></div>
-</div>
-</div>
+    <div class="container">
+        <!-- Market Ticker -->
+        <section class="market-ticker">
+            <h2>Market Ticker</h2>
+            <div class="ticker-grid">
+                <div class="ticker-item">
+                    <span class="ticker-label">S&P 500</span>
+                    <span class="ticker-value">6,368.85</span>
+                    <span class="ticker-change down">▼ 1.67%</span>
+                </div>
+                <div class="ticker-item">
+                    <span class="ticker-label">Nasdaq</span>
+                    <span class="ticker-value">20,948.36</span>
+                    <span class="ticker-change down">▼ 2.15%</span>
+                </div>
+                <div class="ticker-item">
+                    <span class="ticker-label">Dow</span>
+                    <span class="ticker-value">45,166.64</span>
+                    <span class="ticker-change down">▼ 1.73%</span>
+                </div>
+                <div class="ticker-item">
+                    <span class="ticker-label">Bitcoin</span>
+                    <span class="ticker-value">$66,265</span>
+                    <span class="ticker-change down">▼ 0.57%</span>
+                </div>
+                <div class="ticker-item">
+                    <span class="ticker-label">Gold</span>
+                    <span class="ticker-value">$4,524.30</span>
+                    <span class="ticker-change up">▲ 2.62%</span>
+                </div>
+                <div class="ticker-item">
+                    <span class="ticker-label">Oil (Brent)</span>
+                    <span class="ticker-value">$107.81</span>
+                    <span class="ticker-change up">▲ 1.96%</span>
+                </div>
+            </div>
+        </section>
 
-<div class="container">
+        <!-- Top Story -->
+        <section class="top-story">
+            <span class="top-story-label">Breaking News</span>
+            <h2>Iran War Reaches One Month as Houthis Enter Conflict</h2>
+            <p>The US-Israel war on Iran marked its one-month anniversary as the conflict widened with Yemen's Houthi rebels launching their first attack on Israel. At least 10 US service members were injured in an Iranian attack on Prince Sultan Air Base in Saudi Arabia. Oil surged past $110 as the Strait of Hormuz remains largely blocked.</p>
+            <p class="story-source">Source: NPR, CNN, Al Jazeera</p>
+        </section>
 
-<!-- TOP STORY -->
-<div class="top-story">
-<div class="badge">Top Story</div>
-<h2>Markets Suffer Worst Day Since Iran War Began as Oil Surges Past $105 and Ceasefire Hopes Collapse</h2>
-<p>U.S. equities plunged on Thursday in the sharpest single-session sell-off since the outbreak of the Iran conflict, as Iranian officials rejected a 15-point American ceasefire proposal and Brent crude surged above $105 a barrel. The Nasdaq fell 2.38% into official correction territory — now more than 10% below its October record — while the S&P 500 is heading for a fifth consecutive weekly decline. President Trump responded late Thursday by extending his deadline to strike Iranian energy infrastructure by 10 days to April 6, offering a narrow window for renewed diplomacy.</p>
-<p class="source">Sources: <a href="https://www.nytimes.com/2026/03/26/business/oil-stock-gas-prices-iran.html">The New York Times</a> · <a href="https://www.cnbc.com/2026/03/25/stock-market-today-live-updates.html">CNBC</a> · <a href="https://www.npr.org/2026/03/26/nx-s1-5761882/iran-war-peace-conditions">NPR</a></p>
-</div>
+        <!-- Categories -->
+        <div class="categories">
+            <!-- Tech & AI -->
+            <article class="category-section category-tech">
+                <div class="category-header">
+                    <h3>Tech & AI</h3>
+                    <div class="category-icon"></div>
+                </div>
+                <div class="category-content">
+                    <div class="story">
+                        <h4>Apple's reimagined AI-powered Siri debuts with iOS 26.4, partnering with Google's 1.2T parameter Gemini model</h4>
+                        <p class="story-source">Source: techstartups.com</p>
+                    </div>
+                    <div class="story">
+                        <h4>OpenAI surpasses $25B annualized revenue, takes early IPO steps</h4>
+                        <p class="story-source">Source: crescendo.ai</p>
+                    </div>
+                    <div class="story">
+                        <h4>NVIDIA unveils "Vera Rubin" next-gen AI platform succeeding Blackwell</h4>
+                        <p class="story-source">Source: devflokers.com</p>
+                    </div>
+                    <a href="newsletter-tech-ai.html" class="deep-dive-button">Deep Dive</a>
+                </div>
+            </article>
 
-<!-- TECH & AI -->
-<div class="section">
-<div class="section-header">
-<div class="section-dot" style="background:#7c3aed"></div>
-<h3>Tech & AI</h3>
-</div>
-<div class="card">
-<h4>Apple to Open Siri to Rival AI Assistants in iOS 27</h4>
-<p>Apple is planning to let competing AI services integrate directly into Siri as part of a major overhaul in its upcoming iOS 27 release, moving beyond its existing exclusive ChatGPT partnership with OpenAI.</p>
-<p class="source"><a href="https://www.bloomberg.com/news/articles/2026-03-26/apple-plans-to-open-up-siri-to-rival-ai-assistants-beyond-chatgpt-in-ios-27">Bloomberg</a></p>
-</div>
-<div class="card">
-<h4>Meta & YouTube Found Negligent in Landmark Social Media Addiction Trial</h4>
-<p>Juries in California and New Mexico found Meta and Google liable for harms to children tied to social media addiction, awarding $6 million in a Los Angeles case that could set sweeping legal precedent for the industry.</p>
-<p class="source"><a href="https://www.nytimes.com/2026/03/25/technology/social-media-trial-verdict.html">The New York Times</a></p>
-</div>
-<div class="card">
-<h4>OpenAI Surpasses $25B Annualized Revenue, Eyes Public Listing</h4>
-<p>OpenAI has crossed the $25 billion annualized revenue mark and is taking early steps toward an IPO — potentially as soon as late 2026 — after raising $110 billion at a staggering $730 billion valuation.</p>
-<p class="source"><a href="https://techstartups.com/2026/03/26/top-tech-news-today-march-26-2026/">Tech Startups</a></p>
-</div>
-<a href="newsletter-tech-ai.html" class="deep-dive-btn" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">Read the full Tech & AI deep dive →</a>
-</div>
+            <!-- Crypto -->
+            <article class="category-section category-crypto">
+                <div class="category-header">
+                    <h3>Crypto</h3>
+                    <div class="category-icon"></div>
+                </div>
+                <div class="category-content">
+                    <div class="story">
+                        <h4>Bitcoin retreats below $66K amid extreme fear, Fear & Greed Index at 12</h4>
+                        <p class="story-source">Source: coingabbar.com</p>
+                    </div>
+                    <div class="story">
+                        <h4>SEC and CFTC issue landmark joint guidance on crypto asset classification</h4>
+                        <p class="story-source">Source: ropesgray.com</p>
+                    </div>
+                    <div class="story">
+                        <h4>CLARITY Act draft threatens stablecoin yield, triggers sell-off</h4>
+                        <p class="story-source">Source: pymnts.com</p>
+                    </div>
+                    <a href="newsletter-crypto.html" class="deep-dive-button">Deep Dive</a>
+                </div>
+            </article>
 
-<!-- CRYPTO -->
-<div class="section">
-<div class="section-header">
-<div class="section-dot" style="background:#d97706"></div>
-<h3>Crypto</h3>
-</div>
-<div class="card">
-<h4>Bitcoin Slides to $68,878 as $14B Options Expiry Meets Geopolitical Chaos</h4>
-<p>Bitcoin fell 3.4% as 189,000 BTC options worth $13.4 billion expired today. The leading cryptocurrency is now down roughly 20% year-to-date, weighed by the Iran conflict and the collapse of ceasefire talks.</p>
-<p class="source"><a href="https://www.coingabbar.com/en/crypto-currency-news/latest-crypto-market-update-today-march-27-btc-eth-price-drop">CoinGabbar</a></p>
-</div>
-<div class="card">
-<h4>SEC & CFTC Classify Major Tokens as Digital Commodities</h4>
-<p>In a watershed regulatory moment, the SEC and CFTC jointly classified BTC, ETH, XRP, and SOL as digital commodities on March 17, ending years of legal ambiguity and opening the door for a new wave of spot ETFs.</p>
-<p class="source"><a href="https://www.sec.gov/newsroom/press-releases/2026-30-sec-clarifies-application-federal-securities-laws-crypto-assets">SEC.gov</a></p>
-</div>
-<a href="newsletter-crypto.html" class="deep-dive-btn" style="background:linear-gradient(135deg,#d97706,#f59e0b)">Read the full Crypto deep dive →</a>
-</div>
+            <!-- Markets & Economy -->
+            <article class="category-section category-markets">
+                <div class="category-header">
+                    <h3>Markets & Economy</h3>
+                    <div class="category-icon"></div>
+                </div>
+                <div class="category-content">
+                    <div class="story">
+                        <h4>Dow enters correction territory after 793-point decline on Iran jitters</h4>
+                        <p class="story-source">Source: thestreet.com</p>
+                    </div>
+                    <div class="story">
+                        <h4>Oil tops $110 as Strait of Hormuz disruption chokes global supply</h4>
+                        <p class="story-source">Source: fortune.com</p>
+                    </div>
+                    <div class="story">
+                        <h4>Fed's next move seen as potential rate hike amid surging inflation fears</h4>
+                        <p class="story-source">Source: cnbc.com</p>
+                    </div>
+                    <a href="newsletter-markets.html" class="deep-dive-button">Deep Dive</a>
+                </div>
+            </article>
 
-<!-- MARKETS & ECONOMY -->
-<div class="section">
-<div class="section-header">
-<div class="section-dot" style="background:#16a34a"></div>
-<h3>Markets & Economy</h3>
-</div>
-<div class="card">
-<h4>Nasdaq Enters Correction Territory as Oil Crosses $105</h4>
-<p>The Nasdaq Composite officially entered correction territory, falling more than 10% from its October record. Rising oil prices and the ECB President's inflation warning compounded bearish sentiment.</p>
-<p class="source"><a href="https://www.thestreet.com/investing/stocks/stock-market-today-mar-26-2026-stock-futures-down-on-iran-concerns">TheStreet</a></p>
-</div>
-<div class="card">
-<h4>Gold Holds Near Record $4,429 as Treasury Yields Climb</h4>
-<p>Gold pulled back slightly from recent highs to $4,428.80 per ounce, while the 10-year Treasury yield rose to 4.45% as investors weigh inflation fears against safe-haven demand.</p>
-<p class="source"><a href="https://fortune.com/article/current-price-of-gold-03-26-2026/">Fortune</a></p>
-</div>
-<div class="card">
-<h4>Southeast Asia Faces Energy Crisis as Hormuz Closure Bites</h4>
-<p>Nations across Southeast Asia — many almost entirely reliant on foreign energy — are scrambling as Iran's closure of the Strait of Hormuz continues to choke global oil and gas supply.</p>
-<p class="source"><a href="https://www.cnbc.com/2026/03/26/stock-market-today-live-updates.html">CNBC</a></p>
-</div>
-<a href="newsletter-markets.html" class="deep-dive-btn" style="background:linear-gradient(135deg,#16a34a,#4ade80)">Read the full Markets deep dive →</a>
-</div>
+            <!-- World -->
+            <article class="category-section category-world">
+                <div class="category-header">
+                    <h3>World</h3>
+                    <div class="category-icon"></div>
+                </div>
+                <div class="category-content">
+                    <div class="story">
+                        <h4>Iran War Day 29: Houthis launch first attack on Israel, US troops wounded in Saudi Arabia</h4>
+                        <p class="story-source">Source: CNN, NPR</p>
+                    </div>
+                    <div class="story">
+                        <h4>Ukraine-Russia: Trump and Zelenskyy agree on 90-95% of peace proposal</h4>
+                        <p class="story-source">Source: russiamatters.org</p>
+                    </div>
+                    <div class="story">
+                        <h4>Sudan accuses Ethiopia of hostile acts amid drone strikes</h4>
+                        <p class="story-source">Source: foreignaffairs.com</p>
+                    </div>
+                    <a href="newsletter-world.html" class="deep-dive-button">Deep Dive</a>
+                </div>
+            </article>
 
-<!-- WORLD -->
-<div class="section">
-<div class="section-header">
-<div class="section-dot" style="background:#dc2626"></div>
-<h3>World</h3>
-</div>
-<div class="card">
-<h4>Iran War Day 28: Trump Extends Energy Strike Deadline as Diplomacy Falters</h4>
-<p>President Trump announced a 10-day pause on plans to destroy Iranian energy plants, pushing the deadline to April 6 — even as Iran rejected a US ceasefire proposal and Israeli strikes in Isfahan intensified.</p>
-<p class="source"><a href="https://www.npr.org/2026/03/26/nx-s1-5761882/iran-war-peace-conditions">NPR</a></p>
-</div>
-<div class="card">
-<h4>G7 Meets in France as Rubio Seeks Allied Support for Iran Strategy</h4>
-<p>Secretary of State Marco Rubio traveled to France for a G7 meeting aimed at building allied consensus on the administration's approach to Iran, though European leaders remain deeply skeptical.</p>
-<p class="source"><a href="https://www.aljazeera.com/news/2026/3/26/us-israel-war-on-iran-whats-happening-on-day-27-of-attacks">Al Jazeera</a></p>
-</div>
-<div class="card">
-<h4>Ukrainian Forces Confirmed Operating in Sudan Against Wagner</h4>
-<p>Video footage has confirmed the presence of Ukrainian special forces in Sudan, where they are engaged in operations against Russia's Wagner Group — a remarkable expansion of Kyiv's proxy war with Moscow.</p>
-<p class="source"><a href="https://www.arabnews.com/node/2455126/middle-east">Arab News</a></p>
-</div>
-<a href="newsletter-world.html" class="deep-dive-btn" style="background:linear-gradient(135deg,#dc2626,#f87171)">Read the full World deep dive →</a>
-</div>
+            <!-- Science & Health -->
+            <article class="category-section category-science">
+                <div class="category-header">
+                    <h3>Science & Health</h3>
+                    <div class="category-icon"></div>
+                </div>
+                <div class="category-content">
+                    <div class="story">
+                        <h4>Depression linked to energy changes in brain cells, opening new treatment paths</h4>
+                        <p class="story-source">Source: sciencedaily.com</p>
+                    </div>
+                    <div class="story">
+                        <h4>Scientists engineer probiotic bacteria as tumor-seeking drug factories</h4>
+                        <p class="story-source">Source: sciencedaily.com</p>
+                    </div>
+                    <div class="story">
+                        <h4>Deepfake X-rays now fool both doctors and AI diagnostic models</h4>
+                        <p class="story-source">Source: sciencedaily.com</p>
+                    </div>
+                    <a href="newsletter-science.html" class="deep-dive-button">Deep Dive</a>
+                </div>
+            </article>
+        </div>
+    </div>
 
-<!-- SCIENCE & HEALTH -->
-<div class="section">
-<div class="section-header">
-<div class="section-dot" style="background:#0284c7"></div>
-<h3>Science & Health</h3>
-</div>
-<div class="card">
-<h4>CRISPR-GPT: Stanford's AI Copilot Designs Gene-Editing Experiments in Months</h4>
-<p>Stanford researchers unveiled CRISPR-GPT, an artificial intelligence system that can design CRISPR gene-editing experiments in months rather than the years traditionally required — dramatically accelerating the pace of genetic medicine.</p>
-<p class="source"><a href="https://www.crescendo.ai/news/latest-ai-news-and-updates">Crescendo AI</a></p>
-</div>
-<div class="card">
-<h4>New Blood Test Offers Early Detection Breakthrough for Pancreatic Cancer</h4>
-<p>Researchers have developed a blood test that can catch pancreatic cancer far earlier than existing methods, potentially transforming survival rates for one of the deadliest forms of the disease.</p>
-<p class="source"><a href="https://www.cityofhope.org/cancer-research-and-care-in-2026-5-big-shifts-that-will-redefine-survival-and-access">City of Hope</a></p>
-</div>
-<a href="newsletter-science.html" class="deep-dive-btn" style="background:linear-gradient(135deg,#0284c7,#38bdf8)">Read the full Science & Health deep dive →</a>
-</div>
-
-</div>
-
-<div class="footer">
-<p><strong>The Morning Wire</strong> — Your daily intelligence briefing<br>
-Published Friday, March 27, 2026<br><br>
-Built with care. Powered by data.</p>
-</div>
-
+    <footer>
+        <div class="footer-content">
+            <div class="footer-branding">The Morning Wire © 2026</div>
+            <p>Your daily intelligence briefing</p>
+            <p class="footer-date">Published Saturday, March 28, 2026</p>
+        </div>
+    </footer>
 </body>
 </html>

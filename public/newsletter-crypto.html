@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Morning Wire - Crypto Deep Dive - March 27, 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>The Morning Wire — Crypto Deep Dive</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,111 +14,121 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f5f5f5;
-            padding: 20px;
+            background-color: #f9fafb;
+            color: #374151;
             line-height: 1.6;
-            color: #333;
         }
 
-        .container {
+        .header {
+            background: linear-gradient(135deg, #451a03 0%, #b45309 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .header-container {
             max-width: 760px;
             margin: 0 auto;
         }
 
-        header {
-            background: linear-gradient(135deg, #451a03 0%, #b45309 100%);
-            color: white;
-            padding: 40px 30px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            position: relative;
-        }
-
-        header .back-link {
+        .back-link {
             display: inline-block;
-            font-size: 14px;
-            margin-bottom: 15px;
-            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
-            transition: color 0.3s;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            transition: color 0.2s;
         }
 
-        header .back-link:hover {
+        .back-link:hover {
             color: white;
+            border-bottom-color: white;
         }
 
-        header h1 {
+        h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
             font-weight: 700;
         }
 
-        header .subtitle {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 5px;
+        .publish-date {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            margin-bottom: 0.5rem;
         }
 
-        header .date {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.8);
+        .main-container {
+            max-width: 760px;
+            margin: 2rem auto;
+            padding: 0 1rem;
         }
 
         .card {
             background: white;
-            padding: 30px;
-            margin-bottom: 20px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            transition: box-shadow 0.3s;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+            transition: box-shadow 0.2s;
         }
 
         .card:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
         }
 
-        .section-title {
+        h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8em;
-            color: #451a03;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #b45309;
-            padding-bottom: 12px;
+            font-size: 1.75rem;
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-weight: 600;
         }
 
-        .market-grid {
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #1f2937;
+            margin-bottom: 0.75rem;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        h3:first-child {
+            margin-top: 0;
+        }
+
+        .market-snapshot {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
 
-        .market-item {
-            background: linear-gradient(135deg, #fafaf9 0%, #f3f3f1 100%);
-            padding: 20px;
-            border-radius: 6px;
-            border-left: 4px solid #b45309;
+        .metric {
+            padding: 1rem;
+            background-color: #f3f4f6;
+            border-left: 3px solid #b45309;
+            border-radius: 4px;
         }
 
-        .market-item-label {
-            font-size: 12px;
-            color: #666;
-            text-transform: uppercase;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .market-item-value {
-            font-size: 24px;
-            font-weight: 600;
-            color: #451a03;
-            margin-bottom: 5px;
-        }
-
-        .market-item-change {
-            font-size: 14px;
+        .metric-label {
+            font-size: 0.875rem;
+            color: #6b7280;
             font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-value {
+            font-size: 1.25rem;
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        .metric-change {
+            font-size: 0.875rem;
+            margin-left: 0.5rem;
         }
 
         .negative {
@@ -126,354 +136,249 @@
         }
 
         .positive {
-            color: #16a34a;
+            color: #059669;
         }
 
         .story {
-            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
         }
 
-        .story-headline {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3em;
-            color: #451a03;
-            margin-bottom: 12px;
-            font-weight: 700;
-            line-height: 1.4;
-        }
-
-        .story-meta {
-            font-size: 13px;
-            color: #999;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-
-        .story-body {
-            font-size: 15px;
-            line-height: 1.7;
-            color: #555;
-            margin-bottom: 12px;
-        }
-
-        .source-links {
-            font-size: 13px;
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid #e5e5e5;
-        }
-
-        .source-links strong {
-            color: #451a03;
-            display: block;
-            margin-bottom: 6px;
-        }
-
-        .source-links a {
-            color: #b45309;
-            text-decoration: none;
-            display: inline-block;
-            margin-right: 12px;
-            margin-bottom: 6px;
-            transition: color 0.3s;
-        }
-
-        .source-links a:hover {
-            color: #451a03;
-            text-decoration: underline;
-        }
-
-        .regulation-item {
-            margin-bottom: 18px;
-            padding-bottom: 18px;
-            border-bottom: 1px solid #e5e5e5;
-        }
-
-        .regulation-item:last-child {
+        .story:last-child {
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
         }
 
-        .regulation-number {
-            display: inline-block;
-            background: #b45309;
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 24px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-right: 10px;
+        .story h3 {
+            margin-top: 0;
         }
 
-        .regulation-title {
-            font-weight: 600;
-            color: #451a03;
-            margin-bottom: 6px;
-            display: inline;
+        .story p {
+            margin-bottom: 0.75rem;
+            color: #4b5563;
+            line-height: 1.7;
         }
 
-        .regulation-date {
-            color: #999;
-            font-size: 13px;
-            display: inline;
-            margin-left: 8px;
+        .source {
+            font-size: 0.8rem;
+            color: #9ca3af;
+            margin-top: 0.5rem;
+            font-style: italic;
         }
 
-        .regulation-body {
-            font-size: 14px;
-            color: #555;
-            margin-top: 8px;
-            margin-left: 34px;
-            line-height: 1.6;
-        }
-
-        .highlight-box {
-            background: #fffbeb;
-            border-left: 4px solid #b45309;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 4px;
-            font-size: 14px;
-            color: #555;
-            line-height: 1.6;
-        }
-
-        .bullet-list {
-            margin-left: 20px;
-            margin-top: 10px;
-        }
-
-        .bullet-list li {
-            margin-bottom: 10px;
-            color: #555;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            border-top: 2px solid #e5e5e5;
-            margin-top: 40px;
-        }
-
-        footer .back-link {
-            display: inline-block;
-            font-size: 14px;
+        .source a {
             color: #b45309;
             text-decoration: none;
-            transition: color 0.3s;
-            margin-bottom: 15px;
         }
 
-        footer .back-link:hover {
-            color: #451a03;
+        .source a:hover {
             text-decoration: underline;
         }
 
-        footer .credit {
-            font-size: 12px;
-            color: #999;
-            margin-top: 15px;
+        .quick-hits {
+            background-color: #fffbeb;
+            border-left: 3px solid #b45309;
+            padding: 1.5rem;
+            border-radius: 4px;
         }
 
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2em;
+        .quick-hits ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .quick-hits li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .quick-hits li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #b45309;
+            font-weight: 600;
+        }
+
+        .quick-hits li:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        .footer-link {
+            color: #b45309;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 1rem;
+            color: #9ca3af;
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2rem;
             }
 
-            .section-title {
-                font-size: 1.4em;
+            h2 {
+                font-size: 1.5rem;
             }
 
-            .market-grid {
-                grid-template-columns: 1fr;
+            .card {
+                padding: 1.5rem;
             }
 
-            .story-headline {
-                font-size: 1.1em;
+            .metric {
+                padding: 0.75rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
+    <div class="header">
+        <div class="header-container">
             <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
             <h1>The Morning Wire</h1>
-            <div class="subtitle">Crypto Deep Dive</div>
-            <div class="date">Friday, March 27, 2026</div>
-        </header>
+            <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">Crypto Deep Dive</p>
+            <p class="publish-date">Saturday, March 28, 2026</p>
+        </div>
+    </div>
 
-        <!-- MARKET SNAPSHOT -->
+    <div class="main-container">
+        <!-- Market Snapshot -->
         <div class="card">
-            <h2 class="section-title">Market Snapshot</h2>
-            <div class="market-grid">
-                <div class="market-item">
-                    <div class="market-item-label">Bitcoin (BTC)</div>
-                    <div class="market-item-value">$68,878</div>
-                    <div class="market-item-change negative">▼ 3.4% (24h) | ~20% down YTD</div>
+            <h2>Market Snapshot</h2>
+            <div class="market-snapshot">
+                <div class="metric">
+                    <div class="metric-label">Bitcoin</div>
+                    <div class="metric-value">$66,265 <span class="metric-change negative">▼ 0.57% (24h)</span> | Down ~20% YTD</div>
                 </div>
-                <div class="market-item">
-                    <div class="market-item-label">Ethereum (ETH)</div>
-                    <div class="market-item-value">$2,070.58</div>
-                    <div class="market-item-change negative">▼ 4.45%</div>
+                <div class="metric">
+                    <div class="metric-label">Ethereum</div>
+                    <div class="metric-value"><span class="negative">Down ~4% in 24h</span></div>
                 </div>
-                <div class="market-item">
-                    <div class="market-item-label">Global Crypto Market Cap</div>
-                    <div class="market-item-value">$2.43T</div>
-                    <div class="market-item-change negative">▼ 3.3%</div>
+                <div class="metric">
+                    <div class="metric-label">Total Market Cap</div>
+                    <div class="metric-value">$2.28T <span class="metric-change negative">▼ 2.19%</span></div>
                 </div>
-                <div class="market-item">
-                    <div class="market-item-label">Trading Volume (24h)</div>
-                    <div class="market-item-value">$107.8B</div>
-                    <div class="market-item-change" style="color: #666;">BTC Dominance: ~56%</div>
+                <div class="metric">
+                    <div class="metric-label">Fear & Greed Index</div>
+                    <div class="metric-value"><span class="negative">12 (Extreme Fear)</span></div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Bitcoin ETF Flows</div>
+                    <div class="metric-value">Reclaimed $3B of $9B outflows</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Crypto Trading Volume</div>
+                    <div class="metric-value"><span class="negative">Down 2.19% in 24h</span></div>
                 </div>
             </div>
         </div>
 
-        <!-- LEAD STORY -->
+        <!-- Lead Story -->
         <div class="card">
-            <h2 class="section-title">Lead Story</h2>
-            <div class="story">
-                <div class="story-headline">Bitcoin Tests $68K as $14B Options Expiry Collides with Geopolitical Crisis</div>
-                <div class="story-body">
-                    Bitcoin's struggle below $70,000 intensifies today as a critical $14 billion options expiration event coincides with escalating geopolitical tensions. With 189,000 BTC options contracts ($13.38B notional value) expiring today, traders face extremely bearish put-call ratios that could trigger significant price volatility.
-                </div>
-                <div class="story-body">
-                    The timing couldn't be worse for risk-on sentiment. Now in its 28th day, the Iran conflict shows no signs of cooling as Iran rejected a 15-point US ceasefire proposal. This geopolitical backdrop has added urgency to Bitcoin's year-to-date decline of ~20%, while spot Bitcoin ETFs recorded a notable $171M net outflow, signaling institutional caution.
-                </div>
-                <div class="story-body">
-                    <strong>What to watch:</strong> The options expiration could act as a pinball, bouncing price action sharply in either direction depending on which contracts expire in-the-money. Combined with weak institutional inflows and the Iran situation, Bitcoin's support levels below $68K are increasingly fragile.
-                </div>
-                <div class="source-links">
-                    <strong>Sources:</strong>
-                    <a href="https://www.coindesk.com/markets/2026/03/25/bitcoin-nears-usd72-000-as-rising-open-interest-signals-growing-leverage-in-choppy-market" target="_blank">CoinDesk</a>
-                    <a href="#">CoinGabbar</a>
-                    <a href="#">Crypto Times</a>
-                </div>
+            <h2>Bitcoin Tests $66K as Extreme Fear Grips Markets</h2>
+            <p>Bitcoin is trading at $66,348 after a 3.33% loss, with the total crypto market dropping 3.1% to $2.37T. The Fear & Greed Index sits at 12, signaling extreme fear and a potential accumulation phase. Bitcoin is down around 20% in 2026, battered by geopolitical uncertainty from the Iran war and rising oil prices that threaten stagflation.</p>
+            <p>Bitcoin ETFs have reclaimed $3 billion of $9 billion in outflows, but investors remain underwater as BTC trades below cost basis for many holders. The broader crypto selloff reflects risk-off sentiment as equities also tumble.</p>
+            <div class="source">
+                Sources: <a href="https://coincodex.com/article/83392/daily-market-update-for-march-28-2026/">CoinCodex</a>, <a href="https://www.fool.com/investing/2026/03/25/bitcoin-is-down-20-in-2026-heres-why-things-could/">Motley Fool</a>
             </div>
         </div>
 
-        <!-- REGULATION -->
+        <!-- Stories -->
         <div class="card">
-            <h2 class="section-title">Regulation & Policy</h2>
-
-            <div class="regulation-item">
-                <span class="regulation-number">1</span>
-                <span class="regulation-title">SEC & CFTC Classify Major Tokens as Digital Commodities</span>
-                <span class="regulation-date">March 17</span>
-                <div class="regulation-body">
-                    Bitcoin, Ethereum, XRP, and Solana officially classified as digital commodities, clearing the regulatory path for expanded spot ETF offerings and institutional adoption. This landmark decision removes years of legal ambiguity.
-                    <div class="source-links" style="margin-top: 10px; border: none; padding-top: 0;">
-                        <a href="https://www.sec.gov/newsroom/press-releases/2026-30-sec-clarifies-application-federal-securities-laws-crypto-assets" target="_blank">SEC.gov</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="regulation-item">
-                <span class="regulation-number">2</span>
-                <span class="regulation-title">SEC Clarifies Securities Laws for Airdrops, Staking, Wrapping</span>
-                <div class="regulation-body">
-                    New SEC guidance provides clarity on how federal securities laws apply to common crypto activities, reducing legal uncertainty for projects and participants.
-                    <div class="source-links" style="margin-top: 10px; border: none; padding-top: 0;">
-                        <a href="https://www.dentons.com/en/insights/alerts/2026/march/18/sec-clarifies-crypto-asset-regulation-under-federal-securities-laws" target="_blank">Dentons</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="regulation-item">
-                <span class="regulation-number">3</span>
-                <span class="regulation-title">CFTC Eyes Revival of Perpetual Futures Trading in US</span>
-                <div class="regulation-body">
-                    The Commodity Futures Trading Commission signals intent to bring perpetual futures contracts back into regulated US markets, potentially unlocking a massive derivative market segment.
-                    <div class="source-links" style="margin-top: 10px; border: none; padding-top: 0;">
-                        <a href="https://www.thecoinrepublic.com/2026/03/26/us-crypto-regulation-cftc-eyes-revival-of-perpetual-futures-trading/" target="_blank">The Coin Republic</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="regulation-item">
-                <span class="regulation-number">4</span>
-                <span class="regulation-title">GENIUS Act Stablecoin Framework in Motion</span>
-                <div class="regulation-body">
-                    Regulators on track to finalize stablecoin licensing, custody, and capital requirements by mid-2026. This framework aims to establish stablecoins as a cornerstone of digital finance infrastructure.
-                    <div class="source-links" style="margin-top: 10px; border: none; padding-top: 0;">
-                        <a href="https://news.bloomberglaw.com/legal-exchange-insights-and-commentary/cryptos-rules-are-here-2026-will-be-about-making-them-work" target="_blank">Bloomberg Law</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="regulation-item">
-                <span class="regulation-number">5</span>
-                <span class="regulation-title">California Digital Asset Law Takes Effect July 1, 2026</span>
-                <div class="regulation-body">
-                    California's progressive digital asset framework becomes enforceable, setting state-level standards for custody, licensing, and consumer protection that may influence federal policy.
-                    <div class="source-links" style="margin-top: 10px; border: none; padding-top: 0;">
-                        <a href="https://www.dlnews.com/articles/regulation/key-dates-for-us-crypto-regulation-in-2026/" target="_blank">DL News</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- MARKET ANALYSIS -->
-        <div class="card">
-            <h2 class="section-title">Market Analysis</h2>
+            <h2>Top Stories</h2>
 
             <div class="story">
-                <div class="story-headline">Ethereum Struggles at $2,070 as ETF Outflows Continue</div>
-                <div class="story-body">
-                    While Bitcoin and new commodities like XRP and SOL attracted positive ETF inflows during March 16-20, Ethereum ETFs bucked the trend with notable outflows. This divergence signals weakening institutional confidence in Ethereum relative to competing smart contract platforms and commodity-classified assets.
-                </div>
-                <div class="story-body">
-                    The outflows come as Ethereum grapples with technical resistance at $2,070, a level it's failed to sustain. With macro headwinds from geopolitical tensions and profit-taking, the second-largest crypto faces uphill momentum.
+                <h3>SEC & CFTC Issue Landmark Joint Crypto Guidance</h3>
+                <p>On March 17, 2026, the SEC issued an interpretation clarifying how federal securities laws apply to crypto assets. The landmark joint guidance with the CFTC covers airdrops, protocol mining, protocol staking, and wrapping of non-security crypto assets. SEC Chair Paul Atkins pledged an "innovation exemption" allowing crypto startups to test products under lighter requirements while meeting basic consumer protection standards.</p>
+                <div class="source">
+                    Source: <a href="https://www.ropesgray.com/en/insights/alerts/2026/03/sec-and-cftc-issue-landmark-joint-guidance-on-classification-of-crypto-assets/">Ropes & Gray</a>
                 </div>
             </div>
 
             <div class="story">
-                <div class="story-headline">Iran War Impact: Crypto Without Institutional Support is Fragile</div>
-                <div class="story-body">
-                    The ongoing Iran conflict (Day 28) underscores a critical vulnerability in crypto markets: without a consistent institutional bid, prices are highly susceptible to retail-driven sell-offs during risk-off periods. The weak spot Bitcoin ETF flows despite commodity classification suggest institutional investors are taking a "show me" approach.
-                </div>
-                <div class="story-body">
-                    Each escalation in geopolitical tensions triggers fresh selling, as risk-averse traders flee to traditional safe havens. Crypto's hope for a sustained rally rests on a combination of regulatory clarity (✓ partly achieved) and geopolitical de-escalation (✗ not yet achieved).
+                <h3>CLARITY Act Draft Threatens Stablecoin Yield</h3>
+                <p>A new draft of the CLARITY Act proposing to prohibit platforms from offering yield on stablecoins triggered crypto sector sell-offs. The legislation could hand stablecoin power back to traditional banks, fundamentally reshaping the DeFi landscape. The bill is one of several key crypto bills being watched in Congress.</p>
+                <div class="source">
+                    Source: <a href="https://www.pymnts.com/cryptocurrency/2026/cryptos-clarity-shock-could-hand-stablecoin-power-back-to-banks/">PYMNTS</a>
                 </div>
             </div>
 
             <div class="story">
-                <div class="story-headline">Altcoin Forecast: XRP, SOL Rally May Continue into Year-End</div>
-                <div class="story-body">
-                    <strong>XRP Price Target:</strong> $3.80–$5.20 by December 2026<br>
-                    <strong>SOL Price Target:</strong> $210–$290 by December 2026
+                <h3>Solana ETFs Hit $540M in Institutional Holdings</h3>
+                <p>Over 30 major institutions collectively hold approximately $540 million in Solana ETF products as of March 2026, with Goldman Sachs holding $107.4M and Electric Capital at $137.8M. WisdomTree deployed its full suite of tokenized funds on Solana, surpassing $1.3B in RWA (real-world asset) value. Bitwise CIO Matt Hougan says Solana has a path to becoming a trillion-dollar asset.</p>
+                <div class="source">
+                    Source: <a href="https://www.dextools.io/news/is-a-solana-etf-coming">DexTools</a>
                 </div>
-                <div class="story-body">
-                    Regulatory momentum around commodity classification and derivative expansion creates a compelling case for altcoins positioned to benefit from institutional adoption. XRP's benefit from the SEC clarity and Solana's ecosystem strength position both well, assuming macro conditions stabilize.
+            </div>
+
+            <div class="story">
+                <h3>SUDO Token Surges 225% on Treasury Proposal</h3>
+                <p>Sudoswap's SUDO token shot up 225% after a proposal to allocate $800,000 in treasury funds. Traders began seeking arbitrage before voting commenced on March 28, driving massive volume in the otherwise quiet altcoin market.</p>
+                <div class="source">
+                    Source: <a href="https://coincodex.com/article/83392/daily-market-update-for-march-28-2026/">CoinCodex</a>
+                </div>
+            </div>
+
+            <div class="story">
+                <h3>Ethereum Foundation Releases New 38-Page Mandate</h3>
+                <p>The Ethereum Foundation released a comprehensive 38-page mandate outlining its role as a neutral steward focused on maintaining Ethereum's decentralized infrastructure and supporting public goods. Ethereum leads the 2026 altcoin market as institutional-grade infrastructure with 170% upside potential driven by CLARITY Act regulatory clarity and Layer 2 scalability.</p>
+                <div class="source">
+                    Source: <a href="https://www.coindesk.com/tech/2026/01/03/ethereum-and-solana-set-the-stage-for-2026-s-defi-reboot">CoinDesk</a>
+                </div>
+            </div>
+
+            <div class="story">
+                <h3>Trump Praises Bitcoin at Future Investment Summit</h3>
+                <p>During the Future Investment Initiative summit, President Trump praised Bitcoin, indicating its usage is increasing and more people are ready to accept cryptocurrency payments. The endorsement provided brief relief in an otherwise bearish market.</p>
+                <div class="source">
+                    Source: <a href="https://www.coingabbar.com/en/crypto-currency-news/latest-crypto-market-update-today-march-28-btc-eth-price-fell">CoinGabbar</a>
                 </div>
             </div>
         </div>
 
-        <!-- QUICK HITS -->
+        <!-- Quick Hits -->
         <div class="card">
-            <h2 class="section-title">Quick Hits</h2>
-            <ul class="bullet-list">
-                <li><strong>Operationalize, Don't Regulate:</strong> PwC analysis confirms 2026 is about operationalizing crypto rules, not creating new ones. Regulatory framework is largely set; execution is the challenge.</li>
-                <li><strong>1099 Reporting Coming:</strong> Tax reporting regime represents the first real test of regulatory compliance for exchanges and custodians. Expect coordination efforts with IRS through mid-2026.</li>
-                <li><strong>Market Structure Legislation:</strong> Congressional bills addressing market structure, custody, and securities definitions expected in early-to-mid 2026. Could reshape derivatives and spot trading.</li>
-            </ul>
+            <h2>Quick Hits</h2>
+            <div class="quick-hits">
+                <ul>
+                    <li>California's Digital Financial Assets Law takes effect July 1, 2026 requiring licenses</li>
+                    <li>GENIUS Act implementation rules expected by mid-2026 (custody, capital, compliance)</li>
+                    <li>PwC says 2026 is the year crypto rules move from drafts to reality globally</li>
+                    <li>Crypto regulation shifting from rule-writing to implementation phase</li>
+                    <li>Bitcoin quarterly options expiry contributed to recent price volatility</li>
+                </ul>
+            </div>
         </div>
 
-        <footer>
-            <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
-            <div class="credit">
-                <p>The Morning Wire | Crypto Deep Dive | March 27, 2026</p>
-                <p>All sources linked. Do your own research (DYOR).</p>
-            </div>
-        </footer>
+        <!-- Regulatory Outlook -->
+        <div class="card">
+            <h2>Regulatory Outlook</h2>
+            <p>2026 marks a pivotal shift from regulation-writing to operationalizing existing frameworks. The GENIUS Act (stablecoins), CLARITY Act (market structure), and SEC/CFTC joint guidance are reshaping crypto's legal landscape. With implementation timelines crystallizing and state-level rules taking effect, crypto's regulatory foundation is transitioning from uncertainty to clarity—creating both challenges and opportunities for market participants navigating this new era.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="daily-newsletter.html" class="footer-link">← Back to Daily Newsletter</a>
+        <div class="copyright">The Morning Wire © 2026</div>
     </div>
 </body>
 </html>
