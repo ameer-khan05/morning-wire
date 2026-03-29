@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Morning Wire — Markets & Economy Deep Dive</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>The Morning Wire - Markets & Economy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,410 +17,381 @@
             background-color: #f5f5f5;
             color: #333;
             line-height: 1.6;
+            padding: 20px;
         }
 
         .container {
             max-width: 760px;
             margin: 0 auto;
-            padding: 20px;
+            background-color: white;
         }
 
-        header {
+        .header {
             background: linear-gradient(135deg, #052e16 0%, #166534 100%);
             color: white;
             padding: 40px 30px;
-            border-radius: 8px 8px 0 0;
-            margin-bottom: 30px;
+            text-align: center;
         }
 
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            margin-bottom: 15px;
-            font-weight: 700;
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
         }
 
-        header .meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .back-link a {
+            color: #e0e0e0;
+            text-decoration: none;
             font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
-        header .date {
+        .back-link a:hover {
+            color: white;
+        }
+
+        .branding {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .date {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             opacity: 0.95;
         }
 
-        header a {
-            color: white;
-            text-decoration: none;
-            background-color: rgba(255,255,255,0.2);
-            padding: 6px 14px;
-            border-radius: 4px;
-            font-size: 13px;
-            transition: background-color 0.3s;
-        }
-
-        header a:hover {
-            background-color: rgba(255,255,255,0.3);
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #052e16;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding: 0 30px;
+            border-bottom: 2px solid #166534;
+            padding-bottom: 12px;
         }
 
         .content {
-            background: white;
-            padding: 40px;
-            margin-bottom: 20px;
-            border-radius: 0 0 8px 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 30px;
         }
 
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section:last-child {
-            margin-bottom: 0;
-        }
-
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            color: #052e16;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #166534;
-            padding-bottom: 12px;
-            font-weight: 700;
-        }
-
-        h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            color: #052e16;
-            margin-bottom: 12px;
-            margin-top: 24px;
-            font-weight: 700;
-        }
-
-        h3:first-child {
-            margin-top: 0;
-        }
-
-        p {
-            margin-bottom: 14px;
-            line-height: 1.7;
-        }
-
-        .snapshot {
-            background-color: #f9f9f9;
+        .snapshot-card {
+            background-color: #f9faf8;
             border-left: 4px solid #166534;
             padding: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             border-radius: 4px;
         }
 
-        .snapshot-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 15px;
+        .snapshot-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 15px;
         }
 
-        .snapshot-item {
-            font-size: 14px;
+        .snapshot-item:last-child {
+            margin-bottom: 0;
         }
 
         .snapshot-label {
-            color: #666;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
+            font-weight: 600;
+            color: #333;
         }
 
         .snapshot-value {
-            font-size: 18px;
-            font-weight: 600;
-            color: #052e16;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .snapshot-change {
-            font-size: 14px;
-            margin-top: 3px;
-        }
-
-        .negative {
-            color: #dc2626;
+            text-align: right;
         }
 
         .positive {
             color: #16a34a;
+            font-weight: 600;
         }
 
-        .source {
-            font-size: 12px;
-            color: #888;
-            margin-top: 12px;
-            font-style: italic;
+        .negative {
+            color: #dc2626;
+            font-weight: 600;
         }
 
-        .source a {
+        .story-card {
+            background-color: #fafafa;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .story-card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #052e16;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .story-text {
+            color: #555;
+            margin-bottom: 14px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .story-source {
+            font-size: 13px;
+        }
+
+        .story-source a {
             color: #166534;
             text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
-        .source a:hover {
+        .story-source a:hover {
+            color: #052e16;
             text-decoration: underline;
         }
 
-        .story {
-            margin-bottom: 32px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e5e5e5;
-        }
-
-        .story:last-of-type {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .quick-hits {
-            background-color: #f0fdf4;
-            border-left: 4px solid #166534;
-            padding: 20px;
-            border-radius: 4px;
+        .lead-story-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #f0fdf4 100%);
+            border-left: 6px solid #16a34a;
             margin-bottom: 30px;
         }
 
-        .quick-hits ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
+        .lead-story-card .story-headline {
+            color: #052e16;
+            font-size: 26px;
         }
 
-        .quick-hits li {
+        .quick-hits {
+            background-color: #f9faf8;
+            border-left: 4px solid #166534;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .quick-hits h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #052e16;
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
+
+        .quick-hit-item {
+            font-size: 14px;
+            color: #555;
             margin-bottom: 10px;
             padding-left: 20px;
             position: relative;
         }
 
-        .quick-hits li:last-child {
-            margin-bottom: 0;
-        }
-
-        .quick-hits li:before {
-            content: "▪";
+        .quick-hit-item:before {
+            content: "•";
             position: absolute;
             left: 0;
             color: #166534;
             font-weight: bold;
         }
 
-        footer {
-            background: white;
-            padding: 30px 40px;
-            border-radius: 0 0 8px 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            text-align: center;
-            font-size: 13px;
-            color: #666;
+        .quick-hit-item:last-child {
+            margin-bottom: 0;
         }
 
-        footer a {
+        .footer {
+            background-color: #f5f5f5;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .footer-link a {
             color: #166534;
             text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
-        footer a:hover {
+        .footer-link a:hover {
+            color: #052e16;
             text-decoration: underline;
         }
 
-        .footer-divider {
-            margin: 15px 0;
-            color: #ddd;
+        .footer-text {
+            font-size: 13px;
+            color: #888;
+            margin-top: 16px;
         }
 
-        .copyright {
-            margin-top: 12px;
-            color: #999;
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 32px;
-            }
-
-            header .meta {
-                flex-direction: column;
-                gap: 12px;
-                align-items: flex-start;
-            }
-
-            .content {
-                padding: 25px;
-            }
-
-            h2 {
-                font-size: 24px;
-            }
-
-            h3 {
-                font-size: 20px;
-            }
-
-            .snapshot-grid {
-                grid-template-columns: 1fr;
-            }
+        .separator {
+            height: 1px;
+            background-color: #e5e5e5;
+            margin: 30px 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
-                <div>
-                    <h1>The Morning Wire</h1>
-                    <div style="font-size: 16px; opacity: 0.95;">Markets & Economy Deep Dive</div>
-                </div>
-            </div>
-            <div class="meta">
-                <div class="date">Saturday, March 28, 2026</div>
+        <!-- Header -->
+        <div class="header">
+            <div class="back-link">
                 <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
             </div>
-        </header>
+            <div class="branding">The Morning Wire</div>
+            <div class="date">Markets & Economy Deep Dive</div>
+            <div class="date" style="margin-top: 8px;">Sunday, March 29, 2026</div>
+        </div>
 
+        <!-- Content -->
         <div class="content">
+
             <!-- Market Snapshot -->
-            <div class="section">
-                <h2>Market Snapshot</h2>
-                <div class="snapshot">
-                    <p style="margin-bottom: 18px; font-weight: 500; color: #555;">As of March 27, 2026 Close</p>
-                    <div class="snapshot-grid">
-                        <div class="snapshot-item">
-                            <div class="snapshot-label">S&P 500</div>
-                            <div class="snapshot-value">6,368.85</div>
-                            <div class="snapshot-change negative">▼ 1.67%</div>
-                        </div>
-                        <div class="snapshot-item">
-                            <div class="snapshot-label">Nasdaq</div>
-                            <div class="snapshot-value">20,948.36</div>
-                            <div class="snapshot-change negative">▼ 2.15%</div>
-                        </div>
-                        <div class="snapshot-item">
-                            <div class="snapshot-label">Dow Jones</div>
-                            <div class="snapshot-value">45,166.64</div>
-                            <div class="snapshot-change negative">▼ 1.73%</div>
-                        </div>
-                        <div class="snapshot-item">
-                            <div class="snapshot-label">Brent Crude</div>
-                            <div class="snapshot-value">$107.81/bbl</div>
-                            <div class="snapshot-change positive">▲ 1.96%</div>
-                        </div>
-                        <div class="snapshot-item">
-                            <div class="snapshot-label">Gold</div>
-                            <div class="snapshot-value">$4,524.30</div>
-                            <div class="snapshot-change positive">▲ 2.62%</div>
-                        </div>
-                        <div class="snapshot-item">
-                            <div class="snapshot-label">Bitcoin</div>
-                            <div class="snapshot-value">$66,265</div>
-                            <div class="snapshot-change negative">▼ 0.57%</div>
-                        </div>
-                    </div>
-                    <div style="margin-top: 18px; padding-top: 15px; border-top: 1px solid #ddd; color: #d11f1f; font-weight: 500;">
-                        ⚠️ All three major averages down 7%+ month-to-date
-                    </div>
+            <h2 class="section-title">Market Snapshot</h2>
+
+            <div class="snapshot-card">
+                <div class="snapshot-item">
+                    <span class="snapshot-label">S&P 500</span>
+                    <span class="snapshot-value">6,368.85 <span class="negative">−1.67%</span></span>
+                </div>
+                <div class="snapshot-item">
+                    <span class="snapshot-label">Nasdaq</span>
+                    <span class="snapshot-value">20,948.36 <span class="negative">−2.15%</span></span>
+                </div>
+                <div class="snapshot-item">
+                    <span class="snapshot-label">Dow Jones</span>
+                    <span class="snapshot-value">45,166.64 <span class="negative">−1.73% (−793.47 pts)</span></span>
+                </div>
+                <div class="snapshot-item">
+                    <span class="snapshot-label">Oil (Brent)</span>
+                    <span class="snapshot-value">$107.81/bbl <span class="positive">+1.8%</span></span>
+                </div>
+                <div class="snapshot-item">
+                    <span class="snapshot-label">Gold</span>
+                    <span class="snapshot-value">$4,430/oz <span class="positive">+0.8%</span></span>
+                </div>
+                <div class="snapshot-item">
+                    <span class="snapshot-label">VIX</span>
+                    <span class="snapshot-value"><span class="negative">Surging</span></span>
+                </div>
+                <div class="snapshot-item">
+                    <span class="snapshot-label">10Y Treasury</span>
+                    <span class="snapshot-value"><span class="negative">Elevated</span></span>
                 </div>
             </div>
 
             <!-- Lead Story -->
-            <div class="section">
-                <h2>Dow Enters Correction Territory as Iran War Rattles Markets</h2>
-                <p>The Dow Jones Industrial Average lost 793.47 points (1.73%) to close at 45,166.64, officially entering correction territory—a decline of 10% or more from recent highs. The S&P 500 dropped 1.67% to 6,368.85 and the Nasdaq fell 2.15% to 20,948.36 in a broad-based selloff that underscores investor anxiety.</p>
-                <p>All three major averages have fallen more than 7% month-to-date as the US-Israel war on Iran, which began February 28, continues to roil global markets. The ongoing conflict has destabilized oil markets and rattled investor confidence in the stability of supply chains and energy costs.</p>
-                <p>Brent crude topped $110 after incidents in the Strait of Hormuz exacerbated energy supply concerns. About a fifth of global oil normally transits the waterway, but that critical chokepoint is now largely blocked. Energy prices are not the only concern—the combination of military conflict, inflation fears, and trade uncertainty has created a toxic cocktail for equities.</p>
-                <div class="source">
-                    Sources: <a href="https://www.thestreet.com/investing/stocks/stock-market-today-mar-27-2026-updates">TheStreet</a>, <a href="https://www.cnbc.com/2026/03/26/stock-market-today-live-updates.html">CNBC</a>
+            <h2 class="section-title">Top Story</h2>
+
+            <div class="story-card lead-story-card">
+                <h3 class="story-headline">Dow Enters Correction Territory as Iran Conflict Rattles Markets</h3>
+                <p class="story-text">
+                    The Dow Jones Industrial Average plunged 793 points on Friday, officially entering correction territory as the US-Israel war with Iran continues to destabilize global energy markets. The S&P 500 posted its fifth consecutive weekly decline, dropping 2.1% for the week. With the Strait of Hormuz closed, cutting off 20% of global crude supply, oil prices have surged past $107/barrel, sending shockwaves through every sector of the economy.
+                </p>
+                <div class="story-source">
+                    Source: <a href="https://www.cnbc.com/2026/03/26/stock-market-today-live-updates.html" target="_blank">CNBC - Stock Market Today</a>
                 </div>
             </div>
 
-            <!-- Stories Section -->
-            <div class="section">
-                <h2>In Depth</h2>
+            <!-- Main Stories -->
+            <h2 class="section-title">Key Stories</h2>
 
-                <div class="story">
-                    <h3>Oil Tops $110 as Strait of Hormuz Chokes Global Supply</h3>
-                    <p>Brent crude reached $107.81 per barrel on March 27 after gaining $1.96, having touched $110+ intraday as energy markets reacted to escalating Middle East tensions. About 20% of the world's oil normally passes through the Strait of Hormuz, but most ships have been blocked during the Iran war, creating supply bottlenecks that reverberate through the global economy.</p>
-                    <p>The International Energy Agency member countries agreed on March 11 to release an unprecedented 400 million barrels from emergency reserves in an effort to stabilize prices, but oil remains roughly $34 higher than a year ago. This represents a significant structural shift that threatens inflation and economic growth.</p>
-                    <div class="source">
-                        Source: <a href="https://fortune.com/article/price-of-oil-03-27-2026/">Fortune</a>
-                    </div>
+            <div class="story-card">
+                <h3 class="story-headline">Moody's AI Recession Model Hits 49% Probability</h3>
+                <p class="story-text">
+                    Moody's proprietary AI recession model is flashing warning lights with a 49% probability reading for February—before the Iran conflict cut off crude supply and oil surged to nearly $120. With new geopolitical pressures mounting, the current real probability is likely significantly higher, adding to recession concerns already weighing on investor sentiment.
+                </p>
+                <div class="story-source">
+                    Source: <a href="https://www.fool.com/investing/2026/03/28/stock-market-crash-in-2026-the-sp-500-sounds-an-al/" target="_blank">Motley Fool - Stock Market Crash in 2026</a>
                 </div>
+            </div>
 
-                <div class="story">
-                    <h3>Fed's Next Move May Be a Rate Hike</h3>
-                    <p>Markets are now pricing in the Federal Reserve's next move as a potential rate hike rather than a cut—a dramatic reversal from earlier 2026 when rate cuts were widely anticipated. The shift in expectations reflects growing concern that surging oil prices will fuel inflation despite slowing economic growth.</p>
-                    <p>The combination of war-driven energy costs and trade tariffs is creating a stagflationary environment: slow growth paired with rising prices. This scenario is particularly challenging for the Fed, which cannot easily accommodate both conditions with a single policy response. Some analysts worry this could be the beginning of a prolonged period of economic discomfort.</p>
-                    <div class="source">
-                        Source: <a href="https://www.cnbc.com/2026/03/27/markets-see-the-feds-next-move-as-a-potential-hike-as-oil-prices-inflation-fears-rise.html">CNBC</a>
-                    </div>
+            <div class="story-card">
+                <h3 class="story-headline">Oil Surges Past $107 — Strait of Hormuz Closure Disrupts Global Supply</h3>
+                <p class="story-text">
+                    Brent crude crude reached $107.81/barrel, up $34 year-over-year, as geopolitical tensions choke off a critical shipping route. Global oil supply is projected to plunge 8 million barrels per day, with higher prices eroding demand across the entire product spectrum. However, J.P. Morgan maintains that if the conflict resolves, Brent could average around $60/barrel for the remainder of 2026—a level that would ease inflationary pressures on the broader economy.
+                </p>
+                <div class="story-source">
+                    Source: <a href="https://fortune.com/article/price-of-oil-03-27-2026/" target="_blank">Fortune - Price of Oil</a>
                 </div>
+            </div>
 
-                <div class="story">
-                    <h3>IEA Releases Unprecedented 400M Barrels from Strategic Reserves</h3>
-                    <p>In response to the Iran conflict's impact on global oil supplies, IEA member countries agreed on March 11 to make available 400 million barrels of oil from emergency reserves—the largest coordinated release in the organization's history. The strategic move aims to mitigate the economic impact of Middle East supply disruptions and prevent energy costs from spiraling further out of control.</p>
-                    <p>Despite this unprecedented intervention, oil prices have continued climbing, suggesting that market participants believe the supply disruption could persist longer than the IEA's reserves can offset. This underscores the severity of the current energy crisis.</p>
-                    <div class="source">
-                        Source: <a href="https://www.iea.org/reports/oil-market-report-march-2026">International Energy Agency</a>
-                    </div>
+            <div class="story-card">
+                <h3 class="story-headline">Gold Rallies to $4,430 as Investors Seek Safety</h3>
+                <p class="story-text">
+                    Gold prices have surged to $4,430/oz, up $1,346 from a year ago, as investors flee to safe-haven assets amid heightened geopolitical risk and market volatility. The precious metal is hovering near record levels, reflecting the elevated risk environment and appetite for portfolio insurance during periods of uncertainty.
+                </p>
+                <div class="story-source">
+                    Source: <a href="https://fortune.com/article/current-price-of-gold-03-27-2026/" target="_blank">Fortune - Current Price of Gold</a>
                 </div>
+            </div>
 
-                <div class="story">
-                    <h3>Unity Software Surges 13.5% on Strong Q1 Guidance</h3>
-                    <p>In a rare bright spot on Friday, Unity Software bucked the broader market decline, closing at $19.45, up 13.54% for the day. The gaming and AI software company announced that preliminary Q1 2026 revenue would exceed prior guidance, with particular excitement around its AI-related Vector guidance for future products.</p>
-                    <p>The strong performance highlights how selective sectors—particularly those tied to artificial intelligence—continue to draw investor money even as traditional equities struggle. However, the broader market's weakness suggests this enthusiasm is limited to a narrow cohort of mega-cap and cutting-edge tech names.</p>
-                    <div class="source">
-                        Source: <a href="https://www.fool.com/coverage/stock-market-today/2026/03/27/stock-market-today-march-27-unity-software-surges-on-vector-ai-guidance/">The Motley Fool</a>
-                    </div>
+            <div class="story-card">
+                <h3 class="story-headline">Google TurboQuant Sends Memory Chip Stocks Tumbling</h3>
+                <p class="story-text">
+                    Google unveiled TurboQuant, a breakthrough compression technology that allows AI models to run in a fraction of the memory previously required. The announcement sent semiconductor stocks lower, particularly memory suppliers like Micron, as markets price in reduced demand for high-capacity memory chips. The innovation could reshape the competitive dynamics of the AI infrastructure build-out.
+                </p>
+                <div class="story-source">
+                    Source: <a href="https://techstartups.com/2026/03/27/top-tech-news-today-march-27-2026/" target="_blank">TechStartups - Top Tech News</a>
                 </div>
+            </div>
 
-                <div class="story">
-                    <h3>Gold Surges to $4,524 as Investors Flee to Safety</h3>
-                    <p>Gold climbed 2.62% to $4,524.30 on Friday, continuing its role as the ultimate safe haven amid war fears, inflation concerns, and equity selloffs. The precious metal has been one of the best-performing assets of 2026 as geopolitical risk escalates and real yields become more attractive.</p>
-                    <p>The surge in gold prices reflects a fundamental shift in investor psychology from risk-on to risk-off. This move toward traditional hedges signals deep uncertainty about both the trajectory of the conflict and the economic impacts it will generate in the months ahead.</p>
-                    <div class="source">
-                        Source: <a href="https://sundayguardianlive.com/business/us-stock-market-today-dow-enters-correction-nasdaq-and-sp-500-drop-as-oil-surges-past-110-on-strait-of-hormuz-closure-gold-jumps-bitcoin-retreats-below-66k-what-should-investors-watch-179628/">Sunday Guardian Live</a>
-                    </div>
+            <div class="story-card">
+                <h3 class="story-headline">Tech Stocks Lead Weekly Losses — Nasdaq Down 2.15%</h3>
+                <p class="story-text">
+                    The Nasdaq composite declined 2.15% for the week as rising energy costs and geopolitical uncertainty weighed heavily on growth stocks. Technology shares, which typically benefit from low inflation and stable interest rates, are now facing headwinds from both elevated oil prices and the prospect of the Federal Reserve maintaining higher rates for longer.
+                </p>
+                <div class="story-source">
+                    Source: <a href="https://www.cnbc.com/2026/03/26/stock-market-today-live-updates.html" target="_blank">CNBC - Stock Market Today</a>
                 </div>
+            </div>
 
-                <div class="story">
-                    <h3>Markets Yo-Yo on War Headlines—Volatility Here to Stay</h3>
-                    <p>Wall Street has been whipsawing on war headlines as investors struggle to price in the conflict's trajectory and economic impact. On March 25, stocks rose and oil prices eased after Trump suggested possible negotiations with Iran, only to reverse sharply on March 27 as the conflict widened and the blockade of the Strait of Hormuz intensified.</p>
-                    <p>This pattern of rallies and selloffs is likely to persist as long as the war remains in an acute phase. Market participants will continue to react to headlines about negotiations, military operations, and energy supply disruptions. Strategic investors should prepare for continued volatility.</p>
-                    <div class="source">
-                        Source: <a href="https://www.bnnbloomberg.ca/markets/2026/03/25/stocks-rise-and-oil-prices-ease-as-wall-street-keeps-yo-yoing-because-of-the-war-with-iran/">BNN Bloomberg</a>
-                    </div>
+            <div class="story-card">
+                <h3 class="story-headline">Rate Cut Hopes Fade as Oil Inflation Pressures Mount</h3>
+                <p class="story-text">
+                    Fed rate cut expectations have been sharply reduced, with markets now pricing in only a single rate cut for the year—down significantly from earlier estimates. Higher oil prices are driving fresh inflationary pressures that could force the Federal Reserve to maintain its current restrictive stance longer than previously anticipated, keeping borrowing costs elevated for consumers and businesses.
+                </p>
+                <div class="story-source">
+                    Source: <a href="https://www.cnbc.com/2026/03/26/stock-market-today-live-updates.html" target="_blank">CNBC - Market Analysis</a>
                 </div>
             </div>
 
             <!-- Quick Hits -->
             <div class="quick-hits">
-                <h2 style="font-size: 20px; border: none; padding: 0; margin: 0 0 16px 0; color: #052e16;">Quick Hits</h2>
-                <ul>
-                    <li>Global supply chain stress elevated per World Bank index as conflict disrupts shipping routes</li>
-                    <li>Trump tariffs adding to cost pressures alongside oil surge, creating dual inflationary headwind</li>
-                    <li>Tech sector hit hardest with Nasdaq down 2.15% on Friday; growth stocks most vulnerable</li>
-                    <li>Stagflation fears growing as energy costs meet slowing growth expectations for Q2</li>
-                    <li>War-driven oil prices making everyday items cost more via shipping, from food to consumer goods</li>
-                </ul>
+                <h4>Quick Hits</h4>
+                <div class="quick-hit-item">S&P 500 now in its 5th straight week of declines</div>
+                <div class="quick-hit-item">VIX surging as market volatility intensifies</div>
+                <div class="quick-hit-item">Energy sector outperforming as oil stays elevated</div>
+                <div class="quick-hit-item">IEA projects supply curtailments partly offset by non-OPEC+ producers</div>
+                <div class="quick-hit-item">Trump deadline for Iran on Strait of Hormuz extended to April 6</div>
             </div>
         </div>
 
-        <footer>
-            <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
-            <div class="footer-divider">─────────────────────</div>
-            <div class="copyright">The Morning Wire © 2026. Markets & Economy Deep Dive.</div>
-        </footer>
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-link">
+                <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
+            </div>
+            <div class="footer-text">
+                The Morning Wire | Markets & Economy Deep Dive<br>
+                Sunday, March 29, 2026
+            </div>
+        </div>
     </div>
 </body>
 </html>

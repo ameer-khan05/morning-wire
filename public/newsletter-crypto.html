@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Morning Wire — Crypto Deep Dive</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>The Morning Wire - Crypto Deep Dive | March 29, 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,371 +14,462 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f9fafb;
-            color: #374151;
+            background: #f5f5f5;
+            color: #1a1a1a;
             line-height: 1.6;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .back-link {
+            margin-bottom: 24px;
+        }
+
+        .back-link a {
+            color: #b45309;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .back-link a:hover {
+            color: #92400e;
         }
 
         .header {
             background: linear-gradient(135deg, #451a03 0%, #b45309 100%);
             color: white;
-            padding: 2rem 1rem;
+            padding: 48px 24px;
             text-align: center;
+            margin-bottom: 32px;
+            border-radius: 8px;
         }
 
-        .header-container {
-            max-width: 760px;
-            margin: 0 auto;
+        .header-branding {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            opacity: 0.9;
         }
 
-        .back-link {
-            display: inline-block;
-            margin-bottom: 1rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-            transition: color 0.2s;
-        }
-
-        .back-link:hover {
-            color: white;
-            border-bottom-color: white;
-        }
-
-        h1 {
+        .header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 42px;
+            margin-bottom: 8px;
             font-weight: 700;
         }
 
-        .publish-date {
-            font-size: 0.95rem;
+        .header p {
+            font-size: 16px;
             opacity: 0.95;
-            margin-bottom: 0.5rem;
         }
 
-        .main-container {
-            max-width: 760px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+        .date {
+            font-size: 12px;
+            margin-top: 16px;
+            opacity: 0.85;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .card {
+        .snapshot {
             background: white;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
+            padding: 24px;
+            margin-bottom: 24px;
             border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
-            transition: box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
-        .card:hover {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
-        }
-
-        h2 {
+        .snapshot h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.75rem;
-            color: #1f2937;
-            margin-bottom: 1rem;
-            font-weight: 600;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #451a03;
         }
 
-        h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: #1f2937;
-            margin-bottom: 0.75rem;
-            margin-top: 1rem;
-            font-weight: 600;
-        }
-
-        h3:first-child {
-            margin-top: 0;
-        }
-
-        .market-snapshot {
+        .snapshot-grid {
             display: grid;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 16px;
         }
 
-        .metric {
-            padding: 1rem;
-            background-color: #f3f4f6;
+        .snapshot-item {
             border-left: 3px solid #b45309;
-            border-radius: 4px;
+            padding-left: 12px;
         }
 
-        .metric-label {
-            font-size: 0.875rem;
-            color: #6b7280;
-            font-weight: 500;
-            margin-bottom: 0.25rem;
-        }
-
-        .metric-value {
-            font-size: 1.25rem;
-            color: #1f2937;
+        .snapshot-item label {
+            display: block;
+            font-size: 12px;
+            color: #666;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
         }
 
-        .metric-change {
-            font-size: 0.875rem;
-            margin-left: 0.5rem;
+        .snapshot-item .value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
         }
 
-        .negative {
+        .snapshot-item .change {
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .change.negative {
             color: #dc2626;
         }
 
-        .positive {
-            color: #059669;
+        .change.positive {
+            color: #16a34a;
+        }
+
+        .sentiment {
+            background: #fef3c7;
+            border-left: 3px solid #f59e0b;
+            padding: 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-top: 16px;
+        }
+
+        .sentiment label {
+            display: block;
+            font-weight: 600;
+            color: #92400e;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+
+        .sentiment-value {
+            font-weight: 700;
+            font-size: 16px;
+            color: #451a03;
         }
 
         .story {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .story:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+            background: white;
+            padding: 24px;
+            margin-bottom: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         .story h3 {
-            margin-top: 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #451a03;
+            line-height: 1.3;
         }
 
         .story p {
-            margin-bottom: 0.75rem;
-            color: #4b5563;
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 15px;
             line-height: 1.7;
         }
 
-        .source {
-            font-size: 0.8rem;
-            color: #9ca3af;
-            margin-top: 0.5rem;
-            font-style: italic;
+        .story-source {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid #e5e5e5;
         }
 
-        .source a {
+        .source-link {
             color: #b45309;
             text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            word-break: break-all;
         }
 
-        .source a:hover {
+        .source-link:hover {
+            color: #92400e;
             text-decoration: underline;
         }
 
+        .lead-story {
+            border-left: 4px solid #b45309;
+        }
+
+        .lead-label {
+            display: inline-block;
+            background: #b45309;
+            color: white;
+            padding: 4px 8px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            border-radius: 3px;
+        }
+
         .quick-hits {
-            background-color: #fffbeb;
-            border-left: 3px solid #b45309;
-            padding: 1.5rem;
-            border-radius: 4px;
+            background: white;
+            padding: 24px;
+            margin-bottom: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .quick-hits h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #451a03;
         }
 
         .quick-hits ul {
             list-style: none;
-            padding-left: 0;
         }
 
         .quick-hits li {
-            margin-bottom: 0.75rem;
-            padding-left: 1.5rem;
+            padding: 12px 0;
+            padding-left: 28px;
             position: relative;
-            color: #4b5563;
+            color: #333;
+            font-size: 15px;
             line-height: 1.6;
-        }
-
-        .quick-hits li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #b45309;
-            font-weight: 600;
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .quick-hits li:last-child {
-            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quick-hits li:before {
+            content: "▪";
+            position: absolute;
+            left: 8px;
+            color: #b45309;
+            font-weight: bold;
         }
 
         .footer {
             text-align: center;
-            padding: 2rem 1rem;
-            color: #6b7280;
-            font-size: 0.875rem;
+            padding: 24px;
+            color: #666;
+            font-size: 13px;
+            margin-top: 32px;
         }
 
-        .footer-link {
-            color: #b45309;
-            text-decoration: none;
-            font-weight: 500;
+        .footer-divider {
+            height: 1px;
+            background: #e5e5e5;
+            margin: 24px 0;
         }
 
-        .footer-link:hover {
-            text-decoration: underline;
-        }
-
-        .copyright {
-            margin-top: 1rem;
-            color: #9ca3af;
-        }
-
-        @media (max-width: 640px) {
-            h1 {
-                font-size: 2rem;
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 32px;
             }
 
-            h2 {
-                font-size: 1.5rem;
+            .snapshot-grid {
+                grid-template-columns: 1fr;
             }
 
-            .card {
-                padding: 1.5rem;
+            .container {
+                padding: 16px;
             }
 
-            .metric {
-                padding: 0.75rem;
+            .snapshot, .story, .quick-hits {
+                padding: 16px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="header-container">
-            <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
-            <h1>The Morning Wire</h1>
-            <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">Crypto Deep Dive</p>
-            <p class="publish-date">Saturday, March 28, 2026</p>
+    <div class="container">
+        <!-- Back Link -->
+        <div class="back-link">
+            <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
         </div>
-    </div>
 
-    <div class="main-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-branding">The Morning Wire</div>
+            <h1>Crypto Deep Dive</h1>
+            <p>Your Sunday market analysis and regulatory update</p>
+            <div class="date">Sunday, March 29, 2026</div>
+        </div>
+
         <!-- Market Snapshot -->
-        <div class="card">
+        <div class="snapshot">
             <h2>Market Snapshot</h2>
-            <div class="market-snapshot">
-                <div class="metric">
-                    <div class="metric-label">Bitcoin</div>
-                    <div class="metric-value">$66,265 <span class="metric-change negative">▼ 0.57% (24h)</span> | Down ~20% YTD</div>
+            <div class="snapshot-grid">
+                <div class="snapshot-item">
+                    <label>Bitcoin</label>
+                    <div class="value">$66,600</div>
+                    <div class="change negative">↓ 2.3% (24h)</div>
+                    <div class="change negative">↓ 20% (YTD)</div>
                 </div>
-                <div class="metric">
-                    <div class="metric-label">Ethereum</div>
-                    <div class="metric-value"><span class="negative">Down ~4% in 24h</span></div>
+                <div class="snapshot-item">
+                    <label>Ethereum</label>
+                    <div class="value">—</div>
+                    <div class="change negative">↓ 6-8% (weekly)</div>
                 </div>
-                <div class="metric">
-                    <div class="metric-label">Total Market Cap</div>
-                    <div class="metric-value">$2.28T <span class="metric-change negative">▼ 2.19%</span></div>
+                <div class="snapshot-item">
+                    <label>Solana</label>
+                    <div class="value">~$85</div>
+                    <div class="change negative">↓ 72% (ATH)</div>
                 </div>
-                <div class="metric">
-                    <div class="metric-label">Fear & Greed Index</div>
-                    <div class="metric-value"><span class="negative">12 (Extreme Fear)</span></div>
+                <div class="snapshot-item">
+                    <label>Market Cap Change</label>
+                    <div class="value">-$80B+</div>
+                    <div class="change negative">Past week</div>
                 </div>
-                <div class="metric">
-                    <div class="metric-label">Bitcoin ETF Flows</div>
-                    <div class="metric-value">Reclaimed $3B of $9B outflows</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-label">Crypto Trading Volume</div>
-                    <div class="metric-value"><span class="negative">Down 2.19% in 24h</span></div>
-                </div>
+            </div>
+            <div class="sentiment">
+                <label>Market Sentiment</label>
+                <div class="sentiment-value">Extreme Fear</div>
             </div>
         </div>
 
         <!-- Lead Story -->
-        <div class="card">
-            <h2>Bitcoin Tests $66K as Extreme Fear Grips Markets</h2>
-            <p>Bitcoin is trading at $66,348 after a 3.33% loss, with the total crypto market dropping 3.1% to $2.37T. The Fear & Greed Index sits at 12, signaling extreme fear and a potential accumulation phase. Bitcoin is down around 20% in 2026, battered by geopolitical uncertainty from the Iran war and rising oil prices that threaten stagflation.</p>
-            <p>Bitcoin ETFs have reclaimed $3 billion of $9 billion in outflows, but investors remain underwater as BTC trades below cost basis for many holders. The broader crypto selloff reflects risk-off sentiment as equities also tumble.</p>
-            <div class="source">
-                Sources: <a href="https://coincodex.com/article/83392/daily-market-update-for-march-28-2026/">CoinCodex</a>, <a href="https://www.fool.com/investing/2026/03/25/bitcoin-is-down-20-in-2026-heres-why-things-could/">Motley Fool</a>
+        <div class="story lead-story">
+            <span class="lead-label">Lead Story</span>
+            <h3>SEC and CFTC Issue Landmark Joint Crypto Classification</h3>
+            <p>
+                In a watershed moment for the crypto industry, the SEC issued a groundbreaking interpretation on March 17, 2026, clarifying how federal securities laws apply to digital assets. The CFTC joined the effort, creating what may be the clearest regulatory framework yet for cryptocurrency.
+            </p>
+            <p>
+                The agencies' joint guidance established a comprehensive five-part token taxonomy and made crucial distinctions: Bitcoin, Ethereum, Solana, and XRP are classified as "digital commodities"—not securities. This removes substantial regulatory uncertainty that has plagued the sector for years.
+            </p>
+            <p>
+                The interpretation also provides critical exemptions: airdrops, protocol staking, and mining are excluded from securities regulation. Investment contracts end when the issuer fulfills or fails on its promises, establishing clearer termination points for token offerings.
+            </p>
+            <p>
+                While the guidance may not solve all regulatory questions, it represents the first time federal regulators have provided consistent, joint definitions about what crypto assets actually are—a major step toward institutional adoption.
+            </p>
+            <div class="story-source">
+                <strong>Source:</strong> <a href="https://www.coindesk.com/policy/2026/03/17/u-s-sec-issues-first-ever-definitions-for-what-crypto-assets-are-securities" class="source-link" target="_blank">CoinDesk - U.S. SEC Issues First-Ever Definitions for What Crypto Assets Are Securities</a>
             </div>
         </div>
 
-        <!-- Stories -->
-        <div class="card">
-            <h2>Top Stories</h2>
-
-            <div class="story">
-                <h3>SEC & CFTC Issue Landmark Joint Crypto Guidance</h3>
-                <p>On March 17, 2026, the SEC issued an interpretation clarifying how federal securities laws apply to crypto assets. The landmark joint guidance with the CFTC covers airdrops, protocol mining, protocol staking, and wrapping of non-security crypto assets. SEC Chair Paul Atkins pledged an "innovation exemption" allowing crypto startups to test products under lighter requirements while meeting basic consumer protection standards.</p>
-                <div class="source">
-                    Source: <a href="https://www.ropesgray.com/en/insights/alerts/2026/03/sec-and-cftc-issue-landmark-joint-guidance-on-classification-of-crypto-assets/">Ropes & Gray</a>
-                </div>
+        <!-- Story 1 -->
+        <div class="story">
+            <h3>Bitcoin Struggles at $66,600 as Geopolitical Fears Dominate</h3>
+            <p>
+                Bitcoin remains under pressure, trading near $66,600 with a 2.3% decline over the past 24 hours and a devastating 20% year-to-date loss. The flagship cryptocurrency is now sitting 43% below its October 2025 record high, a stark reminder of the volatility that continues to plague digital assets.
+            </p>
+            <p>
+                Multiple geopolitical tensions and persistent inflation concerns are keeping institutional and retail investors on the sidelines. The combination of macroeconomic headwinds and global instability has pushed market sentiment to "Extreme Fear," the lowest reading on the Fear and Greed Index, making this one of the most challenging periods for the sector in months.
+            </p>
+            <div class="story-source">
+                <strong>Source:</strong> <a href="https://www.latestly.com/business/bitcoin-price-today-march-29-2026-btc-price-slightly-up-at-usd-66600-amid-market-volatility-geopolitical-tensions-7371407.html" class="source-link" target="_blank">Latestly - Bitcoin Price Today March 29, 2026</a>
             </div>
+        </div>
 
-            <div class="story">
-                <h3>CLARITY Act Draft Threatens Stablecoin Yield</h3>
-                <p>A new draft of the CLARITY Act proposing to prohibit platforms from offering yield on stablecoins triggered crypto sector sell-offs. The legislation could hand stablecoin power back to traditional banks, fundamentally reshaping the DeFi landscape. The bill is one of several key crypto bills being watched in Congress.</p>
-                <div class="source">
-                    Source: <a href="https://www.pymnts.com/cryptocurrency/2026/cryptos-clarity-shock-could-hand-stablecoin-power-back-to-banks/">PYMNTS</a>
-                </div>
+        <!-- Story 2 -->
+        <div class="story">
+            <h3>European Central Bank Launches Formal Altcoin Investigation Under MiCA</h3>
+            <p>
+                The European Central Bank has initiated a formal investigation into four altcoins under its Markets in Crypto-Assets (MiCA) regulatory framework, signaling intensified scrutiny in the European Union. This move underscores the EU's commitment to enforcing its comprehensive crypto regulations, which took effect earlier this year.
+            </p>
+            <p>
+                The investigation reflects the ECB's role as a key regulator in implementing MiCA requirements, which impose strict capital reserve rules, custody standards, and operational requirements on crypto service providers. European exchanges and projects should expect increased compliance demands going forward.
+            </p>
+            <div class="story-source">
+                <strong>Source:</strong> <a href="https://www.cryptointegrat.com/p/crypto-news-march-26-2026" class="source-link" target="_blank">Crypto Integrat - Crypto News March 26, 2026</a>
             </div>
+        </div>
 
-            <div class="story">
-                <h3>Solana ETFs Hit $540M in Institutional Holdings</h3>
-                <p>Over 30 major institutions collectively hold approximately $540 million in Solana ETF products as of March 2026, with Goldman Sachs holding $107.4M and Electric Capital at $137.8M. WisdomTree deployed its full suite of tokenized funds on Solana, surpassing $1.3B in RWA (real-world asset) value. Bitwise CIO Matt Hougan says Solana has a path to becoming a trillion-dollar asset.</p>
-                <div class="source">
-                    Source: <a href="https://www.dextools.io/news/is-a-solana-etf-coming">DexTools</a>
-                </div>
+        <!-- Story 3 -->
+        <div class="story">
+            <h3>CLARITY Act Stalls in Senate — Crypto Legislation at Risk</h3>
+            <p>
+                The Crypto-Asset Liability and Regulatory Accountability (CLARITY) Act, which successfully passed the House in July 2025, has stalled in the Senate Banking Committee. The committee postponed its markup session, raising concerns among crypto advocates that momentum for comprehensive digital asset legislation could evaporate.
+            </p>
+            <p>
+                With midterm elections looming in 2026, crypto proponents fear that without Senate action soon, the political window for passing major legislation will close. Adding to concerns is a controversial provision involving stablecoin yields, which has drawn scrutiny from regulators and some lawmakers.
+            </p>
+            <p>
+                Industry observers view Senate action on the CLARITY Act as critical for establishing clear rules around stablecoin issuance, custody, and trading that would accelerate mainstream adoption.
+            </p>
+            <div class="story-source">
+                <strong>Source:</strong> <a href="https://www.dlnews.com/articles/regulation/key-dates-for-us-crypto-regulation-in-2026/" class="source-link" target="_blank">DLNews - Key Dates for U.S. Crypto Regulation in 2026</a>
             </div>
+        </div>
 
-            <div class="story">
-                <h3>SUDO Token Surges 225% on Treasury Proposal</h3>
-                <p>Sudoswap's SUDO token shot up 225% after a proposal to allocate $800,000 in treasury funds. Traders began seeking arbitrage before voting commenced on March 28, driving massive volume in the otherwise quiet altcoin market.</p>
-                <div class="source">
-                    Source: <a href="https://coincodex.com/article/83392/daily-market-update-for-march-28-2026/">CoinCodex</a>
-                </div>
+        <!-- Story 4 -->
+        <div class="story">
+            <h3>CFTC Chair Plans to Bring Perpetual Futures Back to US</h3>
+            <p>
+                The Commodity Futures Trading Commission (CFTC) chair announced plans to revive perpetual futures trading in the United States, marking a significant reversal from previous regulatory restraint. "Bringing true crypto perpetual futures back to the United States is a key task of pro-innovation policy," the chair stated.
+            </p>
+            <p>
+                Perpetual futures—leverage trading instruments that allow investors to bet on price movements without contract expiration dates—were effectively unavailable to U.S. traders following regulatory crackdowns on unregistered derivatives platforms. Their return would represent a major step toward legitimizing crypto derivatives and bringing trading activity back offshore platforms back onshore.
+            </p>
+            <div class="story-source">
+                <strong>Source:</strong> <a href="https://www.thecoinrepublic.com/2026/03/26/us-crypto-regulation-cftc-eyes-revival-of-perpetual-futures-trading/" class="source-link" target="_blank">The Coin Republic - U.S. Crypto Regulation: CFTC Eyes Revival of Perpetual Futures Trading</a>
             </div>
+        </div>
 
-            <div class="story">
-                <h3>Ethereum Foundation Releases New 38-Page Mandate</h3>
-                <p>The Ethereum Foundation released a comprehensive 38-page mandate outlining its role as a neutral steward focused on maintaining Ethereum's decentralized infrastructure and supporting public goods. Ethereum leads the 2026 altcoin market as institutional-grade infrastructure with 170% upside potential driven by CLARITY Act regulatory clarity and Layer 2 scalability.</p>
-                <div class="source">
-                    Source: <a href="https://www.coindesk.com/tech/2026/01/03/ethereum-and-solana-set-the-stage-for-2026-s-defi-reboot">CoinDesk</a>
-                </div>
+        <!-- Story 5 -->
+        <div class="story">
+            <h3>Solana in Freefall: Down 72% From All-Time High</h3>
+            <p>
+                Solana has become one of the worst performers in the crypto market, plunging 72% from its all-time high and trading near $85. The decline mirrors troubling fundamental indicators: network transactions have dropped 3.2%, and the number of active addresses has fallen 11% over the past month alone.
+            </p>
+            <p>
+                The weakness in on-chain metrics suggests declining developer and user interest, raising questions about the robustness of Solana's ecosystem. While the network has made strides in stability and speed improvements, the freefall in price and activity metrics indicates investor confidence has eroded significantly amid broader crypto market weakness.
+            </p>
+            <div class="story-source">
+                <strong>Source:</strong> <a href="https://247wallst.com/investing/2026/03/28/why-is-crypto-crashing-bitcoin-xrp-ethereum-and-solana-all-down-this-week/" class="source-link" target="_blank">24/7 Wall St. - Why Is Crypto Crashing? Bitcoin, XRP, Ethereum and Solana All Down</a>
             </div>
+        </div>
 
-            <div class="story">
-                <h3>Trump Praises Bitcoin at Future Investment Summit</h3>
-                <p>During the Future Investment Initiative summit, President Trump praised Bitcoin, indicating its usage is increasing and more people are ready to accept cryptocurrency payments. The endorsement provided brief relief in an otherwise bearish market.</p>
-                <div class="source">
-                    Source: <a href="https://www.coingabbar.com/en/crypto-currency-news/latest-crypto-market-update-today-march-28-btc-eth-price-fell">CoinGabbar</a>
-                </div>
+        <!-- Story 6 -->
+        <div class="story">
+            <h3>Binance CEO CZ Issues Urgent Warning on Crypto Listing Scams</h3>
+            <p>
+                The CEO of Binance has issued an urgent warning to investors about sophisticated scams targeting unsuspecting crypto traders seeking to list or trade tokens on major exchanges. Scammers are increasingly impersonating exchange officials and project developers to steal funds or gain unauthorized access to accounts.
+            </p>
+            <p>
+                With market sentiment already fragile and retail investors on edge, fraudulent schemes are proliferating. Users are advised to exercise extreme caution when approached with offers for expedited listings, exclusive trading access, or guaranteed returns. Always verify communications directly with official channels rather than responding to unsolicited messages.
+            </p>
+            <div class="story-source">
+                <strong>Source:</strong> <a href="https://bitrss.com/crypto-market-summary-march-28-2026-196831" class="source-link" target="_blank">BitRSS - Crypto Market Summary March 28, 2026</a>
             </div>
         </div>
 
         <!-- Quick Hits -->
-        <div class="card">
+        <div class="quick-hits">
             <h2>Quick Hits</h2>
-            <div class="quick-hits">
-                <ul>
-                    <li>California's Digital Financial Assets Law takes effect July 1, 2026 requiring licenses</li>
-                    <li>GENIUS Act implementation rules expected by mid-2026 (custody, capital, compliance)</li>
-                    <li>PwC says 2026 is the year crypto rules move from drafts to reality globally</li>
-                    <li>Crypto regulation shifting from rule-writing to implementation phase</li>
-                    <li>Bitcoin quarterly options expiry contributed to recent price volatility</li>
-                </ul>
-            </div>
+            <ul>
+                <li><strong>Rate Cut Uncertainty:</strong> Only a single rate cut is expected from the Federal Reserve this year, a headwind for crypto assets that benefit from lower interest rate environments.</li>
+                <li><strong>Stablecoin Legislation Doubts:</strong> Growing skepticism about whether comprehensive stablecoin legislation will pass Congress before the 2026 midterms.</li>
+                <li><strong>Iran War Volatility:</strong> Ongoing tensions in Iran are adding another layer of geopolitical uncertainty to already fragile crypto markets.</li>
+                <li><strong>DeFi Reboot Narrative:</strong> Despite current weakness, a new narrative is building around a DeFi reboot for 2026 as Ethereum and Solana infrastructure continues to mature and improve.</li>
+            </ul>
         </div>
 
-        <!-- Regulatory Outlook -->
-        <div class="card">
-            <h2>Regulatory Outlook</h2>
-            <p>2026 marks a pivotal shift from regulation-writing to operationalizing existing frameworks. The GENIUS Act (stablecoins), CLARITY Act (market structure), and SEC/CFTC joint guidance are reshaping crypto's legal landscape. With implementation timelines crystallizing and state-level rules taking effect, crypto's regulatory foundation is transitioning from uncertainty to clarity—creating both challenges and opportunities for market participants navigating this new era.</p>
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-divider"></div>
+            <p>The Morning Wire provides timely market analysis and regulatory updates for cryptocurrency investors and professionals.</p>
+            <p style="margin-top: 12px;">
+                <a href="daily-newsletter.html" style="color: #b45309; text-decoration: none; font-weight: 600;">← Back to Daily Newsletter</a>
+            </p>
+            <p style="margin-top: 16px; opacity: 0.7;">Published March 29, 2026</p>
         </div>
-    </div>
-
-    <div class="footer">
-        <a href="daily-newsletter.html" class="footer-link">← Back to Daily Newsletter</a>
-        <div class="copyright">The Morning Wire © 2026</div>
     </div>
 </body>
 </html>

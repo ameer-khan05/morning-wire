@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Morning Wire — World News Deep Dive</title>
+    <title>The Morning Wire - World News Deep Dive - March 29, 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -14,370 +14,373 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f9fafb;
-            color: #1f2937;
-            line-height: 1.6;
+            background-color: #f5f5f5;
             padding: 20px;
+            line-height: 1.6;
+            color: #333;
         }
 
         .container {
             max-width: 760px;
             margin: 0 auto;
+            background-color: white;
         }
 
-        /* Back link */
         .back-link {
+            padding: 20px;
+            border-bottom: 1px solid #e5e5e5;
             display: inline-block;
-            margin-bottom: 30px;
-            font-size: 14px;
+            width: 100%;
         }
 
         .back-link a {
             color: #b91c1c;
             text-decoration: none;
-            transition: color 0.2s;
+            font-weight: 500;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .back-link a:hover {
-            color: #991b1b;
+            text-decoration: underline;
         }
 
-        /* Header */
         .header {
             background: linear-gradient(135deg, #450a0a 0%, #b91c1c 100%);
             color: white;
             padding: 40px 30px;
-            border-radius: 8px;
-            margin-bottom: 30px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .header h1 {
+        .logo {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            opacity: 0.95;
+        }
+
+        .title {
             font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            margin-bottom: 10px;
+            font-size: 42px;
+            margin-bottom: 12px;
             font-weight: 700;
         }
 
-        .header .date {
+        .date {
             font-size: 14px;
-            opacity: 0.95;
-            letter-spacing: 0.5px;
+            opacity: 0.9;
         }
 
-        /* Card styling */
-        .card {
-            background: white;
-            padding: 30px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-            transition: box-shadow 0.2s;
+        .content {
+            padding: 40px 30px;
         }
 
-        .card:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
-        }
-
-        /* Section titles */
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 24px;
+            font-size: 28px;
             color: #450a0a;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #f3f4f6;
+            margin-top: 0;
+            margin-bottom: 8px;
             font-weight: 700;
         }
 
-        /* Conflict tracker */
-        .conflict-item {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .conflict-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .conflict-title {
-            font-weight: 600;
+        .section-label {
+            font-size: 12px;
             color: #b91c1c;
-            font-size: 15px;
-            margin-bottom: 5px;
-        }
-
-        .conflict-stats {
-            font-size: 14px;
-            color: #6b7280;
-        }
-
-        /* Story styling */
-        .story h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            color: #1f2937;
+            font-weight: 600;
+            letter-spacing: 1px;
             margin-bottom: 12px;
-            font-weight: 700;
+            text-transform: uppercase;
         }
 
-        .story p {
-            margin-bottom: 12px;
+        .lead-story {
+            background-color: #fafafa;
+            border-left: 4px solid #b91c1c;
+            padding: 25px;
+            margin-bottom: 35px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .lead-story .section-title {
+            margin-top: 0;
+            font-size: 26px;
+            line-height: 1.3;
+        }
+
+        .story-body {
             font-size: 15px;
             line-height: 1.7;
+            margin-bottom: 15px;
         }
 
-        .story-source {
+        .story-card {
+            background-color: white;
+            border: 1px solid #e5e5e5;
+            padding: 22px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .story-card:hover {
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #450a0a;
+            margin-bottom: 10px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .story-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .source-link {
             font-size: 12px;
-            color: #9ca3af;
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid #f3f4f6;
+            color: #666;
         }
 
-        .story-source a {
+        .source-link a {
             color: #b91c1c;
             text-decoration: none;
             word-break: break-all;
         }
 
-        .story-source a:hover {
+        .source-link a:hover {
             text-decoration: underline;
         }
 
-        /* Lead story */
-        .lead-story {
-            background: linear-gradient(135deg, rgba(185, 28, 28, 0.05) 0%, rgba(69, 10, 10, 0.02) 100%);
-            border-left: 4px solid #b91c1c;
+        .stories-section {
+            margin-bottom: 40px;
         }
 
-        .lead-story h2 {
+        .stories-section .section-label {
+            margin-top: 30px;
+        }
+
+        .quick-hits {
+            background-color: #fafafa;
+            padding: 25px;
+            border-radius: 4px;
+            margin-top: 30px;
+            border-left: 4px solid #b91c1c;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+        }
+
+        .quick-hits h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 28px;
+            font-size: 20px;
             color: #450a0a;
             margin-bottom: 15px;
             font-weight: 700;
         }
 
-        /* Stories grid */
-        .stories-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        /* Quick hits */
         .quick-hits ul {
             list-style: none;
-            padding-left: 0;
+            padding: 0;
         }
 
         .quick-hits li {
-            padding-left: 24px;
-            margin-bottom: 12px;
-            position: relative;
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.6;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
         }
 
         .quick-hits li:before {
             content: "•";
-            color: #b91c1c;
-            font-weight: bold;
             position: absolute;
             left: 0;
+            color: #b91c1c;
+            font-weight: bold;
         }
 
-        /* Footer */
+        .quick-hits li:last-child {
+            margin-bottom: 0;
+        }
+
         .footer {
+            border-top: 1px solid #e5e5e5;
+            padding: 30px;
             text-align: center;
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 2px solid #f3f4f6;
-            color: #6b7280;
             font-size: 13px;
+            color: #666;
         }
 
-        .footer a {
+        .footer-link {
+            margin-top: 15px;
+        }
+
+        .footer-link a {
             color: #b91c1c;
             text-decoration: none;
-            transition: color 0.2s;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .footer a:hover {
-            color: #991b1b;
+        .footer-link a:hover {
+            text-decoration: underline;
         }
 
-        /* Responsive */
-        @media (max-width: 640px) {
-            .header h1 {
-                font-size: 28px;
+        @media (max-width: 600px) {
+            .container {
+                border-radius: 0;
+            }
+
+            .title {
+                font-size: 32px;
             }
 
             .section-title {
+                font-size: 22px;
+            }
+
+            .lead-story .section-title {
                 font-size: 20px;
             }
 
-            .card {
-                padding: 20px;
+            .story-card h3 {
+                font-size: 16px;
             }
 
-            .story h3 {
-                font-size: 18px;
+            .content {
+                padding: 25px 20px;
+            }
+
+            .header {
+                padding: 30px 20px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Back link top -->
         <div class="back-link">
             <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
         </div>
 
-        <!-- Header -->
         <div class="header">
-            <h1>The Morning Wire — World News Deep Dive</h1>
-            <div class="date">Saturday, March 28, 2026</div>
+            <div class="logo">THE MORNING WIRE</div>
+            <div class="title">World News Deep Dive</div>
+            <div class="date">Sunday, March 29, 2026</div>
         </div>
 
-        <!-- Conflict Tracker -->
-        <div class="card">
-            <div class="section-title">Conflict Tracker</div>
+        <div class="content">
+            <!-- Lead Story -->
+            <div class="lead-story">
+                <div class="section-label">Lead Story</div>
+                <h1 class="section-title">Iran War Day 29 — Ceasefire Talks Deadlocked as Strikes Continue</h1>
 
-            <div class="conflict-item">
-                <div class="conflict-title">Iran War</div>
-                <div class="conflict-stats">Day 29 — 1,900+ killed, 20,000+ injured since Feb 28</div>
-            </div>
+                <div class="story-body">
+                    The US-Israel conflict with Iran has entered its second month with no resolution in sight. The war began February 28 when the US and Israel launched surprise airstrikes killing Supreme Leader Ali Khamenei and several officials. Iran has since responded with missile and drone strikes against Israel, US bases, and US allies. The Strait of Hormuz remains closed, disrupting 20% of global crude supply.
+                </div>
 
-            <div class="conflict-item">
-                <div class="conflict-title">Ukraine-Russia</div>
-                <div class="conflict-stats">Day 1,494 — Russia controls ~20% of Ukraine's territory</div>
-            </div>
+                <div class="story-body">
+                    Iran dismissed the US 15-point peace plan as "maximalist, unreasonable." Iran's foreign minister stated "No negotiations have happened with the enemy until now, and we do not plan on any negotiations." Iran issued its own counterproposal demanding: halt to killings of officials, guarantees against future wars, reparations, end of hostilities, and sovereignty over the Strait of Hormuz.
+                </div>
 
-            <div class="conflict-item">
-                <div class="conflict-title">Lebanon</div>
-                <div class="conflict-stats">1,142 killed, 3,315 injured since March 2</div>
-            </div>
-        </div>
+                <div class="story-body">
+                    Trump extended the deadline for Iran to reopen the Strait to April 6, holding off on striking Iran's power plants. US envoy Steve Witkoff said he expects meetings "this week."
+                </div>
 
-        <!-- Lead Story -->
-        <div class="card lead-story">
-            <div class="story">
-                <h2>Iran War Reaches One Month — Houthis Enter the Fray</h2>
-                <p>The US-Israel war on Iran has reached its one-month mark with the conflict widening dangerously. Yemen's Houthi rebels confirmed their first attack on Israel since the war began February 28. At least 10 US service members were injured in an Iranian attack on Prince Sultan Air Base in Saudi Arabia, with at least two suffering shrapnel wounds. Israel's military struck a heavy water reactor in Iran, which it said was part of Iran's nuclear enrichment program. President Trump warned the war is "not finished" with thousands of targets remaining. The Strait of Hormuz — through which about 20% of the world's oil flows — remains largely blocked, causing global economic disruption.</p>
-                <div class="story-source">
-                    <strong>Sources:</strong>
-                    <a href="https://www.npr.org/2026/03/28/nx-s1-5764720/iran-war-one-month" target="_blank">NPR</a> •
-                    <a href="https://www.cnn.com/2026/03/28/world/live-news/iran-war-us-israel-trump" target="_blank">CNN</a> •
-                    <a href="https://www.aljazeera.com/news/liveblog/2026/3/28/iran-war-live-trump-again-slams-natos-lack-of-support-for-war-on-tehran" target="_blank">Al Jazeera</a>
+                <div class="source-link">
+                    Sources: <a href="https://www.aljazeera.com/news/2026/3/28/iran-war-what-is-happening-on-day-29-of-us-israel-attacks" target="_blank">Al Jazeera</a>, <a href="https://www.pbs.org/newshour/world/iran-dismisses-u-s-ceasefire-plan-and-issues-its-own-counterproposal" target="_blank">PBS NewsHour</a>
                 </div>
             </div>
-        </div>
 
-        <!-- Stories -->
-        <div class="stories-grid">
-            <!-- Story 1 -->
-            <div class="card">
-                <div class="story">
-                    <h3>US Troops Wounded in Attack on Saudi Base</h3>
-                    <p>At least 10 US service members were injured in an Iranian attack on Prince Sultan Air Base in Saudi Arabia — one of the most direct attacks on US forces during the conflict. No service members were killed, and at least two had shrapnel wounds considered not life-threatening. The attack underscores the expanding geographic scope of the war.</p>
-                    <div class="story-source">
-                        <strong>Source:</strong> <a href="https://www.npr.org/2026/03/28/nx-s1-5764720/iran-war-one-month" target="_blank">NPR</a>
+            <!-- World Stories Section -->
+            <div class="stories-section">
+                <div class="section-label">World Stories</div>
+
+                <div class="story-card">
+                    <h3>Israel Strikes Isfahan, Claims Kill on Revolutionary Guard Navy Chief</h3>
+                    <p>Israel launched wave of strikes targeting Iranian infrastructure in central city of Isfahan, and claimed it killed the head of the Iranian Revolutionary Guard's navy.</p>
+                    <div class="source-link">
+                        <a href="https://www.aljazeera.com/news/2026/3/28/iran-war-what-is-happening-on-day-29-of-us-israel-attacks" target="_blank">Al Jazeera</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <h3>Iranian Strike on Saudi Air Base Wounds US Service Members</h3>
+                    <p>An Iranian strike on an air base in Saudi Arabia wounded several US service members, marking an expansion of the conflict beyond direct US-Iran and Israel-Iran confrontation.</p>
+                    <div class="source-link">
+                        <a href="https://www.aljazeera.com/news/2026/3/28/iran-war-what-is-happening-on-day-29-of-us-israel-attacks" target="_blank">Al Jazeera</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <h3>Trump "Very Disappointed" with NATO Response</h3>
+                    <p>The president expressed frustration with NATO's response to the US-Israeli war on Iran. US allies are publicly distancing themselves from the conflict while quietly calculating independence.</p>
+                    <div class="source-link">
+                        <a href="https://www.cnbc.com/2026/03/25/iran-war-us-trump.html" target="_blank">CNBC</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <h3>Sudan Accuses Ethiopia of "Hostile Acts"</h3>
+                    <p>Sudan's military government accused Ethiopia of drone strikes from its territory against Sudanese targets. Mounting evidence that Addis Ababa has been supporting the paramilitary Rapid Support Forces.</p>
+                    <div class="source-link">
+                        <a href="https://www.ey.com/en_us/insights/geostrategy/geostrategic-analysis" target="_blank">EY Geostrategy Analysis</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <h3>US Withdraws from Multiple International Organizations</h3>
+                    <p>Trump signed executive orders to withdraw US engagement from multiple international organizations. The US has historically been the largest UN donor.</p>
+                    <div class="source-link">
+                        <a href="https://www.cfr.org/articles/trumps-2026-state-of-the-union-foreign-policy-issue-guide" target="_blank">Council on Foreign Relations</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <h3>China Prepares for Major Diplomatic Year</h3>
+                    <p>President Xi to host APEC Economic Leaders' Meeting and second China-Arab States Summit. China extending AI infrastructure through Digital Silk Road partnerships across Global South.</p>
+                    <div class="source-link">
+                        <a href="https://www.fmprc.gov.cn/eng/wjbzhd/202603/t20260308_11870805.html" target="_blank">Chinese Ministry of Foreign Affairs</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <h3>AI Governance Becomes Geopolitical Battleground</h3>
+                    <p>EU, US, and China advancing distinct AI governance frameworks. US linking geopolitical alignment to AI technology access. ASEAN plans Digital Economy pact for 2026.</p>
+                    <div class="source-link">
+                        <a href="https://www.ey.com/en_us/insights/geostrategy/geostrategic-analysis" target="_blank">EY Geostrategy Analysis</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Story 2 -->
-            <div class="card">
-                <div class="story">
-                    <h3>Israel Strikes Iranian Heavy Water Reactor</h3>
-                    <p>Israel's military reported striking a heavy water reactor in Iran, claiming it was part of Iran's nuclear enrichment program. The strike represents a significant escalation targeting Iran's nuclear infrastructure. Iran has fired waves of missiles and drones at Israel in retaliation, while Tehran strongly rejects US claims that Iran's Navy has been destroyed.</p>
-                    <div class="story-source">
-                        <strong>Source:</strong> <a href="https://www.jpost.com/middle-east/iran-news/2026-03-27/live-updates-891386" target="_blank">Jerusalem Post</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Story 3 -->
-            <div class="card">
-                <div class="story">
-                    <h3>Ukraine Peace Deal 90-95% Agreed, Trump and Zelenskyy Say</h3>
-                    <p>Presidents Trump and Zelenskyy have agreed on 90 to 95 percent of a peace proposal, with the United States appearing to endorse European plans for security guarantees and a reassurance force for Ukraine. Russian forces have captured ~29,154 square miles (13% of Ukraine) since 2022. As of March 26, 158 combat engagements were recorded in 24 hours with 231 guided aerial bombs dropped. Russia has suffered approximately 1,293,170 casualties.</p>
-                    <div class="story-source">
-                        <strong>Source:</strong> <a href="https://www.russiamatters.org/news/russia-ukraine-war-report-card/russia-ukraine-war-report-card-march-25-2026" target="_blank">Russia Matters</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Story 4 -->
-            <div class="card">
-                <div class="story">
-                    <h3>Sudan Accuses Ethiopia of 'Hostile Acts'</h3>
-                    <p>Sudan's military-led government accused neighboring Ethiopia of "hostile acts," noting that drone strikes had been launched from Ethiopian territory against targets in Sudan. Mounting evidence suggests Addis Ababa has been supporting the paramilitary Rapid Support Forces, threatening to draw another major African power into the conflict.</p>
-                    <div class="story-source">
-                        <strong>Source:</strong> <a href="https://www.foreignaffairs.com/" target="_blank">Foreign Affairs</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Story 5 -->
-            <div class="card">
-                <div class="story">
-                    <h3>China Condemns Iran Strikes as 'Grave Violation of Sovereignty'</h3>
-                    <p>China characterized the US-Israel attack and killing of Iran's supreme leader as "a grave violation of Iran's sovereignty and security" that "tramples on the purposes and principles of the UN Charter." The strong condemnation highlights deepening geopolitical fault lines as the world's great powers take sides.</p>
-                    <div class="story-source">
-                        <strong>Source:</strong> <a href="https://www.fmprc.gov.cn/eng/wjbzhd/202603/t20260308_11870805.html" target="_blank">Chinese Foreign Ministry</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Story 6 -->
-            <div class="card">
-                <div class="story">
-                    <h3>Trump Slams NATO's Lack of Support for Iran War</h3>
-                    <p>President Trump again criticized NATO allies for their lack of support for the US-led war on Iran. Europe is described as rattled by Trump's approach to geopolitics but unable to produce an alternative vision, with Trump's trade policies testing relationships with closest allies including Australia, Canada, Europe, Japan, and New Zealand.</p>
-                    <div class="story-source">
-                        <strong>Source:</strong> <a href="https://www.aljazeera.com/news/liveblog/2026/3/28/iran-war-live-trump-again-slams-natos-lack-of-support-for-war-on-tehran" target="_blank">Al Jazeera</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Story 7 -->
-            <div class="card">
-                <div class="story">
-                    <h3>India and Russia Resume Direct LNG Supplies</h3>
-                    <p>India and Russia agreed to resume direct supplies of liquefied natural gas, signaling the two countries' continued energy partnership despite Western pressure. The deal comes as global energy markets face severe disruption from the Iran war and Strait of Hormuz blockage.</p>
-                    <div class="story-source">
-                        <strong>Source:</strong> <a href="https://news-pravda.com/world/2026/03/28/2188565.html" target="_blank">Pravda News</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Quick Hits -->
-        <div class="card">
-            <div class="section-title">Quick Hits</div>
+            <!-- Quick Hits -->
             <div class="quick-hits">
+                <h2>Quick Hits</h2>
                 <ul>
-                    <li>At least 1,900 people killed, 20,000 injured in Iran since Feb 28 (Iranian Red Crescent)</li>
-                    <li>Israeli strikes on Lebanon have killed 1,142, injured 3,315 since March 2</li>
-                    <li>North troop group continued establishing Sanitary Zone in Kharkiv/Sumy regions</li>
-                    <li>Venezuela conflict simmering alongside major global flashpoints</li>
-                    <li>World Bank's Global Supply Chain Stress Index showing elevated shipping delays</li>
-                    <li>Xi Jinping set to host APEC and second China-Arab States Summit in 2026</li>
+                    <li>Rising supply chain stress with elevated shipping delays globally</li>
+                    <li>Strait of Hormuz closure causing global energy market turmoil</li>
+                    <li>US allies quietly distancing from Iran conflict</li>
+                    <li>Iran warns "heavy price" for attacks on nuclear and industrial sites</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Footer -->
         <div class="footer">
-            <p><a href="daily-newsletter.html">← Back to Daily Newsletter</a></p>
-            <p>The Morning Wire © 2026</p>
+            <div>The Morning Wire — World News Deep Dive</div>
+            <div>Sunday, March 29, 2026</div>
+            <div class="footer-link">
+                <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
+            </div>
         </div>
     </div>
 </body>
