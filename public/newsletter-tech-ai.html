@@ -1,434 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Morning Wire - Tech & AI Deep Dive - March 30, 2026</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech & AI Deep Dive — The Morning Wire | March 31, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#f5f5f0;color:#1a1a2e}
+a{color:inherit;text-decoration:none}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f7ff;
-            color: #333;
-            line-height: 1.6;
-        }
+.header{background:linear-gradient(135deg,#1e1b4b,#4338ca);padding:32px 20px 28px;text-align:center}
+.back-link{display:inline-block;color:rgba(255,255,255,.7);font-size:.82rem;margin-bottom:14px;text-decoration:none;transition:color .2s}
+.back-link:hover{color:#fff}
+.header h1{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:#fff}
+.header .subtitle{font-size:.9rem;color:rgba(255,255,255,.55);margin-top:6px;letter-spacing:1px}
+.header .date{font-size:.8rem;color:rgba(255,255,255,.4);margin-top:8px;text-transform:uppercase;letter-spacing:2px}
 
-        .header {
-            background: linear-gradient(135deg, #1e1b4b 0%, #4338ca 100%);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
+.container{max-width:760px;margin:0 auto;padding:28px 16px 60px}
 
-        .header-content {
-            max-width: 760px;
-            margin: 0 auto;
-        }
+/* By the Numbers */
+.numbers-bar{background:#fff;border-radius:12px;padding:24px 28px;margin-bottom:32px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.numbers-bar h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:16px;color:#4338ca}
+.numbers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+.num-item .value{font-size:1.5rem;font-weight:800;color:#1e1b4b}
+.num-item .label{font-size:.78rem;color:#888;margin-top:2px}
 
-        .header-back {
-            display: inline-block;
-            margin-bottom: 20px;
-        }
+/* Lead Story */
+.lead{background:#fff;border-radius:12px;padding:32px 28px;margin-bottom:28px;box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:5px solid #7c3aed}
+.lead .badge{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:#7c3aed;font-weight:700;margin-bottom:10px}
+.lead h2{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:700;line-height:1.3;margin-bottom:14px}
+.lead p{font-size:.93rem;line-height:1.75;color:#444;margin-bottom:12px}
+.lead .source{font-size:.78rem;color:#888}
+.lead .source a{color:#7c3aed;text-decoration:underline}
 
-        .header-back a {
-            color: rgba(255,255,255,0.9);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
+/* Story Section */
+.section-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin:28px 0 14px;padding-bottom:8px;border-bottom:2px solid #e5e5e5;color:#1e1b4b}
 
-        .header-back a:hover {
-            color: white;
-        }
+.story{background:#fff;border-radius:10px;padding:22px 24px;margin-bottom:12px;box-shadow:0 1px 6px rgba(0,0,0,.04)}
+.story h4{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;margin-bottom:8px;line-height:1.35}
+.story p{font-size:.88rem;line-height:1.7;color:#555}
+.story .source{font-size:.75rem;color:#999;margin-top:8px}
+.story .source a{text-decoration:underline;color:#7c3aed}
 
-        .header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
+/* Quick Hits */
+.quick-hits{background:#fff;border-radius:12px;padding:24px 28px;margin-top:28px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.quick-hits h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:16px;color:#4338ca}
+.quick-hit{padding:12px 0;border-bottom:1px solid #f0f0f0;font-size:.88rem;line-height:1.6;color:#555}
+.quick-hit:last-child{border-bottom:none}
+.quick-hit strong{color:#1a1a2e}
+.quick-hit a{color:#7c3aed;text-decoration:underline}
 
-        .header-subtitle {
-            font-size: 14px;
-            opacity: 0.95;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-
-        .header-date {
-            font-size: 13px;
-            opacity: 0.85;
-        }
-
-        .container {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 8px;
-            padding: 32px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-        }
-
-        .card h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8em;
-            margin-bottom: 16px;
-            color: #1e1b4b;
-            line-height: 1.3;
-        }
-
-        .card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3em;
-            margin-bottom: 12px;
-            color: #1e1b4b;
-            line-height: 1.3;
-            margin-top: 20px;
-        }
-
-        .card h3:first-child {
-            margin-top: 0;
-        }
-
-        .story-content {
-            font-size: 15px;
-            margin-bottom: 16px;
-            color: #555;
-            line-height: 1.7;
-        }
-
-        .story-source {
-            display: inline-block;
-            margin-top: 12px;
-        }
-
-        .story-source a {
-            color: #4338ca;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 13px;
-            transition: color 0.3s ease;
-            word-break: break-all;
-        }
-
-        .story-source a:hover {
-            color: #1e1b4b;
-            text-decoration: underline;
-        }
-
-        .lead-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #4338ca 0%, #7c3aed 100%);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5em;
-            color: #1e1b4b;
-            margin: 32px 0 20px 0;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #4338ca;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin: 20px 0;
-        }
-
-        @media (max-width: 600px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .stat-item {
-            background: linear-gradient(135deg, #f3f0ff 0%, #ede9fe 100%);
-            padding: 16px;
-            border-radius: 6px;
-            border-left: 4px solid #4338ca;
-        }
-
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4em;
-            color: #4338ca;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .stat-label {
-            font-size: 13px;
-            color: #555;
-            line-height: 1.4;
-        }
-
-        .quick-hits {
-            background: linear-gradient(135deg, #f3f0ff 0%, #ede9fe 100%);
-            padding: 24px;
-            border-radius: 8px;
-            border-left: 4px solid #4338ca;
-        }
-
-        .quick-hits li {
-            margin-bottom: 12px;
-            font-size: 14px;
-            color: #555;
-            line-height: 1.6;
-        }
-
-        .quick-hits li:last-child {
-            margin-bottom: 0;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 32px 20px;
-            border-top: 1px solid #e5e7eb;
-            margin-top: 40px;
-        }
-
-        .footer-back {
-            display: inline-block;
-        }
-
-        .footer-back a {
-            color: #4338ca;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-back a:hover {
-            color: #1e1b4b;
-            text-decoration: underline;
-        }
-
-        .footer-text {
-            font-size: 12px;
-            color: #888;
-            margin-top: 16px;
-        }
-
-        .story-divider {
-            margin: 24px 0;
-            height: 1px;
-            background: #e5e7eb;
-        }
-    </style>
+.footer{text-align:center;padding:40px 20px;font-size:.78rem;color:#999;border-top:1px solid #e5e5e5;margin-top:30px}
+.footer a{color:#7c3aed;text-decoration:underline}
+</style>
 </head>
 <body>
-    <div class="header">
-        <div class="header-content">
-            <div class="header-back">
-                <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
-            </div>
-            <h1>The Morning Wire</h1>
-            <div class="header-subtitle">Tech & AI Deep Dive</div>
-            <div class="header-date">Monday, March 30, 2026</div>
-        </div>
+
+<div class="header">
+  <a href="daily-newsletter.html" class="back-link">← Back to The Morning Wire</a>
+  <h1>Tech & AI</h1>
+  <div class="subtitle">Deep Dive Edition</div>
+  <div class="date">Tuesday, March 31, 2026</div>
+</div>
+
+<div class="container">
+
+  <div class="numbers-bar">
+    <h3>By the Numbers</h3>
+    <div class="numbers-grid">
+      <div class="num-item"><div class="value">$110B</div><div class="label">OpenAI's latest round</div></div>
+      <div class="num-item"><div class="value">$730B</div><div class="label">OpenAI valuation</div></div>
+      <div class="num-item"><div class="value">85%</div><div class="label">YC W26 startups AI-first</div></div>
+      <div class="num-item"><div class="value">83.0%</div><div class="label">GPT-5.4 GDPVal score</div></div>
+      <div class="num-item"><div class="value">$830M</div><div class="label">Mistral debt financing</div></div>
+      <div class="num-item"><div class="value">2.2B</div><div class="label">Apple devices getting new Siri</div></div>
     </div>
+  </div>
 
-    <div class="container">
-        <!-- LEAD STORY -->
-        <div class="card">
-            <span class="lead-badge">Lead Story</span>
-            <h2>Nvidia's Rubin Platform Launches — Six New Chips, One AI Supercomputer</h2>
-            <div class="story-content">
-                At GTC 2026, Nvidia made a bold strategic pivot that redefines the future of AI infrastructure. The company unveiled the Rubin platform, a comprehensive ecosystem featuring six new architectural innovations designed to dominate AI inference and agentic workflows. The lineup includes the Vera CPU for general compute, the Rubin GPU as the flagship accelerator, NVLink 6 Switch for interconnect, ConnectX-9 SuperNIC for networking, BlueField-4 DPU for data plane acceleration, and the Spectrum-6 Ethernet Switch for fabric connectivity.
-            </div>
-            <div class="story-content">
-                Equally significant, Groq unveiled its new 3 language processing unit, positioning itself as a serious contender in the specialized AI chip space. Major cloud providers—AWS, Google Cloud, Microsoft, and Oracle Cloud Infrastructure—have already committed to deploying Vera Rubin systems in the second half of 2026. This signals a fundamental shift in how enterprises will architect their AI infrastructure.
-            </div>
-            <div class="story-source">
-                <a href="https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer" target="_blank">→ Source: Nvidia Newsroom</a>
-            </div>
-        </div>
+  <!-- Lead Story -->
+  <div class="lead">
+    <div class="badge">★ Lead Story</div>
+    <h2>Anthropic's Mythos: The Most Powerful AI Model Ever Built — Leaked, Feared, and Coming Soon</h2>
+    <p>A configuration error in Anthropic's content management system inadvertently exposed the existence of Claude Mythos (internally codenamed "Capybara"), a model that the company describes as a "step change" in AI capability and "the most capable we've built to date." Compared to Claude Opus 4.6, Mythos delivers dramatically higher scores on benchmarks for software coding, academic reasoning, and — most controversially — cybersecurity penetration testing.</p>
+    <p>The cybersecurity implications are what have Washington most alarmed. Anthropic is privately briefing top government officials that Mythos could enable AI agents to independently penetrate corporate, government, and municipal networks with "wild sophistication and precision." The company acknowledges the model makes large-scale cyberattacks significantly more feasible and is working to implement robust safeguards before any general release.</p>
+    <p>Mythos is described as a new tier above Opus — larger, more capable, and substantially more expensive to run. Anthropic says it is prioritizing efficiency improvements to bring costs down before wider availability, but early access customers are already testing the model in controlled environments. The leak has reignited debates about the pace of frontier AI development and whether safety protocols can keep up.</p>
+    <div class="source">Sources: <a href="https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/" target="_blank">Fortune</a> · <a href="https://www.euronews.com/next/2026/03/30/what-is-anthropics-mythos-the-leaked-ai-model-that-poses-unprecedented-cybersecurity-risks" target="_blank">Euronews</a> · <a href="https://www.axios.com/2026/03/29/claude-mythos-anthropic-cyberattack-ai-agents" target="_blank">Axios</a></div>
+  </div>
 
-        <!-- BY THE NUMBERS SECTION -->
-        <h3 class="section-title">By the Numbers</h3>
-        <div class="card">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">41%</div>
-                    <div class="stat-label">AI startups account for $128B in venture dollars (Carta)</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">$110B</div>
-                    <div class="stat-label">OpenAI Series E round from Amazon, Nvidia, SoftBank</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">$30B</div>
-                    <div class="stat-label">Anthropic Series G at $380B valuation</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">$20B</div>
-                    <div class="stat-label">xAI Series E funding round</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">+63%</div>
-                    <div class="stat-label">AI ad spending growth projected for 2026</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">$57B</div>
-                    <div class="stat-label">Total AI advertising market size in 2026</div>
-                </div>
-            </div>
-        </div>
+  <!-- AI Models & Capabilities -->
+  <div class="section-title">AI Models & Capabilities</div>
 
-        <!-- MORE STORIES SECTION -->
-        <h3 class="section-title">More Stories</h3>
+  <div class="story">
+    <h4>OpenAI's GPT-5.4 "Thinking" Hits Expert-Level Performance on Economic Tasks</h4>
+    <p>OpenAI's latest model scored 83.0% on the GDPVal benchmark — a test measuring AI performance on economically valuable tasks — placing it at or above human expert level. Morgan Stanley warns most businesses aren't ready for the productivity disruption these models will enable in the first half of 2026, particularly in legal research, financial modeling, and software engineering.</p>
+    <div class="source"><a href="https://fortune.com/2026/03/13/elon-musk-morgan-stanley-ai-leap-2026/" target="_blank">Fortune</a></div>
+  </div>
 
-        <div class="card">
-            <h3>Microsoft Merges Copilot Teams, Shifts to In-House Frontier Models</h3>
-            <div class="story-content">
-                Microsoft is restructuring its AI organization by consolidating its commercial and consumer Copilot teams into a unified division. This organizational pivot signals the company's commitment to developing proprietary frontier AI models rather than relying exclusively on third-party partnerships, positioning it as a formidable competitor in the increasingly crowded AI landscape.
-            </div>
-            <div class="story-source">
-                <a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank">→ Source: TechCrunch AI</a>
-            </div>
+  <div class="story">
+    <h4>DeepSeek V4 Ships with Native Multimodal Support</h4>
+    <p>China's DeepSeek released its V4 model with built-in multimodal capabilities, eliminating the need for separate vision modules. The model integrates text, image, and video understanding in a single architecture, continuing the trend of Chinese AI labs closing the gap with Western competitors despite export controls on advanced chips.</p>
+    <div class="source"><a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">Crescendo AI</a></div>
+  </div>
 
-            <div class="story-divider"></div>
+  <div class="story">
+    <h4>NVIDIA's Vera Rubin Platform Positions Company for Next Compute Wave</h4>
+    <p>Unveiled at CES 2026, NVIDIA's Vera Rubin is the company's next-generation flagship AI platform, designed for the era of agentic AI systems that can independently execute complex multi-step tasks. The platform arrives as enterprise AI deployments transition from experimentation to production, with 86% of companies surveyed planning to increase AI budgets this year.</p>
+    <div class="source"><a href="https://blogs.nvidia.com/blog/state-of-ai-report-2026/" target="_blank">NVIDIA Blog</a></div>
+  </div>
 
-            <h3>Google Rolls Out "Personal Intelligence" to All US Users</h3>
-            <div class="story-content">
-                Google's Gemini now draws contextual information from Gmail, Photos, YouTube, and other personal services to deliver hyper-personalized AI responses—and it's no longer behind a paywall. The rollout of "Personal Intelligence" to all US users marks a significant escalation in the race to embed AI into daily digital habits, giving users a powerful assistant that understands their complete digital identity.
-            </div>
-            <div class="story-source">
-                <a href="https://www.vtnetzwelt.com/ai-development/latest-ai-technology-news-roundup-march-2026/" target="_blank">→ Source: VT Netzwelt</a>
-            </div>
+  <!-- Consumer & Enterprise AI -->
+  <div class="section-title">Consumer & Enterprise AI</div>
 
-            <div class="story-divider"></div>
+  <div class="story">
+    <h4>Apple's Reimagined Siri: The Largest AI Assistant Deployment in History</h4>
+    <p>Apple's completely rebuilt Siri launches with iOS 26.4 this week, powered by Google's Gemini models for complex reasoning while Apple retains control over privacy through its Private Cloud Compute infrastructure. The new Siri can read and act on screen content, chain multiple actions from a single request, and maintain natural multi-turn conversations. With 2.2 billion active Apple devices, this is the largest single deployment of advanced AI assistant capabilities ever attempted.</p>
+    <div class="source"><a href="https://apple.gadgethacks.com/news/apples-new-ai-powered-siri-finally-coming-in-2026/" target="_blank">Gadget Hacks</a> · <a href="https://www.digitalapplied.com/blog/apple-siri-2026-gemini-powered-context-aware-ai" target="_blank">Digital Applied</a></div>
+  </div>
 
-            <h3>Apple Opens Siri to Third-Party AI Services in iOS 27</h3>
-            <div class="story-content">
-                After years of relying on ChatGPT, Apple is finally opening Siri to competing AI models. iOS 27 introduces an API layer allowing developers to route Siri requests to their own language models, breaking OpenAI's exclusive partnership with Apple Intelligence. This democratization of AI access could reshape how users interact with their devices while reducing Apple's dependency on a single vendor.
-            </div>
-            <div class="story-source">
-                <a href="https://techstartups.com/2026/03/27/top-tech-news-today-march-27-2026/" target="_blank">→ Source: TechStartups</a>
-            </div>
+  <div class="story">
+    <h4>Google Opens Personal Intelligence to All U.S. Users</h4>
+    <p>Google's "Personal Intelligence" feature — allowing Gemini to draw on data from Gmail, Photos, YouTube, and other connected apps for context-aware responses — is now available to free-tier users across Search, Chrome, and the Gemini app. Previously limited to paid subscribers, the expansion signals Google's aggressive strategy to establish Gemini as the default AI layer across its ecosystem.</p>
+    <div class="source"><a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">Crescendo AI</a></div>
+  </div>
 
-            <div class="story-divider"></div>
+  <!-- Funding & Startups -->
+  <div class="section-title">Funding & Startups</div>
 
-            <h3>Anthropic Launches $100M Claude Partner Network</h3>
-            <div class="story-content">
-                Anthropic announced a $100M investment program to cultivate an ecosystem of developers and companies building on Claude. This strategic move, announced March 12, aims to accelerate adoption of the Claude platform and build defensible moats around Anthropic's AI infrastructure through deep developer integration.
-            </div>
-            <div class="story-source">
-                <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">→ Source: Crescendo AI</a>
-            </div>
-        </div>
+  <div class="story">
+    <h4>AI Infrastructure Capital Surge: Nscale Raises $2B, Ayar Labs $500M</h4>
+    <p>The physical backbone of AI is attracting massive capital. Nscale secured a $2B Series C at a $14.6B valuation to build GPU cloud infrastructure, while MIT spinout Ayar Labs raised $500M Series E led by NVIDIA and AMD for its silicon-photonic chips that promise to dramatically reduce data center energy consumption. Meanwhile, Mistral raised $830M in debt financing to acquire 13,800 Nvidia chips for its Paris data center.</p>
+    <div class="source"><a href="https://blog.mean.ceo/tech-startup-funding-news-march-2026/" target="_blank">Mean CEO</a></div>
+  </div>
 
-        <div class="card">
-            <h3>Ayar Labs Raises $500M for Silicon-Photonic Chips</h3>
-            <div class="story-content">
-                MIT spinout Ayar Labs, backed by heavyweights Nvidia and AMD, raised $500M in a funding round that values the company at $3.8B. The startup is developing revolutionary silicon-photonic chips that use light instead of electricity for data transmission, potentially solving the bandwidth bottleneck that limits current AI supercomputers. If successful, this technology could fundamentally reshape AI infrastructure architecture.
-            </div>
-            <div class="story-source">
-                <a href="https://news.crunchbase.com/venture/biggest-funding-rounds-space-tech-sierra-ai-ayar/" target="_blank">→ Source: Crunchbase News</a>
-            </div>
+  <div class="story">
+    <h4>Defense AI Attracts Record Investment — Shield AI Hits $12.7B Valuation</h4>
+    <p>Shield AI raised $1.5B in Series G at a $12.7B valuation for its AI autonomy software for drones and aircraft, while SMACK Technologies secured $32M to build frontier AI models trained on defense-related data. The defense AI sector is becoming one of the fastest-growing verticals as geopolitical tensions drive military modernization.</p>
+    <div class="source"><a href="https://techstartups.com/2026/03/26/top-startup-and-tech-funding-news-march-26-2025/" target="_blank">Tech Startups</a></div>
+  </div>
 
-            <div class="story-divider"></div>
+  <!-- Policy & Regulation -->
+  <div class="section-title">AI Policy & Regulation</div>
 
-            <h3>Luma AI Secures $900M for AI Video Generation</h3>
-            <div class="story-content">
-                Luma AI, a leader in generative video technology, closed a $900M Series C round led by Humain with participation from AMD. This massive funding round validates the explosive growth in video AI and positions Luma as a critical player in the next wave of generative AI, where video generation rivaling Sora becomes increasingly accessible.
-            </div>
-            <div class="story-source">
-                <a href="https://news.crunchbase.com/venture/biggest-funding-rounds-ai-fintech-lambda/" target="_blank">→ Source: Crunchbase News</a>
-            </div>
+  <div class="story">
+    <h4>White House Releases National Policy Framework for AI</h4>
+    <p>The White House published its National Policy Framework for Artificial Intelligence with legislative recommendations, outlining the administration's vision for AI governance. Meanwhile, Washington state passed five significant AI bills covering disclosure requirements, chatbot safety for children, AI use in health insurance decisions, deepfakes involving minors, and digital likeness protections. Three individuals were also charged with smuggling AI chips to China.</p>
+    <div class="source"><a href="https://www.whitehouse.gov/wp-content/uploads/2026/03/03.20.26-National-Policy-Framework-for-Artificial-Intelligence-Legislative-Recommendations.pdf" target="_blank">White House</a> · <a href="https://www.aljazeera.com/news/2026/3/20/three-charged-in-the-us-with-smuggling-ai-chips-into-china" target="_blank">Al Jazeera</a></div>
+  </div>
 
-            <div class="story-divider"></div>
+  <!-- Quick Hits -->
+  <div class="quick-hits">
+    <h3>⚡ Quick Hits</h3>
+    <div class="quick-hit"><strong>Reddit cracks down on bots:</strong> New policies starting today (March 31) will label automated accounts, add human verification, and expand reporting tools. <a href="https://techstartups.com/2026/03/30/top-tech-news-today-march-30-2026/" target="_blank">Source</a></div>
+    <div class="quick-hit"><strong>Agentic AI becomes the next frontier:</strong> The shift from chatbots to software that can run parts of a business is accelerating, with enterprises moving from experimentation to full-fledged deployments. <a href="https://www.onenewspage.com/n/Markets/1ztelp6r9q/Agentic-AI-Could-Be-the-Next-Big-Breakthrough.htm" target="_blank">Source</a></div>
+    <div class="quick-hit"><strong>Legora raises $550M Series D</strong> for its legal AI platform, bringing total raised to ~$980M as legal tech becomes a major AI vertical. <a href="https://blog.mean.ceo/startup-funding-news-march-2026/" target="_blank">Source</a></div>
+    <div class="quick-hit"><strong>Granola hits unicorn status:</strong> The AI notetaking startup raised $125M Series C at $1.5B valuation, led by Index Ventures. <a href="https://blog.mean.ceo/tech-startup-funding-news-march-2026/" target="_blank">Source</a></div>
+    <div class="quick-hit"><strong>Decagon triples valuation</strong> to $4.5B with a $250M Series D round for its enterprise AI customer support platform. <a href="https://blog.mean.ceo/tech-startup-funding-news-march-2026/" target="_blank">Source</a></div>
+    <div class="quick-hit"><strong>SageX launches AI data transformation</strong> for manufacturing, eliminating manual ERP data entry and promising significant profitability gains. <a href="https://finance.yahoo.com/news/artificial-intelligence-manufacturing-companies-2026-170700199.html" target="_blank">Source</a></div>
+  </div>
 
-            <h3>Lambda Closes $1.5B Series E for AI Cloud Infrastructure</h3>
-            <div class="story-content">
-                Lambda, a provider of cloud infrastructure optimized for AI workloads, raised $1.5B in Series E funding. The round demonstrates robust investor appetite for the specialized cloud infrastructure that enterprises need to run large language models and other compute-intensive AI systems economically at scale.
-            </div>
-            <div class="story-source">
-                <a href="https://news.crunchbase.com/venture/biggest-funding-rounds-ai-fintech-lambda/" target="_blank">→ Source: Crunchbase News</a>
-            </div>
+</div>
 
-            <div class="story-divider"></div>
+<div class="footer">
+  <a href="daily-newsletter.html">← Back to The Morning Wire</a>
+  <p style="margin-top:10px"><strong>The Morning Wire</strong> · Tech & AI Deep Dive · March 31, 2026</p>
+</div>
 
-            <h3>Sunday Robotics Hits Unicorn Status at $1.15B</h3>
-            <div class="story-content">
-                Sunday Robotics, a household robotics manufacturer, achieved unicorn status with a $1.15B valuation following a $165M Series B round. The startup's breakthrough in consumer-grade robotics comes as AI-powered robotic systems increasingly move from factories to homes, promising to automate everyday tasks like cleaning, cooking, and care.
-            </div>
-            <div class="story-source">
-                <a href="https://techstartups.com/2026/03/26/top-tech-news-today-march-26-2026/" target="_blank">→ Source: TechStartups</a>
-            </div>
-
-            <div class="story-divider"></div>
-
-            <h3>Meta Raises El Paso Data Center Investment to $10B</h3>
-            <div class="story-content">
-                Meta announced an expanded $10B investment in its El Paso data center facility, bringing its total capacity toward 1 gigawatt. This infrastructure buildout signals Meta's aggressive commitment to supporting its Llama models and generative AI research, competing directly with other tech giants in the AI compute arms race.
-            </div>
-            <div class="story-source">
-                <a href="https://techstartups.com/2026/03/25/top-tech-news-today-march-25-2026/" target="_blank">→ Source: TechStartups</a>
-            </div>
-
-            <div class="story-divider"></div>
-
-            <h3>MIT Forum: What's the Right Path for AI?</h3>
-            <div class="story-content">
-                MIT convened leading experts including Karen Hao and Paola Ricaurte to discuss pragmatic approaches to AI governance, safety, and societal impact in 2026. The forum highlighted the ongoing tension between rapid innovation and responsible deployment—a debate that will define how AI shapes the next decade of technology.
-            </div>
-            <div class="story-source">
-                <a href="https://news.mit.edu/2026/right-path-for-ai-karen-hao-paola-ricaurte-0320" target="_blank">→ Source: MIT News</a>
-            </div>
-        </div>
-
-        <!-- QUICK HITS SECTION -->
-        <h3 class="section-title">Quick Hits</h3>
-        <div class="card">
-            <ul class="quick-hits">
-                <li><strong>AI-Driven Advertising Boom:</strong> AI-powered advertising is projected to reach $57B in 2026, representing a 63% year-over-year increase as marketers embrace generative targeting and personalization.</li>
-                <li><strong>AI in Healthcare:</strong> Hospitals nationwide are experimenting with AI-powered triage systems and predictive monitoring tools that identify high-risk patients before critical events occur.</li>
-                <li><strong>AI in Financial Services:</strong> Banks are deploying AI for fraud detection and risk calculation with unprecedented accuracy, reducing losses while improving customer experience.</li>
-                <li><strong>Defense Tech Funding:</strong> Shield AI raised $1.5B to accelerate development of autonomous defense systems, signaling government and investor confidence in the sector.</li>
-            </ul>
-        </div>
-
-        <!-- FOOTER -->
-        <div class="footer">
-            <div class="footer-back">
-                <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
-            </div>
-            <div class="footer-text">
-                The Morning Wire • Tech & AI Deep Dive • March 30, 2026<br>
-                Professional editorial coverage of technology and artificial intelligence
-            </div>
-        </div>
-    </div>
 </body>
 </html>

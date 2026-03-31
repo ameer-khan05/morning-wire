@@ -1,366 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Morning Wire - Science & Health Deep Dive | March 30, 2026</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Science & Health Deep Dive — The Morning Wire | March 31, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#f5f5f0;color:#1a1a2e}
+a{color:inherit;text-decoration:none}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa;
-            color: #2c3e50;
-            line-height: 1.6;
-        }
+.header{background:linear-gradient(135deg,#0c4a6e,#0284c7);padding:32px 20px 28px;text-align:center}
+.back-link{display:inline-block;color:rgba(255,255,255,.7);font-size:.82rem;margin-bottom:14px;transition:color .2s}
+.back-link:hover{color:#fff}
+.header h1{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:#fff}
+.header .subtitle{font-size:.9rem;color:rgba(255,255,255,.55);margin-top:6px;letter-spacing:1px}
+.header .date{font-size:.8rem;color:rgba(255,255,255,.4);margin-top:8px;text-transform:uppercase;letter-spacing:2px}
 
-        .container {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+.container{max-width:760px;margin:0 auto;padding:28px 16px 60px}
 
-        .header {
-            background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            margin-bottom: 40px;
-            margin-left: -20px;
-            margin-right: -20px;
-            margin-top: -40px;
-        }
+.numbers-bar{background:#fff;border-radius:12px;padding:24px 28px;margin-bottom:32px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.numbers-bar h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:16px;color:#0284c7}
+.numbers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+.num-item .value{font-size:1.4rem;font-weight:800;color:#1a1a2e}
+.num-item .label{font-size:.75rem;color:#888;margin-top:2px}
 
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            padding: 8px 16px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
-            text-decoration: none;
-            color: white;
-            font-size: 14px;
-            transition: background-color 0.3s ease;
-        }
+.lead{background:#fff;border-radius:12px;padding:32px 28px;margin-bottom:28px;box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:5px solid #0284c7}
+.lead .badge{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:#0284c7;font-weight:700;margin-bottom:10px}
+.lead h2{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:700;line-height:1.3;margin-bottom:14px}
+.lead p{font-size:.93rem;line-height:1.75;color:#444;margin-bottom:12px}
+.lead .source{font-size:.78rem;color:#888}
+.lead .source a{color:#0284c7;text-decoration:underline}
 
-        .back-link:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
+.section-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin:28px 0 14px;padding-bottom:8px;border-bottom:2px solid #e5e5e5;color:#1a1a2e}
 
-        .publication-date {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
-        }
+.story{background:#fff;border-radius:10px;padding:22px 24px;margin-bottom:12px;box-shadow:0 1px 6px rgba(0,0,0,.04)}
+.story h4{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;margin-bottom:8px;line-height:1.35}
+.story p{font-size:.88rem;line-height:1.7;color:#555}
+.story .source{font-size:.75rem;color:#999;margin-top:8px}
+.story .source a{text-decoration:underline;color:#0284c7}
 
-        .header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 8px;
-        }
+.quick-hits{background:#fff;border-radius:12px;padding:24px 28px;margin-top:28px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.quick-hits h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:16px;color:#0284c7}
+.quick-hit{padding:12px 0;border-bottom:1px solid #f0f0f0;font-size:.88rem;line-height:1.6;color:#555}
+.quick-hit:last-child{border-bottom:none}
+.quick-hit strong{color:#1a1a2e}
+.quick-hit a{color:#0284c7;text-decoration:underline}
 
-        .header .tagline {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.95);
-            font-weight: 300;
-        }
-
-        .card {
-            background: white;
-            border-radius: 8px;
-            padding: 32px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-        }
-
-        .lead-story {
-            border-left: 4px solid #0284c7;
-        }
-
-        .lead-story .badge {
-            display: inline-block;
-            background-color: #0c4a6e;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: #0c4a6e;
-            margin-bottom: 16px;
-            line-height: 1.3;
-        }
-
-        .story h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            font-weight: 700;
-            color: #0c4a6e;
-            margin-bottom: 12px;
-            line-height: 1.3;
-        }
-
-        p {
-            margin-bottom: 12px;
-            font-size: 15px;
-            color: #374151;
-        }
-
-        .lead-story p {
-            font-size: 16px;
-            margin-bottom: 16px;
-        }
-
-        .source-link {
-            display: inline-block;
-            margin-top: 12px;
-            color: #0284c7;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .source-link:hover {
-            color: #0c4a6e;
-            text-decoration: underline;
-        }
-
-        .stories-grid {
-            display: grid;
-            gap: 20px;
-            margin-bottom: 24px;
-        }
-
-        .story {
-            background: white;
-            border-radius: 8px;
-            padding: 24px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .story:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-        }
-
-        .story p {
-            font-size: 14px;
-            margin-bottom: 12px;
-        }
-
-        .quick-hits {
-            background: #f0f9ff;
-            border-left: 4px solid #0284c7;
-            padding: 24px;
-            border-radius: 8px;
-            margin-bottom: 24px;
-        }
-
-        .quick-hits h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            color: #0c4a6e;
-            margin-bottom: 16px;
-        }
-
-        .quick-hits ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .quick-hits li {
-            padding: 8px 0;
-            font-size: 14px;
-            color: #374151;
-            border-bottom: 1px solid rgba(2, 132, 199, 0.1);
-        }
-
-        .quick-hits li:last-child {
-            border-bottom: none;
-        }
-
-        .quick-hits li:before {
-            content: "→ ";
-            color: #0284c7;
-            font-weight: 600;
-            margin-right: 8px;
-        }
-
-        .footer {
-            text-align: center;
-            padding-top: 32px;
-            border-top: 1px solid #e5e7eb;
-            margin-top: 40px;
-        }
-
-        .footer-text {
-            font-size: 13px;
-            color: #6b7280;
-            margin-bottom: 16px;
-        }
-
-        .editor-note {
-            background: #fffbeb;
-            border-left: 4px solid #f59e0b;
-            padding: 16px;
-            border-radius: 4px;
-            font-size: 14px;
-            color: #7c2d12;
-            margin-bottom: 24px;
-        }
-
-        @media (max-width: 640px) {
-            .header h1 {
-                font-size: 32px;
-            }
-
-            h2 {
-                font-size: 24px;
-            }
-
-            .story h3 {
-                font-size: 18px;
-            }
-
-            .card {
-                padding: 20px;
-            }
-        }
-    </style>
+.footer{text-align:center;padding:40px 20px;font-size:.78rem;color:#999;border-top:1px solid #e5e5e5;margin-top:30px}
+.footer a{color:#0284c7;text-decoration:underline}
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
-            <div class="publication-date">MONDAY, MARCH 30, 2026</div>
-            <h1>Science & Health Deep Dive</h1>
-            <p class="tagline">The Morning Wire's curated analysis of breakthrough discoveries and medical innovations</p>
-        </div>
 
-        <div class="editor-note">
-            <strong>This Week's Focus:</strong> From mirror molecules that starve cancer cells to engineered bacteria acting as drug factories, this week's science reveals how precision medicine is reshaping treatment possibilities. CRISPR continues its rapid clinical expansion with 250 active trials worldwide, while unexpected benefits of GLP-1 drugs signal new therapeutic frontiers.
-        </div>
+<div class="header">
+  <a href="daily-newsletter.html" class="back-link">← Back to The Morning Wire</a>
+  <h1>Science & Health</h1>
+  <div class="subtitle">Deep Dive Edition</div>
+  <div class="date">Tuesday, March 31, 2026</div>
+</div>
 
-        <!-- LEAD STORY -->
-        <div class="card lead-story">
-            <span class="badge">Lead Story</span>
-            <h2>Mirror Molecule Discovery Could Starve Cancer Cells Without Harming Healthy Ones</h2>
-            <p>In a significant breakthrough for targeted cancer therapy, scientists have discovered a rare "mirror-image" version of the amino acid cysteine that can dramatically slow the growth of certain cancers while leaving healthy cells largely untouched. The discovery represents a potential turning point in the longstanding challenge of developing treatments that eliminate malignant cells without causing widespread collateral damage to the body's normal tissues.</p>
-            <p>The mechanism works by exploiting a fundamental vulnerability unique to cancer cells: their dramatically increased dependence on specific amino acids for survival and proliferation. While healthy cells can adapt and survive with alternative metabolic pathways, cancer cells have become locked into their dependence on cysteine. This chiral specificity—the use of a mirror-image molecule—offers unprecedented selectivity in targeting cancer metabolism without disrupting normal cellular processes.</p>
-            <p>Researchers are now advancing the technology toward clinical trials, with particular promise shown for difficult-to-treat cancers that have historically proven resistant to conventional chemotherapy. The approach exemplifies the growing trend in oncology toward metabolic targeting, where therapies attack the fundamental energy and building-block systems that fuel cancer rather than relying solely on DNA-damaging approaches.</p>
-            <a href="https://www.sciencedaily.com/releases/2026/03/260311213453.htm" class="source-link">Read on ScienceDaily →</a>
-        </div>
+<div class="container">
 
-        <!-- MORE STORIES GRID -->
-        <div class="stories-grid">
-            <div class="story">
-                <h3>Depression May Start With Energy Problem in Brain Cells</h3>
-                <p>A groundbreaking study has identified an unexpected culprit in depression: unusual changes in how brain and blood cells generate and manage energy. Researchers found that individuals with depression show distinct patterns in cellular mitochondrial function, suggesting that mood disorders may have deeper biochemical roots than previously understood. This discovery opens new avenues for developing treatments that target metabolic dysfunction rather than focusing solely on neurotransmitter balance.</p>
-                <a href="https://www.sciencedaily.com/releases/2026/03/260312020107.htm" class="source-link">Read more →</a>
-            </div>
-
-            <div class="story">
-                <h3>Engineered Probiotic Bacteria Act as Tumor-Seeking Drug Factories</h3>
-                <p>Researchers have successfully engineered probiotic bacteria that infiltrate tumors and produce cancer-fighting drugs directly at the disease site. In mouse models, these modified bacteria accumulated preferentially in tumors and released therapeutic compounds, dramatically improving treatment efficacy while reducing systemic toxicity. The approach represents a convergence of synthetic biology and immunotherapy—using the body's own microbial allies as precision-guided treatment vehicles.</p>
-                <a href="https://www.sciencedaily.com/news/health_medicine/" class="source-link">Read more →</a>
-            </div>
-
-            <div class="story">
-                <h3>Long COVID Clue Found Deep Within Immune System</h3>
-                <p>A major breakthrough in understanding Long COVID has emerged from deep analysis of immune system dysfunction. Affecting up to 1 in 10 COVID survivors, the condition has puzzled researchers for years. New findings reveal crucial mechanisms in how immune cells become dysregulated following infection, potentially paving the way for targeted treatments to restore normal immune function and alleviate the debilitating symptoms that plague millions of patients.</p>
-                <a href="https://www.sciencedaily.com/news/health_medicine/" class="source-link">Read more →</a>
-            </div>
-
-            <div class="story">
-                <h3>GLP-1 Drugs Show Unexpected Mental Health Benefits</h3>
-                <p>A large-scale study has uncovered surprising psychiatric benefits among users of GLP-1 receptor agonists (like Ozempic and Wegovy). The research found major reductions in depression, anxiety, and psychiatric hospital visits among patients taking these medications, independent of weight loss effects. The findings suggest these drugs may directly influence brain chemistry and mood regulation, opening unexpected therapeutic applications beyond metabolic disease management.</p>
-                <a href="https://www.sciencedaily.com/" class="source-link">Read more →</a>
-            </div>
-
-            <div class="story">
-                <h3>CRISPR Milestone: World's First Personalized Gene Therapy Celebrates One Year</h3>
-                <p>One year after receiving the world's first personalized CRISPR gene therapy, a young child who suffered from a severe metabolic disorder (CPS1 deficiency) is thriving—walking, talking, and developing normally. Treated at Children's Hospital Philadelphia, the patient represents a watershed moment in precision medicine: a custom-designed genetic treatment that was edited specifically for one individual's unique genetic defect. The success validates the clinical potential of personalized CRISPR approaches.</p>
-                <a href="https://www.chop.edu/news/childrens-hospital-philadelphia-marks-one-year-anniversary-worlds-first-personalized-crispr" class="source-link">Read more →</a>
-            </div>
-
-            <div class="story">
-                <h3>250 CRISPR Clinical Trials Now Active Worldwide</h3>
-                <p>The CRISPR revolution continues to accelerate, with over 250 clinical trials now active globally—more than double the number from three years ago. Blood disorders currently lead the field in trial volume, with sickle cell disease, beta-thalassemia, and other hemoglobinopathies dominating the pipeline. The rapid expansion reflects growing confidence in the technology's safety and efficacy, even as researchers work to expand CRISPR's reach to more complex genetic diseases and solid tumors.</p>
-                <a href="https://crisprmedicinenews.com/clinical-trials/" class="source-link">Read more →</a>
-            </div>
-
-            <div class="story">
-                <h3>ADHD Brain Pattern Identified</h3>
-                <p>Researchers have identified a distinctive brain pattern that may explain why individuals with ADHD struggle with focus and attention. The discovery reveals specific differences in how the brain allocates neural resources during tasks requiring sustained concentration. Understanding these neurobiological foundations of ADHD could lead to more targeted interventions and help personalize treatment approaches based on individual brain phenotypes rather than relying solely on behavioral symptom profiles.</p>
-                <a href="https://www.sciencedaily.com/news/health_medicine/" class="source-link">Read more →</a>
-            </div>
-
-            <div class="story">
-                <h3>Sarcopenic Obesity: Belly Fat + Low Muscle Raises Death Risk 83%</h3>
-                <p>A newly identified health condition—sarcopenic obesity, characterized by excess belly fat combined with low muscle mass—dramatically increases mortality risk by up to 83% compared to healthy individuals. The research reveals a vicious metabolic cycle where visceral fat actively accelerates muscle breakdown, creating a downward spiral of declining health. The findings underscore the importance of preserving lean muscle mass alongside managing overall weight and body composition.</p>
-                <a href="https://www.sciencedaily.com/news/top/health/" class="source-link">Read more →</a>
-            </div>
-
-            <div class="story">
-                <h3>Cold Weather Linked to More Cardiovascular Deaths Than Heat</h3>
-                <p>Contrary to common assumptions, cold weather is responsible for significantly more cardiovascular deaths than heat exposure in the United States. The phenomenon accounts for tens of thousands of deaths annually, driven by mechanisms including increased blood pressure, blood clotting, and increased cardiac workload in cold conditions. The findings have important public health implications for winter preparedness and suggest that cold-weather mortality may be underestimated in current health surveillance systems.</p>
-                <a href="https://www.sciencedaily.com/news/top/health/" class="source-link">Read more →</a>
-            </div>
-
-            <div class="story">
-                <h3>Small Cell Lung Cancer Protein Discovery</h3>
-                <p>Scientists have uncovered a critical mechanism in small cell lung cancer: losing a key protein triggers a cascade of inflammation that paradoxically helps tumors grow and spread more effectively. The discovery reveals how cancer cells can weaponize the immune system against the body, and suggests potential therapeutic targets for interrupting this pro-tumor inflammatory state. The research could lead to combination therapies that neutralize cancer's inflammatory advantage.</p>
-                <a href="https://www.sciencedaily.com/news/health_medicine/" class="source-link">Read more →</a>
-            </div>
-
-            <div class="story">
-                <h3>Mass Spectrometry Revolution: New Prototype Analyzes Thousands of Molecules at Once</h3>
-                <p>A breakthrough prototype in mass spectrometry can now analyze thousands of molecular compounds simultaneously with unprecedented speed and accuracy. The technological advancement could fundamentally transform drug discovery, allowing researchers to rapidly screen massive compound libraries and identify promising candidates in hours rather than weeks. The innovation exemplifies how instrumental advances in analytical chemistry continue to accelerate the pace of biomedical research and development.</p>
-                <a href="https://www.sciencedaily.com/" class="source-link">Read more →</a>
-            </div>
-        </div>
-
-        <!-- QUICK HITS -->
-        <div class="quick-hits">
-            <h3>Quick Hits</h3>
-            <ul>
-                <li>Casgevy (CRISPR sickle cell cure) now approved in 10+ countries, expanding access to transformative gene therapy</li>
-                <li>CTX310 gene therapy advances to Phase 1b trials for lipid management, targeting inherited cholesterol disorders</li>
-                <li>New CRISPR trial for alpha-1 antitrypsin deficiency expected to launch mid-2026, expanding genetic disease coverage</li>
-                <li>Hospitals experimenting with AI triage systems and predictive patient monitoring to improve outcomes and reduce wait times</li>
-            </ul>
-        </div>
-
-        <!-- FOOTER -->
-        <div class="footer">
-            <p class="footer-text">The Morning Wire | Science & Health Deep Dive | March 30, 2026</p>
-            <p class="footer-text">This curated newsletter synthesizes reporting from leading science publications and institutional sources to provide a comprehensive weekly overview of breakthrough research and clinical advances.</p>
-            <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
-        </div>
+  <div class="numbers-bar">
+    <h3>By the Numbers</h3>
+    <div class="numbers-grid">
+      <div class="num-item"><div class="value">110°F</div><div class="label">Record March temp in Arizona</div></div>
+      <div class="num-item"><div class="value">1 in 10</div><div class="label">People affected by Long COVID</div></div>
+      <div class="num-item"><div class="value">Apr 1</div><div class="label">Artemis II launch target</div></div>
+      <div class="num-item"><div class="value">1972</div><div class="label">Last crewed Moon mission</div></div>
     </div>
+  </div>
+
+  <!-- Lead Story -->
+  <div class="lead">
+    <div class="badge">★ Lead Story</div>
+    <h2>Engineered Probiotic Bacteria Become "Tumor-Seeking Drug Factories" in Breakthrough Cancer Research</h2>
+    <p>Scientists have achieved a remarkable milestone in cancer treatment by engineering probiotic bacteria to infiltrate tumors and produce cancer-fighting drugs directly at the tumor site. In mouse studies, these "living drug factories" were able to navigate to cancerous tissue, establish themselves within the tumor microenvironment, and begin manufacturing therapeutic compounds — essentially delivering chemotherapy precisely where it's needed while sparing healthy tissue.</p>
+    <p>The approach addresses one of oncology's most persistent challenges: getting enough of a drug to the tumor without poisoning the rest of the body. Traditional chemotherapy floods the entire system with toxic compounds, causing devastating side effects. By using bacteria as programmable delivery vehicles, researchers can achieve high local drug concentrations at the tumor while maintaining negligible levels elsewhere. The team is now working toward human clinical trials, which could begin in late 2026 or early 2027.</p>
+    <p>This work sits at the intersection of synthetic biology and oncology — a rapidly growing field that City of Hope has identified as one of five "big shifts" redefining cancer survival and access in 2026. Combined with advances in gene therapy and personalized medicine, engineered biological therapies represent a potential paradigm shift in how cancer is treated.</p>
+    <div class="source">Sources: <a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a> · <a href="https://www.cityofhope.org/cancer-research-and-care-in-2026-5-big-shifts-that-will-redefine-survival-and-access" target="_blank">City of Hope</a></div>
+  </div>
+
+  <!-- Space Exploration -->
+  <div class="section-title">Space Exploration</div>
+
+  <div class="story">
+    <h4>Artemis II: NASA's Return to the Moon Launches Tomorrow</h4>
+    <p>After years of delays, NASA's Artemis II mission is set to launch as early as April 1 from Kennedy Space Center, sending astronauts around the Moon for the first time since Apollo 17 in December 1972. The mission will be the first crewed flight of the Space Launch System and Orion spacecraft, paving the way for Artemis III — which aims to land humans on the lunar surface. Teams completed final preparations in March, including critical spacewalks to install new roll-out solar arrays on the International Space Station.</p>
+    <div class="source"><a href="https://www.nasa.gov/2026-news-releases/" target="_blank">NASA</a></div>
+  </div>
+
+  <div class="story">
+    <h4>Mars's Wet Past: Perseverance Rover Finds Evidence of Tropical Downpours</h4>
+    <p>NASA's Perseverance rover has discovered pale, bleached rocks that tell a compelling story of Mars's ancient climate — a world of tropical downpours, sodden landscapes, and conditions potentially hospitable to life. The rock chemistry suggests sustained water activity far more intense than previously documented, adding to growing evidence that Mars was once a warm, wet world with conditions remarkably similar to early Earth.</p>
+    <div class="source"><a href="https://www.nasa.gov/2026-news-releases/" target="_blank">NASA</a></div>
+  </div>
+
+  <div class="story">
+    <h4>Hubble Captures a Comet Breaking Apart in Real Time</h4>
+    <p>NASA's Hubble Space Telescope achieved something astronomers have long pursued: observing a comet fragmenting in real time. The time-lapse imagery reveals the dynamic and violent processes that destroy these ancient ice bodies as they approach the Sun, providing unprecedented data on cometary composition and the forces that shape them. The observation was described as a "once-in-a-career" event by the research team.</p>
+    <div class="source"><a href="https://science.nasa.gov/science-news/" target="_blank">NASA Science</a></div>
+  </div>
+
+  <!-- Medical Breakthroughs -->
+  <div class="section-title">Medical Breakthroughs</div>
+
+  <div class="story">
+    <h4>GLP-1 Drugs Like Ozempic Show Unexpected Mental Health Benefits</h4>
+    <p>GLP-1 receptor agonist medications — the class that includes semaglutide (Ozempic/Wegovy) — may offer significant mental health benefits alongside their well-documented effects on weight loss and diabetes management. Emerging research suggests these drugs could help with anxiety, depression, and addictive behaviors, potentially through their effects on brain reward pathways. If confirmed in larger studies, it would dramatically expand the therapeutic profile of what are already the most commercially successful drugs in pharmaceutical history.</p>
+    <div class="source"><a href="https://www.massgeneralbrigham.org/en/about/newsroom/articles/2026-predictions-on-scientific-advancements" target="_blank">Mass General Brigham</a></div>
+  </div>
+
+  <div class="story">
+    <h4>Long COVID Clue Uncovered: Researchers Identify Key Biological Mechanism</h4>
+    <p>Scientists have uncovered a crucial biological clue about Long COVID, which affects up to 1 in 10 people long after their initial infection. The new finding helps explain why symptoms persist in some patients and could lead to targeted treatments for the condition, which has strained healthcare systems worldwide and pushed millions out of the workforce. The discovery comes as researchers have increasingly focused on immune system dysregulation and viral persistence as primary drivers.</p>
+    <div class="source"><a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a></div>
+  </div>
+
+  <div class="story">
+    <h4>Cholesterol Drug Evolocumab May Prevent First-Time Heart Attacks</h4>
+    <p>A powerful cholesterol-lowering drug called evolocumab could be changing the rules of heart disease prevention. New research shows it can significantly cut the risk of first-time heart attacks — not just secondary events — suggesting the drug could be used preventively in high-risk patients who haven't yet had a cardiac event. This could shift cardiology from a reactive to a proactive discipline, though the drug's cost remains a barrier to widespread adoption.</p>
+    <div class="source"><a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a></div>
+  </div>
+
+  <!-- Gene Therapy & Biotech -->
+  <div class="section-title">Gene Therapy & Biotech</div>
+
+  <div class="story">
+    <h4>CRISPR Enters a New Era: First Customized Gene Therapy for Individual Patients</h4>
+    <p>2026 is building on 2025's breakthrough year for gene therapy. A baby named KJ Muldoon became the first person to receive a fully customized CRISPR treatment — designed specifically for their unique genetic mutation. This "N-of-1" approach, where therapies are tailored to individual patients, represents a paradigm shift from one-size-fits-all medicine and could eventually address thousands of rare genetic diseases that collectively affect millions of people worldwide.</p>
+    <div class="source"><a href="https://www.livescience.com/health/from-gene-therapy-breakthroughs-to-preventable-disease-outbreaks-the-health-trends-that-will-shape-2026" target="_blank">Live Science</a></div>
+  </div>
+
+  <div class="story">
+    <h4>New Mass Spectrometry Prototype Analyzes Thousands of Molecules Simultaneously</h4>
+    <p>A new analytical instrument prototype could supercharge mass spectrometry — the workhorse technology behind drug discovery, clinical diagnostics, and proteomics — by analyzing thousands of molecules at once instead of one at a time. The breakthrough promises to accelerate research timelines dramatically and could transform how diseases are diagnosed by enabling comprehensive molecular profiling in minutes rather than hours.</p>
+    <div class="source"><a href="https://www.sciencedaily.com/" target="_blank">ScienceDaily</a></div>
+  </div>
+
+  <!-- Climate & Environment -->
+  <div class="section-title">Climate & Environment</div>
+
+  <div class="story">
+    <h4>Arizona Hits 110°F in March — Shattering U.S. Records as Extreme Heat Arrives Early</h4>
+    <p>Martinez Lake, Arizona recorded 110°F on Thursday — the highest March temperature in United States recorded history. The extreme reading comes amid dry, warm, and windy conditions across the Great Plains that have fueled severe wildfire activity. Climate scientists note that while individual records don't prove a trend, the pattern of earlier and more intense heat waves is consistent with climate model projections. The reading is particularly alarming because it arrived weeks before the traditional hot season begins.</p>
+    <div class="source"><a href="https://www.sciencedaily.com/" target="_blank">ScienceDaily</a></div>
+  </div>
+
+  <!-- Astronomy -->
+  <div class="section-title">Astronomy</div>
+
+  <div class="story">
+    <h4>Gravitational Waves Reveal Neutron Star-Black Hole Merger on Oval Orbit</h4>
+    <p>Scientists analyzing a gravitational-wave signal have made a fascinating discovery: a neutron star and black hole spiraled together on an oval-shaped (eccentric) orbit just before merging. Most predicted mergers involve circular orbits, so this unusual configuration provides new insights into how these extreme objects form and interact, potentially pointing to a violent formation history involving a third body that disturbed the orbit.</p>
+    <div class="source"><a href="https://www.sciencedaily.com/news/space_time/" target="_blank">ScienceDaily</a></div>
+  </div>
+
+  <div class="story">
+    <h4>Small Magellanic Cloud's Chaotic Stars Explained by Ancient Galactic Collision</h4>
+    <p>Astronomers have solved a long-standing mystery about why stars in the Small Magellanic Cloud — a dwarf galaxy visible from the Southern Hemisphere — move in chaotic, seemingly random patterns. The answer: it slammed into its larger neighbor, the Large Magellanic Cloud, millions of years ago. The collision disrupted the smaller galaxy's orderly stellar orbits, leaving behind a gravitational signature that researchers have now mapped in unprecedented detail.</p>
+    <div class="source"><a href="https://www.sciencedaily.com/news/space_time/" target="_blank">ScienceDaily</a></div>
+  </div>
+
+  <!-- Quick Hits -->
+  <div class="quick-hits">
+    <h3>⚡ Quick Hits</h3>
+    <div class="quick-hit"><strong>NIH legislation introduced:</strong> Rep. Josh Harder unveiled landmark legislation to "supercharge medical breakthroughs" at the nation's top science agency, seeking to streamline research funding and accelerate clinical trials. <a href="https://harder.house.gov/media/press-releases/nih-harder-unveils-landmark-legislation-to-supercharge-medical-breakthroughs-at-top-science-agency" target="_blank">Source</a></div>
+    <div class="quick-hit"><strong>UCSF announces two new breakthroughs</strong> advancing research in neurological disorders and cancer, with novel approaches to both brain disease mechanisms and tumor targeting. <a href="https://www.ucsf.edu/news/2026/01/431411/two-new-breakthroughs-advance-neurological-disorders-and-cancer-research" target="_blank">Source</a></div>
+    <div class="quick-hit"><strong>Salk Institute declares 2026 "the year of brain health research,"</strong> with major investments in understanding neurodegenerative diseases like Alzheimer's and Parkinson's. <a href="https://www.salk.edu/science/2026-the-salk-institutes-year-of-brain-health-research/" target="_blank">Source</a></div>
+    <div class="quick-hit"><strong>Great Plains wildfire activity surges</strong> amid dry, warm, and windy conditions, with emergency services stretched across multiple states. <a href="https://www.sciencedaily.com/" target="_blank">Source</a></div>
+    <div class="quick-hit"><strong>RNA technologies and spatial omics</strong> continue reshaping biomedical research in 2026, enabling single-cell analysis at unprecedented resolution. <a href="https://www.cas.org/resources/cas-insights/scientific-breakthroughs-2026-emerging-trends-watch" target="_blank">Source</a></div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <a href="daily-newsletter.html">← Back to The Morning Wire</a>
+  <p style="margin-top:10px"><strong>The Morning Wire</strong> · Science & Health Deep Dive · March 31, 2026</p>
+</div>
+
 </body>
 </html>
