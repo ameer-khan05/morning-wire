@@ -1,184 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Science & Health Deep Dive — The Morning Wire | March 31, 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#f5f5f0;color:#1a1a2e}
-a{color:inherit;text-decoration:none}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Morning Wire: Science & Health Edition — April 1, 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.header{background:linear-gradient(135deg,#0c4a6e,#0284c7);padding:32px 20px 28px;text-align:center}
-.back-link{display:inline-block;color:rgba(255,255,255,.7);font-size:.82rem;margin-bottom:14px;transition:color .2s}
-.back-link:hover{color:#fff}
-.header h1{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:#fff}
-.header .subtitle{font-size:.9rem;color:rgba(255,255,255,.55);margin-top:6px;letter-spacing:1px}
-.header .date{font-size:.8rem;color:rgba(255,255,255,.4);margin-top:8px;text-transform:uppercase;letter-spacing:2px}
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #1f2937;
+            line-height: 1.6;
+        }
 
-.container{max-width:760px;margin:0 auto;padding:28px 16px 60px}
+        .header {
+            background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
 
-.numbers-bar{background:#fff;border-radius:12px;padding:24px 28px;margin-bottom:32px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
-.numbers-bar h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:16px;color:#0284c7}
-.numbers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
-.num-item .value{font-size:1.4rem;font-weight:800;color:#1a1a2e}
-.num-item .label{font-size:.75rem;color:#888;margin-top:2px}
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
 
-.lead{background:#fff;border-radius:12px;padding:32px 28px;margin-bottom:28px;box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:5px solid #0284c7}
-.lead .badge{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:#0284c7;font-weight:700;margin-bottom:10px}
-.lead h2{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:700;line-height:1.3;margin-bottom:14px}
-.lead p{font-size:.93rem;line-height:1.75;color:#444;margin-bottom:12px}
-.lead .source{font-size:.78rem;color:#888}
-.lead .source a{color:#0284c7;text-decoration:underline}
+        .back-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            color: #0284c7;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
 
-.section-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin:28px 0 14px;padding-bottom:8px;border-bottom:2px solid #e5e5e5;color:#1a1a2e}
+        .back-link:hover {
+            color: #0c4a6e;
+        }
 
-.story{background:#fff;border-radius:10px;padding:22px 24px;margin-bottom:12px;box-shadow:0 1px 6px rgba(0,0,0,.04)}
-.story h4{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;margin-bottom:8px;line-height:1.35}
-.story p{font-size:.88rem;line-height:1.7;color:#555}
-.story .source{font-size:.75rem;color:#999;margin-top:8px}
-.story .source a{text-decoration:underline;color:#0284c7}
+        .back-link::before {
+            content: "← ";
+        }
 
-.quick-hits{background:#fff;border-radius:12px;padding:24px 28px;margin-top:28px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
-.quick-hits h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:16px;color:#0284c7}
-.quick-hit{padding:12px 0;border-bottom:1px solid #f0f0f0;font-size:.88rem;line-height:1.6;color:#555}
-.quick-hit:last-child{border-bottom:none}
-.quick-hit strong{color:#1a1a2e}
-.quick-hit a{color:#0284c7;text-decoration:underline}
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
 
-.footer{text-align:center;padding:40px 20px;font-size:.78rem;color:#999;border-top:1px solid #e5e5e5;margin-top:30px}
-.footer a{color:#0284c7;text-decoration:underline}
-</style>
+        .edition-date {
+            font-size: 1.1rem;
+            font-weight: 500;
+            opacity: 0.95;
+            margin-bottom: 0.25rem;
+        }
+
+        .tagline {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .lead-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .lead-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            color: #0c4a6e;
+        }
+
+        .lead-card p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .lead-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .by-the-numbers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            border-top: 3px solid #0284c7;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #0284c7;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        .section-header {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0c4a6e;
+            margin: 2.5rem 0 1.5rem 0;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .story-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .story-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0284c7;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .story-card p {
+            font-size: 0.975rem;
+            line-height: 1.6;
+            color: #374151;
+        }
+
+        .quick-hits {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #0284c7;
+        }
+
+        .quick-hits h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+        }
+
+        .quick-hits ul {
+            list-style: none;
+        }
+
+        .quick-hits li {
+            padding: 0.5rem 0;
+            font-size: 0.975rem;
+            color: #374151;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .quick-hits li:last-child {
+            border-bottom: none;
+        }
+
+        .quick-hits li::before {
+            content: "• ";
+            color: #0284c7;
+            font-weight: 600;
+            margin-right: 0.75rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #6b7280;
+            font-size: 0.9rem;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 2.5rem;
+        }
+
+        .footer a {
+            color: #0284c7;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer a:hover {
+            color: #0c4a6e;
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .lead-card {
+                padding: 1.5rem;
+            }
+
+            .lead-card h2 {
+                font-size: 1.5rem;
+            }
+
+            .by-the-numbers {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-header {
+                font-size: 1.3rem;
+            }
+
+            .story-card h3 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<div class="header">
-  <a href="daily-newsletter.html" class="back-link">← Back to The Morning Wire</a>
-  <h1>Science & Health</h1>
-  <div class="subtitle">Deep Dive Edition</div>
-  <div class="date">Tuesday, March 31, 2026</div>
-</div>
-
-<div class="container">
-
-  <div class="numbers-bar">
-    <h3>By the Numbers</h3>
-    <div class="numbers-grid">
-      <div class="num-item"><div class="value">110°F</div><div class="label">Record March temp in Arizona</div></div>
-      <div class="num-item"><div class="value">1 in 10</div><div class="label">People affected by Long COVID</div></div>
-      <div class="num-item"><div class="value">Apr 1</div><div class="label">Artemis II launch target</div></div>
-      <div class="num-item"><div class="value">1972</div><div class="label">Last crewed Moon mission</div></div>
+    <div class="header">
+        <div class="container">
+            <h1>The Morning Wire</h1>
+            <div class="edition-date">Science & Health Edition</div>
+            <div class="tagline">Wednesday, April 1, 2026</div>
+        </div>
     </div>
-  </div>
 
-  <!-- Lead Story -->
-  <div class="lead">
-    <div class="badge">★ Lead Story</div>
-    <h2>Engineered Probiotic Bacteria Become "Tumor-Seeking Drug Factories" in Breakthrough Cancer Research</h2>
-    <p>Scientists have achieved a remarkable milestone in cancer treatment by engineering probiotic bacteria to infiltrate tumors and produce cancer-fighting drugs directly at the tumor site. In mouse studies, these "living drug factories" were able to navigate to cancerous tissue, establish themselves within the tumor microenvironment, and begin manufacturing therapeutic compounds — essentially delivering chemotherapy precisely where it's needed while sparing healthy tissue.</p>
-    <p>The approach addresses one of oncology's most persistent challenges: getting enough of a drug to the tumor without poisoning the rest of the body. Traditional chemotherapy floods the entire system with toxic compounds, causing devastating side effects. By using bacteria as programmable delivery vehicles, researchers can achieve high local drug concentrations at the tumor while maintaining negligible levels elsewhere. The team is now working toward human clinical trials, which could begin in late 2026 or early 2027.</p>
-    <p>This work sits at the intersection of synthetic biology and oncology — a rapidly growing field that City of Hope has identified as one of five "big shifts" redefining cancer survival and access in 2026. Combined with advances in gene therapy and personalized medicine, engineered biological therapies represent a potential paradigm shift in how cancer is treated.</p>
-    <div class="source">Sources: <a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a> · <a href="https://www.cityofhope.org/cancer-research-and-care-in-2026-5-big-shifts-that-will-redefine-survival-and-access" target="_blank">City of Hope</a></div>
-  </div>
+    <div class="container">
+        <a href="daily-newsletter.html" class="back-link">Back to Daily Newsletter</a>
 
-  <!-- Space Exploration -->
-  <div class="section-title">Space Exploration</div>
+        <!-- By The Numbers -->
+        <div class="by-the-numbers">
+            <div class="stat-card">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Astronauts on Artemis II</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Days: Lunar Flyby Duration</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Years Since Last Crewed Moon Mission</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">11,000</div>
+                <div class="stat-label">Light-Years to Planetary Collision</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">110°F</div>
+                <div class="stat-label">Record March Temperature, Arizona</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Years Old: First Personalized CRISPR Patient</div>
+            </div>
+        </div>
 
-  <div class="story">
-    <h4>Artemis II: NASA's Return to the Moon Launches Tomorrow</h4>
-    <p>After years of delays, NASA's Artemis II mission is set to launch as early as April 1 from Kennedy Space Center, sending astronauts around the Moon for the first time since Apollo 17 in December 1972. The mission will be the first crewed flight of the Space Launch System and Orion spacecraft, paving the way for Artemis III — which aims to land humans on the lunar surface. Teams completed final preparations in March, including critical spacewalks to install new roll-out solar arrays on the International Space Station.</p>
-    <div class="source"><a href="https://www.nasa.gov/2026-news-releases/" target="_blank">NASA</a></div>
-  </div>
+        <!-- Lead Story -->
+        <div class="lead-card">
+            <h2>Artemis II Ready for Launch — Humanity Returns to the Moon</h2>
+            <p>NASA's Kennedy Space Center stands on the precipice of history. As final preparations conclude for the Artemis II launch—scheduled as early as Wednesday, April 1—the agency prepares to send four astronauts on a journey that will mark humanity's return to lunar exploration after more than fifty years. The ten-day mission around the Moon represents far more than a nostalgic callback to the Apollo era; it is a crucial validation of the technologies and systems that will enable Artemis III to achieve what Apollo could not: sustainable lunar presence and eventual human settlement.</p>
+            <p>The significance of this moment cannot be overstated. The intervening decades since the final Apollo mission have transformed our understanding of the Moon's potential. Water ice at the poles, evidence of past geologic activity, and the strategic location for deep space operations have reframed the Moon not as a distant goal but as a vital waystation for human civilization's expansion beyond Earth. Artemis II serves as the necessary demonstration that the new vehicles—the Space Launch System and Orion spacecraft—can safely carry humans on this critical journey.</p>
+            <p>For a generation that grew up watching human spaceflight transition from triumph to routine, then pause entirely, the Artemis II launch represents a renewal of ambition. The four astronauts aboard will carry with them the hopes of countless scientists, engineers, and citizens who believe that our future lies among the stars. This mission is not simply about reaching the Moon again; it is about proving that we can do so reliably, safely, and in a way that establishes the foundation for generations of exploration to come.</p>
+        </div>
 
-  <div class="story">
-    <h4>Mars's Wet Past: Perseverance Rover Finds Evidence of Tropical Downpours</h4>
-    <p>NASA's Perseverance rover has discovered pale, bleached rocks that tell a compelling story of Mars's ancient climate — a world of tropical downpours, sodden landscapes, and conditions potentially hospitable to life. The rock chemistry suggests sustained water activity far more intense than previously documented, adding to growing evidence that Mars was once a warm, wet world with conditions remarkably similar to early Earth.</p>
-    <div class="source"><a href="https://www.nasa.gov/2026-news-releases/" target="_blank">NASA</a></div>
-  </div>
+        <!-- Space Exploration Section -->
+        <h2 class="section-header">Space Exploration</h2>
 
-  <div class="story">
-    <h4>Hubble Captures a Comet Breaking Apart in Real Time</h4>
-    <p>NASA's Hubble Space Telescope achieved something astronomers have long pursued: observing a comet fragmenting in real time. The time-lapse imagery reveals the dynamic and violent processes that destroy these ancient ice bodies as they approach the Sun, providing unprecedented data on cometary composition and the forces that shape them. The observation was described as a "once-in-a-career" event by the research team.</p>
-    <div class="source"><a href="https://science.nasa.gov/science-news/" target="_blank">NASA Science</a></div>
-  </div>
+        <div class="story-card">
+            <h3>Mars Rocks Reveal Ancient Tropical Rainfall</h3>
+            <p>NASA's Perseverance rover has discovered pale, bleached rocks that hint at a radically different Martian past. Scientists believe these geological features are evidence of intense, tropical-style downpours that once soaked Mars's surface, creating sodden landscapes potentially capable of supporting life. The discovery adds crucial pieces to the puzzle of whether the Red Planet once harbored conditions suitable for microbial organisms.</p>
+        </div>
 
-  <!-- Medical Breakthroughs -->
-  <div class="section-title">Medical Breakthroughs</div>
+        <div class="story-card">
+            <h3>Astronomers Witness Planetary Collision 11,000 Light-Years Away</h3>
+            <p>In a rare cosmic spectacle, two planets orbiting the star Gaia20ehk in the constellation Puppis have collided, creating a debris field that has captivated astronomers worldwide. The collision was detected through erratic dimming of the star's light and the strong infrared emission from the heated debris surrounding the collision site—a direct observation of planetary destruction on an unimaginable scale.</p>
+        </div>
 
-  <div class="story">
-    <h4>GLP-1 Drugs Like Ozempic Show Unexpected Mental Health Benefits</h4>
-    <p>GLP-1 receptor agonist medications — the class that includes semaglutide (Ozempic/Wegovy) — may offer significant mental health benefits alongside their well-documented effects on weight loss and diabetes management. Emerging research suggests these drugs could help with anxiety, depression, and addictive behaviors, potentially through their effects on brain reward pathways. If confirmed in larger studies, it would dramatically expand the therapeutic profile of what are already the most commercially successful drugs in pharmaceutical history.</p>
-    <div class="source"><a href="https://www.massgeneralbrigham.org/en/about/newsroom/articles/2026-predictions-on-scientific-advancements" target="_blank">Mass General Brigham</a></div>
-  </div>
+        <div class="story-card">
+            <h3>Japan's MMX Mission to Phobos Set for 2026 Launch</h3>
+            <p>Japan's space agency (JAXA) is preparing for one of the most ambitious sample-return missions in history. The Martian Moon eXploration (MMX) mission will travel to Phobos, Mars's largest moon, collect samples from its surface, and return them to Earth for analysis—providing scientists with unprecedented insight into the composition and origins of the Martian system.</p>
+        </div>
 
-  <div class="story">
-    <h4>Long COVID Clue Uncovered: Researchers Identify Key Biological Mechanism</h4>
-    <p>Scientists have uncovered a crucial biological clue about Long COVID, which affects up to 1 in 10 people long after their initial infection. The new finding helps explain why symptoms persist in some patients and could lead to targeted treatments for the condition, which has strained healthcare systems worldwide and pushed millions out of the workforce. The discovery comes as researchers have increasingly focused on immune system dysregulation and viral persistence as primary drivers.</p>
-    <div class="source"><a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a></div>
-  </div>
+        <div class="story-card">
+            <h3>Firefly's Blue Ghost Mission 2 to Deliver NASA/ESA Payloads to Moon</h3>
+            <p>Private lunar lander company Firefly Aerospace is preparing Blue Ghost Mission 2 for late 2026, carrying advanced scientific instruments to the lunar surface. Meanwhile, China's Chang'e 7 mission is heading for the lunar south pole, signaling an intensifying international competition to explore and potentially establish research facilities on the Moon.</p>
+        </div>
 
-  <div class="story">
-    <h4>Cholesterol Drug Evolocumab May Prevent First-Time Heart Attacks</h4>
-    <p>A powerful cholesterol-lowering drug called evolocumab could be changing the rules of heart disease prevention. New research shows it can significantly cut the risk of first-time heart attacks — not just secondary events — suggesting the drug could be used preventively in high-risk patients who haven't yet had a cardiac event. This could shift cardiology from a reactive to a proactive discipline, though the drug's cost remains a barrier to widespread adoption.</p>
-    <div class="source"><a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a></div>
-  </div>
+        <!-- Medical Breakthroughs Section -->
+        <h2 class="section-header">Medical Breakthroughs</h2>
 
-  <!-- Gene Therapy & Biotech -->
-  <div class="section-title">Gene Therapy & Biotech</div>
+        <div class="story-card">
+            <h3>Probiotic Bacteria Engineered as Tumor-Seeking Drug Factories</h3>
+            <p>In a groundbreaking application of synthetic biology, scientists have engineered probiotic bacteria that can infiltrate solid tumors and produce cancer-fighting drugs directly at the site of disease. Early mouse studies show remarkable promise, potentially revolutionizing how we deliver therapeutic agents where they are needed most—a targeted approach that could dramatically reduce systemic side effects.</p>
+        </div>
 
-  <div class="story">
-    <h4>CRISPR Enters a New Era: First Customized Gene Therapy for Individual Patients</h4>
-    <p>2026 is building on 2025's breakthrough year for gene therapy. A baby named KJ Muldoon became the first person to receive a fully customized CRISPR treatment — designed specifically for their unique genetic mutation. This "N-of-1" approach, where therapies are tailored to individual patients, represents a paradigm shift from one-size-fits-all medicine and could eventually address thousands of rare genetic diseases that collectively affect millions of people worldwide.</p>
-    <div class="source"><a href="https://www.livescience.com/health/from-gene-therapy-breakthroughs-to-preventable-disease-outbreaks-the-health-trends-that-will-shape-2026" target="_blank">Live Science</a></div>
-  </div>
+        <div class="story-card">
+            <h3>First Fully Personalized CRISPR Treatment Given to 6-Year-Old</h3>
+            <p>Stanford University has achieved a landmark in personalized medicine: the first fully customized CRISPR gene therapy tailored specifically to an individual patient. The achievement marks not only a breakthrough in treating genetic disease but also a demonstration of the power of AI-assisted design. Stanford's CRISPR-GPT AI copilot can now design gene therapy experiments in months rather than years, dramatically accelerating the path from diagnosis to treatment.</p>
+        </div>
 
-  <div class="story">
-    <h4>New Mass Spectrometry Prototype Analyzes Thousands of Molecules Simultaneously</h4>
-    <p>A new analytical instrument prototype could supercharge mass spectrometry — the workhorse technology behind drug discovery, clinical diagnostics, and proteomics — by analyzing thousands of molecules at once instead of one at a time. The breakthrough promises to accelerate research timelines dramatically and could transform how diseases are diagnosed by enabling comprehensive molecular profiling in minutes rather than hours.</p>
-    <div class="source"><a href="https://www.sciencedaily.com/" target="_blank">ScienceDaily</a></div>
-  </div>
+        <div class="story-card">
+            <h3>AI Moving from Hype to Clinical Validation in Healthcare</h3>
+            <p>Artificial intelligence in medicine is entering what technology analysts call the "Slope of Enlightenment"—a phase where the early hype gives way to clinically validated, real-world applications. Healthcare institutions worldwide are deploying AI systems that have been rigorously tested and proven to improve patient outcomes, moving beyond promise into practice.</p>
+        </div>
 
-  <!-- Climate & Environment -->
-  <div class="section-title">Climate & Environment</div>
+        <div class="story-card">
+            <h3>Gut Microbiome-Guided Cancer Therapies Turn Food into Medicine</h3>
+            <p>Researchers are discovering that the trillions of microorganisms living in our digestive systems hold the key to more effective cancer treatment. By analyzing individual microbiome composition and tailoring therapies accordingly, scientists are developing approaches that harness the body's own microbial communities to enhance immunotherapy and improve survivorship outcomes.</p>
+        </div>
 
-  <div class="story">
-    <h4>Arizona Hits 110°F in March — Shattering U.S. Records as Extreme Heat Arrives Early</h4>
-    <p>Martinez Lake, Arizona recorded 110°F on Thursday — the highest March temperature in United States recorded history. The extreme reading comes amid dry, warm, and windy conditions across the Great Plains that have fueled severe wildfire activity. Climate scientists note that while individual records don't prove a trend, the pattern of earlier and more intense heat waves is consistent with climate model projections. The reading is particularly alarming because it arrived weeks before the traditional hot season begins.</p>
-    <div class="source"><a href="https://www.sciencedaily.com/" target="_blank">ScienceDaily</a></div>
-  </div>
+        <!-- Climate & Environment Section -->
+        <h2 class="section-header">Climate & Environment</h2>
 
-  <!-- Astronomy -->
-  <div class="section-title">Astronomy</div>
+        <div class="story-card">
+            <h3>Record-Breaking March Heat: Arizona Hits 110°F</h3>
+            <p>Martinez Lake, Arizona recorded the highest temperature ever measured in the United States during the month of March—a staggering 110°F. The record shattered previous benchmarks and served as a stark reminder of the warming climate's accelerating pace, with heat waves arriving earlier and intensifying with each passing year.</p>
+        </div>
 
-  <div class="story">
-    <h4>Gravitational Waves Reveal Neutron Star-Black Hole Merger on Oval Orbit</h4>
-    <p>Scientists analyzing a gravitational-wave signal have made a fascinating discovery: a neutron star and black hole spiraled together on an oval-shaped (eccentric) orbit just before merging. Most predicted mergers involve circular orbits, so this unusual configuration provides new insights into how these extreme objects form and interact, potentially pointing to a violent formation history involving a third body that disturbed the orbit.</p>
-    <div class="source"><a href="https://www.sciencedaily.com/news/space_time/" target="_blank">ScienceDaily</a></div>
-  </div>
+        <div class="story-card">
+            <h3>Antarctic Peninsula Projections Show Accelerating Ice Loss</h3>
+            <p>New research on the Antarctic Peninsula reveals an increasingly dire picture: warming oceans are driving ice loss at accelerating rates, with direct implications for global sea level rise. The data underscores the tight coupling between greenhouse gas emissions and the planet's most sensitive regions, where relatively small temperature increases trigger disproportionate ice sheet collapse.</p>
+        </div>
 
-  <div class="story">
-    <h4>Small Magellanic Cloud's Chaotic Stars Explained by Ancient Galactic Collision</h4>
-    <p>Astronomers have solved a long-standing mystery about why stars in the Small Magellanic Cloud — a dwarf galaxy visible from the Southern Hemisphere — move in chaotic, seemingly random patterns. The answer: it slammed into its larger neighbor, the Large Magellanic Cloud, millions of years ago. The collision disrupted the smaller galaxy's orderly stellar orbits, leaving behind a gravitational signature that researchers have now mapped in unprecedented detail.</p>
-    <div class="source"><a href="https://www.sciencedaily.com/news/space_time/" target="_blank">ScienceDaily</a></div>
-  </div>
+        <div class="story-card">
+            <h3>Google Deploys AI for Contrail Reduction</h3>
+            <p>In a novel application of artificial intelligence to climate action, Google has launched an AI-powered initiative aimed at reducing aircraft contrails—the ice crystal clouds that form behind jet engines and trap heat in the atmosphere. By using machine learning to identify optimal flight routes and altitudes that minimize contrail formation, the project demonstrates how technology can address aviation's substantial climate impact.</p>
+        </div>
 
-  <!-- Quick Hits -->
-  <div class="quick-hits">
-    <h3>⚡ Quick Hits</h3>
-    <div class="quick-hit"><strong>NIH legislation introduced:</strong> Rep. Josh Harder unveiled landmark legislation to "supercharge medical breakthroughs" at the nation's top science agency, seeking to streamline research funding and accelerate clinical trials. <a href="https://harder.house.gov/media/press-releases/nih-harder-unveils-landmark-legislation-to-supercharge-medical-breakthroughs-at-top-science-agency" target="_blank">Source</a></div>
-    <div class="quick-hit"><strong>UCSF announces two new breakthroughs</strong> advancing research in neurological disorders and cancer, with novel approaches to both brain disease mechanisms and tumor targeting. <a href="https://www.ucsf.edu/news/2026/01/431411/two-new-breakthroughs-advance-neurological-disorders-and-cancer-research" target="_blank">Source</a></div>
-    <div class="quick-hit"><strong>Salk Institute declares 2026 "the year of brain health research,"</strong> with major investments in understanding neurodegenerative diseases like Alzheimer's and Parkinson's. <a href="https://www.salk.edu/science/2026-the-salk-institutes-year-of-brain-health-research/" target="_blank">Source</a></div>
-    <div class="quick-hit"><strong>Great Plains wildfire activity surges</strong> amid dry, warm, and windy conditions, with emergency services stretched across multiple states. <a href="https://www.sciencedaily.com/" target="_blank">Source</a></div>
-    <div class="quick-hit"><strong>RNA technologies and spatial omics</strong> continue reshaping biomedical research in 2026, enabling single-cell analysis at unprecedented resolution. <a href="https://www.cas.org/resources/cas-insights/scientific-breakthroughs-2026-emerging-trends-watch" target="_blank">Source</a></div>
-  </div>
+        <!-- Quantum & Computing Section -->
+        <h2 class="section-header">Quantum & Computing</h2>
 
-</div>
+        <div class="story-card">
+            <h3>IBM: 2026 Will See First Quantum Advantage Over Classical Computers</h3>
+            <p>IBM has announced that 2026 marks the threshold where quantum computers will begin to solve real-world problems faster than classical computers—a milestone known as "quantum advantage." Initial applications will focus on drug development, materials science, and financial optimization, where quantum computing's unique capabilities promise breakthroughs that classical approaches cannot achieve.</p>
+        </div>
 
-<div class="footer">
-  <a href="daily-newsletter.html">← Back to The Morning Wire</a>
-  <p style="margin-top:10px"><strong>The Morning Wire</strong> · Science & Health Deep Dive · March 31, 2026</p>
-</div>
+        <div class="story-card">
+            <h3>Salk Institute Declares 2026 Year of Brain Health Research</h3>
+            <p>The renowned Salk Institute for Biological Studies has designated 2026 as its Year of Brain Health Research, committing major resources to understanding neuroscience, aging, and neurological disorders. The initiative recognizes that the aging brain represents one of the century's greatest scientific and medical challenges—with implications for Alzheimer's prevention, stroke recovery, and treating diseases of neurodegeneration.</p>
+        </div>
 
+        <!-- Quick Hits -->
+        <div class="quick-hits">
+            <h3>Quick Hits</h3>
+            <ul>
+                <li>Opioid-free pain relief drug suzetrigine (Journavax) gaining clinical traction as safer alternative to traditional opioids</li>
+                <li>UCSF announces major advances in neurological disorders and cancer research programs</li>
+                <li>China's Chang'e 7 mission targeting lunar south pole exploration in second half of 2026</li>
+                <li>Understanding links between aging and cancer identified as key research focus for major institutions</li>
+                <li>Biotech industry report identifies 10 major breakthrough trends expected to reshape medicine in 2026</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
+            <p style="margin-top: 1.5rem;">© 2026 The Morning Wire. Science & Health Edition.</p>
+        </div>
+    </div>
 </body>
 </html>

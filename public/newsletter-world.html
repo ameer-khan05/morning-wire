@@ -1,170 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>World & Geopolitics Deep Dive — The Morning Wire | March 31, 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#f5f5f0;color:#1a1a2e}
-a{color:inherit;text-decoration:none}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Morning Wire: World Edition - April 1, 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.header{background:linear-gradient(135deg,#450a0a,#b91c1c);padding:32px 20px 28px;text-align:center}
-.back-link{display:inline-block;color:rgba(255,255,255,.7);font-size:.82rem;margin-bottom:14px;transition:color .2s}
-.back-link:hover{color:#fff}
-.header h1{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:#fff}
-.header .subtitle{font-size:.9rem;color:rgba(255,255,255,.55);margin-top:6px;letter-spacing:1px}
-.header .date{font-size:.8rem;color:rgba(255,255,255,.4);margin-top:8px;text-transform:uppercase;letter-spacing:2px}
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
 
-.container{max-width:760px;margin:0 auto;padding:28px 16px 60px}
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-.numbers-bar{background:#fff;border-radius:12px;padding:24px 28px;margin-bottom:32px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
-.numbers-bar h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:16px;color:#b91c1c}
-.numbers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
-.num-item .value{font-size:1.4rem;font-weight:800;color:#1a1a2e}
-.num-item .label{font-size:.75rem;color:#888;margin-top:2px}
+        header {
+            background: linear-gradient(135deg, #450a0a 0%, #b91c1c 100%);
+            color: white;
+            padding: 40px 0;
+            margin-bottom: 30px;
+            text-align: center;
+        }
 
-.lead{background:#fff;border-radius:12px;padding:32px 28px;margin-bottom:28px;box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:5px solid #dc2626}
-.lead .badge{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:#dc2626;font-weight:700;margin-bottom:10px}
-.lead h2{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:700;line-height:1.3;margin-bottom:14px}
-.lead p{font-size:.93rem;line-height:1.75;color:#444;margin-bottom:12px}
-.lead .source{font-size:.78rem;color:#888}
-.lead .source a{color:#dc2626;text-decoration:underline}
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
 
-.section-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin:28px 0 14px;padding-bottom:8px;border-bottom:2px solid #e5e5e5;color:#1a1a2e}
+        header .subtitle {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
 
-.story{background:#fff;border-radius:10px;padding:22px 24px;margin-bottom:12px;box-shadow:0 1px 6px rgba(0,0,0,.04)}
-.story h4{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;margin-bottom:8px;line-height:1.35}
-.story p{font-size:.88rem;line-height:1.7;color:#555}
-.story .source{font-size:.75rem;color:#999;margin-top:8px}
-.story .source a{text-decoration:underline;color:#dc2626}
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+        }
 
-.quick-hits{background:#fff;border-radius:12px;padding:24px 28px;margin-top:28px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
-.quick-hits h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:16px;color:#b91c1c}
-.quick-hit{padding:12px 0;border-bottom:1px solid #f0f0f0;font-size:.88rem;line-height:1.6;color:#555}
-.quick-hit:last-child{border-bottom:none}
-.quick-hit strong{color:#1a1a2e}
-.quick-hit a{color:#dc2626;text-decoration:underline}
+        .back-link a {
+            color: #b91c1c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b91c1c;
+        }
 
-.footer{text-align:center;padding:40px 20px;font-size:.78rem;color:#999;border-top:1px solid #e5e5e5;margin-top:30px}
-.footer a{color:#dc2626;text-decoration:underline}
-</style>
+        .back-link a:hover {
+            color: #7f1d1d;
+            border-bottom-color: #7f1d1d;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .lead-story {
+            border-left: 5px solid #b91c1c;
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+            box-shadow: 0 2px 12px rgba(185, 28, 28, 0.12);
+        }
+
+        .lead-story h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            color: #450a0a;
+            margin-bottom: 18px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .lead-story .lede {
+            font-size: 1.05rem;
+            color: #1f2937;
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
+
+        .lead-story p {
+            margin-bottom: 14px;
+            color: #4b5563;
+            line-height: 1.7;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #450a0a;
+            margin: 35px 0 20px 0;
+            font-weight: 700;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #b91c1c;
+        }
+
+        .story {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .story:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .story h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: #1f2937;
+            margin-bottom: 10px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .story p {
+            color: #4b5563;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .source {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            font-style: italic;
+        }
+
+        .source a {
+            color: #b91c1c;
+            text-decoration: none;
+            border-bottom: 1px solid #b91c1c;
+        }
+
+        .source a:hover {
+            color: #7f1d1d;
+        }
+
+        .quick-hits {
+            background: #fafafa;
+            padding: 25px;
+            border-radius: 4px;
+            margin-bottom: 25px;
+        }
+
+        .quick-hits h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #450a0a;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .quick-hits ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quick-hits li {
+            padding-left: 20px;
+            margin-bottom: 12px;
+            color: #4b5563;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .quick-hits li:before {
+            content: "•";
+            color: #b91c1c;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .quick-hits li:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            background: white;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+            border-top: 1px solid #e5e7eb;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        footer .back-link {
+            margin-bottom: 18px;
+        }
+
+        footer .copyright {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-top: 15px;
+        }
+
+        .date-line {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .card, .lead-story {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 1.35rem;
+            }
+
+            .story h3 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <div class="back-link">
+            <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
+        </div>
 
-<div class="header">
-  <a href="daily-newsletter.html" class="back-link">← Back to The Morning Wire</a>
-  <h1>World & Geopolitics</h1>
-  <div class="subtitle">Deep Dive Edition</div>
-  <div class="date">Tuesday, March 31, 2026</div>
-</div>
+        <header>
+            <h1>The Morning Wire</h1>
+            <p class="subtitle">World Edition</p>
+        </header>
 
-<div class="container">
+        <div class="date-line">Wednesday, April 1, 2026</div>
 
-  <div class="numbers-bar">
-    <h3>By the Numbers</h3>
-    <div class="numbers-grid">
-      <div class="num-item"><div class="value">Day 31</div><div class="label">Of the Iran-U.S./Israel conflict</div></div>
-      <div class="num-item"><div class="value">4,700+</div><div class="label">Iranian forces killed (reported)</div></div>
-      <div class="num-item"><div class="value">$102.88</div><div class="label">WTI oil per barrel</div></div>
-      <div class="num-item"><div class="value">4</div><div class="label">Nations mediating in Islamabad</div></div>
-      <div class="num-item"><div class="value">15</div><div class="label">Points in rejected peace plan</div></div>
-      <div class="num-item"><div class="value">$28.5B</div><div class="label">U.S. foreign aid budget (slashed)</div></div>
+        <div class="lead-story">
+            <h2>Day 32: Trump to Address Nation as Iran War Reaches Inflection Point</h2>
+
+            <p class="lede">President Trump will deliver a primetime address at 9 PM ET Wednesday with what the White House describes as an "important update" on the Iran conflict, as the war enters its second month with mounting regional consequences and fresh uncertainty about its trajectory.</p>
+
+            <p>The address comes amid a flurry of battlefield developments that have transformed the Iran conflict into a multi-theater escalation. Early Wednesday morning, the Iranian Revolutionary Guards launched three consecutive waves of missiles at Israel in what appeared to be a coordinated strike campaign. Simultaneously, Iranian drones targeted Kuwait's airport, igniting massive fires in the fuel depot complex. A day earlier, a Kuwaiti oil tanker operating off Dubai had been struck in what regional observers view as a deliberate effort to disrupt global energy flows and draw neutral parties into the widening conflict.</p>
+
+            <p>The strategic stakes are evidently high. Trump has suggested to allies that the offensive could conclude within 2 to 3 weeks—a timeline that would compress the largest Middle Eastern military operation in decades into a remarkably brief window. Yet such forecasts have proven elusive in similar conflicts. Meanwhile, Iranian officials have issued increasingly stark warnings: a high-ranking Iranian official accused the US of planning a ground invasion and declared that any such intervention would be "met with force." Inside Iran, public sentiment appears to be mobilizing behind continued strikes, complicating any potential diplomatic off-ramp.</p>
+
+            <p>Trump's dismissal of allied energy concerns—telling allies to "get your own oil" regarding the closed Strait of Hormuz—signals a dramatic reorientation of American foreign policy toward unilateral energy independence and away from traditional burden-sharing frameworks. This rhetorical posture masks a genuine strategic problem: 15 million barrels of Gulf supply have been taken offline, US gas prices have climbed to $4 per gallon, and the global energy market faces its gravest disruption since the 1970s. Whether Trump's primetime address will clarify American objectives or merely announce tactical adjustments remains to be seen, but the stakes extend far beyond the Middle East itself.</p>
+
+            <p style="font-size: 0.9rem; margin-top: 20px; color: #9ca3af;">
+                <strong>Sources:</strong>
+                <a href="https://www.npr.org/2026/04/01/nx-s1-5769805/iran-war-trump">NPR</a> |
+                <a href="https://www.cnn.com/2026/04/01/world/live-news/iran-war-us-trump-oil">CNN</a> |
+                <a href="https://www.washingtonpost.com/national/2026/04/01/iran-israel-us-lebanon-latest-april-1-2026/e5de1fa4-2d7f-11f1-aac2-f56b5ccad184_story.html">Washington Post</a> |
+                <a href="https://www.aljazeera.com/news/2026/4/1/trump-tells-allies-get-your-own-oil-says-iran-war-could-end-in-2-3-weeks">Al Jazeera</a>
+            </p>
+        </div>
+
+        <div class="card">
+            <h2 class="section-title">Middle East Conflict</h2>
+
+            <div class="story">
+                <h3>Israel's Lebanon Invasion Rapidly Widening</h3>
+                <p>Israeli military operations across the Lebanese border continue to accelerate and deepen, with ground forces pushing further into new territory. Military analysts now assess that the Lebanon campaign could extend well beyond the timeline of the Iran war, establishing a long-term operational commitment that complicates Trump's stated 2-3 week conclusion. The expanding scope raises questions about coordination between Tel Aviv and Washington and whether Israel is pursuing objectives beyond the immediate Iran conflict.</p>
+                <p class="source">Source: <a href="https://www.cnn.com">CNN</a></p>
+            </div>
+
+            <div class="story">
+                <h3>Iranian Drones Strike Kuwait Airport, Tanker Off Dubai</h3>
+                <p>In a dramatic escalation of the conflict's regional spillover, Iranian drones struck Kuwait's international airport complex Wednesday morning, igniting massive fires at fuel depot facilities. The strike marked a deliberate targeting of critical infrastructure in a country that has attempted to maintain neutrality. One day prior, Iranian forces had struck a Kuwaiti oil tanker operating off Dubai, suggesting a coordinated campaign to pressure Gulf states and disrupt energy commerce through the world's most strategically vital waterway.</p>
+                <p class="source">Source: <a href="https://www.cnn.com/2026/03/31/world/live-news/iran-war-us-trump-oil">CNN</a></p>
+            </div>
+
+            <div class="story">
+                <h3>US Gas Hits $4/Gallon as Strait of Hormuz Remains Closed</h3>
+                <p>With the Strait of Hormuz effectively closed to normal traffic due to the conflict, 15 million barrels per day of Gulf supply have been withdrawn from global markets. US gasoline prices have surged to $4 per gallon nationwide, marking the sharpest spike in crude-linked inflation since the oil embargoes of the 1970s. Economists warn that sustained prices at this level could trigger broader inflationary pressures and slow economic growth in the first quarter of 2026.</p>
+                <p class="source">Source: Fortune</p>
+            </div>
+
+            <div class="story">
+                <h3>High-Ranking Iranian Official Warns Against Ground Invasion</h3>
+                <p>As speculation mounts about the possibility of US ground operations in Iran, a senior Iranian government official delivered a sharp warning Wednesday, declaring that any direct military intervention would be "met with force." The statement reflects hardening Iranian resolve and suggests that military planners in Tehran are bracing for possible escalation even as Trump discusses timeline and strategic off-ramps with allies. The rhetoric signals that diplomatic pathways remain narrow.</p>
+                <p class="source">Source: ABC News</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="section-title">Asia-Pacific</h2>
+
+            <div class="story">
+                <h3>Taiwan's KMT Leader to Make Landmark China Visit</h3>
+                <p>Cheng Li-wun, leader of Taiwan's Kuomintang (KMT) opposition party, will lead a delegation to mainland China April 7-12, visiting Jiangsu, Shanghai, and Beijing in what has been billed as a historic outreach effort. If Cheng meets with Xi Jinping during the visit, she would become the first sitting KMT leader to do so in more than a decade—a development with potentially significant implications for cross-strait relations. The timing is noteworthy: the visit occurs one month before Trump's scheduled May summit with Xi, suggesting a broader diplomatic repositioning is underway.</p>
+                <p class="source">Source: <a href="https://www.cfr.org">Council on Foreign Relations</a></p>
+            </div>
+
+            <div class="story">
+                <h3>Trump-Xi Summit in the Works for May</h3>
+                <p>The Trump administration is preparing for a major summit with Chinese President Xi Jinping scheduled for May 2026. Senior officials indicate that pressure on Beijing may intensify ahead of the meeting, particularly as the November 2026 midterm elections loom in Washington. The timing suggests that Trump's trade and technology strategies will sharpen considerably over the coming weeks, with China policy taking center stage in the broader 2026 political calendar.</p>
+                <p class="source">Source: <a href="https://www.cfr.org/articles/trumps-2026-state-of-the-union-foreign-policy-issue-guide">Council on Foreign Relations</a></p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="section-title">Trade & Diplomacy</h2>
+
+            <div class="story">
+                <h3>Liberation Day Tariff Aftermath Continues</h3>
+                <p>The economic reverberations from the controversial Liberation Day reciprocal tariffs continue to shape trade negotiations and legal challenges. The Supreme Court is expected to weigh in on the constitutionality of the tariff regime, while trading partners and US businesses alike scramble to understand exemption procedures and potential deal renegotiations. The uncertainty is creating chilling effects on investment planning and supply chain management across multiple sectors.</p>
+                <p class="source">Source: <a href="https://www.cfr.org">Council on Foreign Relations</a></p>
+            </div>
+
+            <div class="story">
+                <h3>US Foreign Policy Faces Major Unknowns in 2026</h3>
+                <p>As the year progresses and Trump's second term takes shape, fundamental questions remain unresolved across the full spectrum of American foreign engagement. The future of NATO and traditional alliances, the trajectory of the Ukraine war, the character of the US-China relationship, and the prospects for diplomatic mediation of the Iran conflict are all in flux. Foreign policy experts warn that the next three months will be critical in determining the broad contours of American international posture for the remainder of the decade.</p>
+                <p class="source">Source: <a href="https://www.stimson.org/2026/testing-assumptions-about-us-foreign-policy-in-2026/">Stimson Center</a></p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="section-title">Humanitarian</h2>
+
+            <div class="story">
+                <h3>Rohingya Refugees Face Drastic Food Aid Cuts</h3>
+                <p>Hundreds of thousands of Rohingya refugees sheltering in camps across Bangladesh face severe food assistance reductions beginning this week. International humanitarian organizations warn that the cuts come at a precarious moment, as the camps continue to absorb new arrivals and shelter a population already struggling with disease and malnutrition. The reductions reflect constrained donor budgets and competing global crises, but humanitarian workers describe the situation as approaching a breaking point.</p>
+                <p class="source">Source: <a href="https://www.npr.org">NPR</a></p>
+            </div>
+
+            <div class="story">
+                <h3>Global Humanitarian Challenges Mount</h3>
+                <p>The world's humanitarian system is straining under the weight of simultaneous crises spanning multiple continents. The Iran war has displaced hundreds of thousands across the Middle East, the Rohingya camps are overwhelmed, flooding in South Asia has affected millions, and funding gaps are widening across emergency response operations. UN agencies report that 2026 is shaping up to be one of the most challenging years for humanitarian response in the modern era, with resources failing to keep pace with need.</p>
+                <p class="source">Source: <a href="https://www.npr.org">NPR</a></p>
+            </div>
+        </div>
+
+        <div class="card quick-hits">
+            <h3>Quick Hits</h3>
+            <ul>
+                <li>Iran conflict enters second month with no clear endgame visible to international observers</li>
+                <li>Israeli operations in Lebanon expanding independently of Iran campaign, raising durability questions</li>
+                <li>Kuwait airport operations disrupted by drone strikes; regional airlines rerouting flights</li>
+                <li>US allies scrambling for alternative energy supplies as Strait of Hormuz closure persists</li>
+                <li>UN agencies warn of growing displacement across Middle East as conflict widens</li>
+                <li>Diplomatic channels remain open but increasingly fragile amid military escalation</li>
+            </ul>
+        </div>
+
+        <footer>
+            <div class="back-link">
+                <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
+            </div>
+            <p class="copyright">© 2026 The Morning Wire. All rights reserved.</p>
+        </footer>
     </div>
-  </div>
-
-  <!-- Lead Story -->
-  <div class="lead">
-    <div class="badge">★ Lead Story</div>
-    <h2>Day 31: Iran Rejects U.S. Peace Plan, Houthis Expand the War, but Ceasefire Whispers Grow Louder</h2>
-    <p>The U.S.-Israel war on Iran entered its 31st day on Monday with the conflict intensifying on multiple fronts even as diplomatic signals offer the first real hope of a resolution. Iran's Foreign Ministry rejected the 15-point U.S. peace proposal as "maximalist" and "unreasonable," insisting that any ceasefire must encompass Lebanon and halt operations against Hezbollah — a condition the U.S. has so far refused to accept.</p>
-    <p>President Trump responded with characteristically contradictory signals: renewing his threat to strike Iran's energy infrastructure while simultaneously claiming that "major points of agreement" exist on nuclear weapons and that a deal could come "soon." On Sunday, Trump paused planned strikes on Iranian energy plants until April 6, citing "productive talks" through mediators — though no direct U.S.-Iran communication has occurred since the war began on February 28.</p>
-    <p>The conflict's geographic scope expanded further when Yemen's Houthi forces launched ballistic missiles at Israeli military sites on March 28, vowing to continue attacks "until aggression on all resistance fronts stops." Iran, Hezbollah in Lebanon, and the Houthis are now operating in apparent coordination, creating a three-front war that has pushed global supply chains and energy markets to breaking points.</p>
-    <div class="source">Sources: <a href="https://www.cnn.com/2026/03/30/world/live-news/iran-war-us-israel-trump" target="_blank">CNN</a> · <a href="https://www.aljazeera.com/video/newsfeed/2026/3/30/irans-foreign-ministry-rejects-us-ceasefire-demands" target="_blank">Al Jazeera</a> · <a href="https://www.cbsnews.com/live-updates/iran-war-us-trump-uncertainty-oil-prices-strait-of-hormuz-houthis-red-sea/" target="_blank">CBS News</a></div>
-  </div>
-
-  <!-- Diplomacy -->
-  <div class="section-title">Diplomatic Efforts</div>
-
-  <div class="story">
-    <h4>Islamabad Summit: Pakistan, Saudi Arabia, Turkey, and Egypt Seek De-Escalation Path</h4>
-    <p>Foreign ministers from four major Muslim-majority nations gathered in Islamabad on Saturday in the most significant multilateral diplomatic push since the war began. Pakistan has offered to host direct U.S.-Iran talks "in coming days," positioning itself as a neutral venue given its shared border with Iran and longstanding relationship with Washington. Saudi Arabia and Turkey bring additional diplomatic weight, though Tehran's insistence on linking any ceasefire to Lebanon has complicated the mediation effort.</p>
-    <div class="source"><a href="https://www.npr.org/2026/03/29/nx-s1-5765344/pakistan-diplomatic-discussions-iran-war" target="_blank">NPR</a></div>
-  </div>
-
-  <div class="story">
-    <h4>Trump Says "Major Points of Agreement" Exist on Nuclear Weapons — But Details Remain Elusive</h4>
-    <p>President Trump's claim of progress on nuclear negotiations with Iran has raised cautious optimism in some quarters, though administration officials have provided no specifics. Iran's nuclear program was the original stated justification for the U.S.-Israeli strikes, but the war has expanded far beyond nuclear facilities. The disconnect between Trump's optimistic rhetoric and the escalating military reality on the ground has kept markets volatile and allies uncertain.</p>
-    <div class="source"><a href="https://www.cbsnews.com/live-updates/iran-war-us-trump-uncertainty-oil-prices-strait-of-hormuz-houthis-red-sea/" target="_blank">CBS News</a></div>
-  </div>
-
-  <!-- Military Situation -->
-  <div class="section-title">Military Developments</div>
-
-  <div class="story">
-    <h4>Houthis Enter the War: Ballistic Missiles Target Israel from Yemen</h4>
-    <p>Yemen's Houthi forces opened a new front on March 28, launching ballistic missiles at what they described as "sensitive military sites" in Israel. The Houthis, who have long received Iranian support, vowed to continue attacks until aggression ceases "on all resistance fronts." The expansion brings the conflict's theater from the Persian Gulf to the Red Sea, threatening some of the world's busiest shipping lanes and adding a new variable to an already complex military calculus.</p>
-    <div class="source"><a href="https://www.aljazeera.com/news/liveblog/2026/3/28/iran-war-live-trump-again-slams-natos-lack-of-support-for-war-on-tehran" target="_blank">Al Jazeera</a></div>
-  </div>
-
-  <div class="story">
-    <h4>Iran and Hezbollah Launch Coordinated Strikes on Northern Israel</h4>
-    <p>Missiles and drones launched by Iran and Hezbollah militants in Lebanon targeted northern Israel on March 30, with explosions reported around Israeli oil infrastructure in the northern city of Haifa. Israel has intensified its attacks across Lebanon, particularly in the south, where ground troops are pushing northward to dislodge Hezbollah positions. The Lebanon front has become increasingly indistinguishable from the Iran campaign, complicating ceasefire negotiations.</p>
-    <div class="source"><a href="https://thefederal.com/category/international/iran-israel-us-conflict-world-news-india-news-236883" target="_blank">The Federal</a></div>
-  </div>
-
-  <div class="story">
-    <h4>Iran Warns U.S. Against Ground Invasion</h4>
-    <p>Iran's military leadership issued a direct warning against any U.S. ground invasion, stating that such a move would trigger "a response beyond anything yet seen." While the U.S. has shown no indication of deploying ground troops, the warning reflects Iranian concerns that continued air strikes could escalate further. Iran International reported at least 4,700 security forces killed since February 28, though independent verification remains difficult.</p>
-    <div class="source"><a href="https://www.npr.org/2026/03/29/nx-s1-5765344/pakistan-diplomatic-discussions-iran-war" target="_blank">NPR</a></div>
-  </div>
-
-  <!-- Global Fallout -->
-  <div class="section-title">Global Fallout</div>
-
-  <div class="story">
-    <h4>Allies Publicly Distance from Iran War While Quietly Calculating Independence</h4>
-    <p>With the Strait of Hormuz disrupted and oil markets in turmoil, U.S. allies are increasingly putting daylight between themselves and the Iran campaign. European and Asian partners are publicly questioning the strategic rationale while privately calculating how much policy independence they can afford. The conflict has exposed deep fissures in the Western alliance, with NATO members declining direct involvement — a point Trump has repeatedly and publicly criticized.</p>
-    <div class="source"><a href="https://www.mrgeopolitics.com/p/the-week-ahead-in-geopolitics-march-30-2026" target="_blank">Geopolitical Foresight</a></div>
-  </div>
-
-  <div class="story">
-    <h4>Worst Trade Disruption in 80 Years: Strait of Hormuz Closures Ripple Globally</h4>
-    <p>The conflict has triggered what analysts describe as the world's largest supply disruption since the 1970s energy crisis and the worst trade rupture in 80 years. Disruptions to shipping through the Strait of Hormuz — through which roughly 20% of global oil passes — have sent commodity prices soaring, disrupted aviation and tourism, and forced countries to activate strategic petroleum reserves. Japan's foreign minister has said the country could explore mine-clearing operations if a ceasefire is achieved.</p>
-    <div class="source"><a href="https://www.aljazeera.com/news/liveblog/2026/3/26/iran-war-live-us-demands-tehran-accept-defeat-israel-pounds-lebanon" target="_blank">Al Jazeera</a></div>
-  </div>
-
-  <!-- Broader Geopolitics -->
-  <div class="section-title">Broader Geopolitics</div>
-
-  <div class="story">
-    <h4>Trump Administration Slashes Foreign Aid — International Delivery System in "Chaos"</h4>
-    <p>The administration's decision to cut U.S. foreign aid to $28.5 billion has thrown the international aid delivery system into disarray at a time of record global conflicts. Combined with executive orders withdrawing from multiple international organizations, the cuts represent a fundamental reshaping of America's global footprint, leaving humanitarian gaps that neither European allies nor Chinese investments have filled.</p>
-    <div class="source"><a href="https://www.cfr.org/articles/trumps-2026-state-of-the-union-foreign-policy-issue-guide" target="_blank">Council on Foreign Relations</a></div>
-  </div>
-
-  <div class="story">
-    <h4>China Calls for U.S.-Japan Relations to "Not Harm Others' Interests"</h4>
-    <p>China's foreign ministry spokesperson urged that bilateral U.S.-Japan relations promote regional stability rather than target third parties, a statement that reflects ongoing tensions over the Pacific alliance system. The comment comes as Japan navigates between its security alliance with Washington and its economic ties with Beijing, a balancing act made more complex by the Iran war's impact on energy supplies and trade routes.</p>
-    <div class="source"><a href="https://www.cfr.org/" target="_blank">Council on Foreign Relations</a></div>
-  </div>
-
-  <!-- Quick Hits -->
-  <div class="quick-hits">
-    <h3>⚡ Quick Hits</h3>
-    <div class="quick-hit"><strong>Trump postponed strikes on Iranian energy plants until April 6,</strong> citing "productive talks" — but no direct U.S.-Iran communication has occurred. <a href="https://www.cnn.com/2026/03/26/world/live-news/iran-war-us-israel-trump" target="_blank">Source</a></div>
-    <div class="quick-hit"><strong>Nepal's Gen Z political movement scores a win</strong> as rapper-turned-politician Balendra Shah's success at the ballot signifies growing youth political power. <a href="https://www.e-ir.info/" target="_blank">Source</a></div>
-    <div class="quick-hit"><strong>India projects 1-point GDP growth erosion</strong> and 1.5-point inflation rise if the Iran conflict persists through the next fiscal year, per EY. <a href="https://www.ey.com/en_us/insights/geostrategy/geostrategic-analysis" target="_blank">Source</a></div>
-    <div class="quick-hit"><strong>Explosions hit Israeli oil infrastructure in Haifa</strong> on Monday as Iran-Hezbollah coordinated strikes target northern Israel. <a href="https://thefederal.com/category/international/iran-israel-us-conflict-world-news-india-news-236883" target="_blank">Source</a></div>
-  </div>
-
-</div>
-
-<div class="footer">
-  <a href="daily-newsletter.html">← Back to The Morning Wire</a>
-  <p style="margin-top:10px"><strong>The Morning Wire</strong> · World & Geopolitics Deep Dive · March 31, 2026</p>
-</div>
-
 </body>
 </html>

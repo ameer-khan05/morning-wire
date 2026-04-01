@@ -1,248 +1,434 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Morning Wire — Tuesday, March 31, 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#f5f5f0;color:#1a1a2e}
-a{color:inherit;text-decoration:none}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Morning Wire - Wednesday, April 1, 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* Header */
-.header{background:linear-gradient(135deg,#0f0f23,#1a1a3e);padding:40px 20px 30px;text-align:center;position:relative}
-.header h1{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:#fff;letter-spacing:2px}
-.header .tagline{font-size:.95rem;color:rgba(255,255,255,.6);margin-top:6px;font-weight:300;letter-spacing:1px}
-.header .date{font-size:.85rem;color:rgba(255,255,255,.45);margin-top:10px;text-transform:uppercase;letter-spacing:2px}
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #1f2937;
+        }
 
-/* Accent bar */
-.accent-bar{display:flex;height:5px}
-.accent-bar span{flex:1}
-.accent-bar .c-tech{background:#7c3aed}
-.accent-bar .c-crypto{background:#d97706}
-.accent-bar .c-markets{background:#16a34a}
-.accent-bar .c-world{background:#dc2626}
-.accent-bar .c-science{background:#0284c7}
+        header {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%);
+            color: white;
+            padding: 48px 16px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-/* Ticker */
-.ticker-wrap{background:#111827;overflow:hidden;padding:12px 0}
-.ticker{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;white-space:nowrap;max-width:760px;margin:0 auto;padding:0 16px}
-.ticker .item{font-size:.82rem;color:rgba(255,255,255,.85);font-weight:500}
-.ticker .item .label{color:rgba(255,255,255,.5);margin-right:6px}
-.ticker .item .up{color:#22c55e}
-.ticker .item .down{color:#ef4444}
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
 
-/* Container */
-.container{max-width:760px;margin:0 auto;padding:24px 16px 60px}
+        header .date {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-/* Top Story */
-.top-story{background:#fff;border-radius:12px;padding:32px 28px;margin-bottom:32px;box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:5px solid #7c3aed}
-.top-story .badge{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:#7c3aed;font-weight:700;margin-bottom:10px}
-.top-story h2{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:700;line-height:1.3;margin-bottom:14px}
-.top-story p{font-size:.95rem;line-height:1.7;color:#444;margin-bottom:10px}
-.top-story .source{font-size:.78rem;color:#888}
-.top-story .source a{color:#7c3aed;text-decoration:underline}
+        .ticker-wrap {
+            background: #111827;
+            overflow: hidden;
+            padding: 12px 0;
+        }
 
-/* Section */
-.section{margin-bottom:36px}
-.section-header{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.section-header .dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
-.section-header h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700}
+        .ticker {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            flex-wrap: wrap;
+            white-space: nowrap;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
 
-.story-card{background:#fff;border-radius:10px;padding:20px 22px;margin-bottom:12px;box-shadow:0 1px 6px rgba(0,0,0,.04);transition:box-shadow .2s}
-.story-card:hover{box-shadow:0 3px 16px rgba(0,0,0,.09)}
-.story-card h4{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;margin-bottom:8px;line-height:1.35}
-.story-card p{font-size:.88rem;line-height:1.65;color:#555}
-.story-card .source{font-size:.75rem;color:#999;margin-top:8px}
-.story-card .source a{text-decoration:underline}
+        .ticker .item {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+        }
 
-/* Deep dive link */
-.deep-dive-link{display:inline-block;padding:10px 22px;border-radius:8px;color:#fff;font-weight:600;font-size:.88rem;margin-top:8px;transition:opacity .2s}
-.deep-dive-link:hover{opacity:.85}
-.deep-dive-link.tech{background:#7c3aed}
-.deep-dive-link.crypto{background:#d97706}
-.deep-dive-link.markets{background:#16a34a}
-.deep-dive-link.world{background:#dc2626}
-.deep-dive-link.science{background:#0284c7}
+        .ticker .item .label {
+            color: rgba(255, 255, 255, 0.5);
+            margin-right: 6px;
+        }
 
-/* Footer */
-.footer{text-align:center;padding:40px 20px;font-size:.78rem;color:#999;border-top:1px solid #e5e5e5;margin-top:20px}
-.footer a{color:#7c3aed;text-decoration:underline}
-</style>
+        .ticker .item .up {
+            color: #22c55e;
+        }
+
+        .ticker .item .down {
+            color: #ef4444;
+        }
+
+        main {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 40px 16px;
+        }
+
+        .top-story {
+            background: white;
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 40px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #dc2626;
+        }
+
+        .top-story h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.3;
+            color: #0f0f23;
+        }
+
+        .top-story p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #4b5563;
+            margin-bottom: 16px;
+        }
+
+        .top-story .source {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            font-style: italic;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #0f0f23;
+        }
+
+        .category-section {
+            background: white;
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid;
+        }
+
+        .category-section.tech {
+            border-left-color: #7c3aed;
+        }
+
+        .category-section.crypto {
+            border-left-color: #d97706;
+        }
+
+        .category-section.markets {
+            border-left-color: #16a34a;
+        }
+
+        .category-section.world {
+            border-left-color: #dc2626;
+        }
+
+        .category-section.science {
+            border-left-color: #0284c7;
+        }
+
+        .story {
+            margin-bottom: 24px;
+        }
+
+        .story:last-child {
+            margin-bottom: 24px;
+        }
+
+        .story h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #0f0f23;
+            line-height: 1.4;
+        }
+
+        .story p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #4b5563;
+            margin-bottom: 6px;
+        }
+
+        .story .source {
+            font-size: 0.8rem;
+            color: #9ca3af;
+            font-style: italic;
+        }
+
+        .deep-dive {
+            margin-top: 24px;
+            display: inline-block;
+        }
+
+        .deep-dive-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: white;
+            transition: opacity 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .deep-dive-btn:hover {
+            opacity: 0.9;
+        }
+
+        .deep-dive-btn.tech {
+            background-color: #7c3aed;
+        }
+
+        .deep-dive-btn.crypto {
+            background-color: #d97706;
+        }
+
+        .deep-dive-btn.markets {
+            background-color: #16a34a;
+        }
+
+        .deep-dive-btn.world {
+            background-color: #dc2626;
+        }
+
+        .deep-dive-btn.science {
+            background-color: #0284c7;
+        }
+
+        footer {
+            max-width: 760px;
+            margin: 60px auto 0;
+            padding: 32px 16px;
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+            color: #9ca3af;
+            font-size: 0.85rem;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>The Morning Wire</h1>
+        <p class="date">Wednesday, April 1, 2026</p>
+    </header>
 
-<div class="header">
-  <h1>THE MORNING WIRE</h1>
-  <div class="tagline">Your daily briefing on what matters</div>
-  <div class="date">Tuesday, March 31, 2026</div>
-</div>
-
-<div class="accent-bar">
-  <span class="c-tech"></span>
-  <span class="c-crypto"></span>
-  <span class="c-markets"></span>
-  <span class="c-world"></span>
-  <span class="c-science"></span>
-</div>
-
-<div class="ticker-wrap">
-  <div class="ticker">
-    <div class="item"><span class="label">S&P 500</span> 6,343.72 <span class="down">▼ 0.39%</span></div>
-    <div class="item"><span class="label">Nasdaq</span> 20,794.64 <span class="down">▼ 0.73%</span></div>
-    <div class="item"><span class="label">Dow</span> 45,216.14 <span class="up">▲ 0.11%</span></div>
-    <div class="item"><span class="label">Bitcoin</span> $66,410 <span class="down">▼ 1.54%</span></div>
-    <div class="item"><span class="label">Gold</span> $4,585.10 <span class="up">▲ 0.61%</span></div>
-    <div class="item"><span class="label">Oil (WTI)</span> $102.88 <span class="up">▲ 3.25%</span></div>
-  </div>
-</div>
-
-<div class="container">
-
-  <!-- TOP STORY -->
-  <div class="top-story">
-    <div class="badge">★ Top Story of the Day</div>
-    <h2>Iran Rejects U.S. Ceasefire Plan as War Enters Day 31 — Trump Threatens Energy Strikes Again</h2>
-    <p>Iran's Foreign Ministry has rejected the 15-point U.S. peace proposal as "excessive, unrealistic and unreasonable," insisting that any ceasefire must include Lebanon and an end to operations against Hezbollah. President Trump responded by renewing his threat to strike Iran's energy infrastructure, while simultaneously claiming "talks are going very well" through mediators. Oil surged past $102 per barrel as diplomatic uncertainty deepens — but futures rose Tuesday on reports Trump signaled willingness to end the campaign.</p>
-    <p>Pakistan, Saudi Arabia, Turkey and Egypt are convening in Islamabad to mediate, even as Houthi forces in Yemen join the conflict with ballistic missile strikes on Israel. At least 4,700 Iranian security forces have been reported killed since hostilities began February 28.</p>
-    <div class="source">Sources: <a href="https://www.aljazeera.com/video/newsfeed/2026/3/30/irans-foreign-ministry-rejects-us-ceasefire-demands" target="_blank">Al Jazeera</a> · <a href="https://www.cnn.com/2026/03/30/world/live-news/iran-war-us-israel-trump" target="_blank">CNN</a> · <a href="https://www.cbsnews.com/live-updates/iran-war-us-trump-uncertainty-oil-prices-strait-of-hormuz-houthis-red-sea/" target="_blank">CBS News</a></div>
-  </div>
-
-  <!-- TECH & AI -->
-  <div class="section">
-    <div class="section-header">
-      <div class="dot" style="background:#7c3aed"></div>
-      <h3>Tech & AI</h3>
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="item">
+                <span class="label">S&P 500:</span>
+                <span>6,528.52</span>
+                <span class="up">+2.91%</span>
+            </div>
+            <div class="item">
+                <span class="label">Nasdaq:</span>
+                <span>21,590.63</span>
+                <span class="up">+3.83%</span>
+            </div>
+            <div class="item">
+                <span class="label">Dow:</span>
+                <span>46,341.51</span>
+                <span class="up">+2.49%</span>
+            </div>
+            <div class="item">
+                <span class="label">Bitcoin:</span>
+                <span>$68,210</span>
+                <span class="up">+1.01%</span>
+            </div>
+            <div class="item">
+                <span class="label">Gold:</span>
+                <span>$4,699</span>
+                <span class="up">+0.44%</span>
+            </div>
+            <div class="item">
+                <span class="label">Oil (WTI):</span>
+                <span>$99.99</span>
+                <span class="down">-1.37%</span>
+            </div>
+        </div>
     </div>
 
-    <div class="story-card">
-      <h4>Anthropic's "Mythos" Model Leak Reveals a "Step Change" in AI — and Unprecedented Cybersecurity Risks</h4>
-      <p>Anthropic confirmed its most powerful model ever, Claude Mythos (codenamed Capybara), after a data leak exposed its existence. The model dramatically surpasses Opus 4.6 in coding, reasoning, and cybersecurity — but the company is privately warning government officials it could make large-scale cyberattacks far more likely.</p>
-      <div class="source"><a href="https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/" target="_blank">Fortune</a></div>
-    </div>
+    <main>
+        <!-- Top Story -->
+        <article class="top-story">
+            <h2>Trump to Address Nation Tonight on Iran War — Says Conflict Could End in Weeks</h2>
+            <p>President Trump will deliver a primetime address at 9 PM ET with an "important update" on the Iran conflict, now in its 32nd day. Earlier, Trump said the US could conclude its military offensive within 2-3 weeks, while telling allies to "get your own oil." Iranian Revolutionary Guards fired three waves of missiles at Israel Wednesday morning, and drones struck Kuwait's airport fuel depots. S&P 500 futures rose 0.84% as markets bet on de-escalation.</p>
+            <p class="source">Source: NPR, CNN, Washington Post, Al Jazeera</p>
+        </article>
 
-    <div class="story-card">
-      <h4>Apple Launches Reimagined, Gemini-Powered Siri with iOS 26.4</h4>
-      <p>Apple's completely rebuilt Siri — now powered by Google's Gemini model on Apple's Private Cloud Compute — debuts this week with on-screen awareness, multi-turn conversations, and multi-step action chaining across 2.2 billion devices.</p>
-      <div class="source"><a href="https://apple.gadgethacks.com/news/apples-new-ai-powered-siri-finally-coming-in-2026/" target="_blank">Gadget Hacks</a></div>
-    </div>
+        <!-- TECH & AI -->
+        <section>
+            <h2>Tech & AI</h2>
+            <article class="category-section tech">
+                <div class="story">
+                    <h3>OpenAI's GPT-5.4 Surpasses Human Performance on Desktop Tasks</h3>
+                    <p>New model with 1M-token context window scores 75% on OSWorld-V benchmark, above 72.4% human baseline. Can autonomously execute multi-step workflows.</p>
+                    <p class="source">Source: Crescendo AI</p>
+                </div>
 
-    <div class="story-card">
-      <h4>85% of Y Combinator W26 Demo Day Startups Are AI-First</h4>
-      <p>The highest proportion in YC's history — a clear signal that if you're not building with AI at the core, you're competing in yesterday's market. OpenAI's $110B round at a $730B valuation underscores the capital flood.</p>
-      <div class="source"><a href="https://techstartups.com/2026/03/30/top-tech-news-today-march-30-2026/" target="_blank">Tech Startups</a></div>
-    </div>
+                <div class="story">
+                    <h3>OpenAI Eyes IPO as Revenue Tops $25 Billion</h3>
+                    <p>After raising $122B in its latest round, OpenAI is taking early steps toward a public listing, potentially late 2026.</p>
+                    <p class="source">Source: TechCrunch</p>
+                </div>
 
-    <a href="newsletter-tech-ai.html" class="deep-dive-link tech">Read the full Tech & AI deep dive →</a>
-  </div>
+                <div class="story">
+                    <h3>NVIDIA Partners with Alpamayo to Accelerate Autonomous Vehicle Testing</h3>
+                    <p>Partnership leverages DRIVE Orin/Thor platforms with high-fidelity digital twin simulation.</p>
+                    <p class="source">Source: AI News</p>
+                </div>
 
-  <!-- CRYPTO -->
-  <div class="section">
-    <div class="section-header">
-      <div class="dot" style="background:#d97706"></div>
-      <h3>Crypto & Digital Assets</h3>
-    </div>
+                <div class="deep-dive">
+                    <a href="newsletter-tech-ai.html" class="deep-dive-btn tech">Read Deep Dive →</a>
+                </div>
+            </article>
+        </section>
 
-    <div class="story-card">
-      <h4>Bitcoin Struggles at $66K — Down 19% YTD as Iran War Hammers Risk Assets</h4>
-      <p>Bitcoin is holding above $66,400 after rebounding from $65,900 support, but remains down ~19% for the year and 43% below its October 2025 record. Rising oil prices, pushed-back rate cut expectations, and $296M in ETF outflows weigh heavily on sentiment.</p>
-      <div class="source"><a href="https://www.coindesk.com/markets/2026/03/25/bitcoin-nears-usd72-000-as-rising-open-interest-signals-growing-leverage-in-choppy-market" target="_blank">CoinDesk</a></div>
-    </div>
+        <!-- CRYPTO -->
+        <section>
+            <h2>Crypto</h2>
+            <article class="category-section crypto">
+                <div class="story">
+                    <h3>SEC and CFTC Classify 16 Crypto Assets as Digital Commodities</h3>
+                    <p>Landmark March 17 rule shifts spot market jurisdiction to CFTC, unblocks ETF pipeline, confirms staking isn't a securities transaction. Includes Bitcoin, Ethereum, Solana, Cardano, Avalanche.</p>
+                    <p class="source">Source: Bloomberg Law</p>
+                </div>
 
-    <div class="story-card">
-      <h4>SEC & CFTC Classify 16 Crypto Assets as Digital Commodities in Landmark Ruling</h4>
-      <p>The joint 68-page interpretive document classifies Bitcoin, Ethereum, Solana, XRP and 12 others as commodities — not securities — shifting spot market jurisdiction to the CFTC and unblocking the ETF pipeline. Kraken Financial also became the first digital asset bank to receive a Federal Reserve master account.</p>
-      <div class="source"><a href="https://www.sec.gov/newsroom/press-releases/2026-30-sec-clarifies-application-federal-securities-laws-crypto-assets" target="_blank">SEC.gov</a></div>
-    </div>
+                <div class="story">
+                    <h3>Kraken Becomes First Digital Asset Bank with Federal Reserve Access</h3>
+                    <p>Kansas City Fed approves limited-purpose master account, giving Kraken direct Fedwire access.</p>
+                    <p class="source">Source: Phemex</p>
+                </div>
 
-    <a href="newsletter-crypto.html" class="deep-dive-link crypto">Read the full Crypto deep dive →</a>
-  </div>
+                <div class="story">
+                    <h3>Bitcoin Posts First Green Month Since September 2025</h3>
+                    <p>BTC gained 1.8% in March after five consecutive red candles, now at $68,210.</p>
+                    <p class="source">Source: BeInCrypto</p>
+                </div>
 
-  <!-- MARKETS -->
-  <div class="section">
-    <div class="section-header">
-      <div class="dot" style="background:#16a34a"></div>
-      <h3>Markets & Economy</h3>
-    </div>
+                <div class="deep-dive">
+                    <a href="newsletter-crypto.html" class="deep-dive-btn crypto">Read Deep Dive →</a>
+                </div>
+            </article>
+        </section>
 
-    <div class="story-card">
-      <h4>S&P 500 Posts Fifth Straight Weekly Decline — Futures Rebound on Iran Ceasefire Hopes</h4>
-      <p>The S&P 500 fell 0.39% Monday to 6,343.72, marking its worst weekly streak since early 2022. But Tuesday premarket futures surged 0.76% after reports Trump signaled willingness to end the Iran campaign. Oil at $102.88/barrel remains the key variable.</p>
-      <div class="source"><a href="https://www.cnbc.com/2026/03/29/stock-market-today-live-updates.html" target="_blank">CNBC</a></div>
-    </div>
+        <!-- MARKETS & ECONOMY -->
+        <section>
+            <h2>Markets & Economy</h2>
+            <article class="category-section markets">
+                <div class="story">
+                    <h3>Wall Street Surges on Iran Peace Hopes — Dow Jumps 1,125 Points</h3>
+                    <p>S&P 500 up 2.91%, Nasdaq +3.83% in best session since May. Investors react to Trump de-escalation signals.</p>
+                    <p class="source">Source: CNBC, Yahoo Finance</p>
+                </div>
 
-    <div class="story-card">
-      <h4>Fed's Powell: "Policy's in a Good Place" — Rates on Hold Amid Energy Shock</h4>
-      <p>Chair Jerome Powell said interest rates are appropriate given higher energy prices from the Middle East conflict. Rate cut expectations have been pushed to December at the earliest, with inflation forecasts revised from 2.4% to 2.7%.</p>
-      <div class="source"><a href="https://www.schwab.com/learn/story/stock-market-update-open" target="_blank">Schwab</a></div>
-    </div>
+                <div class="story">
+                    <h3>Oil Prices Recorded Historic 60% Gain in March</h3>
+                    <p>Brent crude at $110.69 amid Strait of Hormuz disruption; analysts warn of $125 average in April with possible $150 spikes. US gas hits $4/gallon.</p>
+                    <p class="source">Source: The National, Fortune</p>
+                </div>
 
-    <div class="story-card">
-      <h4>Nike Q3 Earnings Loom — Analysts Eye $0.29 EPS as Consumer Bellwether</h4>
-      <p>Nike reports after market close today. As a bellwether for global consumer spending, guidance will be crucial for April sentiment amid rising energy costs squeezing discretionary budgets.</p>
-      <div class="source"><a href="https://stockmarketwatch.com/live/stock-market-today/" target="_blank">Stock Market Watch</a></div>
-    </div>
+                <div class="story">
+                    <h3>Tech Leads as Q2 Opens with Bullish Momentum</h3>
+                    <p>S&P futures up 0.84%, Nasdaq futures +1.12% as technology stocks lead the charge into Q2.</p>
+                    <p class="source">Source: Stock Market Watch</p>
+                </div>
 
-    <a href="newsletter-markets.html" class="deep-dive-link markets">Read the full Markets deep dive →</a>
-  </div>
+                <div class="deep-dive">
+                    <a href="newsletter-markets.html" class="deep-dive-btn markets">Read Deep Dive →</a>
+                </div>
+            </article>
+        </section>
 
-  <!-- WORLD -->
-  <div class="section">
-    <div class="section-header">
-      <div class="dot" style="background:#dc2626"></div>
-      <h3>World & Geopolitics</h3>
-    </div>
+        <!-- WORLD -->
+        <section>
+            <h2>World</h2>
+            <article class="category-section world">
+                <div class="story">
+                    <h3>Iran Fires Three Missile Waves at Israel; Drones Hit Kuwait Airport</h3>
+                    <p>Revolutionary Guards escalate attacks as conflict enters Day 32. Iranian drones struck Kuwait fuel depots causing massive fire.</p>
+                    <p class="source">Source: CNN</p>
+                </div>
 
-    <div class="story-card">
-      <h4>Houthis Join Iran War with Missile Strikes on Israel — Multi-Front Conflict Expands</h4>
-      <p>Yemen's Houthis launched ballistic missiles targeting Israeli military sites on March 28, vowing continued attacks "until aggression on all resistance fronts stops." Iran, Hezbollah, and now the Houthis are operating in coordination, expanding the conflict's geographic scope.</p>
-      <div class="source"><a href="https://www.aljazeera.com/news/liveblog/2026/3/28/iran-war-live-trump-again-slams-natos-lack-of-support-for-war-on-tehran" target="_blank">Al Jazeera</a></div>
-    </div>
+                <div class="story">
+                    <h3>Taiwan's KMT Leader Plans Landmark China Visit</h3>
+                    <p>Cheng Li-wun to lead delegation to Beijing April 7-12, potentially first KMT-Xi meeting in a decade, weeks before Trump's China visit.</p>
+                    <p class="source">Source: Foreign Affairs</p>
+                </div>
 
-    <div class="story-card">
-      <h4>Pakistan Hosts Emergency Mediation with Saudi Arabia, Turkey, and Egypt</h4>
-      <p>Four major Muslim-majority nations are meeting in Islamabad to craft a de-escalation plan. Pakistan has offered to host direct U.S.-Iran talks "in coming days," though Tehran has insisted on broader terms including Lebanon.</p>
-      <div class="source"><a href="https://www.npr.org/2026/03/29/nx-s1-5765344/pakistan-diplomatic-discussions-iran-war" target="_blank">NPR</a></div>
-    </div>
+                <div class="story">
+                    <h3>Rohingya Refugees Face Drastic Food Aid Cuts in Bangladesh</h3>
+                    <p>Hundreds of thousands in overcrowded camps will see assistance slashed starting Wednesday.</p>
+                    <p class="source">Source: NPR</p>
+                </div>
 
-    <a href="newsletter-world.html" class="deep-dive-link world">Read the full World deep dive →</a>
-  </div>
+                <div class="deep-dive">
+                    <a href="newsletter-world.html" class="deep-dive-btn world">Read Deep Dive →</a>
+                </div>
+            </article>
+        </section>
 
-  <!-- SCIENCE -->
-  <div class="section">
-    <div class="section-header">
-      <div class="dot" style="background:#0284c7"></div>
-      <h3>Science & Health</h3>
-    </div>
+        <!-- SCIENCE & HEALTH -->
+        <section>
+            <h2>Science & Health</h2>
+            <article class="category-section science">
+                <div class="story">
+                    <h3>Artemis II Set to Launch — First Crewed Moon Mission in Over 50 Years</h3>
+                    <p>NASA's Kennedy Space Center making final preparations for the April 1 launch sending four astronauts on a 10-day lunar flyby.</p>
+                    <p class="source">Source: NASA</p>
+                </div>
 
-    <div class="story-card">
-      <h4>Engineered Probiotic Bacteria Act as "Tumor-Seeking Drug Factories" in Breakthrough Cancer Study</h4>
-      <p>Researchers have engineered probiotic bacteria that infiltrate tumors in mice and produce cancer-fighting drugs directly at the tumor site — a potential revolution in targeted drug delivery that could dramatically reduce side effects of chemotherapy.</p>
-      <div class="source"><a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a></div>
-    </div>
+                <div class="story">
+                    <h3>Scientists Engineer Tumor-Seeking Probiotic Bacteria</h3>
+                    <p>Engineered bacteria infiltrate tumors in mice and produce cancer-fighting drugs on site.</p>
+                    <p class="source">Source: ScienceDaily</p>
+                </div>
 
-    <div class="story-card">
-      <h4>Artemis II Ready for Launch — NASA's Return to the Moon Set for April 1</h4>
-      <p>Teams at Kennedy Space Center completed final preparations for the Artemis II mission, which will send astronauts around the Moon for the first time since Apollo 17 in 1972. Launch is scheduled as early as tomorrow.</p>
-      <div class="source"><a href="https://www.nasa.gov/2026-news-releases/" target="_blank">NASA</a></div>
-    </div>
+                <div class="story">
+                    <h3>Mars Rocks Reveal Evidence of Ancient Tropical Downpours</h3>
+                    <p>Perseverance rover spots pale rocks suggesting Mars once had sodden, potentially habitable landscapes.</p>
+                    <p class="source">Source: NASA</p>
+                </div>
 
-    <div class="story-card">
-      <h4>Arizona Hits 110°F in March — Highest March Temperature in U.S. Recorded History</h4>
-      <p>Martinez Lake, Arizona recorded a jaw-dropping 110°F on Thursday, shattering the previous record for highest March temperature ever recorded in the United States. Extreme fire activity has surged across the Great Plains.</p>
-      <div class="source"><a href="https://www.sciencedaily.com/" target="_blank">ScienceDaily</a></div>
-    </div>
+                <div class="deep-dive">
+                    <a href="newsletter-science.html" class="deep-dive-btn science">Read Deep Dive →</a>
+                </div>
+            </article>
+        </section>
+    </main>
 
-    <a href="newsletter-science.html" class="deep-dive-link science">Read the full Science & Health deep dive →</a>
-  </div>
-
-</div>
-
-<div class="footer">
-  <p><strong>The Morning Wire</strong> — Delivered daily at dawn.</p>
-  <p style="margin-top:6px">Built with care. Powered by AI-assisted research.</p>
-</div>
-
+    <footer>
+        <p>The Morning Wire is delivered every weekday. &copy; 2026 The Morning Wire</p>
+    </footer>
 </body>
 </html>
