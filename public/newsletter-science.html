@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Morning Wire: Science & Health Edition — April 1, 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <title>Science & Health Deep Dive — The Morning Wire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,381 +15,224 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa;
-            color: #1f2937;
+            font-family: 'Instrument Sans', sans-serif;
+            background-color: #faf9f7;
+            color: #1c1917;
             line-height: 1.6;
         }
 
-        .header {
-            background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);
-            color: white;
-            padding: 3rem 1rem;
-            text-align: center;
+        header {
+            background-color: #1c1917;
+            color: #faf9f7;
+            border-top: 3px solid #0284c7;
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
         }
 
-        .container {
-            max-width: 760px;
+        .header-container {
+            max-width: 680px;
             margin: 0 auto;
-            padding: 0 1rem;
         }
 
         .back-link {
             display: inline-block;
-            margin-top: 1.5rem;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #0284c7;
             text-decoration: none;
-            font-weight: 500;
+            margin-bottom: 1rem;
             transition: color 0.2s;
         }
 
         .back-link:hover {
-            color: #0c4a6e;
-        }
-
-        .back-link::before {
-            content: "← ";
+            color: #faf9f7;
         }
 
         h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Crimson Pro', serif;
             font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
+            font-weight: 700;
             line-height: 1.2;
-        }
-
-        .edition-date {
-            font-size: 1.1rem;
-            font-weight: 500;
-            opacity: 0.95;
-            margin-bottom: 0.25rem;
-        }
-
-        .tagline {
-            font-size: 1rem;
-            font-weight: 400;
-            opacity: 0.9;
-        }
-
-        .lead-card {
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
-
-        .lead-card h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.9rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-            color: #0c4a6e;
-        }
-
-        .lead-card p {
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        .lead-card p:last-child {
-            margin-bottom: 0;
-        }
-
-        .by-the-numbers {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            text-align: center;
-            border-top: 3px solid #0284c7;
-        }
-
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #0284c7;
             margin-bottom: 0.5rem;
         }
 
-        .stat-label {
-            font-size: 0.9rem;
-            color: #6b7280;
-            line-height: 1.5;
+        .issue-date {
+            font-size: 0.95rem;
+            color: #a8a5a0;
+            font-weight: 500;
         }
 
-        .section-header {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #0c4a6e;
-            margin: 2.5rem 0 1.5rem 0;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid #e5e7eb;
+        main {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
 
-        .story-card {
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        .newsletter-item {
+            padding: 2rem 0;
+            border-bottom: 1px solid #e7e5e4;
         }
 
-        .story-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #0284c7;
-            margin-bottom: 0.75rem;
-            line-height: 1.3;
-        }
-
-        .story-card p {
-            font-size: 0.975rem;
-            line-height: 1.6;
-            color: #374151;
-        }
-
-        .quick-hits {
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            border-left: 4px solid #0284c7;
-        }
-
-        .quick-hits h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #0c4a6e;
-            margin-bottom: 1rem;
-        }
-
-        .quick-hits ul {
-            list-style: none;
-        }
-
-        .quick-hits li {
-            padding: 0.5rem 0;
-            font-size: 0.975rem;
-            color: #374151;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .quick-hits li:last-child {
+        .newsletter-item:last-child {
             border-bottom: none;
         }
 
-        .quick-hits li::before {
-            content: "• ";
-            color: #0284c7;
+        .item-category {
+            display: inline-block;
+            font-size: 0.75rem;
             font-weight: 600;
-            margin-right: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #0284c7;
+            margin-bottom: 0.5rem;
         }
 
-        .footer {
+        .item-category.lead {
+            color: #0284c7;
+        }
+
+        h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: #1c1917;
+        }
+
+        .item-summary {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #1c1917;
+            margin-bottom: 1rem;
+        }
+
+        .sources {
+            font-size: 0.85rem;
+            color: #a8a5a0;
+            margin-top: 1rem;
+        }
+
+        .sources a {
+            color: #a8a5a0;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .sources a:hover {
+            color: #1c1917;
+        }
+
+        footer {
+            max-width: 680px;
+            margin: 3rem auto 2rem;
+            padding: 2rem 1rem 0;
+            border-top: 1px solid #e7e5e4;
             text-align: center;
-            padding: 2rem 0;
-            color: #6b7280;
             font-size: 0.9rem;
-            border-top: 1px solid #e5e7eb;
-            margin-top: 2.5rem;
         }
 
-        .footer a {
+        footer a {
             color: #0284c7;
             text-decoration: none;
-            font-weight: 500;
+            transition: color 0.2s;
         }
 
-        .footer a:hover {
-            color: #0c4a6e;
+        footer a:hover {
+            color: #1c1917;
         }
 
         @media (max-width: 640px) {
             h1 {
-                font-size: 1.8rem;
+                font-size: 1.75rem;
             }
 
-            .lead-card {
-                padding: 1.5rem;
+            h2 {
+                font-size: 1.4rem;
             }
 
-            .lead-card h2 {
-                font-size: 1.5rem;
-            }
-
-            .by-the-numbers {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .section-header {
-                font-size: 1.3rem;
-            }
-
-            .story-card h3 {
-                font-size: 1.1rem;
+            .newsletter-item {
+                padding: 1.5rem 0;
             }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="container">
-            <h1>The Morning Wire</h1>
-            <div class="edition-date">Science & Health Edition</div>
-            <div class="tagline">Wednesday, April 1, 2026</div>
+    <header>
+        <div class="header-container">
+            <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
+            <h1>Science & Health Deep Dive</h1>
+            <p class="issue-date">April 1, 2026</p>
         </div>
-    </div>
+    </header>
 
-    <div class="container">
-        <a href="daily-newsletter.html" class="back-link">Back to Daily Newsletter</a>
-
-        <!-- By The Numbers -->
-        <div class="by-the-numbers">
-            <div class="stat-card">
-                <div class="stat-number">4</div>
-                <div class="stat-label">Astronauts on Artemis II</div>
+    <main>
+        <article class="newsletter-item">
+            <span class="item-category lead">LEAD</span>
+            <h2>Artemis II Launches Today — NASA Returns Humans to the Moon for First Time Since 1972</h2>
+            <p class="item-summary">NASA's crewed Artemis II mission launches today at 6:24 PM ET from Kennedy Space Center, marking humanity's return to lunar exploration after more than five decades. The four-person crew—Reid Wiseman, Victor Glover (first person of color beyond low Earth orbit), Christina Koch (first woman beyond LEO), and Jeremy Hansen (first non-U.S. citizen to the Moon)—will embark on a 10-day free-return trajectory with 80% favorable launch weather conditions.</p>
+            <div class="sources">
+                <strong>Sources:</strong> <a href="#">Space.com</a>, <a href="#">NASA</a>, <a href="#">CBS News</a>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">10</div>
-                <div class="stat-label">Days: Lunar Flyby Duration</div>
+        </article>
+
+        <article class="newsletter-item">
+            <span class="item-category">MEDICINE</span>
+            <h2>Single Blood Test Detects 50 Types of Cancer Before Symptoms Appear</h2>
+            <p class="item-summary">UK clinical trials have validated a breakthrough blood test capable of detecting DNA fragments from 50 different cancer types in asymptomatic patients. The test identifies not only the presence of cancer but also the tissue of origin, potentially enabling early intervention and treatment at more treatable stages before clinical symptoms develop.</p>
+            <div class="sources">
+                <strong>Source:</strong> <a href="#">CAS</a>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">50+</div>
-                <div class="stat-label">Years Since Last Crewed Moon Mission</div>
+        </article>
+
+        <article class="newsletter-item">
+            <span class="item-category">POLICY</span>
+            <h2>Nebraska First State to Require Work for Medicaid Under New Federal Initiative</h2>
+            <p class="item-summary">Nebraska has become the first state to implement work requirements for Medicaid recipients under Trump's One Big Beautiful Bill. The policy affects millions of beneficiaries nationwide, while Title X funding—which supports reproductive health services for 2.8 million people—faces uncertain renewal prospects amid ongoing policy debates.</p>
+            <div class="sources">
+                <strong>Source:</strong> <a href="#">KFF Health News</a>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">11,000</div>
-                <div class="stat-label">Light-Years to Planetary Collision</div>
+        </article>
+
+        <article class="newsletter-item">
+            <span class="item-category">REGULATION</span>
+            <h2>UK Clinical Trial Regulations Undergo Largest Overhaul in 20 Years</h2>
+            <p class="item-summary">New UK clinical trial regulations take effect this month, representing the most significant regulatory change in two decades. The reformed system consolidates ethical review and regulatory approval into a single unified application process, streamlining the path to clinical research and reducing bureaucratic delays.</p>
+            <div class="sources">
+                <strong>Source:</strong> <a href="#">Live Science</a>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">110°F</div>
-                <div class="stat-label">Record March Temperature, Arizona</div>
+        </article>
+
+        <article class="newsletter-item">
+            <span class="item-category">MEDICINE</span>
+            <h2>FDA May Approve First Regulatory T Cell Therapy This Spring</h2>
+            <p class="item-summary">The FDA is expected to approve the first regulatory T cell therapy this spring, offering a critical new treatment option for preventing graft-versus-host disease in bone marrow transplant patients. This innovation could significantly improve outcomes and quality of life for transplant recipients undergoing immune system reconstitution.</p>
+            <div class="sources">
+                <strong>Source:</strong> <a href="#">Mass General Brigham</a>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">6</div>
-                <div class="stat-label">Years Old: First Personalized CRISPR Patient</div>
+        </article>
+
+        <article class="newsletter-item">
+            <span class="item-category">MEDICINE</span>
+            <h2>Suzetrigine Brings Renewed Hope for Opioid-Free Pain Management</h2>
+            <p class="item-summary">The FDA approval of suzetrigine (Journavax) marks an important advancement in opioid-free pain relief, offering patients and clinicians a new therapeutic option that addresses chronic pain without the addiction and side-effect risks associated with traditional opioid medications. The development signals ongoing progress in non-addictive pain management strategies.</p>
+            <div class="sources">
+                <strong>Source:</strong> <a href="#">Scientific American</a>
             </div>
-        </div>
+        </article>
 
-        <!-- Lead Story -->
-        <div class="lead-card">
-            <h2>Artemis II Ready for Launch — Humanity Returns to the Moon</h2>
-            <p>NASA's Kennedy Space Center stands on the precipice of history. As final preparations conclude for the Artemis II launch—scheduled as early as Wednesday, April 1—the agency prepares to send four astronauts on a journey that will mark humanity's return to lunar exploration after more than fifty years. The ten-day mission around the Moon represents far more than a nostalgic callback to the Apollo era; it is a crucial validation of the technologies and systems that will enable Artemis III to achieve what Apollo could not: sustainable lunar presence and eventual human settlement.</p>
-            <p>The significance of this moment cannot be overstated. The intervening decades since the final Apollo mission have transformed our understanding of the Moon's potential. Water ice at the poles, evidence of past geologic activity, and the strategic location for deep space operations have reframed the Moon not as a distant goal but as a vital waystation for human civilization's expansion beyond Earth. Artemis II serves as the necessary demonstration that the new vehicles—the Space Launch System and Orion spacecraft—can safely carry humans on this critical journey.</p>
-            <p>For a generation that grew up watching human spaceflight transition from triumph to routine, then pause entirely, the Artemis II launch represents a renewal of ambition. The four astronauts aboard will carry with them the hopes of countless scientists, engineers, and citizens who believe that our future lies among the stars. This mission is not simply about reaching the Moon again; it is about proving that we can do so reliably, safely, and in a way that establishes the foundation for generations of exploration to come.</p>
-        </div>
+        <article class="newsletter-item">
+            <span class="item-category">GLOBAL</span>
+            <h2>World Health Day 2026: "No Health Without Peace" Emphasizes Science-Led Approach</h2>
+            <p class="item-summary">The 2026 World Health Day theme—"No Health Without Peace"—underscores the critical intersection of global health and international stability in an era of ongoing conflicts. The science-led agenda emphasizes how geopolitical instability undermines public health infrastructure, disease prevention, and equitable access to medical care worldwide.</p>
+            <div class="sources">
+                <strong>Source:</strong> <a href="#">Countercurrents</a>
+            </div>
+        </article>
+    </main>
 
-        <!-- Space Exploration Section -->
-        <h2 class="section-header">Space Exploration</h2>
-
-        <div class="story-card">
-            <h3>Mars Rocks Reveal Ancient Tropical Rainfall</h3>
-            <p>NASA's Perseverance rover has discovered pale, bleached rocks that hint at a radically different Martian past. Scientists believe these geological features are evidence of intense, tropical-style downpours that once soaked Mars's surface, creating sodden landscapes potentially capable of supporting life. The discovery adds crucial pieces to the puzzle of whether the Red Planet once harbored conditions suitable for microbial organisms.</p>
-        </div>
-
-        <div class="story-card">
-            <h3>Astronomers Witness Planetary Collision 11,000 Light-Years Away</h3>
-            <p>In a rare cosmic spectacle, two planets orbiting the star Gaia20ehk in the constellation Puppis have collided, creating a debris field that has captivated astronomers worldwide. The collision was detected through erratic dimming of the star's light and the strong infrared emission from the heated debris surrounding the collision site—a direct observation of planetary destruction on an unimaginable scale.</p>
-        </div>
-
-        <div class="story-card">
-            <h3>Japan's MMX Mission to Phobos Set for 2026 Launch</h3>
-            <p>Japan's space agency (JAXA) is preparing for one of the most ambitious sample-return missions in history. The Martian Moon eXploration (MMX) mission will travel to Phobos, Mars's largest moon, collect samples from its surface, and return them to Earth for analysis—providing scientists with unprecedented insight into the composition and origins of the Martian system.</p>
-        </div>
-
-        <div class="story-card">
-            <h3>Firefly's Blue Ghost Mission 2 to Deliver NASA/ESA Payloads to Moon</h3>
-            <p>Private lunar lander company Firefly Aerospace is preparing Blue Ghost Mission 2 for late 2026, carrying advanced scientific instruments to the lunar surface. Meanwhile, China's Chang'e 7 mission is heading for the lunar south pole, signaling an intensifying international competition to explore and potentially establish research facilities on the Moon.</p>
-        </div>
-
-        <!-- Medical Breakthroughs Section -->
-        <h2 class="section-header">Medical Breakthroughs</h2>
-
-        <div class="story-card">
-            <h3>Probiotic Bacteria Engineered as Tumor-Seeking Drug Factories</h3>
-            <p>In a groundbreaking application of synthetic biology, scientists have engineered probiotic bacteria that can infiltrate solid tumors and produce cancer-fighting drugs directly at the site of disease. Early mouse studies show remarkable promise, potentially revolutionizing how we deliver therapeutic agents where they are needed most—a targeted approach that could dramatically reduce systemic side effects.</p>
-        </div>
-
-        <div class="story-card">
-            <h3>First Fully Personalized CRISPR Treatment Given to 6-Year-Old</h3>
-            <p>Stanford University has achieved a landmark in personalized medicine: the first fully customized CRISPR gene therapy tailored specifically to an individual patient. The achievement marks not only a breakthrough in treating genetic disease but also a demonstration of the power of AI-assisted design. Stanford's CRISPR-GPT AI copilot can now design gene therapy experiments in months rather than years, dramatically accelerating the path from diagnosis to treatment.</p>
-        </div>
-
-        <div class="story-card">
-            <h3>AI Moving from Hype to Clinical Validation in Healthcare</h3>
-            <p>Artificial intelligence in medicine is entering what technology analysts call the "Slope of Enlightenment"—a phase where the early hype gives way to clinically validated, real-world applications. Healthcare institutions worldwide are deploying AI systems that have been rigorously tested and proven to improve patient outcomes, moving beyond promise into practice.</p>
-        </div>
-
-        <div class="story-card">
-            <h3>Gut Microbiome-Guided Cancer Therapies Turn Food into Medicine</h3>
-            <p>Researchers are discovering that the trillions of microorganisms living in our digestive systems hold the key to more effective cancer treatment. By analyzing individual microbiome composition and tailoring therapies accordingly, scientists are developing approaches that harness the body's own microbial communities to enhance immunotherapy and improve survivorship outcomes.</p>
-        </div>
-
-        <!-- Climate & Environment Section -->
-        <h2 class="section-header">Climate & Environment</h2>
-
-        <div class="story-card">
-            <h3>Record-Breaking March Heat: Arizona Hits 110°F</h3>
-            <p>Martinez Lake, Arizona recorded the highest temperature ever measured in the United States during the month of March—a staggering 110°F. The record shattered previous benchmarks and served as a stark reminder of the warming climate's accelerating pace, with heat waves arriving earlier and intensifying with each passing year.</p>
-        </div>
-
-        <div class="story-card">
-            <h3>Antarctic Peninsula Projections Show Accelerating Ice Loss</h3>
-            <p>New research on the Antarctic Peninsula reveals an increasingly dire picture: warming oceans are driving ice loss at accelerating rates, with direct implications for global sea level rise. The data underscores the tight coupling between greenhouse gas emissions and the planet's most sensitive regions, where relatively small temperature increases trigger disproportionate ice sheet collapse.</p>
-        </div>
-
-        <div class="story-card">
-            <h3>Google Deploys AI for Contrail Reduction</h3>
-            <p>In a novel application of artificial intelligence to climate action, Google has launched an AI-powered initiative aimed at reducing aircraft contrails—the ice crystal clouds that form behind jet engines and trap heat in the atmosphere. By using machine learning to identify optimal flight routes and altitudes that minimize contrail formation, the project demonstrates how technology can address aviation's substantial climate impact.</p>
-        </div>
-
-        <!-- Quantum & Computing Section -->
-        <h2 class="section-header">Quantum & Computing</h2>
-
-        <div class="story-card">
-            <h3>IBM: 2026 Will See First Quantum Advantage Over Classical Computers</h3>
-            <p>IBM has announced that 2026 marks the threshold where quantum computers will begin to solve real-world problems faster than classical computers—a milestone known as "quantum advantage." Initial applications will focus on drug development, materials science, and financial optimization, where quantum computing's unique capabilities promise breakthroughs that classical approaches cannot achieve.</p>
-        </div>
-
-        <div class="story-card">
-            <h3>Salk Institute Declares 2026 Year of Brain Health Research</h3>
-            <p>The renowned Salk Institute for Biological Studies has designated 2026 as its Year of Brain Health Research, committing major resources to understanding neuroscience, aging, and neurological disorders. The initiative recognizes that the aging brain represents one of the century's greatest scientific and medical challenges—with implications for Alzheimer's prevention, stroke recovery, and treating diseases of neurodegeneration.</p>
-        </div>
-
-        <!-- Quick Hits -->
-        <div class="quick-hits">
-            <h3>Quick Hits</h3>
-            <ul>
-                <li>Opioid-free pain relief drug suzetrigine (Journavax) gaining clinical traction as safer alternative to traditional opioids</li>
-                <li>UCSF announces major advances in neurological disorders and cancer research programs</li>
-                <li>China's Chang'e 7 mission targeting lunar south pole exploration in second half of 2026</li>
-                <li>Understanding links between aging and cancer identified as key research focus for major institutions</li>
-                <li>Biotech industry report identifies 10 major breakthrough trends expected to reshape medicine in 2026</li>
-            </ul>
-        </div>
-
-        <div class="footer">
-            <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
-            <p style="margin-top: 1.5rem;">© 2026 The Morning Wire. Science & Health Edition.</p>
-        </div>
-    </div>
+    <footer>
+        <p><a href="daily-newsletter.html">← Back to Daily Newsletter</a></p>
+        <p style="margin-top: 1rem; color: #a8a5a0;">The Morning Wire | Science & Health Deep Dive Edition</p>
+    </footer>
 </body>
 </html>

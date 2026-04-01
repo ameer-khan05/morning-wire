@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Morning Wire: Markets & Economy Edition — April 1, 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <title>Markets & Economy Deep Dive - The Morning Wire</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,412 +13,282 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f9fafb;
-            color: #1f2937;
+            background-color: #faf9f7;
+            color: #1c1917;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 16px;
             line-height: 1.6;
-        }
-
-        .container {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 32px;
-            font-size: 14px;
-            color: #059669;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .back-link:hover {
-            color: #047857;
         }
 
         header {
-            background: linear-gradient(135deg, #052e16 0%, #166534 100%);
-            color: white;
-            padding: 48px 32px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            background-color: #1c1917;
+            color: #faf9f7;
+            border-top: 3px solid #16a34a;
+            padding: 24px 16px;
+            margin-bottom: 32px;
+        }
+
+        header .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header a {
+            color: #16a34a;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        header a:hover {
+            text-decoration: underline;
         }
 
         header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
+            font-family: 'Crimson Pro', serif;
+            font-size: 42px;
             font-weight: 700;
-            margin-bottom: 12px;
-            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+            color: #faf9f7;
         }
 
-        header .subtitle {
-            font-size: 16px;
-            opacity: 0.95;
+        header p {
+            font-size: 14px;
+            color: #d1ccc7;
             font-weight: 400;
         }
 
-        header .date {
-            font-size: 14px;
-            opacity: 0.8;
-            margin-top: 16px;
-            font-weight: 500;
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 16px;
         }
 
-        .market-snapshot {
-            background: white;
-            padding: 32px;
-            border-radius: 8px;
+        .market-close {
+            background-color: #fff;
+            border: 1px solid #e7e5e4;
+            padding: 24px;
             margin-bottom: 32px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border-radius: 0;
         }
 
-        .market-snapshot h2 {
-            font-family: 'Playfair Display', serif;
+        .market-close h2 {
+            font-family: 'Crimson Pro', serif;
             font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: #052e16;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #1c1917;
         }
 
-        .market-grid {
+        .market-data {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
-
-        @media (max-width: 600px) {
-            .market-grid {
-                grid-template-columns: 1fr;
-            }
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 12px;
         }
 
         .market-item {
-            border-left: 4px solid #059669;
-            padding-left: 16px;
+            padding-bottom: 8px;
         }
 
-        .market-item .ticker {
-            display: block;
-            font-weight: 600;
-            font-size: 14px;
-            color: #059669;
-            margin-bottom: 4px;
+        .market-label {
+            font-size: 12px;
+            color: #78716b;
+            font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-        }
-
-        .market-item .value {
-            display: block;
-            font-size: 24px;
-            font-weight: 700;
-            color: #1f2937;
             margin-bottom: 4px;
         }
 
-        .market-item .change {
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        .change.positive {
-            color: #059669;
-        }
-
-        .change.neutral {
-            color: #6b7280;
-        }
-
-        .section {
-            background: white;
-            padding: 32px;
-            border-radius: 8px;
-            margin-bottom: 32px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
-
-        .section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: #052e16;
-            border-bottom: 3px solid #dbeafe;
-            padding-bottom: 12px;
-        }
-
-        .story {
-            margin-bottom: 28px;
-        }
-
-        .story:last-child {
-            margin-bottom: 0;
-        }
-
-        .story h3 {
-            font-family: 'Playfair Display', serif;
+        .market-value {
             font-size: 18px;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 12px;
-            line-height: 1.4;
+            font-weight: 600;
+            color: #1c1917;
+            font-family: 'Instrument Sans', sans-serif;
         }
 
-        .story p {
-            font-size: 15px;
-            color: #4b5563;
-            line-height: 1.7;
+        .market-change {
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 2px;
         }
 
-        .story p + p {
+        .market-change.positive {
+            color: #16a34a;
+        }
+
+        .market-change.negative {
+            color: #dc2626;
+        }
+
+        .premarket-section {
+            padding-top: 12px;
+            border-top: 1px solid #e7e5e4;
             margin-top: 12px;
         }
 
-        .lead-story {
-            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
-            border-left: 5px solid #059669;
-            padding: 28px;
-            margin-bottom: 32px;
-            border-radius: 8px;
+        article {
+            border-bottom: 1px solid #e7e5e4;
+            padding: 24px 0;
         }
 
-        .lead-story h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 26px;
-            font-weight: 700;
-            color: #052e16;
-            margin-bottom: 16px;
-            line-height: 1.3;
-            border: none;
-            padding-bottom: 0;
-        }
-
-        .lead-story p {
-            font-size: 15px;
-            color: #374151;
-            line-height: 1.8;
-            margin-bottom: 12px;
-        }
-
-        .lead-story p:last-child {
-            margin-bottom: 0;
-        }
-
-        .quick-hits {
-            background: white;
-            padding: 32px;
-            border-radius: 8px;
-            margin-bottom: 32px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
-
-        .quick-hits h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #052e16;
-            border-bottom: 3px solid #dbeafe;
-            padding-bottom: 12px;
-        }
-
-        .quick-hits ul {
-            list-style: none;
-        }
-
-        .quick-hits li {
-            padding: 12px 0;
-            padding-left: 24px;
-            position: relative;
-            font-size: 15px;
-            color: #4b5563;
-            line-height: 1.6;
-            border-bottom: 1px solid #f3f4f6;
-        }
-
-        .quick-hits li:last-child {
+        article:last-child {
             border-bottom: none;
         }
 
-        .quick-hits li::before {
-            content: "•";
-            position: absolute;
-            left: 8px;
-            color: #059669;
-            font-weight: bold;
-            font-size: 18px;
+        article h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1c1917;
+            line-height: 1.3;
         }
 
-        footer {
-            background: white;
-            padding: 32px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-            margin-top: 40px;
-        }
-
-        footer .back-link {
-            display: block;
+        article.lead h3 {
+            font-size: 32px;
             margin-bottom: 16px;
         }
 
-        footer p {
-            font-size: 13px;
-            color: #9ca3af;
-            margin-top: 16px;
+        article p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+            color: #1c1917;
+        }
+
+        article p:last-child {
+            margin-bottom: 0;
         }
 
         .source {
             font-size: 12px;
-            color: #9ca3af;
+            color: #92827d;
+            margin-top: 8px;
+            font-weight: 400;
+        }
+
+        .source a {
+            color: #92827d;
+            text-decoration: underline;
+        }
+
+        .source a:hover {
+            color: #1c1917;
+        }
+
+        footer {
+            border-top: 1px solid #e7e5e4;
+            padding: 32px 16px;
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #16a34a;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer p {
+            font-size: 12px;
+            color: #92827d;
             margin-top: 8px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
+    <header>
+        <div class="container">
+            <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
+            <h1>Markets & Economy Deep Dive</h1>
+            <p>April 1, 2026 — The Morning Wire</p>
+        </div>
+    </header>
 
-        <header>
-            <h1>The Morning Wire</h1>
-            <p class="subtitle">Markets & Economy Edition</p>
-            <p class="date">Wednesday, April 1, 2026</p>
-        </header>
-
-        <div class="market-snapshot">
-            <h2>Market Snapshot</h2>
-            <div class="market-grid">
+    <main class="container">
+        <div class="market-close">
+            <h2>Market Close</h2>
+            <div class="market-data">
                 <div class="market-item">
-                    <span class="ticker">S&P 500</span>
-                    <span class="value">6,528.52</span>
-                    <span class="change positive">+2.91%</span>
+                    <div class="market-label">S&P 500</div>
+                    <div class="market-value">6,528.52</div>
+                    <div class="market-change positive">+2.91%</div>
+                    <div class="source" style="margin-top: 4px; font-size: 11px;">March 31 close</div>
                 </div>
                 <div class="market-item">
-                    <span class="ticker">Nasdaq</span>
-                    <span class="value">21,590.63</span>
-                    <span class="change positive">+3.83%</span>
+                    <div class="market-label">Nasdaq</div>
+                    <div class="market-value">21,590.63</div>
+                    <div class="market-change positive">+3.83%</div>
                 </div>
                 <div class="market-item">
-                    <span class="ticker">Dow Jones</span>
-                    <span class="value">46,341.51</span>
-                    <span class="change positive">+2.49%</span>
+                    <div class="market-label">Dow Jones</div>
+                    <div class="market-value">42,001</div>
+                    <div class="market-change positive">+2.66%</div>
                 </div>
                 <div class="market-item">
-                    <span class="ticker">Brent Crude</span>
-                    <span class="value">$110.69</span>
-                    <span class="change positive">+60% (March)</span>
+                    <div class="market-label">Gold</div>
+                    <div class="market-value">$4,699</div>
+                    <div class="market-change positive">+0.44%</div>
                 </div>
-                <div class="market-item">
-                    <span class="ticker">WTI Crude</span>
-                    <span class="value">$99.99</span>
-                    <span class="change neutral">Near parity</span>
-                </div>
-                <div class="market-item">
-                    <span class="ticker">Gold</span>
-                    <span class="value">$4,699</span>
-                    <span class="change positive">+0.44%</span>
-                </div>
-                <div class="market-item">
-                    <span class="ticker">US Gas Avg</span>
-                    <span class="value">$4.00</span>
-                    <span class="change positive">Highest since '22</span>
-                </div>
-                <div class="market-item">
-                    <span class="ticker">10Y Treasury</span>
-                    <span class="value">Easing</span>
-                    <span class="change neutral">Rate pressure down</span>
+            </div>
+            <div class="premarket-section">
+                <div class="market-data">
+                    <div class="market-item">
+                        <div class="market-label">S&P Futures (Premarket Apr 1)</div>
+                        <div class="market-value">6,601</div>
+                        <div class="market-change positive">+0.46%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">Oil (WTI)</div>
+                        <div class="market-value">$103/barrel</div>
+                        <div class="market-change positive">↑ this quarter</div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="lead-story">
-            <h2>Wall Street's Best Day Since May as Iran Peace Hopes Ignite Rally</h2>
-            <p>Markets erupted Tuesday with explosive gains as reports of potential diplomatic off-ramps in the Middle East conflict sent equities soaring. The Dow surged 1,125 points—a commanding 2.49% jump—while the S&P 500 climbed 2.91% and the tech-heavy Nasdaq catapulted 3.83% higher. The rally caps an explosive final day of Q1, demonstrating just how much geopolitical risk premium has weighed on valuations.</p>
-            <p>Iranian President Masoud Pezeshkian signaled openness to de-escalation, and Trump administration statements suggesting a potential resolution within two to three weeks ignited investor optimism. As Q2 opens Wednesday, that momentum persists: S&P 500 futures advance 0.84%, Nasdaq futures up 1.12%, and Dow futures gaining 0.79%. Technology stocks lead the charge, with investors rotating back into growth equities after a brutal quarter marked by heightened geopolitical uncertainty. The breakthrough in sentiment marks a turning point—if fragile—for risk assets.</p>
-            <p>Market participants are carefully calibrating their positioning between the hope for reduced military tensions and the reality that crude prices remain historically elevated. Any further escalation could quickly reverse these gains, underscoring the persistent tail risk that will likely define Q2 trading dynamics.</p>
-        </div>
+        <article class="lead">
+            <h3>S&P 500 Futures Rally to Start Q2 — Eyes 6,600 After Monday's Surge</h3>
+            <p>U.S. equity markets are kicking off the second quarter with sharp gains as S&P futures climb 0.46% in premarket trading. The rally builds on Monday's 1,100-point Dow surge—the best day since May—driven by de-escalation hopes between the U.S. and Iran following weekend diplomatic signals. Optimism around geopolitical risk reversal is lifting indices toward the 6,600 level, signaling renewed appetite for equities after a turbulent first quarter.</p>
+            <div class="source">Source: <a href="#">Yahoo Finance</a>, <a href="#">CNBC</a>, <a href="#">Stock Market Watch</a></div>
+        </article>
 
-        <div class="section">
-            <h2>Energy Crisis</h2>
-            <div class="story">
-                <h3>Oil's Record 60% March Surge Reshapes Global Markets</h3>
-                <p>Brent crude's astonishing 60% rally in March—lifting the benchmark to $110.69 per barrel—reflects a fundamental reshaping of global energy markets. The Strait of Hormuz disruption has knocked approximately 15 million barrels per day offline, creating the tightest supply conditions since the 1970s oil embargoes. Analysts now warn that Brent could average $125 per barrel throughout April, with potential spikes toward $150 if regional tensions intensify.</p>
-                <p>This price trajectory carries profound implications for inflation, central bank policy, and consumer purchasing power. Energy costs ripple through every asset class, and sustained elevated crude prices could become the key variable constraining equity valuations despite improved geopolitical sentiment.</p>
-            </div>
-            <div class="story">
-                <h3>US Gas Prices Hit $4/Gallon — Highest Since 2022</h3>
-                <p>The national average for unleaded gasoline has crossed the $4.00 per gallon threshold for the first time since 2022, translating to tangible pain at the pump for American consumers. The surge reflects both crude oil's rally and reduced refinery capacity amid the regional conflict. Consumer sentiment surveys already show significant pressure on discretionary spending, and a sustained period above $4 could dampen economic growth.</p>
-            </div>
-            <div class="story">
-                <h3>Trump Tells Allies: 'Get Your Own Oil'</h3>
-                <p>The administration's latest policy statement—that allied nations should secure their own energy supplies rather than rely on U.S. coordination—adds another layer of uncertainty to global energy security architecture. The message underscores a shift toward energy nationalism even as the Strait of Hormuz remains contested. Markets are pricing in a more fragmented, potentially higher-cost energy regime.</p>
-            </div>
-            <div class="story">
-                <h3>J.P. Morgan Still Sees $60 Brent Long-Term</h3>
-                <p>Despite the headline price surge, major financial institutions maintain conviction that current levels are unsustainable if Middle East tensions resolve. J.P. Morgan's commodities research team pegs long-term fair value for Brent at approximately $60 per barrel, implying substantial downside risk if geopolitical risks ease. This perspective is crucial context for investors positioning for Q2—the current rally may be pricing peak crude, not a new equilibrium.</p>
-            </div>
-        </div>
+        <article>
+            <h3>Q1 Wrap: S&P Down 4.6% After Five Consecutive Weekly Declines</h3>
+            <p>The first quarter ended on a sour note with the S&P 500 closing March down 4.6% following its worst five-week losing streak since early 2022. Energy volatility and inflation concerns dominated the period, with elevated oil prices above $100/barrel defining market sentiment throughout. The rocky quarter underscores how quickly sentiment can shift, especially when geopolitical tensions and commodity shocks intersect with lingering Fed uncertainty.</p>
+            <div class="source">Source: <a href="#">Yahoo Finance</a></div>
+        </article>
 
-        <div class="section">
-            <h2>Equities & Indices</h2>
-            <div class="story">
-                <h3>Tech Leads Q2 Charge as Optimism Returns</h3>
-                <p>Technology stocks, battered throughout Q1 by geopolitical uncertainty and rising rates, reclaimed their leadership position Tuesday and into early Wednesday trading. Semiconductor, software, and high-growth names all showed outsized strength, suggesting that investors are rotating aggressively back into the growth narrative. If geopolitical risks continue easing, expect further leadership from the high-beta tech cohort.</p>
-            </div>
-            <div class="story">
-                <h3>Rate Pressure Easing Supports Risk Assets</h3>
-                <p>Treasury yields retreated across the curve Tuesday, with the 10-year note pulling back as market participants reduced inflation expectations tied to the potential Middle East resolution. Lower rates provide critical support for equity valuations, particularly for long-duration growth assets. This technical backdrop—combined with geopolitical optimism—creates favorable conditions for equities to sustain higher levels.</p>
-            </div>
-            <div class="story">
-                <h3>Q1 Ends on High Note After Brutal Quarter</h3>
-                <p>Despite the explosive close, Q1 2026 will be remembered for its volatility. Geopolitical shocks, rate uncertainty, and recession fears dominated early-quarter trading. Yet the final week's rally underscores how quickly sentiment can shift when geopolitical risk premia begin to decompress. Investors should remember that this strength comes after a quarter of significant drawdowns—positioning matters heading into the more uncertain months ahead.</p>
-            </div>
-        </div>
+        <article>
+            <h3>Oil Above $103/Barrel as Strait of Hormuz Shipping Stalls</h3>
+            <p>West Texas Intermediate crude surged above $103 per barrel as geopolitical tensions constricted global oil flows. The Strait of Hormuz, critical to world energy supplies, saw shipping grind to a near standstill with approximately 150 vessels idled amid heightened shipping insurance costs and Iran tanker strike concerns near Qatar. The disruption highlights how quickly supply-side shocks can inflate energy costs and ripple through equity and commodity markets.</p>
+            <div class="source">Source: <a href="#">CNBC</a>, <a href="#">Al Jazeera</a></div>
+        </article>
 
-        <div class="section">
-            <h2>Trade & Policy</h2>
-            <div class="story">
-                <h3>Liberation Day Tariff Fallout Continues</h3>
-                <p>Three months past the April 2 tariff rollout that markets dubbed "Liberation Day," questions persist about Supreme Court challenges and the viability of trade deal renegotiations. The tariff regime has created winners in domestic manufacturing and losers in import-dependent sectors, and any resolution to the Middle East conflict could accelerate discussions around trade normalization. Policy uncertainty remains elevated on this front.</p>
-            </div>
-            <div class="story">
-                <h3>IPO Pipeline Building as Markets Stabilize</h3>
-                <p>As equity markets stabilize and risk sentiment improves, venture capital firms are accelerating companies toward public markets. The IPO pipeline is visibly building, particularly in artificial intelligence and adjacent sectors where mega-deal activity continues robust. A successful Q2 for equities could trigger a wave of late-stage company debuts in the second half of 2026.</p>
-            </div>
-        </div>
+        <article>
+            <h3>Fed's Powell Says Rates On Hold — December Rate Cut Now in Focus</h3>
+            <p>Federal Reserve Chair Jerome Powell signaled confidence in current policy settings, stating that monetary policy is "in a good place" and there is no near-term urgency to adjust rates. However, Powell's remarks shifted market expectations for rate cuts further out to December, pushing near-term easing hopes off the table. The Fed also raised its inflation forecast to 2.7%—up from a prior 2.4% estimate—a modest upward revision that underscores lingering price pressures despite cooling headline inflation.</p>
+            <div class="source">Source: <a href="#">Schwab</a></div>
+        </article>
 
-        <div class="section">
-            <h2>Global Demand</h2>
-            <div class="story">
-                <h3>IEA Cuts Global Oil Demand Growth Forecast</h3>
-                <p>The International Energy Agency trimmed its global oil demand growth forecast by 210,000 barrels per day to 640,000 barrels daily, citing both the elevated price environment and deteriorating macro outlook. Higher crude prices typically suppress demand, particularly in emerging markets where affordability matters. This demand destruction could eventually cap oil price appreciation, though near-term supply constraints may dominate price discovery.</p>
-            </div>
-            <div class="story">
-                <h3>Gold Holds Near Record at $4,699</h3>
-                <p>Gold remains bid near all-time highs despite the geopolitical optimism, as safe-haven demand continues elevated. Investors maintain substantial positioning in precious metals as insurance against both currency debasement and unresolved tail risks. The persistence of gold strength even amid equity rally suggests markets are not fully convinced that geopolitical risks have truly been neutralized.</p>
-            </div>
-        </div>
+        <article>
+            <h3>Tech Led Late-March Recovery — Nasdaq Surges 3.83% on Final Day of Q1</h3>
+            <p>Technology stocks staged a powerful rally in the final trading session of March, lifting the Nasdaq 3.83% and providing much-needed relief for a sector that had weathered significant volatility throughout the quarter. The jump signals renewed appetite for growth and mega-cap tech names as investors rotate back into secular winners following geopolitical de-escalation signals. The strong finish sets the tone for April and suggests momentum-driven positioning may favor equities over the coming weeks.</p>
+            <div class="source">Source: <a href="#">Yahoo Finance</a></div>
+        </article>
+    </main>
 
-        <div class="quick-hits">
-            <h2>Quick Hits</h2>
-            <ul>
-                <li>Fintech venture capitalists expect continued concentration of capital into pre-IPO companies rather than seed-stage startups</li>
-                <li>M&A activity accelerating across the technology sector as valuations stabilize and dealmakers gain clarity</li>
-                <li>California seed-stage funding peaked at $235 million in February before the geopolitical shock dampened venture activity</li>
-                <li>Brent crude could spike toward $150 if Strait of Hormuz disruption worsens or if new military escalation occurs</li>
-                <li>Q2 opens with cautious optimism but geopolitical risks remain the dominant variable constraining further upside</li>
-            </ul>
-        </div>
-
-        <footer>
-            <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
-            <p>&copy; 2026 The Morning Wire. All rights reserved.</p>
-        </footer>
-    </div>
+    <footer>
+        <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
+        <p>The Morning Wire — Markets & Economy Deep Dive | April 1, 2026</p>
+    </footer>
 </body>
 </html>

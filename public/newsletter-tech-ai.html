@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Morning Wire: Tech & AI Edition — April 1, 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Tech & AI Deep Dive - The Morning Wire</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,406 +13,276 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f8f8;
-            padding: 24px;
+            font-family: 'Instrument Sans', sans-serif;
+            background-color: #faf9f7;
+            color: #1c1917;
             line-height: 1.6;
-            color: #333;
         }
 
-        .container {
-            max-width: 760px;
+        .header {
+            background-color: #1c1917;
+            color: #faf9f7;
+            padding: 32px 20px;
+            border-top: 3px solid #7c3aed;
+        }
+
+        .header-wrapper {
+            max-width: 680px;
             margin: 0 auto;
         }
 
-        header {
-            background: linear-gradient(135deg, #1e1b4b 0%, #4338ca 100%);
-            color: white;
-            padding: 48px 32px;
-            border-radius: 8px;
-            margin-bottom: 32px;
-            text-align: center;
-        }
-
         .back-link {
-            font-size: 13px;
-            margin-bottom: 16px;
             display: inline-block;
-        }
-
-        .back-link a {
-            color: rgba(255, 255, 255, 0.85);
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-
-        .back-link a:hover {
-            opacity: 1;
-        }
-
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            margin: 12px 0 8px 0;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        header .subtitle {
+            margin-bottom: 24px;
             font-size: 14px;
-            opacity: 0.95;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-        }
-
-        .lead-story {
-            background: white;
-            padding: 32px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-            margin-bottom: 24px;
-        }
-
-        .lead-story h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            margin-bottom: 16px;
-            line-height: 1.3;
-            color: #1e1b4b;
-        }
-
-        .lead-story p {
-            margin-bottom: 16px;
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        .lead-story p:last-child {
-            margin-bottom: 0;
-        }
-
-        .source {
-            font-size: 12px;
-            color: #666;
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid #eee;
-        }
-
-        .source a {
-            color: #4338ca;
             text-decoration: none;
-            font-weight: 500;
+            color: #a1a09f;
+            transition: color 0.2s;
         }
 
-        .source a:hover {
-            text-decoration: underline;
+        .back-link:hover {
+            color: #7c3aed;
         }
 
-        .section {
-            margin-bottom: 24px;
+        .header h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
         }
 
-        .section-title {
-            font-family: 'Playfair Display', serif;
+        .header-subtitle {
+            font-size: 16px;
+            color: #a1a09f;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .main {
+            padding: 40px 0;
+        }
+
+        .numbers-section {
+            border-bottom: 1px solid #e7e5e4;
+            padding-bottom: 32px;
+            margin-bottom: 32px;
+        }
+
+        .numbers-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .numbers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .number-item {
+            padding-bottom: 16px;
+        }
+
+        .number-value {
             font-size: 20px;
-            color: #1e1b4b;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #4338ca;
+            font-weight: 600;
+            color: #7c3aed;
+            margin-bottom: 4px;
+        }
+
+        .number-label {
+            font-size: 13px;
+            color: #78716b;
         }
 
         .story {
-            background: white;
-            padding: 24px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-            margin-bottom: 16px;
+            border-bottom: 1px solid #e7e5e4;
+            padding: 32px 0;
         }
 
-        .story h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
+        .story:last-of-type {
+            border-bottom: none;
+        }
+
+        .story-headline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 28px;
+            font-weight: 700;
             margin-bottom: 12px;
             line-height: 1.3;
-            color: #1e1b4b;
+            letter-spacing: -0.3px;
         }
 
-        .story p {
-            font-size: 14px;
-            margin-bottom: 12px;
-            line-height: 1.6;
-        }
-
-        .story p:last-of-type {
-            margin-bottom: 0;
-        }
-
-        .by-numbers {
-            background: white;
-            padding: 32px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-            margin-bottom: 24px;
-        }
-
-        .by-numbers h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            margin-bottom: 24px;
-            color: #1e1b4b;
-        }
-
-        .metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 16px;
-        }
-
-        .metric {
-            text-align: center;
-            padding: 16px;
-            background: linear-gradient(135deg, rgba(67, 56, 202, 0.05) 0%, rgba(30, 27, 75, 0.05) 100%);
-            border-radius: 6px;
-            border: 1px solid rgba(67, 56, 202, 0.1);
-        }
-
-        .metric-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: #4338ca;
+        .story-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #7c3aed;
             margin-bottom: 8px;
+            letter-spacing: 0.5px;
         }
 
-        .metric-label {
-            font-size: 12px;
-            color: #666;
-            line-height: 1.4;
-        }
-
-        .quick-hits {
-            background: white;
-            padding: 24px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-            margin-bottom: 24px;
-        }
-
-        .quick-hits h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            color: #1e1b4b;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #4338ca;
-        }
-
-        .quick-hits ul {
-            list-style: none;
-        }
-
-        .quick-hits li {
-            font-size: 14px;
+        .story-body {
+            font-size: 15px;
+            line-height: 1.7;
             margin-bottom: 12px;
-            padding-left: 20px;
-            position: relative;
-            line-height: 1.5;
+            color: #1c1917;
         }
 
-        .quick-hits li:before {
-            content: "▪";
-            position: absolute;
-            left: 0;
-            color: #4338ca;
-            font-weight: bold;
+        .story-source {
+            font-size: 13px;
+            color: #78716b;
         }
 
-        footer {
-            background: white;
-            padding: 32px 24px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        .story-source a {
+            color: #78716b;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .story-source a:hover {
+            color: #7c3aed;
+        }
+
+        .footer {
+            border-top: 1px solid #e7e5e4;
+            padding: 40px 0;
+            margin-top: 40px;
             text-align: center;
-            border-top: 2px solid #f0f0f0;
+            font-size: 14px;
+            color: #78716b;
         }
 
-        footer .back-link {
-            margin-bottom: 16px;
+        .footer-link {
+            display: inline-block;
+            color: #78716b;
+            text-decoration: none;
+            transition: color 0.2s;
         }
 
-        footer .copyright {
-            font-size: 12px;
-            color: #999;
-            margin-top: 16px;
+        .footer-link:hover {
+            color: #7c3aed;
         }
 
         @media (max-width: 640px) {
-            header h1 {
-                font-size: 32px;
+            .header h1 {
+                font-size: 36px;
             }
 
-            .lead-story,
-            .story,
-            .by-numbers,
-            .quick-hits,
-            footer {
-                padding: 20px;
+            .story-headline {
+                font-size: 24px;
             }
 
-            .metrics {
-                grid-template-columns: repeat(2, 1fr);
+            .numbers-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="back-link">
-                <a href="daily-newsletter.html">← Back to Daily Edition</a>
-            </div>
-            <h1>The Morning Wire: Tech & AI Edition</h1>
-            <div class="subtitle">Wednesday, April 1, 2026</div>
-        </header>
+    <header class="header">
+        <div class="header-wrapper">
+            <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
+            <h1>Tech & AI Deep Dive</h1>
+            <p class="header-subtitle">April 1, 2026 — The Morning Wire</p>
+        </div>
+    </header>
 
-        <section class="lead-story">
-            <h2>GPT-5.4 Crosses the Human Threshold on Real-World Desktop Tasks</h2>
-            <p>OpenAI has unveiled GPT-5.4, marking a watershed moment in artificial intelligence: the first time an AI system has consistently outperformed humans on standardized productivity benchmarks. The model achieved a 75% score on OSWorld-V, a benchmark that simulates real desktop productivity tasks including email, spreadsheet manipulation, and multi-application workflows. This surpasses the human baseline of 72.4%, a significant achievement that signals the AI industry's transition from theoretical capability to practical advantage in everyday work.</p>
-            <p>The breakthrough is underpinned by two key technical advances: a 1-million-token context window that allows the model to process entire codebases, documents, and workflows in a single prompt, and autonomous execution capabilities enabling multi-step workflows across software environments. OpenAI's "Thinking" variant scored even higher at 83.0% on GDPVal, a benchmark measuring performance on economically valuable decision-making tasks. With these capabilities, GPT-5.4 represents not merely an incremental improvement but a fundamental shift in what AI systems can accomplish in production environments.</p>
-            <p>The implications extend across enterprise software, knowledge work, and automation. Companies deploying GPT-5.4 for workflow automation are already reporting productivity gains of 25-40%, with some industries seeing more dramatic improvements. The achievement underscores why tech giants and investors continue pouring billions into large language models—and why talent and compute resources have become the new frontiers of competitive advantage.</p>
-            <div class="source">Source: <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates">Crescendo AI News</a></div>
-        </section>
-
-        <section class="by-numbers">
-            <h2>By the Numbers</h2>
-            <div class="metrics">
-                <div class="metric">
-                    <div class="metric-number">$25B+</div>
-                    <div class="metric-label">OpenAI Annualized Revenue</div>
+    <main class="container main">
+        <!-- By the Numbers Section -->
+        <section class="numbers-section">
+            <h2 class="numbers-title">By the Numbers</h2>
+            <div class="numbers-grid">
+                <div class="number-item">
+                    <div class="number-value">$2B</div>
+                    <div class="number-label">OpenAI monthly revenue</div>
                 </div>
-                <div class="metric">
-                    <div class="metric-number">$122B</div>
-                    <div class="metric-label">OpenAI's Latest Funding Round</div>
+                <div class="number-item">
+                    <div class="number-value">$730B</div>
+                    <div class="number-label">OpenAI valuation</div>
                 </div>
-                <div class="metric">
-                    <div class="metric-number">75%</div>
-                    <div class="metric-label">GPT-5.4 Score on OSWorld-V</div>
+                <div class="number-item">
+                    <div class="number-value">1M tokens</div>
+                    <div class="number-label">GPT-5.4 context window</div>
                 </div>
-                <div class="metric">
-                    <div class="metric-number">1M</div>
-                    <div class="metric-label">Token Context Window</div>
+                <div class="number-item">
+                    <div class="number-value">85%</div>
+                    <div class="number-label">YC W26 AI-first startups</div>
                 </div>
-                <div class="metric">
-                    <div class="metric-number">1.4nm</div>
-                    <div class="metric-label">Fujitsu's Target AI Chip Node</div>
+                <div class="number-item">
+                    <div class="number-value">1.4nm</div>
+                    <div class="number-label">Fujitsu AI chip node size</div>
                 </div>
-                <div class="metric">
-                    <div class="metric-number">130</div>
-                    <div class="metric-label">PrismML Tokens/Sec on iPhone 17</div>
+                <div class="number-item">
+                    <div class="number-value">75%</div>
+                    <div class="number-label">GPT-5.4 OSWorld-V score</div>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <h2 class="section-title">Big Money, Bigger Ambitions</h2>
+        <!-- Story 1: OpenAI Lead -->
+        <article class="story">
+            <span class="story-badge">Lead</span>
+            <h2 class="story-headline">OpenAI Hits $2B Monthly Revenue, Plans IPO</h2>
+            <p class="story-body">OpenAI has crossed a major milestone, now generating $2 billion per month in revenue while advancing toward a public offering. The company's new GPT-5.4 model features an unprecedented 1 million-token context window and scores 75% on OSWorld-V benchmarks, demonstrating significant gains in reasoning and task completion. With total funding now reaching $122 billion, OpenAI continues to dominate the AI landscape at a valuation of $730 billion.</p>
+            <p class="story-source">Source: <a href="#">blog.mean.ceo</a></p>
+        </article>
 
-            <article class="story">
-                <h3>OpenAI Eyes Public Markets After $122B Round</h3>
-                <p>OpenAI's trajectory has shifted decisively toward public markets. With annualized revenue surpassing $25 billion and a fresh $122 billion funding round closing at a $7.5 trillion valuation, the company is taking early IPO steps with a target launch for late 2026. The timing reflects confidence both in OpenAI's business model and in the broader AI economy's maturation. Unlike most unicorns, OpenAI arrived at IPO-readiness with genuine profitability and recurring enterprise revenue, a rarity in the technology sector.</p>
-                <div class="source">Source: <a href="https://techcrunch.com/2026/01/02/in-2026-ai-will-move-from-hype-to-pragmatism/">TechCrunch</a></div>
-            </article>
+        <!-- Story 2: Fujitsu NPU -->
+        <article class="story">
+            <h2 class="story-headline">Fujitsu Engineering 1.4nm AI Processor for Edge Inference</h2>
+            <p class="story-body">Fujitsu is advancing on-device AI with a specialized neural processing unit (NPU) built at the 1.4nm node at its Rapidus fabrication facility in Hokkaido. The chip is engineered specifically for edge AI inference, enabling real-time processing without relying on cloud connectivity. This move represents Japan's strategic push to compete in advanced semiconductor manufacturing for AI workloads.</p>
+            <p class="story-source">Source: <a href="#">blog.mean.ceo</a></p>
+        </article>
 
-            <article class="story">
-                <h3>Cloaked Raises $375M for Identity Security</h3>
-                <p>Identity security startup Cloaked closed a Series B funding round of $375 million led by General Catalyst, highlighting investor appetite for infrastructure-first plays in the AI era. The capital will accelerate development of privacy-preserving identity systems—critical infrastructure as enterprises grapple with AI's data governance challenges. Cloaked's growth reflects a broader shift: investors increasingly favor foundational security and infrastructure layers over application-layer AI companies.</p>
-                <div class="source">Source: <a href="https://fundraiseinsider.com/blog/funded-startups-united-states/">Fundraise Insider</a></div>
-            </article>
+        <!-- Story 3: Public Concern -->
+        <article class="story">
+            <h2 class="story-headline">Americans Increasingly Concerned About AI Harms</h2>
+            <p class="story-body">A Quinnipiac poll reveals that more than half of U.S. adults believe artificial intelligence will cause significant harm to society, underscoring growing public skepticism about AI deployment. In response to these concerns, the 2026 Responsible AI Symposium is convening industry leaders, researchers, and policymakers to address ethical frameworks and governance standards. The gathering reflects mounting pressure on tech companies to demonstrate safety and accountability in their AI systems.</p>
+            <p class="story-source">Source: <a href="#">aiandnews.com</a></p>
+        </article>
 
-            <article class="story">
-                <h3>Starcloud Hits $1.1B Valuation with $170M Series A</h3>
-                <p>Starcloud, a Redmond-based space-computing startup building orbital data centers, closed a $170 million Series A round at a $1.1 billion valuation. The company is engineering satellite-based compute infrastructure to deliver AI inference services with microsecond latencies from space. As AI workloads grow increasingly demanding, Starcloud's vision of distributed, physics-proximate computing represents a novel approach to the bottleneck of data center location and latency.</p>
-                <div class="source">Source: <a href="https://fundraiseinsider.com/blog/funded-startups-united-states/">Fundraise Insider</a></div>
-            </article>
-        </section>
+        <!-- Story 4: YC Startups -->
+        <article class="story">
+            <h2 class="story-headline">AI-First Dominance at Y Combinator Demo Day</h2>
+            <p class="story-body">Eighty-five percent of startups pitching at Y Combinator's Winter 2026 Demo Day are building AI-first products, marking the highest proportion ever recorded. This trend underscores the venture capital community's conviction that artificial intelligence is reshaping every sector from healthcare to finance to creative industries. The concentration of AI talent and capital in the startup ecosystem signals accelerating innovation at the edges of the industry.</p>
+            <p class="story-source">Source: <a href="#">techstartups.com</a></p>
+        </article>
 
-        <section class="section">
-            <h2 class="section-title">Hardware Wars</h2>
+        <!-- Story 5: AMD Processors -->
+        <article class="story">
+            <h2 class="story-headline">AMD Launches Ryzen AI 400 Series for Laptops</h2>
+            <p class="story-body">AMD unveiled its Ryzen AI 400 series processors at CES 2026, bringing specialized AI acceleration to consumer laptops and mobile workstations. The new chips integrate dedicated neural engines capable of handling local AI inference, enabling users to run large language models and generative AI applications without cloud dependencies. This processor family represents AMD's effort to capture market share in the rapidly growing on-device AI segment.</p>
+            <p class="story-source">Source: <a href="#">blog.mean.ceo</a></p>
+        </article>
 
-            <article class="story">
-                <h3>NVIDIA Unveils Vera Rubin AI Platform</h3>
-                <p>NVIDIA announced its latest flagship AI platform, Vera Rubin, at the CES 2026 keynote. The platform integrates the company's full stack—CUDA, CUTLASS, and cuDNN—optimized for real-time inference at scale. Vera Rubin targets the intersection of edge computing and data center efficiency, with a 40% improvement in throughput-per-watt over the prior generation. The announcement reaffirmed NVIDIA's dominance in the AI infrastructure race, with forward commitments now exceeding $40 billion through 2027.</p>
-                <div class="source">Source: <a href="https://www.artificialintelligence-news.com/">Artificial Intelligence News</a></div>
-            </article>
+        <!-- Story 6: Anthropic Claude Mythos -->
+        <article class="story">
+            <h2 class="story-headline">Anthropic's Claude Mythos Model Surfaced in Data Leak</h2>
+            <p class="story-body">A significant data breach has exposed details of Anthropic's unreleased Claude Mythos model, which reportedly surpasses the current Opus 4.6 in capability and reasoning performance. The leak raises serious questions about AI model security and the risks of storing sensitive intellectual property in vulnerable environments. Industry experts are calling for stronger cybersecurity protocols across AI research organizations as model weights and training techniques become increasingly valuable targets for competitors and malicious actors.</p>
+            <p class="story-source">Source: <a href="#">Fortune</a></p>
+        </article>
 
-            <article class="story">
-                <h3>Fujitsu Targets 1.4nm for New AI Processor</h3>
-                <p>Fujitsu unveiled plans for a next-generation neural processing unit (NPU) built on a 1.4-nanometer process, to be manufactured at Rapidus's advanced fabrication plant in Hokkaido, Japan. The move signals Japan's commitment to compete in the global AI semiconductor race. At 1.4nm, Fujitsu's processor will enter the range of cutting-edge foundry nodes, enabling denser, more efficient AI inference. Industry observers see this as a watershed moment for Japan's semiconductor ambitions post-Arm transition.</p>
-                <div class="source">Source: <a href="http://ai.mee.nu/daily_tech_news_1_april_2026">AI MEE Daily News</a></div>
-            </article>
+        <!-- Story 7: Apple Siri -->
+        <article class="story">
+            <h2 class="story-headline">Apple Rebuilds Siri with Google Gemini Technology</h2>
+            <p class="story-body">Apple has overhauled its voice assistant, integrating Google's Gemini model as the underlying engine for Siri in iOS 26.4. The updated assistant runs on Apple's Private Cloud Compute infrastructure, keeping user interactions on-device and encrypted while leveraging Gemini's advanced natural language understanding. This partnership reflects Apple's decision to adopt best-in-class LLM technology rather than develop its own, signaling a pragmatic shift in the company's AI strategy.</p>
+            <p class="story-source">Source: <a href="#">Gadget Hacks</a></p>
+        </article>
+    </main>
 
-            <article class="story">
-                <h3>PrismML's Bonsai: 1.7B Parameters in Your Pocket</h3>
-                <p>PrismML released Bonsai, a 1.7-billion-parameter language model that runs on iPhone 17 in just 240MB of memory, generating text at 130 tokens per second. The breakthrough challenges the assumption that AI capability requires cloud connectivity or server-grade hardware. Bonsai achieves compression through sparse layers, quantization, and knowledge distillation—techniques that make sophisticated models fit in consumer devices. Early enterprise customers are exploring Bonsai for privacy-critical applications where on-device inference is legally or operationally mandatory.</p>
-                <div class="source">Source: <a href="http://ai.mee.nu/daily_tech_news_1_april_2026">AI MEE Daily News</a></div>
-            </article>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">AI Meets the Real World</h2>
-
-            <article class="story">
-                <h3>NVIDIA and Alpamayo Partner on Autonomous Vehicle Testing</h3>
-                <p>NVIDIA and autonomous systems firm Alpamayo announced a collaboration leveraging NVIDIA's DRIVE Orin and DRIVE Thor platforms paired with advanced digital twin technology. The partnership enables vehicle manufacturers to simulate millions of miles of autonomous operation before physical road testing, dramatically accelerating development cycles and reducing testing costs. The digital twin environment can model edge cases—rare but critical scenarios—that would take years to encounter naturally on test tracks.</p>
-                <div class="source">Source: <a href="https://www.artificialintelligence-news.com/">Artificial Intelligence News</a></div>
-            </article>
-
-            <article class="story">
-                <h3>Google Leads AI-Powered Sustainability Push</h3>
-                <p>Google announced significant expansion of its Contrail reduction initiatives, using AI to optimize flight paths and reduce aviation's environmental impact. Alongside this, Google is funding EcoAI startups focused on energy optimization across industries. The initiatives represent a growing trend: major technology companies leveraging their AI capabilities not for competitive advantage, but for measurable environmental benefit. Early results show 3-5% fuel savings on optimized flight routes, translating to thousands of tons of CO₂ reduction annually.</p>
-                <div class="source">Source: <a href="https://www.aiandnews.com/blog/latest-ai-news-march-2026-6/">AI & News</a></div>
-            </article>
-
-            <article class="story">
-                <h3>IBM: 2026 Will See First Quantum Advantage Over Classical Computers</h3>
-                <p>IBM released its quantum roadmap predicting that 2026 will mark the year practical quantum advantage emerges in real-world applications. The company identified three domains poised for breakthroughs: drug development (molecular simulation), materials science (crystalline structure optimization), and financial optimization (portfolio hedging). While quantum computers remain nascent, their hybrid deployment with classical systems is moving from laboratory proof-of-concept to production-ready infrastructure, signaling the era of quantum-classical computing has begun.</p>
-                <div class="source">Source: <a href="https://www.ibm.com/think/news/ai-tech-trends-predictions-2026">IBM Think</a></div>
-            </article>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Policy & Governance</h2>
-
-            <article class="story">
-                <h3>Federal Judge Rules Trump's Anthropic AI Ban Violated Free Speech</h3>
-                <p>A federal appeals court ruled that the Trump administration's ban on Anthropic AI models in federal systems violated First Amendment protections, a landmark decision in AI governance. The government had prohibited federal agencies from using Claude-based systems, citing national security concerns. The court found the ban lacked sufficient factual foundation and constituted viewpoint discrimination. The ruling sets important precedent for the limits of government power over AI systems and may reshape how regulators approach sectoral AI policy going forward.</p>
-                <div class="source">Source: <a href="https://www.aiandnews.com/blog/latest-ai-news-march-2026-6/">AI & News</a></div>
-            </article>
-
-            <article class="story">
-                <h3>Stanford's CRISPR-GPT Designs Experiments in Months, Not Years</h3>
-                <p>Stanford researchers published findings showing that CRISPR-GPT, an AI copilot for gene editing, can design complex genetic experiments in weeks that previously took research teams months or years. The tool learns from biological literature and experimental outcomes to suggest novel gene-editing strategies, dramatically accelerating the pace of genetic research. Early validation in disease modeling shows 60% success rates on first-attempt CRISPR designs—a transformative improvement over traditional trial-and-error methods that struggle with single-digit success rates.</p>
-                <div class="source">Source: <a href="https://www.livescience.com/health/from-gene-therapy-breakthroughs-to-preventable-disease-outbreaks-the-health-trends-that-will-shape-2026">LiveScience</a></div>
-            </article>
-        </section>
-
-        <section class="quick-hits">
-            <h2>Quick Hits</h2>
-            <ul>
-                <li>AI infrastructure becoming global race for land, power, and talent—Iceland and Ireland competing for hyperscale data center footprints</li>
-                <li>Billion-dollar data center bets proliferating across Europe as continent rushes to close AI compute gap with United States</li>
-                <li>Massive AI cluster construction underway in rural China; state allocation of electricity capacity signals long-term commitment to domestic AI race</li>
-                <li>Seed-stage IT funding peaked at $235 million in February 2026; early warning signs as April figures dropped to $98 million</li>
-                <li>Morgan Stanley warns "most of the world isn't ready" for coming AI breakthrough; geopolitical destabilization risk flagged in latest research note</li>
-            </ul>
-        </section>
-
-        <footer>
-            <div class="back-link">
-                <a href="daily-newsletter.html">← Back to Daily Edition</a>
-            </div>
-            <div class="copyright">© 2026 The Morning Wire. All rights reserved.</div>
-        </footer>
-    </div>
+    <footer class="footer">
+        <a href="daily-newsletter.html" class="footer-link">← Back to Daily Newsletter</a>
+    </footer>
 </body>
 </html>
