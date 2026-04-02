@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Science & Health Deep Dive — The Morning Wire</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>The Morning Wire: Science & Health Edition — April 2, 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,224 +13,417 @@
         }
 
         body {
-            font-family: 'Instrument Sans', sans-serif;
-            background-color: #faf9f7;
-            color: #1c1917;
+            font-family: 'Inter', sans-serif;
+            color: #1f2937;
+            background-color: #f9fafb;
             line-height: 1.6;
         }
 
-        header {
-            background-color: #1c1917;
-            color: #faf9f7;
-            border-top: 3px solid #0284c7;
-            padding: 2rem 1rem;
-            margin-bottom: 2rem;
+        .header {
+            background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);
+            color: white;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .header-container {
-            max-width: 680px;
-            margin: 0 auto;
-        }
-
-        .back-link {
-            display: inline-block;
-            font-size: 0.9rem;
-            color: #0284c7;
-            text-decoration: none;
+        .header-back {
+            display: block;
+            text-align: left;
             margin-bottom: 1rem;
+        }
+
+        .header-back a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
             transition: color 0.2s;
         }
 
-        .back-link:hover {
-            color: #faf9f7;
+        .header-back a:hover {
+            color: white;
         }
 
-        h1 {
-            font-family: 'Crimson Pro', serif;
+        .header h1 {
+            font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
             font-weight: 700;
-            line-height: 1.2;
             margin-bottom: 0.5rem;
+            line-height: 1.2;
         }
 
-        .issue-date {
-            font-size: 0.95rem;
-            color: #a8a5a0;
+        .header-meta {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .lead-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #0284c7;
+        }
+
+        .lead-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .lead-card p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 0.8rem;
+        }
+
+        .source {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .source a {
+            color: #0284c7;
+            text-decoration: none;
             font-weight: 500;
         }
 
-        main {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 0 1rem;
+        .source a:hover {
+            text-decoration: underline;
         }
 
-        .newsletter-item {
-            padding: 2rem 0;
-            border-bottom: 1px solid #e7e5e4;
+        .by-the-numbers {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
-        .newsletter-item:last-child {
-            border-bottom: none;
+        .by-the-numbers h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #0c4a6e;
+            margin-bottom: 1.5rem;
         }
 
-        .item-category {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #0284c7;
-            margin-bottom: 0.5rem;
+        .numbers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
         }
 
-        .item-category.lead {
-            color: #0284c7;
+        @media (max-width: 600px) {
+            .numbers-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        h2 {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.75rem;
+        .number-item {
+            border-left: 3px solid #0284c7;
+            padding-left: 1rem;
+        }
+
+        .number-value {
+            font-size: 1.8rem;
             font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 1rem;
-            color: #1c1917;
+            color: #0284c7;
+            font-family: 'Playfair Display', serif;
         }
 
-        .item-summary {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: #1c1917;
+        .number-label {
+            font-size: 0.95rem;
+            color: #6b7280;
+            margin-top: 0.3rem;
+        }
+
+        .stories-section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #0c4a6e;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .story-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: box-shadow 0.2s;
+        }
+
+        .story-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .story-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #0c4a6e;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .story-card p {
+            font-size: 0.95rem;
+            color: #4b5563;
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .quick-hits {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .quick-hits h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #0c4a6e;
+            margin-bottom: 1.5rem;
+        }
+
+        .quick-hits ul {
+            list-style: none;
+        }
+
+        .quick-hits li {
+            padding: 0.8rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .quick-hits li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #0284c7;
+            font-weight: bold;
+        }
+
+        .footer {
+            background: #f3f4f6;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 3rem;
+        }
+
+        .footer-back {
+            display: inline-block;
             margin-bottom: 1rem;
         }
 
-        .sources {
+        .footer-back a {
+            color: #0284c7;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .footer-back a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-text {
             font-size: 0.85rem;
-            color: #a8a5a0;
+            color: #6b7280;
             margin-top: 1rem;
         }
 
-        .sources a {
-            color: #a8a5a0;
-            text-decoration: underline;
-            transition: color 0.2s;
-        }
-
-        .sources a:hover {
-            color: #1c1917;
-        }
-
-        footer {
-            max-width: 680px;
-            margin: 3rem auto 2rem;
-            padding: 2rem 1rem 0;
-            border-top: 1px solid #e7e5e4;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: #0284c7;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        footer a:hover {
-            color: #1c1917;
-        }
-
-        @media (max-width: 640px) {
-            h1 {
-                font-size: 1.75rem;
-            }
-
-            h2 {
-                font-size: 1.4rem;
-            }
-
-            .newsletter-item {
-                padding: 1.5rem 0;
-            }
+        .divider {
+            height: 1px;
+            background: #e5e7eb;
+            margin: 2rem 0;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
-            <h1>Science & Health Deep Dive</h1>
-            <p class="issue-date">April 1, 2026</p>
+    <div class="header">
+        <div class="header-back">
+            <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
         </div>
-    </header>
+        <h1>The Morning Wire</h1>
+        <div class="header-meta">
+            <strong>Science & Health Edition</strong><br>
+            Thursday, April 2, 2026
+        </div>
+    </div>
 
-    <main>
-        <article class="newsletter-item">
-            <span class="item-category lead">LEAD</span>
-            <h2>Artemis II Launches Today — NASA Returns Humans to the Moon for First Time Since 1972</h2>
-            <p class="item-summary">NASA's crewed Artemis II mission launches today at 6:24 PM ET from Kennedy Space Center, marking humanity's return to lunar exploration after more than five decades. The four-person crew—Reid Wiseman, Victor Glover (first person of color beyond low Earth orbit), Christina Koch (first woman beyond LEO), and Jeremy Hansen (first non-U.S. citizen to the Moon)—will embark on a 10-day free-return trajectory with 80% favorable launch weather conditions.</p>
-            <div class="sources">
-                <strong>Sources:</strong> <a href="#">Space.com</a>, <a href="#">NASA</a>, <a href="#">CBS News</a>
+    <div class="container">
+        <!-- LEAD STORY -->
+        <div class="lead-card">
+            <h2>Artemis II Launches: Humanity Returns to the Moon</h2>
+            <p>NASA made history yesterday evening with the successful launch of Artemis II, sending four astronauts on humanity's return to lunar space after more than five decades of absence. The mission lifted off from Kennedy Space Center in Florida at 6:35 PM EDT on April 1, carrying Commander Reid Wiseman, Pilot Victor Glover, Mission Specialist Christina Koch, and Canadian Space Agency astronaut Jeremy Hansen.</p>
+            <p>The crew will complete a lunar flyby on April 6, passing within 5,000 miles of the Moon's surface before returning safely to Earth. This mission represents the culmination of years of preparation and engineering, setting the stage for Artemis III, which will land the first woman and person of color on the lunar surface.</p>
+            <p>"This is a transformative moment for space exploration and for humanity," said NASA Administrator Bill Nelson. "These four brave explorers are leading us back to the Moon and beyond."</p>
+            <div class="source">
+                <strong>Source:</strong> <a href="https://www.nasa.gov">NASA Official</a>
             </div>
-        </article>
+        </div>
 
-        <article class="newsletter-item">
-            <span class="item-category">MEDICINE</span>
-            <h2>Single Blood Test Detects 50 Types of Cancer Before Symptoms Appear</h2>
-            <p class="item-summary">UK clinical trials have validated a breakthrough blood test capable of detecting DNA fragments from 50 different cancer types in asymptomatic patients. The test identifies not only the presence of cancer but also the tissue of origin, potentially enabling early intervention and treatment at more treatable stages before clinical symptoms develop.</p>
-            <div class="sources">
-                <strong>Source:</strong> <a href="#">CAS</a>
+        <!-- BY THE NUMBERS -->
+        <div class="by-the-numbers">
+            <h3>By The Numbers</h3>
+            <div class="numbers-grid">
+                <div class="number-item">
+                    <div class="number-value">4</div>
+                    <div class="number-label">Astronauts aboard Artemis II</div>
+                </div>
+                <div class="number-item">
+                    <div class="number-value">54</div>
+                    <div class="number-label">Years since humans last visited the moon's vicinity</div>
+                </div>
+                <div class="number-item">
+                    <div class="number-value">50</div>
+                    <div class="number-label">Types of cancer detectable by new blood test</div>
+                </div>
+                <div class="number-item">
+                    <div class="number-value">34%</div>
+                    <div class="number-label">Efficiency of new tandem perovskite solar cells</div>
+                </div>
+                <div class="number-item">
+                    <div class="number-value">15%</div>
+                    <div class="number-label">Survival benefit from AI-guided cancer treatment selection</div>
+                </div>
             </div>
-        </article>
+        </div>
 
-        <article class="newsletter-item">
-            <span class="item-category">POLICY</span>
-            <h2>Nebraska First State to Require Work for Medicaid Under New Federal Initiative</h2>
-            <p class="item-summary">Nebraska has become the first state to implement work requirements for Medicaid recipients under Trump's One Big Beautiful Bill. The policy affects millions of beneficiaries nationwide, while Title X funding—which supports reproductive health services for 2.8 million people—faces uncertain renewal prospects amid ongoing policy debates.</p>
-            <div class="sources">
-                <strong>Source:</strong> <a href="#">KFF Health News</a>
+        <!-- STORIES SECTION -->
+        <div class="stories-section">
+            <h3 class="section-title">Deep Dive: This Week's Breakthroughs</h3>
+
+            <div class="story-card">
+                <h4>First Personalized CRISPR Treatment Given to Six-Year-Old</h4>
+                <p>Scientists achieved a landmark milestone with the administration of the first fully personalized CRISPR treatment to a child, significantly reducing the patient's dependence on medication. The breakthrough demonstrates the potential of gene-editing therapies tailored to individual genetic profiles.</p>
+                <p>In parallel, Stanford University unveiled CRISPR-GPT, an AI copilot system that accelerates gene-editing experiment design. What previously required years of laboratory work can now be completed in months, fundamentally changing the pace of genetic medicine research.</p>
+                <div class="source">
+                    <strong>Source:</strong> <a href="https://www.livescience.com">Live Science</a>
+                </div>
             </div>
-        </article>
 
-        <article class="newsletter-item">
-            <span class="item-category">REGULATION</span>
-            <h2>UK Clinical Trial Regulations Undergo Largest Overhaul in 20 Years</h2>
-            <p class="item-summary">New UK clinical trial regulations take effect this month, representing the most significant regulatory change in two decades. The reformed system consolidates ethical review and regulatory approval into a single unified application process, streamlining the path to clinical research and reducing bureaucratic delays.</p>
-            <div class="sources">
-                <strong>Source:</strong> <a href="#">Live Science</a>
+            <div class="story-card">
+                <h4>Revolutionary Blood Test Detects 50 Types of Cancer</h4>
+                <p>Researchers have developed a single blood test capable of detecting DNA fragments shed by cancer cells before symptoms manifest, a breakthrough that could revolutionize early cancer detection and patient outcomes. The test identifies circulating tumor DNA (ctDNA) from 50 different cancer types with remarkable sensitivity.</p>
+                <p>This advancement addresses one of oncology's greatest challenges: early identification of malignancies when treatment outcomes are typically more favorable. Clinical trials are ongoing to validate performance across diverse patient populations.</p>
+                <div class="source">
+                    <strong>Source:</strong> <a href="https://www.technologyreview.mit.edu">MIT Technology Review</a>
+                </div>
             </div>
-        </article>
 
-        <article class="newsletter-item">
-            <span class="item-category">MEDICINE</span>
-            <h2>FDA May Approve First Regulatory T Cell Therapy This Spring</h2>
-            <p class="item-summary">The FDA is expected to approve the first regulatory T cell therapy this spring, offering a critical new treatment option for preventing graft-versus-host disease in bone marrow transplant patients. This innovation could significantly improve outcomes and quality of life for transplant recipients undergoing immune system reconstitution.</p>
-            <div class="sources">
-                <strong>Source:</strong> <a href="#">Mass General Brigham</a>
+            <div class="story-card">
+                <h4>AstraZeneca & Tempus AI Biomarker Breakthrough</h4>
+                <p>A collaboration between AstraZeneca and artificial intelligence company Tempus has uncovered critical biomarkers that predict treatment response in immuno-oncology. Using contrastive learning approaches, the team identified markers that enable more precise patient selection for cancer therapies.</p>
+                <p>Early data shows a 15% survival benefit when treatment decisions are guided by these AI-identified biomarkers. This partnership exemplifies how machine learning is moving from theoretical promise to concrete clinical improvements in cancer care.</p>
+                <div class="source">
+                    <strong>Source:</strong> <a href="https://www.astrazeneca.com">AstraZeneca</a> & Tempus AI
+                </div>
             </div>
-        </article>
 
-        <article class="newsletter-item">
-            <span class="item-category">MEDICINE</span>
-            <h2>Suzetrigine Brings Renewed Hope for Opioid-Free Pain Management</h2>
-            <p class="item-summary">The FDA approval of suzetrigine (Journavax) marks an important advancement in opioid-free pain relief, offering patients and clinicians a new therapeutic option that addresses chronic pain without the addiction and side-effect risks associated with traditional opioid medications. The development signals ongoing progress in non-addictive pain management strategies.</p>
-            <div class="sources">
-                <strong>Source:</strong> <a href="#">Scientific American</a>
+            <div class="story-card">
+                <h4>Tandem Perovskite Solar Cells Reach Commercial Market</h4>
+                <p>A new generation of solar technology is poised to enter commercial markets in 2026. Tandem perovskite-silicon photovoltaic cells have demonstrated power conversion efficiency exceeding 34%—a significant advancement that could accelerate global renewable energy adoption.</p>
+                <p>These cells combine the advantages of perovskite materials with established silicon technology, offering enhanced efficiency without requiring complete infrastructure replacement. Industry analysts project widespread deployment within the next two to three years.</p>
+                <div class="source">
+                    <strong>Source:</strong> <a href="https://www.nature.com">Nature</a>
+                </div>
             </div>
-        </article>
 
-        <article class="newsletter-item">
-            <span class="item-category">GLOBAL</span>
-            <h2>World Health Day 2026: "No Health Without Peace" Emphasizes Science-Led Approach</h2>
-            <p class="item-summary">The 2026 World Health Day theme—"No Health Without Peace"—underscores the critical intersection of global health and international stability in an era of ongoing conflicts. The science-led agenda emphasizes how geopolitical instability undermines public health infrastructure, disease prevention, and equitable access to medical care worldwide.</p>
-            <div class="sources">
-                <strong>Source:</strong> <a href="#">Countercurrents</a>
+            <div class="story-card">
+                <h4>UK Overhauls Clinical Trial Regulations</h4>
+                <p>The United Kingdom has implemented its most significant regulatory reforms for clinical trials in two decades, effective April 2026. The new framework allows researchers to submit a single application for both ethical and regulatory approval, eliminating redundant administrative processes.</p>
+                <p>This streamlining is expected to accelerate the development and deployment of life-saving treatments while maintaining rigorous safety and ethical standards. The UK positions itself as an increasingly attractive hub for innovative clinical research.</p>
+                <div class="source">
+                    <strong>Source:</strong> <a href="https://www.gov.uk">UK Government</a>
+                </div>
             </div>
-        </article>
-    </main>
 
-    <footer>
-        <p><a href="daily-newsletter.html">← Back to Daily Newsletter</a></p>
-        <p style="margin-top: 1rem; color: #a8a5a0;">The Morning Wire | Science & Health Deep Dive Edition</p>
-    </footer>
+            <div class="story-card">
+                <h4>Salk Institute Declares 2026 "Year of Brain Health"</h4>
+                <p>The Salk Institute for Biological Studies has launched an ambitious initiative designating 2026 as the "Year of Brain Health," with significant institutional investment directed toward advancing neuroscience research focused on cognitive resilience across the human lifespan.</p>
+                <p>The campaign encompasses research into neuroplasticity, neurodegeneration prevention, and interventions to enhance mental and cognitive function. The initiative reflects growing recognition that brain health is foundational to overall human wellbeing.</p>
+                <div class="source">
+                    <strong>Source:</strong> <a href="https://www.salk.edu">Salk Institute</a>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <h4>Suzetrigine Offers Opioid-Free Pain Relief Hope</h4>
+                <p>Following FDA approval of suzetrigine (branded as Journavax), a new class of non-addictive pain management medication, the field of pain treatment has gained fresh momentum in moving away from opioid dependency. Suzetrigine works through a novel mechanism that addresses pain without the addiction risks associated with traditional opioid medications.</p>
+                <p>This development represents significant progress in addressing the opioid crisis while offering patients effective alternative options. Clinicians and patients are increasingly turning to this breakthrough therapy as a safer pathway for pain management.</p>
+                <div class="source">
+                    <strong>Source:</strong> <a href="https://www.massgeneralßbrigham.org">Mass General Brigham</a>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <h4>AI Framework Simulates Chemical Reactions Under Extreme Pressure</h4>
+                <p>Researchers have developed an innovative AI framework that combines machine learning with quantum mechanical principles to simulate complex chemical reactions occurring under extreme pressure conditions. This capability opens new frontiers in materials science and energy research.</p>
+                <p>The system can predict reaction pathways and material properties that would be impractical or impossible to test experimentally, accelerating discovery of novel materials with applications ranging from energy storage to industrial catalysis.</p>
+                <div class="source">
+                    <strong>Source:</strong> <a href="https://www.nature.com">Nature</a>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <h4>Epigenetic Clock Trials Expand in 2026</h4>
+                <p>Larger clinical trials testing epigenetic aging clocks—biomarkers that measure aging at the molecular level—are underway in 2026. These trials investigate how biological aging responds to various interventions and explore connections between aging biomarkers and cancer treatment outcomes.</p>
+                <p>The research seeks to establish whether slowing biological aging can improve cancer prognosis and overall health outcomes. Success could fundamentally reshape approaches to both aging and cancer prevention.</p>
+                <div class="source">
+                    <strong>Source:</strong> <a href="https://www.cityofhope.org">City of Hope</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- QUICK HITS -->
+        <div class="quick-hits">
+            <h3>Quick Hits</h3>
+            <ul>
+                <li><strong>Artemis II Lunar Flyby:</strong> The crew will pass the moon on April 6, 2026</li>
+                <li><strong>mRNA Therapeutics:</strong> Identified as a top technology to watch in 2026 by leading research institutions</li>
+                <li><strong>AI Transition:</strong> Artificial intelligence is moving from the "Peak of Inflated Expectations" into practical, evidence-based medical applications</li>
+                <li><strong>Microbiome Medicine:</strong> Gut microbiome-guided therapies are turning personalized nutrition into targeted therapeutic interventions</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <div class="footer-back">
+            <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
+        </div>
+        <div class="footer-text">
+            <p><strong>The Morning Wire: Science & Health Edition</strong></p>
+            <p>Deep dives into the week's most significant scientific and health breakthroughs.</p>
+            <p style="margin-top: 1rem; opacity: 0.8;">Published Thursday, April 2, 2026</p>
+        </div>
+    </div>
 </body>
 </html>

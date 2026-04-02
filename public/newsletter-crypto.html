@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto & Digital Assets Deep Dive — The Morning Wire</title>
+    <title>The Morning Wire: Crypto Edition — April 2, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,314 +15,461 @@
         }
 
         body {
-            font-family: 'Instrument Sans', sans-serif;
-            background-color: #faf9f7;
-            color: #1c1917;
+            font-family: 'Inter', sans-serif;
+            background: #f9fafb;
+            color: #1f2937;
             line-height: 1.6;
         }
 
-        .container {
-            max-width: 680px;
+        .header {
+            background: linear-gradient(135deg, #451a03 0%, #b45309 100%);
+            color: white;
+            padding: 48px 20px;
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 760px;
             margin: 0 auto;
-            padding: 0;
         }
 
-        /* Header */
-        header {
-            background-color: #1c1917;
-            color: #faf9f7;
-            border-top: 3px solid #d97706;
-            padding: 32px 24px;
-            margin-bottom: 32px;
-        }
-
-        header .back-link {
+        .back-link {
             display: inline-block;
-            font-size: 14px;
             margin-bottom: 20px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: color 0.2s;
         }
 
-        header .back-link a {
-            color: #d97706;
-            text-decoration: none;
+        .back-link:hover {
+            color: white;
+        }
+
+        .publication-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        .publication-date {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.95);
             font-weight: 500;
         }
 
-        header .back-link a:hover {
-            text-decoration: underline;
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
 
-        h1 {
-            font-family: 'Crimson Pro', serif;
-            font-size: 48px;
+        .market-snapshot {
+            background: white;
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .snapshot-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
             font-weight: 700;
-            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #451a03;
+        }
+
+        .snapshot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .snapshot-item {
+            text-align: center;
+        }
+
+        .snapshot-ticker {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .snapshot-price {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1f2937;
             margin-bottom: 8px;
         }
 
-        .issue-date {
+        .snapshot-change {
             font-size: 14px;
-            color: #a89f97;
-            font-weight: 400;
-        }
-
-        /* Main content */
-        main {
-            padding: 0 24px;
-        }
-
-        /* Market Snapshot Section */
-        .market-snapshot {
-            margin-bottom: 32px;
-            padding-bottom: 32px;
-            border-bottom: 1px solid #e7e5e4;
-        }
-
-        .market-snapshot h2 {
-            font-family: 'Crimson Pro', serif;
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .market-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px 16px;
-            margin-bottom: 0;
-        }
-
-        .market-item {
-            padding: 0;
-        }
-
-        .market-item-label {
-            font-size: 12px;
-            font-weight: 600;
-            color: #78716f;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
-        }
-
-        .market-item-value {
-            font-size: 24px;
-            font-weight: 600;
-            color: #1c1917;
-            margin-bottom: 4px;
-        }
-
-        .market-item-change {
-            font-size: 13px;
-            color: #78716f;
-        }
-
-        .market-item-change.negative {
-            color: #dc2626;
-        }
-
-        .market-item-change.positive {
-            color: #16a34a;
-        }
-
-        /* Story items */
-        .story {
-            padding: 24px 0;
-            border-bottom: 1px solid #e7e5e4;
-        }
-
-        .story:last-of-type {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .story h3 {
-            font-family: 'Crimson Pro', serif;
-            font-size: 28px;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 12px;
-            color: #1c1917;
-        }
-
-        .story.lead h3 {
-            font-size: 32px;
-        }
-
-        .story-content {
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 12px;
-            color: #1c1917;
-        }
-
-        .story-source {
-            font-size: 12px;
-            color: #78716f;
-            margin-top: 8px;
-        }
-
-        .story-source a {
-            color: #78716f;
-            text-decoration: underline;
-        }
-
-        .story-source a:hover {
-            color: #1c1917;
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 48px;
-            padding: 32px 24px;
-            border-top: 1px solid #e7e5e4;
-            text-align: center;
-            font-size: 13px;
-            color: #78716f;
-        }
-
-        footer a {
-            color: #d97706;
-            text-decoration: none;
             font-weight: 500;
         }
 
-        footer a:hover {
+        .positive {
+            color: #059669;
+        }
+
+        .negative {
+            color: #dc2626;
+        }
+
+        .lead-story {
+            background: white;
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #b45309;
+        }
+
+        .lead-label {
+            display: inline-block;
+            background: #fef3c7;
+            color: #92400e;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .story-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1f2937;
+            line-height: 1.2;
+        }
+
+        .story-text {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+            color: #374151;
+        }
+
+        .story-source {
+            font-size: 13px;
+            color: #9ca3af;
+            font-weight: 500;
+        }
+
+        .story-source a {
+            color: #b45309;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .story-source a:hover {
             text-decoration: underline;
         }
 
-        /* Responsive */
-        @media (max-width: 640px) {
-            header {
-                padding: 24px 16px;
+        .stories-section {
+            background: white;
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #451a03;
+        }
+
+        .story-item {
+            padding-bottom: 24px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .story-item:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .story-number {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: #f3f4f6;
+            color: #6b7280;
+            text-align: center;
+            line-height: 28px;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 12px;
+            vertical-align: middle;
+        }
+
+        .story-headline-small {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            display: inline;
+            color: #1f2937;
+            line-height: 1.4;
+        }
+
+        .story-text-small {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-top: 10px;
+            color: #4b5563;
+        }
+
+        .quick-hits {
+            background: #fffbeb;
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .quick-hits-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #451a03;
+        }
+
+        .quick-hits-list {
+            list-style: none;
+        }
+
+        .quick-hits-list li {
+            padding: 12px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #374151;
+        }
+
+        .quick-hits-list li:before {
+            content: "•";
+            position: absolute;
+            left: 8px;
+            color: #b45309;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 32px 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .back-link-bottom {
+            display: inline-block;
+            font-size: 14px;
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .back-link-bottom:hover {
+            color: #451a03;
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-top: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .publication-title {
+                font-size: 32px;
             }
 
-            h1 {
-                font-size: 36px;
-            }
-
-            .market-grid {
+            .snapshot-grid {
                 grid-template-columns: 1fr;
                 gap: 16px;
             }
 
-            .story h3 {
-                font-size: 24px;
+            .story-headline {
+                font-size: 22px;
             }
 
-            .story.lead h3 {
-                font-size: 28px;
-            }
-
-            main {
-                padding: 0 16px;
-            }
-
-            footer {
-                padding: 24px 16px;
+            .market-snapshot,
+            .lead-story,
+            .stories-section,
+            .quick-hits {
+                padding: 24px;
             }
         }
     </style>
 </head>
 <body>
+    <div class="header">
+        <div class="header-content">
+            <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
+            <div class="publication-title">The Morning Wire: Crypto Edition</div>
+            <div class="publication-date">Thursday, April 2, 2026</div>
+        </div>
+    </div>
+
     <div class="container">
-        <header>
-            <div class="back-link">
-                <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
+        <!-- Market Snapshot -->
+        <div class="market-snapshot">
+            <div class="snapshot-title">Market Snapshot</div>
+            <div class="snapshot-grid">
+                <div class="snapshot-item">
+                    <div class="snapshot-ticker">Bitcoin</div>
+                    <div class="snapshot-price">$68,513</div>
+                    <div class="snapshot-change positive">▲ 3.43% (24h)</div>
+                    <div class="snapshot-change negative">↓ ~20% YTD</div>
+                </div>
+                <div class="snapshot-item">
+                    <div class="snapshot-ticker">Ethereum</div>
+                    <div class="snapshot-price">$3,200</div>
+                </div>
+                <div class="snapshot-item">
+                    <div class="snapshot-ticker">Solana</div>
+                    <div class="snapshot-price">$145</div>
+                </div>
             </div>
-            <h1>Crypto & Digital Assets Deep Dive</h1>
-            <div class="issue-date">April 1, 2026</div>
-        </header>
+        </div>
 
-        <main>
-            <!-- Market Snapshot -->
-            <section class="market-snapshot">
-                <h2>Market Snapshot</h2>
-                <div class="market-grid">
-                    <div class="market-item">
-                        <div class="market-item-label">Bitcoin (BTC)</div>
-                        <div class="market-item-value">$67,712</div>
-                        <div class="market-item-change negative">−20% YTD • −43% from Oct 2025 ATH</div>
-                    </div>
-                    <div class="market-item">
-                        <div class="market-item-label">Ethereum (ETH)</div>
-                        <div class="market-item-value">~$2,000</div>
-                        <div class="market-item-change">Historically strong in April</div>
-                    </div>
-                    <div class="market-item">
-                        <div class="market-item-label">Total Market Cap</div>
-                        <div class="market-item-value">$2.36T</div>
-                    </div>
-                    <div class="market-item">
-                        <div class="market-item-label">24h Volume</div>
-                        <div class="market-item-value">$100.16B</div>
-                    </div>
-                    <div class="market-item">
-                        <div class="market-item-label">BTC Dominance</div>
-                        <div class="market-item-value">58.16%</div>
-                    </div>
+        <!-- Lead Story -->
+        <div class="lead-story">
+            <div class="lead-label">Lead Story</div>
+            <div class="story-headline">SEC & CFTC Classify 16 Crypto Assets as Digital Commodities</div>
+            <div class="story-text">
+                In what's being called the most significant regulatory development in crypto history, a March 17 joint interpretive rule from the Securities and Exchange Commission and the Commodity Futures Trading Commission officially classified 16 major tokens—including Bitcoin, Ethereum, Solana, Cardano, and Avalanche—as "digital commodities." This landmark decision fundamentally reshapes the regulatory landscape by shifting spot market jurisdiction to the CFTC, unblocking the ETF pipeline for all 16 newly classified assets, and most critically, confirming that staking is not a securities transaction. The framework builds on a March 11 memorandum of understanding between the agencies that established a formal coordination framework for ongoing oversight. The clarity has energized institutional investors and sparked a fresh wave of product development across the industry.
+            </div>
+            <div class="story-source">
+                Source: <a href="#" target="_blank">SEC Official Statement</a>, <a href="#" target="_blank">Bloomberg Law</a>
+            </div>
+        </div>
+
+        <!-- Stories Section -->
+        <div class="stories-section">
+            <div class="section-title">In This Edition</div>
+
+            <div class="story-item">
+                <span class="story-number">1</span>
+                <div class="story-headline-small">Bitcoin Struggles Below $70K Amid Geopolitical Headwinds</div>
+                <div class="story-text-small">
+                    Bitcoin has declined approximately 20% year-to-date as a confluence of factors—escalating geopolitical tensions, persistent inflation concerns, and reverberations from the Trump administration's forceful rhetoric on Iran—continue to undermine potential rallies. Despite a strong opening to 2026, BTC has struggled to maintain momentum above the $70,000 level. Market analysts tracking price action suggest that if sentiment improves, Bitcoin could test $74,000 in April, though macro headwinds remain the dominant force.
                 </div>
-            </section>
-
-            <!-- Lead Story -->
-            <article class="story lead">
-                <h3>Bitcoin Breaks Five-Month Losing Streak</h3>
-                <div class="story-content">
-                    Bitcoin entered April at $67,700, marking March as the first positive month since September 2025 and breaking a grueling streak of five consecutive red monthly candles. Despite this modest recovery, the asset remains down approximately 20% year-to-date and significantly below October 2025's all-time high. Analyst consensus suggests the crypto cycle bottom could occur anywhere between June and November 2026, with market participants monitoring macroeconomic conditions and Federal Reserve policy carefully.
+                <div class="story-source">
+                    Source: <a href="#" target="_blank">CNBC</a>, <a href="#" target="_blank">CoinDesk</a>
                 </div>
-                <div class="story-source">Source: <a href="#">BeInCrypto</a>, <a href="#">Crypto.com</a></div>
-            </article>
+            </div>
 
-            <!-- Story 2 -->
-            <article class="story">
-                <h3>Flight to Safety: BTC Dominance Reaches 58%</h3>
-                <div class="story-content">
-                    Bitcoin's dominance ratio climbed to 58.16%, signaling a notable flight to safety within the crypto ecosystem as investors rotate away from higher-risk altcoins. The shift reflects broader market anxiety stemming from geopolitical tensions and macroeconomic headwinds, with alternative cryptocurrencies significantly underperforming Bitcoin during this period of elevated risk aversion.
+            <div class="story-item">
+                <span class="story-number">2</span>
+                <div class="story-headline-small">March 2026: More Regulatory Progress in 27 Days Than 27 Months</div>
+                <div class="story-text-small">
+                    Beyond the landmark commodity classification, March proved to be an extraordinary month for regulatory clarity. The convergence of the SEC-CFTC interpretive rule, stablecoin deadlines under the GENIUS Act, and state-level regulatory progress represents an acceleration that many in the industry thought would take years to achieve. This sweeping regulatory progress has fundamentally reshaped the operating environment and catalyzed a shift from adversarial regulatory battles to constructive dialogue on implementation.
                 </div>
-                <div class="story-source">Source: <a href="#">Crypto.com</a></div>
-            </article>
-
-            <!-- Story 3 -->
-            <article class="story">
-                <h3>Technical Indicators Flash Bearish Signals</h3>
-                <div class="story-content">
-                    As of April 1, 2026, 25 of 28 major technical indicators are signaling bearish conditions for Bitcoin, according to analysis platforms. This heavily weighted bearish bias from technical indicators suggests continued downside pressure may persist in the near term, though some traders note that extreme bearish readings can occasionally precede relief rallies.
+                <div class="story-source">
+                    Source: <a href="#" target="_blank">Phemex Market Analysis</a>
                 </div>
-                <div class="story-source">Source: <a href="#">CoinCodex</a></div>
-            </article>
+            </div>
 
-            <!-- Story 4 -->
-            <article class="story">
-                <h3>Geopolitical Risk Pressures Crypto Markets</h3>
-                <div class="story-content">
-                    Escalating tensions from the Iran conflict and concerns over Strait of Hormuz disruptions have driven crude oil above $100 per barrel, creating a broader risk-off environment that extends to cryptocurrencies and other risk assets. The digital asset space has felt particular pressure from this geopolitical backdrop, with cryptocurrency ETFs experiencing $296 million in outflows as investors de-risk portfolios across multiple asset classes.
+            <div class="story-item">
+                <span class="story-number">3</span>
+                <div class="story-headline-small">JPMorgan Weighs Move Into Prediction Markets</div>
+                <div class="story-text-small">
+                    JPMorgan is actively exploring entry into the fast-growing prediction markets segment, joining a competitive field that includes crypto-native firms, well-funded startups, and Goldman Sachs. The $4.7 trillion asset manager's interest signals institutional confidence in the infrastructure maturity and regulatory clarity that now surrounds event contracts and derivatives trading.
                 </div>
-                <div class="story-source">Source: <a href="#">CoinDesk</a>, <a href="#">Yahoo Finance</a></div>
-            </article>
-
-            <!-- Story 5 -->
-            <article class="story">
-                <h3>Ethereum Eyes April's Seasonal Tailwinds</h3>
-                <div class="story-content">
-                    Ethereum's price hovering near $2,000 comes as historical analysis shows April has been a notably strong month for the network's native token, with average gains of 18% over the past several years. This seasonal pattern could provide a meaningful technical catalyst if broader market sentiment continues to stabilize and risk appetite returns to crypto markets in the coming weeks.
+                <div class="story-source">
+                    Source: <a href="#" target="_blank">CoinDesk</a>
                 </div>
-                <div class="story-source">Source: <a href="#">BitcoinEthereumNews</a></div>
-            </article>
+            </div>
 
-            <!-- Story 6 -->
-            <article class="story">
-                <h3>SEC & CFTC Grant Commodity Status to 16 Crypto Assets</h3>
-                <div class="story-content">
-                    In a landmark regulatory development, the SEC and CFTC jointly classified 16 cryptocurrency assets—including Bitcoin, Ethereum, Solana, and XRP—as digital commodities, providing long-awaited clarity on the regulatory framework for these digital goods. Separately, Kraken made history by becoming the first digital asset bank to receive a master account with the Federal Reserve, a significant step toward integrating cryptocurrency banking into the traditional financial system.
+            <div class="story-item">
+                <span class="story-number">4</span>
+                <div class="story-headline-small">Franklin Templeton Creates 'Franklin Crypto' Unit</div>
+                <div class="story-text-small">
+                    Franklin Templeton, which has already made significant inroads with cryptocurrency ETF products, is launching a dedicated "Franklin Crypto" strategic business unit to expand beyond passive ETF offerings and target institutional appetite for active digital asset management strategies. The move underscores growing institutional confidence in the sector and the lucrative demand for professionally managed crypto exposure.
                 </div>
-                <div class="story-source">Source: <a href="#">SEC.gov</a></div>
-            </article>
+                <div class="story-source">
+                    Source: <a href="#" target="_blank">The Block</a>
+                </div>
+            </div>
 
-        </main>
+            <div class="story-item">
+                <span class="story-number">5</span>
+                <div class="story-headline-small">GENIUS Act Implementation Deadlines Approach</div>
+                <div class="story-text-small">
+                    Signed by President Trump in July 2025, the GENIUS Act establishes aggressive implementation timelines for comprehensive stablecoin regulation. Regulators must finalize stablecoin rules by July 18, 2026, with full implementation targeted for January 2027. Industry participants are preparing for what promises to be an extensive rulemaking process that will define stablecoin issuance, reserves, and redemption mechanics for the next decade.
+                </div>
+                <div class="story-source">
+                    Source: <a href="#" target="_blank">DL News</a>
+                </div>
+            </div>
 
-        <footer>
-            <p><a href="daily-newsletter.html">← Back to Daily Newsletter</a></p>
-        </footer>
+            <div class="story-item">
+                <span class="story-number">6</span>
+                <div class="story-headline-small">California Digital Financial Assets Law Takes Effect July 1</div>
+                <div class="story-text-small">
+                    California will become the first state to enforce comprehensive digital financial asset licensing requirements when its new law takes effect on July 1. The law requires any entity engaging in digital financial asset business with California residents to obtain a license. The move positions California as a regulatory leader while creating immediate compliance pressure for national and international platforms.
+                </div>
+                <div class="story-source">
+                    Source: <a href="#" target="_blank">California Regulatory Affairs</a>
+                </div>
+            </div>
+
+            <div class="story-item">
+                <span class="story-number">7</span>
+                <div class="story-headline-small">Brazil's B3 Exchange to Offer Bitcoin-Linked Contracts</div>
+                <div class="story-text-small">
+                    Latin America continues its institutional crypto adoption trajectory as Brazil's dominant exchange B3 announces plans to offer "event contracts" linked to Bitcoin prices, initially targeting ultra-high-net-worth investors. The move reflects growing comfort among traditional financial market operators with digital asset infrastructure and validates the region's position as an emerging leader in crypto adoption.
+                </div>
+                <div class="story-source">
+                    Source: <a href="#" target="_blank">CoinDesk</a>
+                </div>
+            </div>
+
+            <div class="story-item">
+                <span class="story-number">8</span>
+                <div class="story-headline-small">Crypto's Rules Are Here — 2026 Is About Making Them Work</div>
+                <div class="story-text-small">
+                    With the major regulatory framework now in place, industry focus is shifting dramatically from negotiating the contours of new regulations to the harder work of operationalizing, refining, and connecting disparate regulatory frameworks. The transition from rule-writing to rule-implementation represents a maturation of the regulatory environment and creates new opportunities for compliance-focused businesses.
+                </div>
+                <div class="story-source">
+                    Source: <a href="#" target="_blank">Bloomberg Law</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Hits -->
+        <div class="quick-hits">
+            <div class="quick-hits-title">Quick Hits</div>
+            <ul class="quick-hits-list">
+                <li><strong>Market Structure Legislation Expected:</strong> US Congress is preparing additional market structure legislation to complement the SEC-CFTC framework and address emerging regulatory gaps.</li>
+                <li><strong>Staking Confirmed Non-Securities:</strong> The SEC-CFTC rule explicitly clarifies that staking activities do not constitute securities transactions, removing a major regulatory overhang.</li>
+                <li><strong>ETF Pipeline Unblocked:</strong> The 16 newly classified digital commodities now have a clear regulatory pathway for spot ETF products, potentially unblocking $20+ billion in institutional capital.</li>
+                <li><strong>Crypto and Equities Sell-Off:</strong> Following Trump's forceful national address on Iran, both crypto and equity markets experienced significant sell-offs as investors repriced geopolitical risk.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="daily-newsletter.html" class="back-link-bottom">← Back to Daily Newsletter</a>
+        <div class="footer-text">
+            The Morning Wire: Crypto Edition • Curated Market Intelligence for April 2, 2026
+        </div>
     </div>
 </body>
 </html>
