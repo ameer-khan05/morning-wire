@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Morning Wire: World Edition - April 2, 2026</title>
+    <title>The Morning Wire: World & Geopolitics Edition - April 10, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,8 +16,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f5f5f5;
-            color: #222;
+            background-color: #f9fafb;
+            color: #1f2937;
             line-height: 1.6;
         }
 
@@ -27,388 +27,346 @@
             padding: 20px;
         }
 
-        /* Header */
-        header {
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .back-link a {
+            color: #b91c1c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        .header {
             background: linear-gradient(135deg, #450a0a 0%, #b91c1c 100%);
             color: white;
             padding: 40px 30px;
-            text-align: center;
-            margin-bottom: 30px;
             border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
         }
 
-        header .back-link {
-            display: inline-block;
-            font-size: 13px;
-            margin-bottom: 20px;
-            padding: 8px 16px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
-            text-decoration: none;
-            color: white;
-            transition: background-color 0.3s ease;
-        }
-
-        header .back-link:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-
-        header h1 {
+        .header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 42px;
-            font-weight: 800;
-            margin: 15px 0 10px 0;
-            line-height: 1.2;
-        }
-
-        header .date {
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.95;
-        }
-
-        /* Main content */
-        main {
-            margin-bottom: 40px;
-        }
-
-        /* Lead story */
-        .lead-story {
-            background: white;
-            padding: 35px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            margin-bottom: 25px;
-            border-left: 5px solid #b91c1c;
-        }
-
-        .lead-story .label {
-            display: inline-block;
-            background-color: #b91c1c;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 3px;
-            font-size: 11px;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
         }
 
-        .lead-story h2 {
+        .header .subtitle {
+            font-size: 16px;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .header .date {
+            font-size: 14px;
+            opacity: 0.85;
+            margin-top: 8px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
             font-family: 'Playfair Display', serif;
             font-size: 28px;
             font-weight: 700;
-            margin-bottom: 15px;
-            line-height: 1.3;
-            color: #1a1a1a;
-        }
-
-        .lead-story p {
-            font-size: 15px;
-            margin-bottom: 12px;
-            color: #444;
-        }
-
-        .lead-story .stats {
-            background-color: #fafafa;
-            border-left: 3px solid #b91c1c;
-            padding: 12px 15px;
-            margin: 18px 0;
-            font-size: 14px;
-            color: #333;
-            border-radius: 4px;
-        }
-
-        .lead-story .source {
-            font-size: 12px;
-            color: #666;
-            font-style: italic;
-            margin-top: 15px;
-            padding-top: 12px;
-            border-top: 1px solid #eee;
-        }
-
-        .lead-story .source a {
-            color: #b91c1c;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .lead-story .source a:hover {
-            text-decoration: underline;
-        }
-
-        /* Stories section */
-        .stories {
-            margin-top: 30px;
-        }
-
-        .stories h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 700;
+            color: #1f2937;
             margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #b91c1c;
-            color: #1a1a1a;
+            border-bottom: 3px solid #b91c1c;
+            padding-bottom: 15px;
         }
 
-        .story-card {
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            margin-bottom: 18px;
-            transition: box-shadow 0.3s ease;
-        }
-
-        .story-card:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-        }
-
-        .story-card h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            line-height: 1.3;
-            color: #1a1a1a;
-        }
-
-        .story-card p {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 12px;
-            line-height: 1.6;
-        }
-
-        .story-card .source {
-            font-size: 11px;
-            color: #888;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
-
-        .story-card .source a {
-            color: #b91c1c;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .story-card .source a:hover {
-            text-decoration: underline;
-        }
-
-        /* Quick hits */
-        .quick-hits {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            margin-top: 30px;
-        }
-
-        .quick-hits h3 {
+        .card h3 {
             font-family: 'Playfair Display', serif;
             font-size: 20px;
             font-weight: 700;
-            margin-bottom: 18px;
-            color: #1a1a1a;
+            color: #1f2937;
+            margin-top: 20px;
+            margin-bottom: 12px;
         }
 
-        .quick-hits ul {
+        .card h3:first-child {
+            margin-top: 0;
+        }
+
+        .card p {
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        .card ul {
             list-style: none;
-            padding: 0;
+            padding-left: 0;
+            margin-bottom: 15px;
         }
 
-        .quick-hits li {
-            padding: 12px 0;
-            padding-left: 25px;
+        .card li {
+            margin-bottom: 12px;
+            font-size: 15px;
+            padding-left: 20px;
             position: relative;
-            font-size: 14px;
-            color: #555;
-            border-bottom: 1px solid #eee;
-            line-height: 1.5;
         }
 
-        .quick-hits li:last-child {
-            border-bottom: none;
-        }
-
-        .quick-hits li:before {
-            content: "•";
+        .card li:before {
+            content: "→";
             position: absolute;
             left: 0;
             color: #b91c1c;
-            font-size: 18px;
-            line-height: 1;
+            font-weight: bold;
         }
 
-        /* Footer */
-        footer {
+        .by-numbers {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-box {
+            background: #fef2f2;
+            border-left: 4px solid #b91c1c;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .stat-box .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #b91c1c;
+            margin-bottom: 5px;
+        }
+
+        .stat-box .label {
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.4;
+        }
+
+        .source {
+            font-size: 12px;
+            color: #6b7280;
+            font-style: italic;
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .story-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 12px;
+        }
+
+        .story-content {
+            color: #374151;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .quick-hits li {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .footer {
             text-align: center;
             padding: 30px 0;
-            border-top: 2px solid #e5e5e5;
+            border-top: 1px solid #e5e7eb;
             margin-top: 40px;
         }
 
-        footer .back-link {
-            display: inline-block;
-            background-color: white;
+        .footer a {
             color: #b91c1c;
-            padding: 12px 24px;
-            border: 2px solid #b91c1c;
-            border-radius: 4px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 14px;
-            transition: all 0.3s ease;
-            margin-bottom: 15px;
         }
 
-        footer .back-link:hover {
-            background-color: #b91c1c;
-            color: white;
+        .footer a:hover {
+            text-decoration: underline;
         }
 
-        footer p {
-            font-size: 12px;
-            color: #888;
-            margin-top: 15px;
-        }
-
-        /* Responsive */
         @media (max-width: 600px) {
-            header h1 {
-                font-size: 28px;
+            .header h1 {
+                font-size: 32px;
             }
 
-            .lead-story {
+            .by-numbers {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
                 padding: 20px;
             }
 
-            .story-card {
-                padding: 18px;
-            }
-
-            .story-card h4 {
-                font-size: 16px;
-            }
-
-            .quick-hits {
-                padding: 20px;
+            .card h2 {
+                font-size: 24px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
-            <h1>The Morning Wire: World Edition</h1>
-            <div class="date">Thursday, April 2, 2026</div>
-        </header>
+        <div class="back-link">
+            <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
+        </div>
 
-        <main>
-            <!-- Lead Story -->
-            <section class="lead-story">
-                <span class="label">Lead Story</span>
-                <h2>Day 33: Trump Tells Nation Iran War "Nearing Completion"</h2>
+        <div class="header">
+            <h1>The Morning Wire</h1>
+            <p class="subtitle">World & Geopolitics Edition</p>
+            <p class="date">Friday, April 10, 2026</p>
+        </div>
 
-                <p>In his first address to the nation on the conflict, President Trump told Americans the war is "nearing completion" and projected two to three weeks more of US involvement. The speech, delivered before Congress, used familiar talking points about American strength and resolve, but did little to calm roiling financial markets or answer key questions about the administration's exit strategy, long-term regional goals, or potential humanitarian commitments to reconstruction.</p>
-
-                <p>The remarks marked a significant shift in tone from recent statements by Defense officials, who have been more cautious about timelines. Military sources suggest the conflict's trajectory depends heavily on Iran's willingness to negotiate and the stability of Gulf shipping routes.</p>
-
-                <div class="stats">
-                    <strong>Preliminary casualty figures:</strong> 1,937 dead in Iran | At least 24 in Israel | 13 US soldiers | 27 killed in Gulf states
+        <!-- By the Numbers Section -->
+        <div class="card">
+            <h2>By the Numbers</h2>
+            <div class="by-numbers">
+                <div class="stat-box">
+                    <div class="number">39</div>
+                    <div class="label">Duration of US-Israel-Iran conflict (days)</div>
                 </div>
-
-                <p>Treasury officials warned that prolonged disruption to the Strait of Hormuz could extend economic impacts well beyond the conflict's end. Energy markets remain volatile as traders weigh supply chain recovery against geopolitical risk.</p>
-
-                <div class="source">
-                    Sources: <a href="https://www.cnn.com" target="_blank">CNN</a>, <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance</a>
+                <div class="stat-box">
+                    <div class="number">5,000+</div>
+                    <div class="label">Lives lost across nearly a dozen countries</div>
                 </div>
-            </section>
+                <div class="stat-box">
+                    <div class="number">1,600+</div>
+                    <div class="label">Iranian civilians killed</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">20%</div>
+                    <div class="label">Global oil/gas through Strait of Hormuz</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">$144.42</div>
+                    <div class="label">Record Dated Brent spot price (crisis peak)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">7.5M bpd</div>
+                    <div class="label">Gulf state production shut-ins (March)</div>
+                </div>
+            </div>
+        </div>
 
-            <!-- Main Stories -->
-            <section class="stories">
-                <h3>World Stories</h3>
+        <!-- Lead Story -->
+        <div class="card">
+            <h2>Lead Story</h2>
+            <div class="story-title">Pakistan Hosts Historic US-Iran Peace Talks in Islamabad Today</div>
+            <div class="story-content">
+                <p>Pakistan's Prime Minister Sharif invited delegations from both Washington and Tehran for talks today, April 10, positioning Pakistan as a key peace broker in one of the year's most consequential geopolitical standoffs. The high-stakes negotiations come as the two-week ceasefire enters its fourth day of fragile implementation.</p>
 
-                <article class="story-card">
-                    <h4>Pakistan & China Propose 5-Point Peace Plan</h4>
-                    <p>In a coordinated diplomatic move, Pakistan and China have introduced a comprehensive peace initiative aimed at de-escalating the Iran conflict. The proposal calls for an immediate ceasefire, relaunched multilateral peace talks, enhanced protections for nonmilitary targets including critical infrastructure, guaranteed safe passage through the Strait of Hormuz for international shipping, and a new multilateral security framework rooted in UN Charter principles. Regional analysts view the proposal as a critical test of international consensus-building.</p>
-                    <div class="source">Source: <a href="https://foreignpolicy.com" target="_blank">Foreign Policy</a></div>
-                </article>
+                <p>The ceasefire was struck on April 7, less than two hours before Trump's deadline for Iran to reopen the Strait of Hormuz. Under the agreement, Iran committed to reopening the critical waterway for two weeks provided all attacks are halted. However, the deal is already showing significant cracks.</p>
 
-                <article class="story-card">
-                    <h4>Trump Considers NATO Withdrawal Amid Alliance Tensions</h4>
-                    <p>As NATO marks its 77th anniversary, President Trump has suggested withdrawing from the alliance, citing what he characterized as "lackluster military support" for American operations in the Iran conflict. The statement has triggered alarm among European leaders who view the alliance as central to collective defense. NATO members have historically carried significant financial burdens, Trump argued, while the US shoulders disproportionate strategic responsibility. The remarks raise questions about America's post-war security commitments.</p>
-                    <div class="source">Source: <a href="https://www.bbc.com/news" target="_blank">BBC News</a>, <a href="https://www.reuters.com" target="_blank">Reuters</a></div>
-                </article>
+                <p>A major point of contention emerged when Israeli PM Netanyahu stated that Lebanon is NOT included in the ceasefire agreement, directly contradicting Pakistan's PM Sharif's characterization of the terms. This disconnect highlights the fragile nature of negotiations between multiple parties with conflicting interests.</p>
 
-                <article class="story-card">
-                    <h4>Israel Expands Lebanon Invasion as Middle East Conflict Escalates</h4>
-                    <p>As the broader Middle East conflict intensifies, Israel has significantly expanded its military operations into Lebanese territory, citing threats from Iranian-backed militias. Simultaneously, Iran has broadened its targeting strategy to include additional Gulf countries, extending economic pain across the region. UN officials express growing concern about civilian casualties and displacement, with preliminary reports indicating thousands of internally displaced persons across southern Lebanon.</p>
-                    <div class="source">Source: <a href="https://www.cnn.com" target="_blank">CNN</a>, <a href="https://www.aljazeera.com" target="_blank">Al Jazeera</a></div>
-                </article>
+                <p>The broader conflict has devastated the region, claiming over 5,000 lives across nearly a dozen countries since the February 28 escalation. The talks in Islamabad represent the first serious attempt at diplomatic resolution, though deep structural challenges remain.</p>
 
-                <article class="story-card">
-                    <h4>Iran Confirms Israeli Strike Killed IRGC Naval Commander</h4>
-                    <p>Iranian authorities confirmed that a recent Israeli military strike killed a senior commander of the Islamic Revolutionary Guard Corps (IRGC) Navy. The deceased officer had been directly responsible for coordinating Iranian blockade efforts on the Strait of Hormuz, a critical chokepoint for global oil trade. Analysts suggest his death could accelerate negotiations on shipping corridor access and represents a potential turning point in restoring international maritime routes. Global energy markets responded positively to the announcement.</p>
-                    <div class="source">Source: <a href="https://www.reuters.com" target="_blank">Reuters</a>, <a href="https://www.bbc.com/news" target="_blank">BBC News</a></div>
-                </article>
+                <div class="source">Source: CNN, Al Jazeera, Rappler</div>
+            </div>
+        </div>
 
-                <article class="story-card">
-                    <h4>Chad Deploys Peacekeeping Forces to Haiti for Gang Suppression Mission</h4>
-                    <p>The first contingent of Chadian soldiers arrived in Haiti this week as part of a UN-backed international peacekeeping force aimed at suppressing gang violence and restoring state authority. The deployment represents a significant shift toward multinational intervention in the Caribbean nation, where endemic gang activity has displaced tens of thousands and destabilized government institutions. Chad's participation has drawn praise from the UN but faces domestic scrutiny over resource allocation.</p>
-                    <div class="source">Source: <a href="https://www.npr.org" target="_blank">NPR</a>, <a href="https://www.un.org" target="_blank">United Nations</a></div>
-                </article>
+        <!-- Middle East Section -->
+        <div class="card">
+            <h2>Middle East Crisis Zone</h2>
 
-                <article class="story-card">
-                    <h4>UK Cuts Global Aid Budget, Africa Bears Brunt of Austerity</h4>
-                    <p>Britain announced a substantial reduction in its global aid budget spread over three years, with African nations absorbing the largest proportional cuts. The decision coincides with announced US aid reductions, creating a concerning convergence of assistance withdrawal from the world's most vulnerable regions. International aid organizations warned that combined Western cuts could prove "unsurvivable" for several critical humanitarian and development programs, particularly in sub-Saharan Africa and South Asia.</p>
-                    <div class="source">Source: <a href="https://foreignpolicy.com" target="_blank">Foreign Policy</a>, <a href="https://www.bbc.com/news" target="_blank">BBC News</a></div>
-                </article>
+            <h3>US-Iran War Timeline</h3>
+            <p>The conflict erupted on February 28 when US and Israeli forces attacked Iran, prompting Iran to close the Strait of Hormuz in retaliation. Six weeks of intense military operations followed, claiming thousands of lives. Trump administration officials claimed "all military objectives" have been met. Iran submitted a 10-point proposal described by analysts as a "workable basis for negotiations."</p>
+            <div class="source">Source: CNN, Al Jazeera</div>
 
-                <article class="story-card">
-                    <h4>Rohingya Refugees Face Severe Food Assistance Cuts in Bangladesh</h4>
-                    <p>Hundreds of thousands of Rohingya refugees living in overcrowded camps in Cox's Bazar, Bangladesh, are facing significant cuts to food assistance programs. The reduction, attributed to donor funding constraints, coincides with ongoing inflation in humanitarian supply costs. Aid organizations operating in the camps described the situation as "dire," warning that malnutrition rates could spike sharply across the refugee population, which is already vulnerable to disease and other humanitarian crises.</p>
-                    <div class="source">Source: <a href="https://www.unhcr.org" target="_blank">UNHCR</a>, <a href="https://www.aljazeera.com" target="_blank">Al Jazeera</a></div>
-                </article>
+            <h3>Strait of Hormuz Crisis</h3>
+            <p>The International Energy Agency characterizes the supply disruption as the most significant shock in modern oil market history. While selective transit continues for non-belligerent nations, analysts are pessimistic about normalization. Industry consensus suggests routine transit is unlikely to resume for the remainder of 2026, creating long-term energy security concerns.</p>
+            <div class="source">Source: IEA, Bloomberg</div>
 
-                <article class="story-card">
-                    <h4>Rwanda Threatens Counter-Terrorism Withdrawal Over US Sanctions</h4>
-                    <p>Growing tensions have emerged between Washington and Kigali as Rwanda pushes back against US sanctions while simultaneously contributing significant resources to regional counter-terrorism efforts. Rwandan officials argue that American pressure campaigns undermine their ability to sustain military operations against extremist groups. The dispute highlights the complex dynamics between geopolitical accountability and strategic partnership priorities in East Africa.</p>
-                    <div class="source">Source: <a href="https://www.reuters.com" target="_blank">Reuters</a>, <a href="https://foreignpolicy.com" target="_blank">Foreign Policy</a></div>
-                </article>
+            <h3>Israel-Lebanon Escalation</h3>
+            <p>Israel has intensified its bombing campaign in Lebanon, but Lebanon remains conspicuously absent from the ceasefire agreement. Israel has agreed to conduct direct, separate talks with Lebanese representatives, adding another diplomatic track to an already complex negotiation landscape.</p>
+            <div class="source">Source: CNBC, CNN</div>
 
-                <article class="story-card">
-                    <h4>Democratic Republic of Congo Celebrates Historic World Cup Qualification</h4>
-                    <p>The Democratic Republic of Congo erupted in celebration this week after qualifying for the FIFA World Cup for the first time in 52 years. The government declared a public holiday, and soccer matches across the country were spontaneously suspended as fans gathered to celebrate the national achievement. For many Congolese citizens, the qualification provided a rare moment of national pride and unity amid ongoing economic and security challenges.</p>
-                    <div class="source">Source: <a href="https://www.bbc.com/sport" target="_blank">BBC Sport</a>, <a href="https://www.reuters.com" target="_blank">Reuters</a></div>
-                </article>
-            </section>
+            <h3>Saudi Arabia Production Impact</h3>
+            <p>Saudi production has been reduced by 600,000 barrels per day due to attacks, while critical pipeline throughput has been cut by 700,000 bpd. These cuts, though less severe than Iranian closures, nonetheless underscore the regional supply vulnerability.</p>
+            <div class="source">Source: EIA</div>
+        </div>
 
-            <!-- Quick Hits -->
-            <section class="quick-hits">
-                <h3>Quick Hits</h3>
-                <ul>
-                    <li><strong>Strait of Hormuz Shipping Remains Disrupted:</strong> Though Iranian blockade operations have weakened following command personnel losses, maritime traffic through the critical chokepoint remains well below normal levels, with insurers continuing to assess risk premiums.</li>
-                    <li><strong>Oil Prices Key Vector for Global Economic Impact:</strong> Energy markets continue to reflect uncertainty about conflict resolution timelines. Analysts warn that sustained high prices could trigger recession signals in major economies by summer.</li>
-                    <li><strong>Trump's Iran Speech Sparked Market Sell-Off:</strong> Stock indices fell sharply following the presidential address, as investors interpreted the "nearing completion" language skeptically and worried about post-conflict reconstruction costs and liability questions.</li>
-                    <li><strong>Humanitarian Concerns Mounting Across Multiple Zones:</strong> UN officials report grave humanitarian needs in Lebanon, Syria, Iraq, and Iran, with displaced populations, water system damage, and disease vector increases creating cascading crises.</li>
-                </ul>
-            </section>
-        </main>
+        <!-- Global Power Shifts -->
+        <div class="card">
+            <h2>Global Power Shifts</h2>
 
-        <footer>
-            <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
-            <p>&copy; 2026 The Morning Wire. All rights reserved. | <strong>Next Edition:</strong> Friday, April 3, 2026</p>
-        </footer>
+            <h3>Macron's "Coalition of Independents"</h3>
+            <p>During a strategic tour in Seoul, French President Macron called on "middle states"—including South Korea, Japan, India, Brazil, Canada, and Australia—to form a counterweight to US-China hegemony. The proposal reflects European and allied anxieties about a US-dominated unipolar order and represents an attempt to forge a third way in an increasingly fractured geopolitical landscape.</p>
+            <div class="source">Source: Pravda USA, Foreign Affairs</div>
+
+            <h3>Japan's Historic Offensive Capability</h3>
+            <p>Japan deployed its first long-range strike missiles, marking a fundamental shift in defense posture. The missiles can reach targets up to 1,000 kilometers away, representing Japan's first offensive military capability in the postwar era. China immediately expressed "grave concern," characterizing the move as a "fundamental shift in arms export policy" with potentially destabilizing regional implications.</p>
+            <div class="source">Source: E-International Relations</div>
+
+            <h3>US-China Strategic Decoupling</h3>
+            <p>An anticipated Xi-Trump summit may produce a tentative trade arrangement, offering short-term economic relief. However, analysts warn that long-term strategic decoupling continues unabated, with structural competition in technology, defense, and economic systems likely to persist regardless of near-term diplomatic gains.</p>
+            <div class="source">Source: Wellington, Lazard</div>
+        </div>
+
+        <!-- Americas -->
+        <div class="card">
+            <h2>Americas</h2>
+
+            <h3>US Captures Venezuelan President Maduro</h3>
+            <p>In an extraordinary intervention, the United States captured Venezuelan President Nicolás Maduro, highlighting Washington's renewed willingness to exert direct influence over Western Hemisphere governance. The operation represents a stark departure from decades of relative non-interference and signals a more assertive approach to regional hegemony.</p>
+            <div class="source">Source: Foreign Policy</div>
+
+            <h3>Cuba's Energy Crisis Deepens</h3>
+            <p>Cuba faces an unprecedented energy crisis taking on geopolitical dimensions as the Trump administration tightens sanctions and restricts oil shipments. The energy shortage threatens economic stability and represents a significant humanitarian concern for the island nation.</p>
+            <div class="source">Source: Council on Foreign Relations</div>
+
+            <h3>Venezuela Operation as Precedent</h3>
+            <p>International relations scholars describe Trump's Venezuela operation as an "assault on the architecture designed to prevent such acts"—referring to international norms limiting unilateral military interventions in the Western Hemisphere. The move raises questions about the future of regional stability.</p>
+            <div class="source">Source: E-International Relations</div>
+        </div>
+
+        <!-- Europe & Alliances -->
+        <div class="card">
+            <h2>Europe & Alliances</h2>
+
+            <h3>European Strategic Autonomy Under Strain</h3>
+            <p>Intelligence cooperation across the Atlantic is being tested under Trump 2.0, with European partners expressing concerns about information sharing and divergent strategic priorities. Europe remains "rattled but unable to produce alternative vision," caught between dependence on US security guarantees and anxiety about American unpredictability.</p>
+            <div class="source">Source: E-International Relations</div>
+
+            <h3>Russia Faces Strategic Stalemate</h3>
+            <p>The Iran war has "put Putin in Zugzwang"—a chess term describing a position where any move worsens one's position. Russia's limited options reflect its constrained resources and the reality that Middle East tensions reduce its own strategic leverage.</p>
+            <div class="source">Source: Geopolitical Monitor</div>
+        </div>
+
+        <!-- Quick Hits -->
+        <div class="card">
+            <h2>Quick Hits</h2>
+            <ul class="quick-hits">
+                <li><strong>WEF Global Risks Report:</strong> 68% of respondents expect a "multipolar or fragmented order" to emerge in the next decade</li>
+                <li><strong>Economic Threats:</strong> 18% view geoeconomic confrontation as the most likely trigger for a major global crisis in 2026</li>
+                <li><strong>Modern Warfare:</strong> Drone warfare continues to evolve as a dominant factor in contemporary conflict, with tactical innovations emerging across theaters</li>
+                <li><strong>Strategic Ambiguity:</strong> China is quietly suspected of providing material support to Iran while maintaining official neutrality</li>
+                <li><strong>Alternative Reserves:</strong> US states like Arizona are exploring Bitcoin reserves, with a November 2026 ballot measure to formalize the practice</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>
+                <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
+            </p>
+        </div>
     </div>
 </body>
 </html>

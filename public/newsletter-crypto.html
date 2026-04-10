@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Morning Wire: Crypto Edition — April 2, 2026</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>The Morning Wire: Crypto & Web3 Edition - April 10, 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,459 +14,375 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #f9fafb;
-            color: #1f2937;
+            background-color: #f8f7f5;
+            color: #2d2d2d;
             line-height: 1.6;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #451a03 0%, #b45309 100%);
-            color: white;
-            padding: 48px 20px;
-            text-align: center;
-        }
-
-        .header-content {
-            max-width: 760px;
-            margin: 0 auto;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .back-link:hover {
-            color: white;
-        }
-
-        .publication-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            letter-spacing: -1px;
-        }
-
-        .publication-date {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.95);
-            font-weight: 500;
+            padding: 20px;
         }
 
         .container {
             max-width: 760px;
             margin: 0 auto;
-            padding: 40px 20px;
         }
 
-        .market-snapshot {
-            background: white;
-            border-radius: 8px;
-            padding: 32px;
-            margin-bottom: 32px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .snapshot-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #451a03;
-        }
-
-        .snapshot-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-        }
-
-        .snapshot-item {
-            text-align: center;
-        }
-
-        .snapshot-ticker {
+        .back-link {
+            display: block;
+            margin-bottom: 30px;
             font-size: 14px;
-            color: #6b7280;
-            margin-bottom: 6px;
-            font-weight: 500;
         }
 
-        .snapshot-price {
-            font-size: 24px;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 8px;
-        }
-
-        .snapshot-change {
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .positive {
-            color: #059669;
-        }
-
-        .negative {
-            color: #dc2626;
-        }
-
-        .lead-story {
-            background: white;
-            border-radius: 8px;
-            padding: 32px;
-            margin-bottom: 32px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid #b45309;
-        }
-
-        .lead-label {
-            display: inline-block;
-            background: #fef3c7;
-            color: #92400e;
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .story-headline {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: #1f2937;
-            line-height: 1.2;
-        }
-
-        .story-text {
-            font-size: 16px;
-            line-height: 1.7;
-            margin-bottom: 16px;
-            color: #374151;
-        }
-
-        .story-source {
-            font-size: 13px;
-            color: #9ca3af;
-            font-weight: 500;
-        }
-
-        .story-source a {
+        .back-link a {
             color: #b45309;
             text-decoration: none;
             font-weight: 600;
+            transition: color 0.2s;
         }
 
-        .story-source a:hover {
-            text-decoration: underline;
+        .back-link a:hover {
+            color: #451a03;
         }
 
-        .stories-section {
-            background: white;
+        .header {
+            background: linear-gradient(135deg, #451a03 0%, #b45309 100%);
+            color: white;
+            padding: 40px 30px;
             border-radius: 8px;
-            padding: 32px;
-            margin-bottom: 32px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 16px;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .date {
+            font-size: 14px;
+            opacity: 0.85;
+            margin-top: 8px;
+        }
+
+        .section {
+            margin-bottom: 40px;
         }
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 24px;
+            font-size: 28px;
             color: #451a03;
-        }
-
-        .story-item {
-            padding-bottom: 24px;
-            margin-bottom: 24px;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .story-item:last-child {
-            padding-bottom: 0;
-            margin-bottom: 0;
-            border-bottom: none;
-        }
-
-        .story-number {
-            display: inline-block;
-            width: 28px;
-            height: 28px;
-            background: #f3f4f6;
-            color: #6b7280;
-            text-align: center;
-            line-height: 28px;
-            border-radius: 50%;
-            font-size: 12px;
-            font-weight: 600;
-            margin-right: 12px;
-            vertical-align: middle;
-        }
-
-        .story-headline-small {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #b45309;
             font-weight: 700;
-            display: inline;
-            color: #1f2937;
-            line-height: 1.4;
         }
 
-        .story-text-small {
-            font-size: 15px;
-            line-height: 1.6;
-            margin-top: 10px;
-            color: #4b5563;
-        }
-
-        .quick-hits {
-            background: #fffbeb;
-            border-radius: 8px;
-            padding: 32px;
-            margin-bottom: 32px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .quick-hits-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
+        .card {
+            background: white;
+            padding: 30px;
             margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
             color: #451a03;
+            margin-bottom: 12px;
+            font-weight: 700;
         }
 
-        .quick-hits-list {
-            list-style: none;
-        }
-
-        .quick-hits-list li {
-            padding: 12px 0;
-            padding-left: 28px;
-            position: relative;
+        .card p {
+            margin-bottom: 12px;
             font-size: 15px;
-            line-height: 1.6;
-            color: #374151;
+            line-height: 1.7;
+            color: #3a3a3a;
         }
 
-        .quick-hits-list li:before {
-            content: "•";
-            position: absolute;
-            left: 8px;
-            color: #b45309;
-            font-weight: bold;
-            font-size: 18px;
+        .source {
+            font-size: 12px;
+            color: #999;
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px solid #f0f0f0;
+            font-weight: 500;
         }
 
-        .footer {
-            text-align: center;
-            padding: 32px 20px;
-            border-top: 1px solid #e5e7eb;
+        .snapshot {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
         }
 
-        .back-link-bottom {
-            display: inline-block;
-            font-size: 14px;
-            color: #6b7280;
-            text-decoration: none;
-            transition: color 0.2s;
+        .snapshot-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         }
 
-        .back-link-bottom:hover {
-            color: #451a03;
-        }
-
-        .footer-text {
+        .snapshot-label {
             font-size: 13px;
-            color: #9ca3af;
-            margin-top: 16px;
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        @media (max-width: 600px) {
-            .publication-title {
-                font-size: 32px;
-            }
+        .snapshot-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #451a03;
+            margin-bottom: 4px;
+        }
 
-            .snapshot-grid {
+        .snapshot-change {
+            font-size: 14px;
+            color: #22c55e;
+            font-weight: 600;
+        }
+
+        .snapshot-change.negative {
+            color: #ef4444;
+        }
+
+        .list-item {
+            background: white;
+            padding: 20px 25px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            border-left: 4px solid #b45309;
+        }
+
+        .list-item h4 {
+            font-weight: 700;
+            color: #451a03;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .list-item p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .list-item-source {
+            font-size: 12px;
+            color: #999;
+            font-weight: 500;
+        }
+
+        @media (max-width: 640px) {
+            .snapshot {
                 grid-template-columns: 1fr;
-                gap: 16px;
             }
 
-            .story-headline {
-                font-size: 22px;
+            .header h1 {
+                font-size: 28px;
             }
 
-            .market-snapshot,
-            .lead-story,
-            .stories-section,
-            .quick-hits {
-                padding: 24px;
+            .section-title {
+                font-size: 24px;
+            }
+
+            .card h3 {
+                font-size: 18px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="header-content">
-            <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
-            <div class="publication-title">The Morning Wire: Crypto Edition</div>
-            <div class="publication-date">Thursday, April 2, 2026</div>
-        </div>
-    </div>
-
     <div class="container">
-        <!-- Market Snapshot -->
-        <div class="market-snapshot">
-            <div class="snapshot-title">Market Snapshot</div>
-            <div class="snapshot-grid">
+        <div class="back-link">
+            <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
+        </div>
+
+        <div class="header">
+            <h1>The Morning Wire</h1>
+            <div class="subtitle">Crypto & Web3 Edition</div>
+            <div class="date">Friday, April 10, 2026</div>
+        </div>
+
+        <!-- MARKET SNAPSHOT -->
+        <div class="section">
+            <h2 class="section-title">Market Snapshot</h2>
+
+            <div class="snapshot">
                 <div class="snapshot-item">
-                    <div class="snapshot-ticker">Bitcoin</div>
-                    <div class="snapshot-price">$68,513</div>
-                    <div class="snapshot-change positive">▲ 3.43% (24h)</div>
-                    <div class="snapshot-change negative">↓ ~20% YTD</div>
+                    <div class="snapshot-label">Bitcoin</div>
+                    <div class="snapshot-value">$71,931</div>
+                    <div class="snapshot-change">+0.96% (24h)</div>
+                    <div class="snapshot-change">+8% (7d)</div>
+                    <div style="font-size: 12px; color: #999; margin-top: 8px;">ATH: $126,080</div>
                 </div>
                 <div class="snapshot-item">
-                    <div class="snapshot-ticker">Ethereum</div>
-                    <div class="snapshot-price">$3,200</div>
+                    <div class="snapshot-label">Ethereum</div>
+                    <div class="snapshot-value">Rising</div>
+                    <div class="snapshot-change">Ahead of CPI Report</div>
+                </div>
+            </div>
+
+            <div class="snapshot">
+                <div class="snapshot-item">
+                    <div class="snapshot-label">Total Market 7d</div>
+                    <div class="snapshot-value">+5.6%</div>
+                    <div style="font-size: 12px; color: #999; margin-top: 8px;">Crypto Market Cap Growth</div>
                 </div>
                 <div class="snapshot-item">
-                    <div class="snapshot-ticker">Solana</div>
-                    <div class="snapshot-price">$145</div>
+                    <div class="snapshot-label">Fear & Greed Index</div>
+                    <div class="snapshot-value" style="font-size: 18px;">Extreme Fear</div>
+                </div>
+            </div>
+
+            <div class="snapshot">
+                <div class="snapshot-item">
+                    <div class="snapshot-label">24h Trading Volume</div>
+                    <div class="snapshot-value">$39.7B</div>
                 </div>
             </div>
         </div>
 
-        <!-- Lead Story -->
-        <div class="lead-story">
-            <div class="lead-label">Lead Story</div>
-            <div class="story-headline">SEC & CFTC Classify 16 Crypto Assets as Digital Commodities</div>
-            <div class="story-text">
-                In what's being called the most significant regulatory development in crypto history, a March 17 joint interpretive rule from the Securities and Exchange Commission and the Commodity Futures Trading Commission officially classified 16 major tokens—including Bitcoin, Ethereum, Solana, Cardano, and Avalanche—as "digital commodities." This landmark decision fundamentally reshapes the regulatory landscape by shifting spot market jurisdiction to the CFTC, unblocking the ETF pipeline for all 16 newly classified assets, and most critically, confirming that staking is not a securities transaction. The framework builds on a March 11 memorandum of understanding between the agencies that established a formal coordination framework for ongoing oversight. The clarity has energized institutional investors and sparked a fresh wave of product development across the industry.
-            </div>
-            <div class="story-source">
-                Source: <a href="#" target="_blank">SEC Official Statement</a>, <a href="#" target="_blank">Bloomberg Law</a>
-            </div>
-        </div>
+        <!-- LEAD STORY -->
+        <div class="section">
+            <h2 class="section-title">Lead Story</h2>
 
-        <!-- Stories Section -->
-        <div class="stories-section">
-            <div class="section-title">In This Edition</div>
-
-            <div class="story-item">
-                <span class="story-number">1</span>
-                <div class="story-headline-small">Bitcoin Struggles Below $70K Amid Geopolitical Headwinds</div>
-                <div class="story-text-small">
-                    Bitcoin has declined approximately 20% year-to-date as a confluence of factors—escalating geopolitical tensions, persistent inflation concerns, and reverberations from the Trump administration's forceful rhetoric on Iran—continue to undermine potential rallies. Despite a strong opening to 2026, BTC has struggled to maintain momentum above the $70,000 level. Market analysts tracking price action suggest that if sentiment improves, Bitcoin could test $74,000 in April, though macro headwinds remain the dominant force.
-                </div>
-                <div class="story-source">
-                    Source: <a href="#" target="_blank">CNBC</a>, <a href="#" target="_blank">CoinDesk</a>
-                </div>
-            </div>
-
-            <div class="story-item">
-                <span class="story-number">2</span>
-                <div class="story-headline-small">March 2026: More Regulatory Progress in 27 Days Than 27 Months</div>
-                <div class="story-text-small">
-                    Beyond the landmark commodity classification, March proved to be an extraordinary month for regulatory clarity. The convergence of the SEC-CFTC interpretive rule, stablecoin deadlines under the GENIUS Act, and state-level regulatory progress represents an acceleration that many in the industry thought would take years to achieve. This sweeping regulatory progress has fundamentally reshaped the operating environment and catalyzed a shift from adversarial regulatory battles to constructive dialogue on implementation.
-                </div>
-                <div class="story-source">
-                    Source: <a href="#" target="_blank">Phemex Market Analysis</a>
-                </div>
-            </div>
-
-            <div class="story-item">
-                <span class="story-number">3</span>
-                <div class="story-headline-small">JPMorgan Weighs Move Into Prediction Markets</div>
-                <div class="story-text-small">
-                    JPMorgan is actively exploring entry into the fast-growing prediction markets segment, joining a competitive field that includes crypto-native firms, well-funded startups, and Goldman Sachs. The $4.7 trillion asset manager's interest signals institutional confidence in the infrastructure maturity and regulatory clarity that now surrounds event contracts and derivatives trading.
-                </div>
-                <div class="story-source">
-                    Source: <a href="#" target="_blank">CoinDesk</a>
-                </div>
-            </div>
-
-            <div class="story-item">
-                <span class="story-number">4</span>
-                <div class="story-headline-small">Franklin Templeton Creates 'Franklin Crypto' Unit</div>
-                <div class="story-text-small">
-                    Franklin Templeton, which has already made significant inroads with cryptocurrency ETF products, is launching a dedicated "Franklin Crypto" strategic business unit to expand beyond passive ETF offerings and target institutional appetite for active digital asset management strategies. The move underscores growing institutional confidence in the sector and the lucrative demand for professionally managed crypto exposure.
-                </div>
-                <div class="story-source">
-                    Source: <a href="#" target="_blank">The Block</a>
-                </div>
-            </div>
-
-            <div class="story-item">
-                <span class="story-number">5</span>
-                <div class="story-headline-small">GENIUS Act Implementation Deadlines Approach</div>
-                <div class="story-text-small">
-                    Signed by President Trump in July 2025, the GENIUS Act establishes aggressive implementation timelines for comprehensive stablecoin regulation. Regulators must finalize stablecoin rules by July 18, 2026, with full implementation targeted for January 2027. Industry participants are preparing for what promises to be an extensive rulemaking process that will define stablecoin issuance, reserves, and redemption mechanics for the next decade.
-                </div>
-                <div class="story-source">
-                    Source: <a href="#" target="_blank">DL News</a>
-                </div>
-            </div>
-
-            <div class="story-item">
-                <span class="story-number">6</span>
-                <div class="story-headline-small">California Digital Financial Assets Law Takes Effect July 1</div>
-                <div class="story-text-small">
-                    California will become the first state to enforce comprehensive digital financial asset licensing requirements when its new law takes effect on July 1. The law requires any entity engaging in digital financial asset business with California residents to obtain a license. The move positions California as a regulatory leader while creating immediate compliance pressure for national and international platforms.
-                </div>
-                <div class="story-source">
-                    Source: <a href="#" target="_blank">California Regulatory Affairs</a>
-                </div>
-            </div>
-
-            <div class="story-item">
-                <span class="story-number">7</span>
-                <div class="story-headline-small">Brazil's B3 Exchange to Offer Bitcoin-Linked Contracts</div>
-                <div class="story-text-small">
-                    Latin America continues its institutional crypto adoption trajectory as Brazil's dominant exchange B3 announces plans to offer "event contracts" linked to Bitcoin prices, initially targeting ultra-high-net-worth investors. The move reflects growing comfort among traditional financial market operators with digital asset infrastructure and validates the region's position as an emerging leader in crypto adoption.
-                </div>
-                <div class="story-source">
-                    Source: <a href="#" target="_blank">CoinDesk</a>
-                </div>
-            </div>
-
-            <div class="story-item">
-                <span class="story-number">8</span>
-                <div class="story-headline-small">Crypto's Rules Are Here — 2026 Is About Making Them Work</div>
-                <div class="story-text-small">
-                    With the major regulatory framework now in place, industry focus is shifting dramatically from negotiating the contours of new regulations to the harder work of operationalizing, refining, and connecting disparate regulatory frameworks. The transition from rule-writing to rule-implementation represents a maturation of the regulatory environment and creates new opportunities for compliance-focused businesses.
-                </div>
-                <div class="story-source">
-                    Source: <a href="#" target="_blank">Bloomberg Law</a>
-                </div>
+            <div class="card">
+                <h3>Bitcoin Stuck Below $73K as Geopolitical Ceasefire Caps Every Rally</h3>
+                <p>Bitcoin's latest attempt to push past $73,000 has stalled as market participants pivot focus back to the uncertain US-Iran truce negotiations. The $73,000 level has served as a persistent ceiling during the six-week conflict, frustrating bull-case advocates who see further upside. Technical analysts emphasize that a genuine bullish phase requires breaking through $75,000, but current momentum suggests such a breakout remains distant.</p>
+                <p>The rebound that did occur was largely driven by algorithmic leverage unwinding rather than organic buying pressure. Bearish funding rates across major exchanges underscore weak conviction among derivatives traders. Until macro conditions stabilize—either from geopolitical clarity or positive economic data—Bitcoin may remain range-bound in the low-to-mid $70,000s, vulnerable to sharp liquidations on either side.</p>
+                <div class="source">Source: CoinSpectator, CoinDesk</div>
             </div>
         </div>
 
-        <!-- Quick Hits -->
-        <div class="quick-hits">
-            <div class="quick-hits-title">Quick Hits</div>
-            <ul class="quick-hits-list">
-                <li><strong>Market Structure Legislation Expected:</strong> US Congress is preparing additional market structure legislation to complement the SEC-CFTC framework and address emerging regulatory gaps.</li>
-                <li><strong>Staking Confirmed Non-Securities:</strong> The SEC-CFTC rule explicitly clarifies that staking activities do not constitute securities transactions, removing a major regulatory overhang.</li>
-                <li><strong>ETF Pipeline Unblocked:</strong> The 16 newly classified digital commodities now have a clear regulatory pathway for spot ETF products, potentially unblocking $20+ billion in institutional capital.</li>
-                <li><strong>Crypto and Equities Sell-Off:</strong> Following Trump's forceful national address on Iran, both crypto and equity markets experienced significant sell-offs as investors repriced geopolitical risk.</li>
-            </ul>
-        </div>
-    </div>
+        <!-- REGULATION -->
+        <div class="section">
+            <h2 class="section-title">Regulation & Policy</h2>
 
-    <div class="footer">
-        <a href="daily-newsletter.html" class="back-link-bottom">← Back to Daily Newsletter</a>
-        <div class="footer-text">
-            The Morning Wire: Crypto Edition • Curated Market Intelligence for April 2, 2026
+            <div class="list-item">
+                <h4>SEC "Reg Crypto" Proposal Sent to White House</h4>
+                <p>The Securities and Exchange Commission has forwarded a comprehensive regulatory framework to the White House that includes a startup exemption and safe harbor system for digital asset innovation. SEC Chair Paul Atkins confirmed the submission, signaling the administration's intent to crystallize a workable regulatory perimeter.</p>
+                <div class="list-item-source">Source: PYMNTS, SEC</div>
+            </div>
+
+            <div class="list-item">
+                <h4>SEC-CFTC MOU on Coordinated Crypto Oversight</h4>
+                <p>A memorandum of understanding signed March 11 between the Securities and Exchange Commission and Commodity Futures Trading Commission establishes the framework for coordinated cryptocurrency oversight with a "minimum effective dose" regulation approach. A joint interpretive release issued March 17 clarifies enforcement boundaries.</p>
+                <div class="list-item-source">Source: Latham & Watkins, SEC</div>
+            </div>
+
+            <div class="list-item">
+                <h4>CLARITY Act Markup Hearing April 13</h4>
+                <p>The most ambitious crypto market structure bill to date heads to markup hearing April 13, with potential for full Senate consideration by end of April. The CLARITY Act represents the most comprehensive legislative push to codify digital asset regulations into existing market infrastructure law.</p>
+                <div class="list-item-source">Source: DL News</div>
+            </div>
+
+            <div class="list-item">
+                <h4>GENIUS Act Stablecoin Framework Takes Shape</h4>
+                <p>FDIC-backed stablecoin rules under the GENIUS Act framework link issuance directly to reserve integrity, with full implementation required by July 18, 2026. This approach prioritizes depositor protections through mandatory backing requirements.</p>
+                <div class="list-item-source">Source: PYMNTS</div>
+            </div>
+
+            <div class="list-item">
+                <h4>California Digital Financial Assets Law Effective July 1</h4>
+                <p>California's first-in-nation Digital Financial Assets Law takes effect July 1, requiring all digital asset custodians, exchanges, and service providers to obtain state licensing. This sets a template that other states are likely to follow.</p>
+                <div class="list-item-source">Source: CoinPedia</div>
+            </div>
+
+            <div class="list-item">
+                <h4>SEC Roundtable for CLARITY Act April 16</h4>
+                <p>The Securities and Exchange Commission has scheduled a roundtable discussion for April 16 to gather stakeholder input on the CLARITY Act before full committee markup proceedings.</p>
+                <div class="list-item-source">Source: SEC</div>
+            </div>
+        </div>
+
+        <!-- CORPORATE & MINING -->
+        <div class="section">
+            <h2 class="section-title">Corporate & Mining</h2>
+
+            <div class="card">
+                <h3>Mining Firms Unload Bitcoin as Production Costs Hit $80K Per Coin</h3>
+                <p>Bitcoin mining companies are beginning to liquidate holdings as production costs approach $80,000 per coin, squeezing margins in an extended bear scenario. Major operator Bitfarms has announced a strategic rebrand to "Keel Infrastructure," pivoting away from Bitcoin mining entirely toward AI data center operations where margins remain more attractive in the current market environment.</p>
+                <p>The broader trend reflects a harsh reality: companies that aggressively loaded up on Bitcoin during the 2024-2025 bull run are now forced to sell holdings to repay debt and fund strategic transitions. Bitcoin's 47% decline from its October 2025 high has trapped many miners with underwater positions, accelerating capital reallocation toward higher-margin AI infrastructure plays.</p>
+                <div class="source">Source: 24/7 Wall St</div>
+            </div>
+
+            <div class="card">
+                <h3>Banks Pressure Regulators Over Stablecoin Yield "Loophole"</h3>
+                <p>Traditional banking institutions are escalating calls for regulators to close what they view as a regulatory loophole around stablecoin yields, fearing erosion of their core deposit base. As yield on stablecoins approaches traditional savings account rates, banks argue consumers have an unfair incentive to move funds off-chain.</p>
+                <p>The pressure campaign reflects genuine competitive concern: if consumers can access 4-5% yields on stablecoins without counterparty risk, the value proposition of traditional bank deposits weakens. Regulators are weighing the concerns against innovation interests, with potential new stablecoin frameworks likely to address yield mechanisms.</p>
+                <div class="source">Source: PYMNTS</div>
+            </div>
+        </div>
+
+        <!-- QUANTUM SECURITY -->
+        <div class="section">
+            <h2 class="section-title">Quantum Security & Protocol Development</h2>
+
+            <div class="list-item">
+                <h4>BIP 360 Quantum Defense Proposal Merged February 2026</h4>
+                <p>A major Bitcoin Improvement Proposal addressing quantum computing threats was merged in February 2026, establishing a pathway to phase out address types vulnerable to quantum decryption. The phased approach allows legacy addresses to continue operating while new quantum-resistant alternatives gain adoption.</p>
+                <div class="list-item-source">Source: Bitcoin Dev</div>
+            </div>
+
+            <div class="list-item">
+                <h4>Starkware Publishes Quantum-Safe Transaction Scheme</h4>
+                <p>StarkWare's Chief Product Officer has published a cryptographic scheme enabling quantum-safe Bitcoin transactions using existing protocol infrastructure, with transaction costs estimated at $75 per swap. The approach allows users to upgrade to quantum-resistant signing without waiting for full protocol changes.</p>
+                <div class="list-item-source">Source: Starkware</div>
+            </div>
+
+            <div class="list-item">
+                <h4>Developers Showcase "Attack Blocks" for Community Education</h4>
+                <p>Bitcoin developers have implemented educational "attack blocks" on test networks to demonstrate quantum vulnerability scenarios, helping the community understand risks and urgency of migration to quantum-resistant signing schemes.</p>
+                <div class="list-item-source">Source: Bitcoin Dev</div>
+            </div>
+        </div>
+
+        <!-- QUICK HITS -->
+        <div class="section">
+            <h2 class="section-title">Quick Hits</h2>
+
+            <div class="list-item">
+                <h4>Arizona Exploring Bitcoin Reserves</h4>
+                <p>Arizona is exploring the possibility of holding Bitcoin in state reserves, with a potential voter approval measure scheduled for November 2026. If approved, Arizona would join El Salvador as a sovereign Bitcoin holder.</p>
+            </div>
+
+            <div class="list-item">
+                <h4>Texas & New Hampshire Bitcoin Tax Exemptions</h4>
+                <p>Both Texas and New Hampshire are actively exploring state-level Bitcoin tax exemption policies to attract digital asset businesses and miners to their jurisdictions.</p>
+            </div>
+
+            <div class="list-item">
+                <h4>Coinbase Prediction Market: 31% Bitcoin Above $100K</h4>
+                <p>Coinbase's prediction markets show 31% probability that Bitcoin will exceed $100,000 at some point during 2026, reflecting moderate bull-case conviction among traders.</p>
+            </div>
+
+            <div class="list-item">
+                <h4>Price Outlook: $80K-$100K Possible in H2</h4>
+                <p>Analyst consensus suggests Bitcoin could reach the $80,000-$100,000 range in the second half of 2026 if macroeconomic conditions improve. Conversely, a break below $65,000 would open the door to a deeper retrace toward $55,000-$60,000 support levels.</p>
+            </div>
+        </div>
+
+        <div style="border-top: 2px solid #b45309; margin: 50px 0; padding-top: 30px; text-align: center;">
+            <div class="back-link" style="margin-bottom: 0; text-align: center;">
+                <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
+            </div>
         </div>
     </div>
 </body>

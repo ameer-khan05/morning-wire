@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Morning Wire: Tech & AI Edition — April 2, 2026</title>
+    <title>The Morning Wire: Tech & AI Edition — April 10, 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -14,375 +14,413 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #374151;
-            background-color: #f9fafb;
+            line-height: 1.7;
+            color: #2d2d2d;
+            background: linear-gradient(135deg, #f5f4f9 0%, #fafaf8 100%);
+            padding: 40px 20px;
         }
 
         .container {
             max-width: 760px;
             margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            background: linear-gradient(135deg, #1e1b4b 0%, #4338ca 100%);
-            color: white;
-            padding: 40px 30px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .back-link {
             display: inline-block;
-            margin-bottom: 20px;
-            color: white;
-            text-decoration: none;
+            margin-bottom: 32px;
             font-size: 14px;
+            color: #4338ca;
+            text-decoration: none;
             font-weight: 500;
-            opacity: 0.9;
-            transition: opacity 0.2s;
+            transition: color 0.2s;
         }
 
         .back-link:hover {
-            opacity: 1;
+            color: #1e1b4b;
         }
 
-        .back-link::before {
-            content: "← ";
-            margin-right: 4px;
+        .header {
+            background: linear-gradient(135deg, #1e1b4b 0%, #4338ca 100%);
+            color: white;
+            padding: 48px 40px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(19, 56, 202, 0.15);
         }
 
-        header h1 {
+        .header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 36px;
+            font-size: 42px;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             line-height: 1.2;
         }
 
-        header .date {
+        .header .tagline {
             font-size: 16px;
-            opacity: 0.95;
             font-weight: 500;
+            opacity: 0.95;
+            margin-bottom: 16px;
         }
 
-        header .tagline {
-            font-size: 16px;
+        .header .date {
+            font-size: 13px;
             opacity: 0.85;
-            margin-top: 15px;
-            font-style: italic;
+            font-weight: 400;
         }
 
         .card {
             background: white;
-            padding: 30px;
-            margin-bottom: 20px;
             border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            padding: 36px;
+            margin-bottom: 28px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             transition: box-shadow 0.2s;
         }
 
         .card:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
         }
 
         .card h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 700;
-            margin-bottom: 12px;
-            color: #1f2937;
+            margin-bottom: 16px;
+            color: #1e1b4b;
             line-height: 1.3;
         }
 
         .card h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #1f2937;
-            margin-top: 25px;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            margin-top: 28px;
+            color: #1e1b4b;
+            line-height: 1.3;
         }
 
         .card h3:first-child {
             margin-top: 0;
         }
 
-        .lead-story {
-            border-left: 4px solid #4338ca;
-            background: linear-gradient(135deg, #f8f7ff 0%, #ffffff 100%);
-        }
-
-        .lead-story h2 {
-            color: #4338ca;
-        }
-
-        .story-item {
-            margin-bottom: 20px;
-        }
-
-        .story-item p {
-            margin-bottom: 8px;
-        }
-
-        .story-title {
-            font-weight: 600;
-            color: #1f2937;
-            font-size: 16px;
-        }
-
-        .story-content {
-            color: #4b5563;
+        .card p {
+            margin-bottom: 16px;
             font-size: 15px;
-            line-height: 1.6;
+            line-height: 1.75;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
         }
 
         .source {
-            font-size: 13px;
-            color: #6b7280;
-            margin-top: 8px;
-            font-weight: 500;
+            font-size: 12px;
+            color: #666;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #eaeaea;
+            font-style: italic;
         }
 
-        .source a {
-            color: #4338ca;
-            text-decoration: none;
-        }
-
-        .source a:hover {
-            text-decoration: underline;
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e1b4b;
+            margin: 44px 0 24px 0;
+            padding: 0 20px;
         }
 
         .by-the-numbers {
-            background: linear-gradient(135deg, #f0f4ff 0%, #f8f7ff 100%);
-        }
-
-        .number-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-            margin-top: 15px;
+            margin-bottom: 28px;
         }
 
-        .number-item {
+        .number-card {
             background: white;
-            padding: 15px;
-            border-radius: 6px;
-            border-left: 3px solid #4338ca;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #4338ca;
         }
 
-        .number-item .value {
+        .number-card .figure {
             font-family: 'Playfair Display', serif;
-            font-size: 20px;
+            font-size: 32px;
             font-weight: 700;
-            color: #4338ca;
-            margin-bottom: 5px;
+            color: #1e1b4b;
+            margin-bottom: 8px;
+            line-height: 1.1;
         }
 
-        .number-item .label {
+        .number-card .label {
             font-size: 13px;
-            color: #6b7280;
+            color: #666;
+            line-height: 1.5;
             font-weight: 500;
         }
 
-        .stories {
-            display: grid;
-            gap: 0;
-        }
-
         .story-item {
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 32px;
         }
 
-        .story-item:last-child {
-            padding-bottom: 0;
-            border-bottom: none;
+        .story-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 19px;
+            font-weight: 700;
+            color: #1e1b4b;
+            margin-bottom: 12px;
+        }
+
+        .story-item p {
+            font-size: 15px;
+            line-height: 1.75;
+            margin-bottom: 12px;
         }
 
         .quick-hits {
-            background: linear-gradient(135deg, #fef3f2 0%, #fffbfa 100%);
+            background: white;
+            border-radius: 8px;
+            padding: 36px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 28px;
+        }
+
+        .quick-hits h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #1e1b4b;
         }
 
         .quick-hits ul {
             list-style: none;
-            margin-top: 15px;
         }
 
         .quick-hits li {
-            padding: 12px 0;
-            padding-left: 25px;
-            position: relative;
-            color: #4b5563;
             font-size: 15px;
-            line-height: 1.6;
+            line-height: 1.7;
+            margin-bottom: 14px;
+            padding-left: 24px;
+            position: relative;
         }
 
-        .quick-hits li::before {
-            content: "▸";
+        .quick-hits li:before {
+            content: "→";
             position: absolute;
             left: 0;
-            color: #c7453d;
-            font-weight: bold;
+            color: #4338ca;
+            font-weight: 600;
+        }
+
+        .quick-hits li:last-child {
+            margin-bottom: 0;
         }
 
         .footer {
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #e5e7eb;
-            margin-top: 40px;
+            padding: 40px 20px;
+            border-top: 1px solid #eaeaea;
+            margin-top: 20px;
         }
 
         .footer-text {
             font-size: 13px;
-            color: #6b7280;
-            margin-bottom: 15px;
-        }
-
-        .footer .back-link {
-            color: #4338ca;
+            color: #666;
+            margin-bottom: 20px;
         }
 
         @media (max-width: 640px) {
-            header h1 {
-                font-size: 28px;
+            .by-the-numbers {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 32px;
             }
 
             .card {
-                padding: 20px;
+                padding: 24px;
             }
 
             .card h2 {
-                font-size: 20px;
+                font-size: 24px;
             }
 
-            .number-grid {
-                grid-template-columns: 1fr;
+            .card h3 {
+                font-size: 18px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="daily-newsletter.html" class="back-link">Daily Newsletter</a>
+        <!-- Back Link -->
+        <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
 
-        <header>
+        <!-- Header -->
+        <div class="header">
             <h1>The Morning Wire</h1>
-            <p style="font-size: 18px; font-weight: 500; margin-bottom: 15px;">Tech & AI Edition</p>
-            <p class="date">Thursday, April 2, 2026</p>
-            <p class="tagline">The most consequential funding round in startup history. A new frontier in autonomous systems. And the reshaping of enterprise AI deployment.</p>
-        </header>
-
-        <!-- LEAD STORY -->
-        <div class="card lead-story">
-            <h2>OpenAI Closes $122B Funding Round, Reaches $852B Valuation</h2>
-            <p style="color: #4b5563; margin-top: 12px;">In what may be the most consequential funding round in startup history, OpenAI has closed a $122 billion Series C, valuing the company at $852 billion post-money. The raise reflects the company's extraordinary growth trajectory: OpenAI is now generating $2 billion in monthly recurring revenue and approaching 1 billion weekly active users across its products.</p>
-            <p style="color: #4b5563; margin-top: 12px;">The valuation makes OpenAI one of the most valuable private companies in history—surpassing even the largest sovereign wealth funds in capitalization. The capital will fund the next generation of AI research and infrastructure, including training of increasingly capable frontier models and expansion of inference capacity to meet global demand.</p>
-            <p class="source">Source: <a href="https://techcrunch.com">TechCrunch</a></p>
+            <div class="tagline">Tech & AI Edition</div>
+            <div class="date">Friday, April 10, 2026</div>
         </div>
 
-        <!-- BY THE NUMBERS -->
-        <div class="card by-the-numbers">
-            <h3>By the Numbers</h3>
-            <div class="number-grid">
-                <div class="number-item">
-                    <div class="value">$300B</div>
-                    <div class="label">Q1 2026 global startup funding (all-time record)</div>
-                </div>
-                <div class="number-item">
-                    <div class="value">$242B</div>
-                    <div class="label">AI's share of Q1 venture funding</div>
-                </div>
-                <div class="number-item">
-                    <div class="value">$852B</div>
-                    <div class="label">OpenAI's post-money valuation</div>
-                </div>
-                <div class="number-item">
-                    <div class="value">60-80%</div>
-                    <div class="label">Drop in AI API pricing over 2025</div>
-                </div>
-                <div class="number-item">
-                    <div class="value">1B</div>
-                    <div class="label">OpenAI's approaching weekly active users</div>
-                </div>
-                <div class="number-item">
-                    <div class="value">80%</div>
-                    <div class="label">Share of venture funding going to AI</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- MAIN STORIES -->
+        <!-- Lead Story -->
         <div class="card">
-            <h3>The Stories</h3>
+            <h2>OpenAI Surpasses $25B Revenue, Lays Groundwork for Landmark IPO</h2>
+            <p>OpenAI has crossed a historic threshold, reaching $25 billion in annualized revenue while simultaneously laying groundwork for what could become one of the most significant public offerings in technology history. According to reporting from Reuters, the company is actively preparing for a potential U.S. listing that could value the artificial intelligence leader at as much as $1 trillion—a valuation that would place it among the most valuable companies ever to go public.</p>
+            <p>The timing of OpenAI's IPO preparations comes at a moment of unprecedented momentum in the AI sector. The company has signaled an intention to reserve a meaningful portion of its eventual IPO for individual investors, a departure from traditional institutional allocation models that underscores confidence in retail appetite for AI-focused equities. The listing could materialize as soon as late 2026, reshaping the landscape for both venture capital and public markets. Rival Anthropic, meanwhile, is approaching $19 billion in annualized revenue, though has maintained a more cautious approach to capital raises and public market aspirations.</p>
+            <p>OpenAI's trajectory reflects the consolidation of AI's winner-take-most dynamics: the company has become the gravitational center of enterprise AI adoption, with its ChatGPT platform remaining the gold standard for accessible generative AI capabilities. A successful IPO at a trillion-dollar valuation would represent one of the most compressed value creation cycles in venture capital history, achieved in under a decade from significant commercial deployment.</p>
+            <div class="source">Source: Reuters, TechCrunch</div>
+        </div>
 
-            <div class="story-item">
-                <p class="story-title">Q1 2026 Shatters Venture Funding Records</p>
-                <p class="story-content">Global startup investment reached $300 billion in Q1 2026 across 6,000 funded startups—a stunning 150% quarter-over-quarter increase and the highest quarterly total in venture history. More remarkably, four of the five largest venture rounds ever were announced in just the first three months of 2026: OpenAI's $122B Series C, Anthropic's $30B funding round, xAI's $20B raise, and Waymo's $16B investment. The concentration of mega-rounds reflects the market's acute focus on AI infrastructure and capability.</p>
-                <p class="source">Source: <a href="https://crunchbase.com">Crunchbase</a></p>
+        <!-- By the Numbers Section -->
+        <div class="section-title">By the Numbers</div>
+        <div class="by-the-numbers">
+            <div class="number-card">
+                <div class="figure">$300B</div>
+                <div class="label">Global VC funding in Q1 2026 (record)</div>
             </div>
-
-            <div class="story-item">
-                <p class="story-title">Google Launches Gemini 3.1 Flash-Lite</p>
-                <p class="story-content">Google released Gemini 3.1 Flash-Lite, an efficiency-focused variant of its flagship model designed for developers and enterprises prioritizing speed and cost. The new model delivers 2.5x faster response times and 45% faster output generation compared to previous versions, while maintaining strong reasoning capabilities. Priced at $0.25 per million input tokens, Flash-Lite targets high-volume inference workloads where latency and economics matter as much as capability.</p>
-                <p class="source">Source: <a href="https://google.com">Google</a></p>
+            <div class="number-card">
+                <div class="figure">$242B</div>
+                <div class="label">AI sector share of Q1 VC funding (80%)</div>
             </div>
-
-            <div class="story-item">
-                <p class="story-title">NVIDIA Partners with Alpamayo, Invests $2B in Marvell</p>
-                <p class="story-content">NVIDIA announced a strategic partnership with Alpamayo for autonomous vehicle development using advanced digital twin technology, while simultaneously committing $2 billion in investment to Marvell Technology for next-generation AI networking hardware and silicon photonics. The dual move signals NVIDIA's expanded ambitions beyond consumer and enterprise AI—positioning the company at the center of autonomous systems infrastructure and the underlying semiconductor components powering the next wave of AI deployment.</p>
-                <p class="source">Source: <a href="https://nvidia.com">NVIDIA</a></p>
+            <div class="number-card">
+                <div class="figure">97M</div>
+                <div class="label">MCP installs as of March 2026</div>
             </div>
-
-            <div class="story-item">
-                <p class="story-title">Elon Musk Announces SpaceX-xAI Merger</p>
-                <p class="story-content">In a move that consolidates AI and space exploration, Elon Musk announced plans to merge SpaceX and xAI, aiming to embed Grok AI models directly into SpaceX's operational systems. The integration envisions fully autonomous spacecraft and robotic Mars colonies powered by advanced agentic AI—combining xAI's frontier models with SpaceX's hardware and launch capabilities. The merger represents one of the most ambitious AI-hardware integrations announced to date.</p>
-                <p class="source">Source: Various</p>
+            <div class="number-card">
+                <div class="figure">$115-135B</div>
+                <div class="label">Meta's planned AI capex for 2026</div>
             </div>
-
-            <div class="story-item">
-                <p class="story-title">Software Sector Rallies on AI Monetization</p>
-                <p class="story-content">Enterprise software stocks surged as legal and policy barriers to AI deployment continued falling. ServiceNow gained 5.5%, Salesforce rose 3%, and Adobe climbed 2.7% following developments in AI copyright policy and government support. Enterprise legal departments, once cautious about AI liability, are now green-lighting massive software deployments. The shift reflects growing confidence that the regulatory environment will support—rather than hinder—AI monetization.</p>
-                <p class="source">Source: Financial Markets Data</p>
-            </div>
-
-            <div class="story-item">
-                <p class="story-title">U.S. Judge Rules Trump Admin Violated Free Speech by Banning Anthropic AI</p>
-                <p class="story-content">A federal judge ruled that a Trump administration directive banning Anthropic's AI models from government systems violated First Amendment protections. The decision sets a precedent that government restrictions on specific AI systems may constitute unconstitutional speech suppression. The ruling opens questions about the limits of government authority in regulating private AI companies' market access and signals that courts may scrutinize AI policy through a free speech lens.</p>
-                <p class="source">Source: <a href="https://cfr.org">Council on Foreign Relations</a></p>
-            </div>
-
-            <div class="story-item">
-                <p class="story-title">Alibaba Pledges $100B AI and Cloud Revenue Target</p>
-                <p class="story-content">Chinese tech giant Alibaba announced an ambitious five-year plan to reach $100 billion in annual revenue from its AI and cloud business. The commitment reflects Alibaba's strategic bet on becoming a dominant player in enterprise AI infrastructure serving the Asia-Pacific region. The pledge signals heightened competition for AI infrastructure dominance beyond the U.S. market.</p>
-                <p class="source">Source: Various</p>
-            </div>
-
-            <div class="story-item">
-                <p class="story-title">AI Startups Command Record Seed Valuations</p>
-                <p class="story-content">Seed-stage AI startups are commanding unprecedented valuations and investment checks at the earliest funding stages. Beyond the mega-deals capturing headlines, more than 10 AI startups have raised Series A rounds exceeding $1 billion—a threshold previously reserved for later-stage companies. The phenomenon reflects investor appetite for early-stage AI ventures and suggests the ecosystem is shifting earlier in the capital stack.</p>
-                <p class="source">Source: <a href="https://techcrunch.com">TechCrunch</a></p>
+            <div class="number-card">
+                <div class="figure">10T</div>
+                <div class="label">Parameters in Anthropic's Claude Mythos 5</div>
             </div>
         </div>
 
-        <!-- QUICK HITS -->
-        <div class="card quick-hits">
-            <h3>Quick Hits</h3>
+        <!-- AI Models & Releases -->
+        <div class="section-title">AI Models & Releases</div>
+
+        <div class="card">
+            <div class="story-item">
+                <h4>Meta Debuts Closed-Source "Muse Spark"</h4>
+                <p>In a strategic reversal that signals shifting competitive dynamics in enterprise AI, Meta has unveiled "Muse Spark," the first model to emerge from Meta Superintelligence Labs under the leadership of Scale AI founder Alexandr Wang. The move away from Meta's traditionally open-source foundation represents a deliberate pivot toward proprietary advantage in the high-stakes AI arms race. Muse Spark joins a growing roster of restricted-access models as corporations recognize that capability gaps now matter more than distribution breadth.</p>
+                <p>Meta's commitment to dominating the AI infrastructure layer appears undiminished despite this closure: the company is planning capital expenditure of $115-135 billion in 2026, nearly double its investment from the previous year. This level of commitment positions Meta as one of the handful of companies with the capital density necessary to compete with OpenAI and Anthropic in frontier model capabilities. The decision to gate Muse Spark underscores that Meta views AI as a winner-take-most competition where proprietary advantages in inference speed and capability justify departing from its open-source legacy.</p>
+                <div class="source">Source: CNBC, Bloomberg</div>
+            </div>
+
+            <div class="story-item">
+                <h4>Anthropic's Claude Mythos: Too Powerful to Release</h4>
+                <p>Anthropic announced the development of Claude Mythos, a 10-trillion-parameter model that the company has determined is too powerful to release broadly to the public. The decision to restrict access reflects a calculated stance on AI safety: Anthropic's internal testing identified thousands of software vulnerabilities that the model could exploit or facilitate the discovery of. Rather than make the model available through standard commercial channels, Anthropic has elected to share it only with select defense organizations, establishing a precedent for conditional deployment of frontier capabilities.</p>
+                <p>The disclosure about Claude Mythos carries significance beyond the model itself—it represents explicit acknowledgment from an AI leader that capability thresholds now exist where public release poses material security risks. Anthropic's willingness to forgo commercial upside in favor of a restricted-access model suggests a company confident enough in its technological leadership to prioritize governance questions. The decision also positions defense sector partnerships as a distinct market category where cutting-edge AI capabilities are deployed through controlled channels rather than via commercial APIs.</p>
+                <div class="source">Source: Anthropic</div>
+            </div>
+
+            <div class="story-item">
+                <h4>Google Gemini 3.1 Flash-Lite</h4>
+                <p>Google has released Gemini 3.1 Flash-Lite, a performance-optimized variant designed to satisfy latency-sensitive enterprise workloads. The model delivers 2.5x faster response times overall and achieves 45% faster output generation compared to its predecessor. Pricing has been set aggressively at $0.25 per million input tokens, positioning the model as a cost-competitive option for high-volume, latency-critical applications where speed and efficiency matter more than maximum frontier capabilities.</p>
+                <div class="source">Source: Google</div>
+            </div>
+
+            <div class="story-item">
+                <h4>DeepSeek V4: Open Weights at Unprecedented Efficiency</h4>
+                <p>DeepSeek has released V4, a one-trillion-parameter mixture-of-experts model available under the permissive Apache 2.0 open-source license. The accomplishment is remarkable primarily for its cost efficiency: DeepSeek trained the entire trillion-parameter model for just $5.2 million, a figure that represents an order of magnitude reduction from the capital requirements of comparable models from OpenAI and other frontier labs. The release of weights under open-source licensing democratizes access to frontier-scale capabilities, forcing the industry to confront questions about whether capability moats remain defensible when training efficiency can be achieved at this cost point.</p>
+                <div class="source">Source: DevFlokers</div>
+            </div>
+
+            <div class="story-item">
+                <h4>Grok 4.20: Multi-Agent Architecture</h4>
+                <p>xAI has advanced its Grok model line to version 4.20, which introduces a multi-agent architecture comprising four specialized agents: a coordinator agent that orchestrates the system, a research agent for information gathering, a logic agent for reasoning, and a contrarian agent designed to surface alternative perspectives. This architectural innovation reflects an industry-wide shift toward composite reasoning systems rather than monolithic model scaling.</p>
+                <div class="source">Source: xAI</div>
+            </div>
+        </div>
+
+        <!-- Infrastructure & Investment -->
+        <div class="section-title">Infrastructure & Investment</div>
+
+        <div class="card">
+            <div class="story-item">
+                <h4>Q1 2026 Shatters Venture Capital Records</h4>
+                <p>Global venture capital hit $300 billion in the first quarter of 2026, representing a 150%+ year-over-year increase across 6,000 startups and a decisive break from the post-2022 correction. The quarterly total represents the most capital ever deployed in a single quarter, with AI-focused companies claiming $242 billion, or 80%, of total investment volume. Four of the five largest funding rounds ever recorded occurred in Q1 2026: OpenAI's $122 billion raise, Anthropic's $30 billion capital infusion, xAI's $20 billion funding round, and Waymo's $16 billion Series Z.</p>
+                <p>The concentration of mega-rounds into AI and autonomous vehicle companies reflects a fundamental recalibration of venture return expectations. Capital has consolidated around a handful of companies deemed capable of defending frontier positions in AI or robotics, while traditional enterprise software startups have faced substantial capital compression. This dynamic suggests an industry-wide conviction that AI supremacy determines venture returns far more than distributed software efficiency improvements.</p>
+                <div class="source">Source: Crunchbase</div>
+            </div>
+
+            <div class="story-item">
+                <h4>Amazon Cloud AI Revenue Tops $15B Run Rate</h4>
+                <p>Amazon Web Services reported that AI-related cloud revenue has reached a $15 billion annualized run rate, propelling AWS back into contention as an enterprise AI platform despite facing competitive pressure from Microsoft and Google. The acceleration in AWS AI adoption reflects enterprise customers' growing willingness to consolidate AI workloads onto trusted cloud infrastructure rather than building isolated AI systems.</p>
+                <div class="source">Source: Amazon</div>
+            </div>
+
+            <div class="story-item">
+                <h4>Amazon Chip Business Hits $20B</h4>
+                <p>Amazon's custom silicon division, which produces AI accelerators and general-purpose processors optimized for AWS workloads, has reached $20 billion in revenue. The achievement underscores the strategic imperative for hyperscalers to own their silicon layer as a competitive moat against third-party chip suppliers.</p>
+                <div class="source">Source: Amazon</div>
+            </div>
+
+            <div class="story-item">
+                <h4>Microsoft Invests $10B in Japan AI Infrastructure</h4>
+                <p>Microsoft announced a $10 billion commitment to AI infrastructure development in Japan, representing one of the largest single-country commitments to AI hardware deployment. The investment reflects Microsoft's strategy to build geographic redundancy in its AI infrastructure and establish Japan as a regional hub for Copilot and enterprise AI services in Asia-Pacific.</p>
+                <div class="source">Source: Microsoft</div>
+            </div>
+
+            <div class="story-item">
+                <h4>Anthropic MCP Crosses 97M Installs, Linux Foundation Takes Governance</h4>
+                <p>The Model Context Protocol, created by Anthropic as a standard for connecting AI models to enterprise tools and data sources, has reached 97 million installations across development environments and production deployments. In a governance milestone, the Linux Foundation has assumed stewardship of the MCP specification, providing neutral governance infrastructure and institutionalizing the protocol's development trajectory independent of any single vendor.</p>
+                <div class="source">Source: Anthropic</div>
+            </div>
+        </div>
+
+        <!-- AI Security & Ethics -->
+        <div class="section-title">AI Security & Ethics</div>
+
+        <div class="card">
+            <div class="story-item">
+                <h4>Chinese AI Distillation: Intelligence-Sharing Coordination</h4>
+                <p>Executives from OpenAI, Google, and Anthropic have engaged in coordinated intelligence-sharing regarding Chinese firms' use of distillation techniques to extract capabilities from frontier models. The collaboration identified DeepSeek, Moonshot, and MiniMax as companies employing sophisticated model distillation—a technique wherein smaller models are trained to replicate the outputs of larger frontier models, effectively compressing capabilities into more efficient systems that can operate at lower cost and faster inference speeds.</p>
+                <p>Anthropic has implemented explicit restrictions on access by Chinese entities, signaling that capability moats are now being defended through geographic access controls rather than purely through technical means. The coordination between competing AI companies on defensive measures against Chinese competitors reflects an implicit consensus that state-directed AI development poses sufficient systemic risk to warrant information sharing across traditional competitive lines.</p>
+                <div class="source">Source: Reuters</div>
+            </div>
+
+            <div class="story-item">
+                <h4>Atlassian Redirects Resources to AI, Lays Off 1,600</h4>
+                <p>Atlassian announced the elimination of approximately 1,600 positions, or roughly 10% of its workforce, as part of a strategic refocus toward AI-native product development and infrastructure. The company simultaneously appointed two AI-focused Chief Technology Officers to lead distinct initiatives around AI integration and infrastructure architecture. The move reflects Atlassian's determination to avoid becoming a legacy software company disrupted by AI-native competitors.</p>
+                <div class="source">Source: Atlassian</div>
+            </div>
+
+            <div class="story-item">
+                <h4>MIT Study: AI Task Completion Approaching Inflection</h4>
+                <p>Research conducted at MIT found that contemporary AI models can now complete approximately 65% of text-based tasks at acceptable quality levels, with projections suggesting this figure could rise to 95% by 2029. The study's methodology assessed AI output against human performance on tasks spanning writing, analysis, coding, and customer service domains. The findings suggest an accelerating curve of task substitution, with the bulk of routine knowledge work potentially subject to AI displacement within a three-year window.</p>
+                <div class="source">Source: MIT</div>
+            </div>
+        </div>
+
+        <!-- Quick Hits -->
+        <div class="quick-hits">
+            <h2>Quick Hits</h2>
             <ul>
-                <li><strong>API Cost Collapse:</strong> AI model API costs dropped 60-80% in 2025, dramatically democratizing access to frontier capabilities and shifting economics toward high-volume inference.</li>
-                <li><strong>Enterprise Legal Reversal:</strong> Enterprise legal departments have shifted from risk-averse to deployment-supportive as AI copyright and liability questions find regulatory resolution.</li>
-                <li><strong>Agentic AI Frontier:</strong> Industry consensus identifies agentic AI—systems that plan, execute, and iterate autonomously—as the next frontier beyond foundation model capability improvements.</li>
-                <li><strong>CRISPR-GPT Breakthrough:</strong> A new AI copilot for gene editing can design CRISPR experiments in months that previously required years of laboratory iteration, accelerating the pace of biological innovation.</li>
-                <li><strong>Inference Dominance:</strong> As model prices collapse, the competitive frontier has shifted decisively toward inference efficiency, latency, and real-time autonomous decision-making.</li>
+                <li>Yahoo launches Scout AI answer engine built on Anthropic technology</li>
+                <li>Shield AI raises $1.5B Series G at $12.7B valuation, advancing autonomous defense applications</li>
+                <li>Cognichip completes $60M Series A for "Artificial Chip Intelligence," embedding AI into silicon design</li>
+                <li>Runware raises $50M for AI inference engine optimized for real-time generation workloads</li>
+                <li>Valar Atomics raises $450M for nuclear-powered AI data centers, addressing energy constraints of large-scale deployment</li>
+                <li>AI model trained in space via Nvidia-StarCloud collaboration demonstrates off-Earth AI development feasibility</li>
+                <li>Energy efficiency breakthrough: 100x reduction possible with neural-symbolic approach, per ScienceDaily analysis</li>
             </ul>
         </div>
 
-        <!-- FOOTER -->
+        <!-- Footer -->
         <div class="footer">
-            <p class="footer-text">The Morning Wire: Tech & AI Edition captures the week's most significant developments in artificial intelligence, venture capital, and technology infrastructure.</p>
-            <a href="daily-newsletter.html" class="back-link">Back to Daily Newsletter</a>
+            <div class="footer-text">
+                <p>The Morning Wire delivers curated intelligence on technology, artificial intelligence, and infrastructure to help you understand the forces reshaping industry and markets.</p>
+            </div>
+            <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
         </div>
     </div>
 </body>
