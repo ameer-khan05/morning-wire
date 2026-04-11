@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Morning Wire: Science & Health Edition - April 10, 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>The Morning Wire: Science & Health Edition - April 11, 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,352 +14,323 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #f8fafc;
-            color: #1e293b;
+            background-color: #f8f9fa;
+            color: #1f2937;
             line-height: 1.6;
-            padding: 20px;
         }
 
         .container {
             max-width: 760px;
             margin: 0 auto;
+            padding: 20px;
         }
 
         .back-link {
             display: inline-block;
-            margin-bottom: 30px;
+            margin-bottom: 24px;
             font-size: 14px;
-        }
-
-        .back-link a {
             color: #0284c7;
             text-decoration: none;
             font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            transition: color 0.3s ease;
         }
 
-        .back-link a:hover {
-            text-decoration: underline;
+        .back-link:hover {
+            color: #0c4a6e;
         }
 
         header {
             background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);
             color: white;
-            padding: 40px 30px;
+            padding: 40px 20px;
             border-radius: 8px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 32px;
+            text-align: center;
         }
 
         header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 42px;
-            font-weight: 700;
             margin-bottom: 8px;
+            font-weight: 700;
         }
 
         header .subtitle {
             font-size: 16px;
-            opacity: 0.95;
             font-weight: 500;
+            opacity: 0.95;
         }
 
         header .date {
             font-size: 14px;
-            opacity: 0.85;
+            opacity: 0.9;
             margin-top: 12px;
         }
 
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: #0c4a6e;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #e0f2fe;
-        }
-
-        .card {
+        .by-numbers {
             background: white;
-            padding: 24px;
-            margin-bottom: 20px;
             border-radius: 8px;
+            padding: 28px;
+            margin-bottom: 28px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .by-numbers h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #0c4a6e;
+        }
+
+        .numbers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .number-item {
+            padding: 16px;
+            background-color: #f0f9ff;
+            border-left: 4px solid #0284c7;
+            border-radius: 4px;
+        }
+
+        .number-item .stat {
+            font-size: 24px;
+            font-weight: 600;
+            color: #0284c7;
+            margin-bottom: 6px;
+        }
+
+        .number-item .label {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.4;
+        }
+
+        .story {
+            background: white;
+            border-radius: 8px;
+            padding: 28px;
+            margin-bottom: 24px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
             transition: box-shadow 0.3s ease;
         }
 
-        .card:hover {
+        .story:hover {
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
         }
 
-        .card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            font-weight: 700;
-            color: #0c4a6e;
-            margin-bottom: 12px;
-            line-height: 1.4;
+        .story.lead {
+            border-top: 4px solid #0284c7;
         }
 
-        .card p {
+        .story h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            margin-bottom: 14px;
+            color: #0c4a6e;
+            line-height: 1.3;
+        }
+
+        .story.lead h3 {
+            font-size: 32px;
+        }
+
+        .story p {
             font-size: 15px;
-            color: #334155;
-            margin-bottom: 12px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+            color: #374151;
         }
 
         .source {
             font-size: 13px;
-            color: #64748b;
-            font-style: italic;
+            color: #6b7280;
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid #e5e7eb;
         }
 
-        .lead-story {
-            border-left: 4px solid #0284c7;
-        }
-
-        .lead-story h3 {
+        .source a {
             color: #0284c7;
-            font-size: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
-        .quick-hit {
-            padding: 16px 24px;
-            border-left: 3px solid #0284c7;
+        .source a:hover {
+            color: #0c4a6e;
+            text-decoration: underline;
         }
 
-        .quick-hit p {
-            margin-bottom: 8px;
+        .quick-hits {
+            background: white;
+            border-radius: 8px;
+            padding: 28px;
+            margin-bottom: 28px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
         }
 
-        .quick-hit:last-child p {
-            margin-bottom: 0;
+        .quick-hits h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #0c4a6e;
+        }
+
+        .quick-hits ul {
+            list-style: none;
+        }
+
+        .quick-hits li {
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .quick-hits li:last-child {
+            border-bottom: none;
         }
 
         footer {
             text-align: center;
-            padding: 40px 20px 20px 20px;
-            border-top: 2px solid #e0f2fe;
+            padding: 32px 20px;
+            border-top: 1px solid #e5e7eb;
             margin-top: 40px;
         }
 
-        .footer-link {
-            display: inline-block;
-            margin-top: 20px;
-        }
-
-        .footer-link a {
-            color: #0284c7;
-            text-decoration: none;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .footer-link a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-text {
+        footer .copyright {
             font-size: 13px;
-            color: #64748b;
-            margin-bottom: 20px;
+            color: #6b7280;
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 32px;
+            }
+
+            .story h3 {
+                font-size: 22px;
+            }
+
+            .story.lead h3 {
+                font-size: 26px;
+            }
+
+            .numbers-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="back-link">
-            <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
-        </div>
+        <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
 
         <header>
             <h1>The Morning Wire</h1>
             <div class="subtitle">Science & Health Edition</div>
-            <div class="date">Friday, April 10, 2026</div>
+            <div class="date">Saturday, April 11, 2026</div>
         </header>
 
-        <!-- Lead Story -->
-        <section class="section">
-            <div class="card lead-story">
-                <h3>Smart DNA Drug System Targets Cancer Cells With Unprecedented Accuracy</h3>
-                <p>Scientists have created a programmable drug system built from synthetic DNA that can zero in on cancer cells with unprecedented accuracy. The system only activates when it detects a precise combination of molecular signals unique to cancer cells, sparing healthy tissue. This breakthrough represents a major step toward truly targeted cancer therapy, potentially reducing side effects and improving treatment outcomes for patients worldwide.</p>
-                <div class="source">Source: ScienceDaily</div>
+        <section class="by-numbers">
+            <h2>By the Numbers</h2>
+            <div class="numbers-grid">
+                <div class="number-item">
+                    <div class="stat">90%</div>
+                    <div class="label">Detection rate of AI-powered colorectal cancer stool test</div>
+                </div>
+                <div class="number-item">
+                    <div class="stat">6x</div>
+                    <div class="label">Memory reduction from Google's AI compression algorithm</div>
+                </div>
+                <div class="number-item">
+                    <div class="stat">1,000km</div>
+                    <div class="label">Range of Japan's newly deployed missiles</div>
+                </div>
+                <div class="number-item">
+                    <div class="stat">$428M</div>
+                    <div class="label">UN WFP funding shortfall for Sudan refugees</div>
+                </div>
             </div>
         </section>
 
-        <!-- Cancer & Drug Research -->
-        <section class="section">
-            <h2 class="section-title">Cancer & Drug Research</h2>
+        <article class="story lead">
+            <h3>AI-Powered Stool Test Detects 90% of Colorectal Cancers Without Colonoscopy</h3>
+            <p>A breakthrough in microbiome research could transform how colorectal cancer is detected. Scientists used AI to map gut bacteria at unprecedented detail, revealing subtle microbial patterns linked to cancer. The new stool test detects 90% of colorectal cancers, potentially replacing invasive colonoscopies for screening—a development that could dramatically improve screening rates and outcomes.</p>
+            <div class="source">Source: <a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a></div>
+        </article>
 
-            <div class="card">
-                <h3>Vision Cell Protection: Screening for Retinal Health</h3>
-                <p>Scientists tested over 2,700 compounds in thousands of lab-grown human retinal models, identifying promising candidates to protect cells that enable sharp, colorful vision. This comprehensive screening effort could lead to new treatments for macular degeneration and other vision-threatening conditions.</p>
-                <div class="source">Source: ScienceDaily</div>
-            </div>
+        <article class="story">
+            <h3>Cornell Researchers Close In on 'Holy Grail' of Male Contraception</h3>
+            <p>Scientists at Cornell University may have cracked the long-sought safe, reversible, nonhormonal method that completely halts sperm production. This could revolutionize family planning by providing men with a reliable contraceptive option beyond condoms and vasectomies, addressing a critical gap in reproductive health options.</p>
+            <div class="source">Source: <a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a></div>
+        </article>
+
+        <article class="story">
+            <h3>Hidden Brain Waste-Removal Pathway Discovered via MRI</h3>
+            <p>Researchers discovered a previously unknown waste-removal pathway in the brain using cutting-edge MRI scans. Fluid flows along the middle meningeal artery in a slow, lymphatic-like pattern. The finding could advance understanding of neurodegenerative diseases like Alzheimer's and may suggest new intervention strategies.</p>
+            <div class="source">Source: <a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a></div>
+        </article>
+
+        <article class="story">
+            <h3>Programmable DNA Drug System Targets Cancer Cells With Unprecedented Accuracy</h3>
+            <p>Scientists created a programmable drug system built from synthetic DNA that only activates when it detects a precise combination of markers. This "smart drug" approach could dramatically reduce side effects of cancer treatment by leaving healthy cells untouched, representing a major leap in precision medicine.</p>
+            <div class="source">Source: <a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a></div>
+        </article>
+
+        <article class="story">
+            <h3>Gut Bacteria May Trigger ALS and Frontotemporal Dementia</h3>
+            <p>A new study reveals harmful sugars produced by gut microbes can spark immune responses that damage the brain, potentially triggering ALS and frontotemporal dementia. The gut-brain connection continues to reveal surprising links to neurological disease, opening new pathways for prevention and treatment.</p>
+            <div class="source">Source: <a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a></div>
+        </article>
+
+        <article class="story">
+            <h3>Nano-Cages Trap 'Forever Chemicals' in Breakthrough Water Filtration</h3>
+            <p>Scientists developed nano-sized cages that lock onto PFAS molecules, including the hard-to-remove short-chain variants. This approach could finally provide a practical solution to the widespread PFAS contamination crisis that affects drinking water systems worldwide.</p>
+            <div class="source">Source: <a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a></div>
+        </article>
+
+        <article class="story">
+            <h3>Eye Nutrient Zeaxanthin Strengthens T Cells for Cancer Immunotherapy</h3>
+            <p>Zeaxanthin, a common eye-health nutrient, may enhance immunotherapy treatments by strengthening T cells. The discovery could lead to simple dietary supplements that boost cancer treatment effectiveness, combining nutrition with modern immunotherapy approaches.</p>
+            <div class="source">Source: <a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a></div>
+        </article>
+
+        <article class="story">
+            <h3>RNA Barcodes Map Neuron Connections With Single-Synapse Precision</h3>
+            <p>Researchers developed a cutting-edge technique using RNA "barcodes" to map how neurons connect, capturing thousands of links with single-synapse precision. This could transform our understanding of brain circuitry and provide insights into neurological development and disease mechanisms.</p>
+            <div class="source">Source: <a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a></div>
+        </article>
+
+        <article class="story">
+            <h3>Real-Time Chemical Interactions Driving Alzheimer's Disease Captured</h3>
+            <p>Oregon State University scientists have captured real-time chemical interactions that help drive Alzheimer's disease, potentially opening new avenues for treatment development. The breakthrough could accelerate the search for therapies targeting the disease at the molecular level.</p>
+            <div class="source">Source: <a href="https://medicalxpress.com/" target="_blank">Medical Xpress</a></div>
+        </article>
+
+        <article class="story">
+            <h3>Researchers Uncover Why Rare Clotting Disorder Occurs After COVID Vaccines</h3>
+            <p>Scientists explained why certain COVID-19 vaccines or adenovirus infections can cause rare blood clotting—the immune system mistakenly targets a normal blood protein (PF4). Understanding this mechanism could lead to safer vaccine designs and treatments for vaccine-induced thrombotic thrombocytopenia.</p>
+            <div class="source">Source: <a href="https://www.sciencedaily.com/news/health_medicine/" target="_blank">ScienceDaily</a></div>
+        </article>
+
+        <section class="quick-hits">
+            <h2>Quick Hits</h2>
+            <ul>
+                <li>Cells can detect less efficient genetic instructions and selectively silence them, new study finds</li>
+                <li>BET inhibitor cancer drugs fall short due to BRD2/BRD4 protein differences</li>
+                <li>Amgen's TEPEZZA shows 77% proptosis response rate in Phase 3 thyroid eye disease trial</li>
+                <li>Utah becomes first state allowing AI to autonomously renew drug prescriptions</li>
+            </ul>
         </section>
 
-        <!-- Brain & Neurological Discoveries -->
-        <section class="section">
-            <h2 class="section-title">Brain & Neurological Discoveries</h2>
-
-            <div class="card">
-                <h3>Hydrogen Sulfide Gas: A New Player in Alzheimer's Disease</h3>
-                <p>Scientists discovered that the protein CSE produces tiny amounts of hydrogen sulfide gas in the brain — a surprising new player in Alzheimer's disease. This discovery opens new avenues for understanding neurodegeneration and developing novel therapeutic approaches.</p>
-                <div class="source">Source: ScienceDaily</div>
-            </div>
-
-            <div class="card">
-                <h3>RNA Barcodes Map Brain Wiring With Single-Synapse Precision</h3>
-                <p>A cutting-edge technique uses RNA "barcodes" to map neuron connections, capturing thousands of neural links with single-synapse precision. This breakthrough technology enables unprecedented understanding of brain circuitry and could revolutionize neuroscience research.</p>
-                <div class="source">Source: ScienceDaily</div>
-            </div>
-
-            <div class="card">
-                <h3>Gut Bacteria Linked to ALS and Frontotemporal Dementia</h3>
-                <p>New research reveals that gut bacteria may trigger ALS and frontotemporal dementia. Harmful sugars produced by microbes spark immune responses that damage the brain, suggesting a novel therapeutic target for these devastating neurodegenerative diseases.</p>
-                <div class="source">Source: ScienceDaily</div>
-            </div>
-        </section>
-
-        <!-- Reproductive & General Health -->
-        <section class="section">
-            <h2 class="section-title">Reproductive & General Health</h2>
-
-            <div class="card">
-                <h3>Reversible Male Birth Control: A Major Breakthrough Approaching</h3>
-                <p>Cornell University researchers are closing in on a safe, reversible, nonhormonal method that completely halts sperm production — the "holy grail" of male contraception. This development could provide men with greater reproductive autonomy and expand contraceptive options globally.</p>
-                <div class="source">Source: ScienceDaily, KFF Health News</div>
-            </div>
-
-            <div class="card">
-                <h3>Weight Loss Drugs vs. Surgery: Surprisingly Similar Results</h3>
-                <p>Both weight loss medications and bariatric surgery lead to surprisingly similar results, significantly reducing fat while causing modest muscle loss and reshaping overall body composition in comparable ways. This finding could help patients and clinicians make more informed treatment decisions.</p>
-                <div class="source">Source: ScienceDaily</div>
-            </div>
-        </section>
-
-        <!-- Environmental Health -->
-        <section class="section">
-            <h2 class="section-title">Environmental Health</h2>
-
-            <div class="card">
-                <h3>Breakthrough Water Filter Tackles "Forever Chemicals"</h3>
-                <p>Nano-sized cages can trap PFAS molecules in water, including hard-to-remove short-chain PFAS compounds. This innovation proves superior to current filtration methods and offers new hope for addressing widespread water contamination.</p>
-                <div class="source">Source: ScienceDaily</div>
-            </div>
-
-            <div class="card">
-                <h3>Plant Compounds Fight Chronic Inflammation</h3>
-                <p>Menthol from mint, cineole from eucalyptus, and capsaicin from peppers may combat chronic inflammation that fuels diabetes, heart disease, and cancer. These natural compounds represent promising candidates for anti-inflammatory therapies.</p>
-                <div class="source">Source: ScienceDaily</div>
-            </div>
-        </section>
-
-        <!-- Genetics & Epigenetics -->
-        <section class="section">
-            <h2 class="section-title">Genetics & Epigenetics</h2>
-
-            <div class="card">
-                <h3>DNA's "Second Code" Discovered: Cells Make Smart Gene Choices</h3>
-                <p>Cells can detect less efficient genetic instructions and selectively silence certain genes, revealing a secret "second code" that decides which genes get turned off. This discovery suggests an additional layer of genetic regulation beyond the traditional DNA sequence.</p>
-                <div class="source">Source: ScienceDaily</div>
-            </div>
-        </section>
-
-        <!-- AI in Medicine -->
-        <section class="section">
-            <h2 class="section-title">AI in Medicine</h2>
-
-            <div class="card">
-                <h3>FDA Analyzes AI-Powered Medical Devices</h3>
-                <p>The FDA continues analyzing AI-powered "breakthrough" medical devices as these technologies show promise in clinical settings. Regulators are developing frameworks to ensure safety and efficacy of increasingly sophisticated AI tools in healthcare.</p>
-                <div class="source">Source: STAT News</div>
-            </div>
-
-            <div class="card">
-                <h3>AI Scribes Demonstrating Healthcare Benefits</h3>
-                <p>AI scribes are showing measurable benefits in healthcare settings, reducing documentation burden on clinicians and improving administrative efficiency. These tools are gaining adoption across various medical specialties.</p>
-                <div class="source">Source: STAT News</div>
-            </div>
-
-            <div class="card">
-                <h3>Utah Grants AI Authority to Renew Drug Prescriptions</h3>
-                <p>Utah becomes the first state to grant AI authority to renew drug prescriptions, a significant step in healthcare automation. However, this decision raises important questions about AI reliability and patient safety that warrant careful ongoing monitoring.</p>
-                <div class="source">Source: AI News</div>
-            </div>
-
-            <div class="card">
-                <h3>USGS Unveils AI for Drought Prediction</h3>
-                <p>The U.S. Geological Survey has unveiled AI that predicts drought conditions up to 90 days in advance, potentially saving billions in agricultural losses. This tool demonstrates AI's potential to address critical environmental challenges.</p>
-                <div class="source">Source: USGS</div>
-            </div>
-        </section>
-
-        <!-- Longevity & Aging -->
-        <section class="section">
-            <h2 class="section-title">Longevity & Aging</h2>
-
-            <div class="card">
-                <h3>Centenarians Age Differently at the Molecular Level</h3>
-                <p>Centenarians age differently at the molecular level, maintaining unexpectedly "younger" biological signatures despite their advanced chronological age. This research could unlock secrets to healthy aging and longevity.</p>
-                <div class="source">Source: ScienceDaily</div>
-            </div>
-
-            <div class="card">
-                <h3>Renewed Hope for Opioid-Free Pain Relief</h3>
-                <p>Following the FDA approval of suzetrigine (Journavax), there is renewed hope for opioid-free pain relief options. This development represents progress toward safer pain management alternatives.</p>
-                <div class="source">Source: Science News</div>
-            </div>
-        </section>
-
-        <!-- Energy Research -->
-        <section class="section">
-            <h2 class="section-title">Energy Research</h2>
-
-            <div class="card">
-                <h3>AI Energy Use Could Drop 100x Through Hybrid Reasoning</h3>
-                <p>Researchers have combined neural networks with human-like symbolic reasoning for a radically more efficient approach that also improves accuracy. This breakthrough could dramatically reduce the computational and environmental costs of advanced AI systems.</p>
-                <div class="source">Source: ScienceDaily</div>
-            </div>
-
-            <div class="card">
-                <h3>Google's TurboQuant Cuts AI Memory Requirements by 6x</h3>
-                <p>Google's new TurboQuant compression algorithm maintains frontier AI performance while cutting memory requirements by 6x. This efficiency gain makes advanced AI more accessible and environmentally sustainable.</p>
-                <div class="source">Source: Google</div>
-            </div>
-        </section>
-
-        <!-- Quick Hits -->
-        <section class="section">
-            <h2 class="section-title">Quick Hits</h2>
-
-            <div class="card quick-hit">
-                <p><strong>Machine Learning for Drug Effectiveness:</strong> Algorithms are predicting drug effectiveness for Alzheimer's and cancer treatment with increasing accuracy.</p>
-            </div>
-
-            <div class="card quick-hit">
-                <p><strong>EnerVenue's Battery Breakthrough:</strong> The company raises $300M for NASA-derived metal-hydrogen batteries with 20+ year lifespan, offering new potential for long-term energy storage.</p>
-            </div>
-
-            <div class="card quick-hit">
-                <p><strong>Space AI First:</strong> First model trained entirely in orbit via Nvidia-StarCloud collaboration, demonstrating AI's expanding role in space exploration.</p>
-            </div>
-        </section>
-
-        <!-- Footer -->
         <footer>
-            <p class="footer-text">The Morning Wire brings you the week's most important science and health stories.</p>
-            <div class="footer-link">
-                <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
-            </div>
+            <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
+            <div class="copyright">© 2026 The Morning Wire</div>
         </footer>
     </div>
 </body>
