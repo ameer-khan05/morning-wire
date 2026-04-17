@@ -1,130 +1,229 @@
-<\!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Science & Health Deep Dive — The Morning Wire</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Science &amp; Health Deep Dive — The Morning Wire · April 17, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#f8f9fa;color:#1a1a2e}
-.header{background:linear-gradient(135deg,#0c4a6e,#0284c7);padding:32px 20px 24px;text-align:center}
-.header h1{font-family:'Playfair Display',serif;color:#fff;font-size:2rem;font-weight:900}
-.header .subtitle{color:rgba(255,255,255,.6);font-size:.85rem;margin-top:6px}
-.back-link{display:inline-block;color:rgba(255,255,255,.7);text-decoration:none;font-size:.82rem;margin-bottom:10px;font-weight:500}
-.back-link:hover{color:#fff}
-.container{max-width:760px;margin:0 auto;padding:20px 16px}
-.byline{text-align:center;color:#666;font-size:.82rem;margin-bottom:24px}
-.lead{background:#fff;border-radius:12px;padding:28px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.08);border-left:4px solid #0284c7}
-.lead .tag{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:#0284c7;font-weight:700;margin-bottom:8px}
-.lead h2{font-family:'Playfair Display',serif;font-size:1.5rem;line-height:1.3;margin-bottom:12px}
-.lead p{color:#4a4a6a;line-height:1.7;font-size:.93rem;margin-bottom:10px}
-.section-title{font-family:'Playfair Display',serif;font-size:1.15rem;color:#0c4a6e;margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid #e5e7eb}
-.card{background:#fff;border-radius:10px;padding:20px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-.card h3{font-size:.95rem;font-weight:700;margin-bottom:6px;color:#1a1a2e}
-.card p{color:#4a4a6a;font-size:.88rem;line-height:1.6}
-.card .source{font-size:.75rem;color:#0284c7;margin-top:8px}
-.card .source a{color:#0284c7;text-decoration:none}
-.card .source a:hover{text-decoration:underline}
-.quick-hits{background:#e0f2fe;border-radius:12px;padding:24px;margin:24px 0}
-.quick-hits h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:14px;color:#0c4a6e}
-.quick-hits ul{list-style:none;padding:0}
-.quick-hits li{padding:8px 0;border-bottom:1px solid rgba(0,0,0,.06);font-size:.88rem;color:#4a4a6a;line-height:1.5}
+body{font-family:'Inter',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6;-webkit-font-smoothing:antialiased}
+.ticker-wrap{background:#111827;overflow:hidden;padding:12px 0}
+.ticker{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;white-space:nowrap;max-width:760px;margin:0 auto;padding:0 16px}
+.ticker .item{font-size:.82rem;color:rgba(255,255,255,.85);font-weight:500}
+.ticker .item .label{color:rgba(255,255,255,.5);margin-right:6px}
+.ticker .item .up{color:#22c55e}
+.ticker .item .down{color:#ef4444}
+.header{background:linear-gradient(135deg,#0c4a6e,#0284c7);color:#fff;padding:52px 24px 44px;text-align:center}
+.header .kicker{font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:16px;font-weight:600}
+.header h1{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;line-height:1.05;letter-spacing:-.02em;margin-bottom:12px}
+.header .tagline{font-style:italic;font-size:1rem;color:rgba(255,255,255,.85);max-width:520px;margin:0 auto;font-weight:300}
+.header .date{margin-top:18px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+.back-link{display:inline-block;margin-top:16px;padding:8px 16px;background:rgba(255,255,255,.15);color:#fff;text-decoration:none;border-radius:6px;font-size:.82rem;font-weight:500;letter-spacing:.04em}
+.back-link:hover{background:rgba(255,255,255,.22)}
+.container{max-width:760px;margin:0 auto;padding:40px 24px 60px}
+.numbers{background:#0c4a6e;color:#fff;border-radius:12px;padding:30px;margin-bottom:32px}
+.numbers h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:20px;color:#7dd3fc}
+.numbers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:22px}
+.num-item .val{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;color:#fff;line-height:1.1}
+.num-item .lbl{font-size:.8rem;color:rgba(255,255,255,.65);margin-top:4px}
+.lead{background:#fff;border-radius:12px;padding:34px 30px;margin-bottom:32px;box-shadow:0 2px 8px rgba(15,15,35,.08),0 10px 30px rgba(15,15,35,.06);border-left:4px solid #0284c7}
+.lead .label{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:#0284c7;font-weight:700;margin-bottom:12px}
+.lead h2{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:800;line-height:1.2;margin-bottom:14px;color:#0f0f23}
+.lead p{color:#334155;font-size:1.02rem;margin-bottom:12px}
+.lead .source{font-size:.82rem;color:#64748b;margin-top:14px}
+.lead .source a{color:#0284c7;text-decoration:none;font-weight:500}
+.section{background:#fff;border-radius:12px;padding:28px 30px;margin-bottom:24px;box-shadow:0 1px 3px rgba(15,15,35,.06),0 4px 14px rgba(15,15,35,.04)}
+.section h3{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;line-height:1.2;margin-bottom:16px;color:#0f0f23;padding-bottom:10px;border-bottom:2px solid #bae6fd}
+.story{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid #f1f5f9}
+.story:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.story h4{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;line-height:1.3;margin-bottom:6px;color:#1e293b}
+.story p{color:#475569;font-size:.94rem;margin-bottom:6px}
+.story .source{font-size:.78rem;color:#94a3b8}
+.story .source a{color:#0284c7;text-decoration:none}
+.story .source a:hover{text-decoration:underline}
+.quick-hits{background:#e0f2fe;border-radius:12px;padding:26px 30px;margin-bottom:24px}
+.quick-hits h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#075985;margin-bottom:14px}
+.quick-hits ul{list-style:none}
+.quick-hits li{padding:10px 0;border-bottom:1px solid #7dd3fc;color:#334155;font-size:.92rem}
 .quick-hits li:last-child{border-bottom:none}
-.quick-hits li strong{color:#1a1a2e}
-.footer{text-align:center;padding:30px 20px;color:#999;font-size:.8rem}
-.footer a{color:#0284c7;text-decoration:none}
+.quick-hits li a{color:#0284c7;font-weight:600;text-decoration:none}
+.footer{text-align:center;padding:32px 24px 40px;color:#64748b;font-size:.86rem;background:#fff;border-top:1px solid #e2e8f0}
+.footer a{color:#0284c7;text-decoration:none;font-weight:600}
+@media (max-width:640px){.header h1{font-size:2.2rem}.lead h2{font-size:1.45rem}.section h3{font-size:1.25rem}.container{padding:28px 16px 40px}.lead,.section{padding:24px 20px}}
 </style>
 </head>
 <body>
-<div class="header">
+
+<div class="ticker-wrap">
+<div class="ticker">
+<span class="item"><span class="label">S&amp;P 500</span>7,041.28 <span class="up">+0.26%</span></span>
+<span class="item"><span class="label">Nasdaq</span>24,102.70 <span class="up">+0.36%</span></span>
+<span class="item"><span class="label">Dow</span>48,578.72 <span class="up">+0.24%</span></span>
+<span class="item"><span class="label">Bitcoin</span>$75,540 <span class="up">+1.40%</span></span>
+<span class="item"><span class="label">Gold</span>$4,798 <span class="up">+0.21%</span></span>
+<span class="item"><span class="label">Oil (WTI)</span>$93.47 <span class="up">+3.90%</span></span>
+</div>
+</div>
+
+<header class="header">
+<div class="kicker">Deep Dive · Science &amp; Health</div>
+<h1>From the Moon to the Microbiome</h1>
+<p class="tagline">A week when human spaceflight set a record — and gut bacteria might replace the colonoscopy.</p>
+<p class="date">Friday · April 17, 2026</p>
 <a href="daily-newsletter.html" class="back-link">← Back to The Morning Wire</a>
-<h1>Science & Health Deep Dive</h1>
-<div class="subtitle">Thursday, April 16, 2026</div>
+</header>
+
+<main class="container">
+
+<section class="numbers">
+<h2>By the Numbers</h2>
+<div class="numbers-grid">
+<div class="num-item"><div class="val">248,655</div><div class="lbl">Miles Artemis II flew from Earth</div></div>
+<div class="num-item"><div class="val">10 days</div><div class="lbl">Length of the lunar mission</div></div>
+<div class="num-item"><div class="val">650,000</div><div class="lbl">Patients in new IBS safety study</div></div>
+<div class="num-item"><div class="val">86 GW</div><div class="lbl">New US utility capacity in 2026</div></div>
+</div>
+</section>
+
+<section class="lead">
+<div class="label">Lead Story</div>
+<h2>Artemis II: a record-breaking flight, and a hinge moment for human spaceflight</h2>
+<p>The crew of Artemis II — NASA's Reid Wiseman, Victor Glover and Christina Koch, and CSA's Jeremy Hansen — splashed down on April 10 after ten days in space, closing out a mission that rewrote the record books and reopened the era of human lunar exploration. On April 6, the four astronauts crossed the line set by Apollo 13 in 1970, reaching 248,655 miles from Earth — farther than any human crew in history.</p>
+<p>The flyby carried new human-rated systems, tested life support under deep-space radiation, and produced a single image, since titled "Earthset," that may become the decade's defining photograph. In it, a crescent Earth rises above the lunar horizon — an inversion of Apollo 8's "Earthrise," taken almost exactly 58 years earlier.</p>
+<p>Artemis II was a test flight. The next step — Artemis III — will attempt a crewed landing near the lunar south pole. What this mission proved is that the vehicle works, the crew works, and the political will, for now at least, works too.</p>
+<p class="source">Sources: <a href="https://www.nasa.gov/news-release/nasas-artemis-ii-crew-eclipses-record-for-farthest-human-spaceflight/">NASA</a> · <a href="https://www.space.com/space-exploration/human-spaceflight/artemis-2-captures-historic-earthset-photo-space-photo-of-the-day-for-april-7-2026">Space.com</a></p>
+</section>
+
+<section class="section">
+<h3>Space</h3>
+
+<div class="story">
+<h4>SpaceX launches two Falcon 9s 19 hours apart</h4>
+<p>Tuesday's back-to-back launches from Florida and California each carried batches of Starlink satellites. The cadence underscores how routine reusable-booster operations have become — and how dominant SpaceX's low-Earth-orbit market share is.</p>
+<p class="source">Source: <a href="https://www.space.com/news/archive">Space.com</a></p>
 </div>
 
-<div class="container">
-<div class="byline">The Morning Wire — Science & Health Edition</div>
+<div class="story">
+<h4>Blue Origin static-fires flight-proven New Glenn for Sunday launch</h4>
+<p>A successful static fire test Wednesday clears the way for a planned launch Sunday morning — Blue Origin's first mission with a reused booster.</p>
+<p class="source">Source: <a href="https://www.space.com/news/archive">Space.com</a></p>
+</div>
+</section>
 
-<div class="lead">
-<div class="tag">Lead Story</div>
-<h2>CRISPR-GPT and Personalized Gene Therapy Mark a New Era in Medicine</h2>
-<p>In what may be remembered as a watershed moment for medicine, two converging breakthroughs are redefining the boundaries of gene therapy. Stanford researchers unveiled CRISPR-GPT, an AI "copilot" capable of designing CRISPR experiments in months rather than years — dramatically accelerating the pace of genetic research and drug development.</p>
-<p>Meanwhile, in a separate milestone, scientists administered the first fully personalized CRISPR treatment to a six-year-old child, proving that truly individualized genetic medicine is no longer theoretical but clinically real. The treatment was custom-designed based on the child's unique genetic mutation, representing a paradigm shift from one-size-fits-all therapies to bespoke molecular interventions.</p>
-<p>Together, these advances suggest we are entering an era where AI designs the genetic fixes and clinicians deliver them on a patient-by-patient basis — a future that seemed decades away just five years ago.</p>
-<div class="source">Source: <a href="https://www.livescience.com/health/from-gene-therapy-breakthroughs-to-preventable-disease-outbreaks-the-health-trends-that-will-shape-2026">Live Science</a> | <a href="https://stemcellthailand.org/top-medical-breakthroughs/">Stem Cell Thailand</a></div>
+<section class="section">
+<h3>Medicine &amp; Biotech</h3>
+
+<div class="story">
+<h4>Cornell: male contraception "holy grail" enters advanced preclinical</h4>
+<p>A non-hormonal, reversible compound that fully halts sperm production passed a key safety milestone. If it holds up in the next round, it would be the first new class of male contraception in more than half a century.</p>
+<p class="source">Source: <a href="https://www.sciencedaily.com/news/health_medicine/">ScienceDaily</a></p>
 </div>
 
-<div class="section-title">Medical Breakthroughs</div>
-
-<div class="card">
-<h3>Lower Blood Pressure Targets May Deliver Bigger Heart Health Benefits</h3>
-<p>New research published today suggests that aiming for a lower blood pressure target than currently recommended may deliver significantly bigger heart health benefits. The findings could prompt a revision of clinical guidelines, potentially affecting treatment protocols for hundreds of millions of people worldwide who manage hypertension.</p>
-<div class="source">Source: <a href="https://www.sciencedaily.com/news/health_medicine/">ScienceDaily</a></div>
+<div class="story">
+<h4>AI-mapped gut microbiome flags colorectal cancer without colonoscopy</h4>
+<p>Researchers used machine learning to analyze stool-sample microbial communities at unprecedented resolution. The method spotted early-stage cancers with accuracy comparable to standard screening.</p>
+<p class="source">Source: <a href="https://www.sciencedaily.com/news/health_medicine/">ScienceDaily</a></p>
 </div>
 
-<div class="card">
-<h3>Versatile Enzyme Could Reshape Peptide-Based Drug Development</h3>
-<p>Researchers have identified a versatile enzyme capable of reshaping peptide-based drugs into more stable, longer-lasting formulations. The discovery could transform how a major class of medications — including those for diabetes, cancer, and hormonal disorders — are manufactured and delivered to patients, potentially reducing dosing frequency and improving outcomes.</p>
-<div class="source">Source: <a href="https://www.sciencedaily.com/">ScienceDaily</a></div>
+<div class="story">
+<h4>Gout treatment may protect the heart, not just the joints</h4>
+<p>A large new study links urate-lowering therapy with reduced cardiovascular events — suggesting gout management could be a bigger cardioprotective intervention than appreciated.</p>
+<p class="source">Source: <a href="https://www.unmc.edu/newsroom/2026/04/08/medical-research-highlights-april-2026/">UNMC</a></p>
 </div>
 
-<div class="card">
-<h3>Cancer Research: Five Big Shifts Redefining Survival and Access</h3>
-<p>City of Hope's 2026 outlook identifies five transformative shifts in cancer care: AI-accelerated drug discovery, liquid biopsies replacing invasive diagnostics, immunotherapy combinations achieving unprecedented response rates, epigenetic therapies targeting cancer's root mechanisms, and expanded clinical trial access for underserved communities. Together, they represent the most significant year of progress in oncology in a generation.</p>
-<div class="source">Source: <a href="https://www.cityofhope.org/cancer-research-and-care-in-2026-5-big-shifts-that-will-redefine-survival-and-access">City of Hope</a></div>
+<div class="story">
+<h4>Programmable DNA "drug computer" targets cancer cells with unprecedented precision</h4>
+<p>A synthetic DNA-based system responds to multiple intracellular signals before releasing payload — reducing off-target effects in early mouse studies.</p>
+<p class="source">Source: <a href="https://www.sciencedaily.com/news/health_medicine/">ScienceDaily</a></p>
+</div>
+</section>
+
+<section class="section">
+<h3>Neuroscience</h3>
+
+<div class="story">
+<h4>RNA "barcodes" map individual synaptic connections at scale</h4>
+<p>A new technique uses RNA-tagged molecules to trace thousands of neurons' connections with single-synapse precision — a tool that could transform how we study the brain.</p>
+<p class="source">Source: <a href="https://www.sciencedaily.com/news/health_medicine/">ScienceDaily</a></p>
 </div>
 
-<div class="section-title">Earth & Physical Sciences</div>
-
-<div class="card">
-<h3>Lithium Discovery in Pyrite Could Reshape Battery Supply Chains</h3>
-<p>Researchers have discovered lithium hidden in pyrite within ancient shale rocks — an unexpected find that could reshape how we source this critical battery material. As demand for lithium surges with the EV revolution and grid-scale energy storage, alternative sources beyond traditional brine and hard-rock mining could be transformative for supply chain security and sustainability.</p>
-<div class="source">Source: <a href="https://www.sciencedaily.com/">ScienceDaily</a></div>
+<div class="story">
+<h4>Yak and Tibetan-antelope gene mutation could protect human nerves</h4>
+<p>A low-oxygen adaptation found in high-altitude animals turns out to also guard the brain from ischemic damage. It's early, but the pathway is now a clear target for neuroprotective drug development.</p>
+<p class="source">Source: <a href="https://www.sciencedaily.com/news/health_medicine/">ScienceDaily</a></p>
 </div>
 
-<div class="card">
-<h3>Ocean Methane Mystery Solved: Microbes Produce It Under Nutrient-Poor Conditions</h3>
-<p>Scientists have finally solved a long-standing mystery about methane in the open ocean. New research reveals that microbes produce methane under nutrient-poor conditions — a finding that rewrites our understanding of marine biogeochemistry and has significant implications for climate models that track greenhouse gas sources in the world's oceans.</p>
-<div class="source">Source: <a href="https://www.sciencedaily.com/">ScienceDaily</a></div>
+<div class="story">
+<h4>Depression may start as an energy problem in brain cells</h4>
+<p>New evidence suggests that mitochondrial dysfunction — not only neurotransmitter imbalance — plays a central role in the onset of major depressive disorder.</p>
+<p class="source">Source: <a href="https://www.sciencedaily.com/releases/2026/03/260312020107.htm">ScienceDaily</a></p>
+</div>
+</section>
+
+<section class="section">
+<h3>Public Health</h3>
+
+<div class="story">
+<h4>IBS medications face new long-term safety scrutiny</h4>
+<p>A 20-year study tracking 650,000 Americans with irritable bowel syndrome surfaces questions about risks from some common treatments. The authors stop short of alarm but call for updated guidelines.</p>
+<p class="source">Source: <a href="https://www.medscape.com/">Medscape</a></p>
 </div>
 
-<div class="card">
-<h3>First Experimental Observation of Matter Wave Diffraction in Electron-Positron Pairs</h3>
-<p>In a landmark physics experiment, scientists have made the first experimental observation of matter wave diffraction in a short-lived electron-positron system. The result confirms a decades-old theoretical prediction and opens new avenues for studying quantum mechanics at the intersection of matter and antimatter — with potential implications for fundamental particle physics and quantum computing.</p>
-<div class="source">Source: <a href="https://www.sciencedaily.com/">ScienceDaily</a></div>
+<div class="story">
+<h4>Weight-loss drugs and bariatric surgery land in similar places biologically</h4>
+<p>Despite very different mechanisms, GLP-1 drugs and bariatric surgery produce comparable body-composition outcomes: substantial fat loss and modest muscle loss.</p>
+<p class="source">Source: <a href="https://www.sciencedaily.com/news/health_medicine/">ScienceDaily</a></p>
 </div>
 
-<div class="section-title">AI in Science</div>
+<div class="story">
+<h4>Blood-pressure targets may need to be lower than we thought</h4>
+<p>New evidence suggests aiming below current guideline thresholds yields larger cardiovascular benefit — setting the stage for another round of guideline revisions.</p>
+<p class="source">Source: <a href="https://www.sciencedaily.com/news/health_medicine/">ScienceDaily</a></p>
+</div>
+</section>
 
-<div class="card">
-<h3>AI Drought Prediction System Could Save Billions in Agriculture</h3>
-<p>The United States Geological Survey unveiled breakthrough AI technology capable of predicting drought conditions with unprecedented accuracy up to 90 days in advance. The system could potentially save billions of dollars in agricultural losses by giving farmers and water managers crucial lead time to adjust irrigation, planting, and resource allocation strategies.</p>
-<div class="source">Source: <a href="https://www.sciencedaily.com/">ScienceDaily</a></div>
+<section class="section">
+<h3>Climate &amp; Environment</h3>
+
+<div class="story">
+<h4>Emperor penguin, Antarctic fur seal downgraded to "Endangered"</h4>
+<p>The IUCN Red List update — driven almost entirely by climate-change impacts on sea ice and prey availability — marks a grim milestone for two iconic Antarctic species.</p>
+<p class="source">Source: <a href="https://earth.org/this-week-in-climate-news-april-2026-week-2/">Earth.Org</a></p>
 </div>
 
-<div class="card">
-<h3>Neuro-Symbolic AI Slashes Energy Use by 100x While Improving Accuracy</h3>
-<p>A radically more efficient AI approach combining neural networks with symbolic reasoning could reduce energy consumption by up to 100 times while actually improving accuracy. The technique mirrors how humans solve problems by breaking them into logical steps and categories, offering a potential solution to AI's growing environmental footprint.</p>
-<div class="source">Source: <a href="https://www.sciencedaily.com/releases/2026/04/260405003952.htm">ScienceDaily</a></div>
+<div class="story">
+<h4>US utility-scale generation additions to hit record 86 GW in 2026</h4>
+<p>Solar leads at 51% of planned additions, followed by battery storage (28%) and wind (14%). It's the largest single-year capacity build in US history.</p>
+<p class="source">Source: <a href="https://earth.org/this-week-in-climate-news-april-2026-week-2/">Earth.Org</a></p>
 </div>
+
+<div class="story">
+<h4>USDA: record-low soil moisture heading into growing season</h4>
+<p>Drought conditions across much of the Plains and Mountain West are the worst in decades. Meteorologists warn of an elevated risk of heat-stressed crops by mid-summer.</p>
+<p class="source">Source: <a href="https://earth.org/this-week-in-climate-news-april-2026-week-2/">Earth.Org</a></p>
+</div>
+</section>
 
 <div class="quick-hits">
 <h3>Quick Hits</h3>
 <ul>
-<li><strong>Opioid-free pain relief gains traction</strong> — Following the FDA approval of suzetrigine (Journavax), 2026 is seeing renewed clinical interest in non-addictive pain management alternatives. <a href="https://stemcellthailand.org/top-medical-breakthroughs/" style="color:#0284c7;text-decoration:none">Source</a></li>
-<li><strong>Epigenetic aging clocks enter larger trials</strong> — 2026 clinical trials will test whether observed changes in aging biomarkers reflect true biological improvement, potentially validating anti-aging interventions. <a href="https://www.massgeneralbrigham.org/en/about/newsroom/articles/2026-predictions-on-scientific-advancements" style="color:#0284c7;text-decoration:none">Source</a></li>
-<li><strong>Two UCSF breakthroughs advance neuro and cancer research</strong> — New findings from UC San Francisco advance both neurological disorder treatment and cancer research in parallel studies. <a href="https://www.ucsf.edu/news/2026/01/431411/two-new-breakthroughs-advance-neurological-disorders-and-cancer-research" style="color:#0284c7;text-decoration:none">Source</a></li>
-<li><strong>RNA technologies reshape biotech</strong> — Advances in mRNA platforms, RNA interference, and RNA editing tools continue to transform drug development beyond the COVID vaccine legacy. <a href="https://www.cas.org/resources/cas-insights/scientific-breakthroughs-2026-emerging-trends-watch" style="color:#0284c7;text-decoration:none">Source</a></li>
-<li><strong>Human scientists still outperform AI agents</strong> — Nature study confirms human researchers beat AI on complex scientific tasks, though AI excels at routine analysis and data processing. <a href="https://www.nature.com/articles/d41586-026-01199-z" style="color:#0284c7;text-decoration:none">Source</a></li>
+<li>Nanodisc platform lets scientists study HIV and Ebola proteins in near-native form. <a href="https://www.sciencedaily.com/news/health_medicine/">More →</a></li>
+<li>Rare post-adenovirus blood clotting disorder explained — immune system confusion between viral and human proteins. <a href="https://www.sciencedaily.com/news/health_medicine/">More →</a></li>
+<li>"Zombie" senescent immune cells linked to aging and fatty liver disease. <a href="https://www.sciencedaily.com/news/health_medicine/">More →</a></li>
+<li>Gray whales break established migration patterns, showing up in San Francisco Bay. <a href="https://earth.org/this-week-in-climate-news-april-2026-week-2/">More →</a></li>
+<li>Major new microplastics report maps daily human exposure across five categories. <a href="https://earth.org/this-week-in-climate-news-april-2026-week-2/">More →</a></li>
 </ul>
 </div>
 
-</div>
+</main>
 
-<div class="footer">
-<a href="daily-newsletter.html">← Back to The Morning Wire</a><br><br>
-The Morning Wire — Science & Health Edition — Thursday, April 16, 2026
-</div>
+<footer class="footer">
+<p><a href="daily-newsletter.html">← Back to The Morning Wire</a></p>
+<p style="margin-top:8px">Science &amp; Health Deep Dive · Friday, April 17, 2026</p>
+</footer>
+
 </body>
 </html>

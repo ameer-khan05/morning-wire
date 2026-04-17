@@ -1,141 +1,217 @@
-<\!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tech & AI Deep Dive — The Morning Wire</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Tech &amp; AI Deep Dive — The Morning Wire · April 17, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#f8f9fa;color:#1a1a2e}
-.header{background:linear-gradient(135deg,#1e1b4b,#4338ca);padding:32px 20px 24px;text-align:center}
-.header h1{font-family:'Playfair Display',serif;color:#fff;font-size:2rem;font-weight:900}
-.header .subtitle{color:rgba(255,255,255,.6);font-size:.85rem;margin-top:6px}
-.back-link{display:inline-block;color:rgba(255,255,255,.7);text-decoration:none;font-size:.82rem;margin-bottom:10px;font-weight:500}
-.back-link:hover{color:#fff}
-.container{max-width:760px;margin:0 auto;padding:20px 16px}
-.byline{text-align:center;color:#666;font-size:.82rem;margin-bottom:24px}
-.numbers-bar{background:linear-gradient(135deg,#1e1b4b,#312e81);border-radius:12px;padding:24px;margin-bottom:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center}
-.numbers-bar .stat{color:#fff}
-.numbers-bar .stat .val{font-size:1.5rem;font-weight:800}
-.numbers-bar .stat .lbl{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
-.lead{background:#fff;border-radius:12px;padding:28px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.08);border-left:4px solid #7c3aed}
-.lead .tag{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:#7c3aed;font-weight:700;margin-bottom:8px}
-.lead h2{font-family:'Playfair Display',serif;font-size:1.5rem;line-height:1.3;margin-bottom:12px}
-.lead p{color:#4a4a6a;line-height:1.7;font-size:.93rem;margin-bottom:10px}
-.section-title{font-family:'Playfair Display',serif;font-size:1.15rem;color:#1e1b4b;margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid #e5e7eb}
-.card{background:#fff;border-radius:10px;padding:20px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-.card h3{font-size:.95rem;font-weight:700;margin-bottom:6px;color:#1a1a2e}
-.card p{color:#4a4a6a;font-size:.88rem;line-height:1.6}
-.card .source{font-size:.75rem;color:#7c3aed;margin-top:8px}
-.card .source a{color:#7c3aed;text-decoration:none}
-.card .source a:hover{text-decoration:underline}
-.quick-hits{background:#f0ecff;border-radius:12px;padding:24px;margin:24px 0}
-.quick-hits h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:14px;color:#1e1b4b}
-.quick-hits ul{list-style:none;padding:0}
-.quick-hits li{padding:8px 0;border-bottom:1px solid rgba(0,0,0,.06);font-size:.88rem;color:#4a4a6a;line-height:1.5}
+body{font-family:'Inter',sans-serif;background:#f5f5f7;color:#1a1a2e;line-height:1.6;-webkit-font-smoothing:antialiased}
+.ticker-wrap{background:#111827;overflow:hidden;padding:12px 0}
+.ticker{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;white-space:nowrap;max-width:760px;margin:0 auto;padding:0 16px}
+.ticker .item{font-size:.82rem;color:rgba(255,255,255,.85);font-weight:500}
+.ticker .item .label{color:rgba(255,255,255,.5);margin-right:6px}
+.ticker .item .up{color:#22c55e}
+.ticker .item .down{color:#ef4444}
+.header{background:linear-gradient(135deg,#1e1b4b,#4338ca);color:#fff;padding:52px 24px 44px;text-align:center}
+.header .kicker{font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:16px;font-weight:600}
+.header h1{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;line-height:1.05;letter-spacing:-.02em;margin-bottom:12px}
+.header .tagline{font-style:italic;font-size:1rem;color:rgba(255,255,255,.8);max-width:520px;margin:0 auto;font-weight:300}
+.header .date{margin-top:18px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.back-link{display:inline-block;margin-top:16px;padding:8px 16px;background:rgba(255,255,255,.12);color:#fff;text-decoration:none;border-radius:6px;font-size:.82rem;font-weight:500;letter-spacing:.04em}
+.back-link:hover{background:rgba(255,255,255,.2)}
+.container{max-width:760px;margin:0 auto;padding:40px 24px 60px}
+.numbers{background:#1e1b4b;color:#fff;border-radius:12px;padding:30px;margin-bottom:32px}
+.numbers h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:20px;color:#c7d2fe}
+.numbers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:22px}
+.num-item .val{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;color:#fff;line-height:1.1}
+.num-item .lbl{font-size:.8rem;color:rgba(255,255,255,.6);margin-top:4px}
+.lead{background:#fff;border-radius:12px;padding:34px 30px;margin-bottom:32px;box-shadow:0 2px 8px rgba(15,15,35,.08),0 10px 30px rgba(15,15,35,.06);border-left:4px solid #4338ca}
+.lead .label{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:#4338ca;font-weight:700;margin-bottom:12px}
+.lead h2{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:800;line-height:1.2;margin-bottom:14px;color:#0f0f23}
+.lead p{color:#334155;font-size:1.02rem;margin-bottom:12px}
+.lead .source{font-size:.82rem;color:#64748b;margin-top:14px}
+.lead .source a{color:#4338ca;text-decoration:none;font-weight:500}
+.section{background:#fff;border-radius:12px;padding:28px 30px;margin-bottom:24px;box-shadow:0 1px 3px rgba(15,15,35,.06),0 4px 14px rgba(15,15,35,.04)}
+.section h3{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;line-height:1.2;margin-bottom:16px;color:#0f0f23;padding-bottom:10px;border-bottom:2px solid #e0e7ff}
+.story{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid #f1f5f9}
+.story:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.story h4{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;line-height:1.3;margin-bottom:6px;color:#1e293b}
+.story p{color:#475569;font-size:.94rem;margin-bottom:6px}
+.story .source{font-size:.78rem;color:#94a3b8}
+.story .source a{color:#4338ca;text-decoration:none}
+.story .source a:hover{text-decoration:underline}
+.quick-hits{background:#eef2ff;border-radius:12px;padding:26px 30px;margin-bottom:24px}
+.quick-hits h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#312e81;margin-bottom:14px}
+.quick-hits ul{list-style:none}
+.quick-hits li{padding:10px 0;border-bottom:1px solid #c7d2fe;color:#334155;font-size:.92rem}
 .quick-hits li:last-child{border-bottom:none}
-.quick-hits li strong{color:#1a1a2e}
-.footer{text-align:center;padding:30px 20px;color:#999;font-size:.8rem}
-.footer a{color:#7c3aed;text-decoration:none}
+.quick-hits li a{color:#4338ca;font-weight:600;text-decoration:none}
+.footer{text-align:center;padding:32px 24px 40px;color:#64748b;font-size:.86rem;background:#fff;border-top:1px solid #e2e8f0}
+.footer a{color:#4338ca;text-decoration:none;font-weight:600}
+@media (max-width:640px){.header h1{font-size:2.2rem}.lead h2{font-size:1.45rem}.section h3{font-size:1.25rem}.container{padding:28px 16px 40px}.lead,.section{padding:24px 20px}}
 </style>
 </head>
 <body>
-<div class="header">
+
+<div class="ticker-wrap">
+<div class="ticker">
+<span class="item"><span class="label">S&amp;P 500</span>7,041.28 <span class="up">+0.26%</span></span>
+<span class="item"><span class="label">Nasdaq</span>24,102.70 <span class="up">+0.36%</span></span>
+<span class="item"><span class="label">Dow</span>48,578.72 <span class="up">+0.24%</span></span>
+<span class="item"><span class="label">Bitcoin</span>$75,540 <span class="up">+1.40%</span></span>
+<span class="item"><span class="label">Gold</span>$4,798 <span class="up">+0.21%</span></span>
+<span class="item"><span class="label">Oil (WTI)</span>$93.47 <span class="up">+3.90%</span></span>
+</div>
+</div>
+
+<header class="header">
+<div class="kicker">Deep Dive · Tech &amp; AI</div>
+<h1>The Compute Wars</h1>
+<p class="tagline">Silicon, capital, and the new geopolitics of intelligence.</p>
+<p class="date">Friday · April 17, 2026</p>
 <a href="daily-newsletter.html" class="back-link">← Back to The Morning Wire</a>
-<h1>Tech & AI Deep Dive</h1>
-<div class="subtitle">Thursday, April 16, 2026</div>
+</header>
+
+<main class="container">
+
+<section class="numbers">
+<h2>By the Numbers</h2>
+<div class="numbers-grid">
+<div class="num-item"><div class="val">$300B</div><div class="lbl">Global VC funding Q1 2026 — an all-time high</div></div>
+<div class="num-item"><div class="val">$852B</div><div class="lbl">OpenAI's latest valuation after $122B round</div></div>
+<div class="num-item"><div class="val">88%</div><div class="lbl">Of organizations now using AI in some form</div></div>
+<div class="num-item"><div class="val">20%</div><div class="lbl">Of companies capturing 75% of AI's gains</div></div>
+</div>
+</section>
+
+<section class="lead">
+<div class="label">Lead Story</div>
+<h2>OpenAI's $20B+ Cerebras bet is really a bet on escape velocity</h2>
+<p>The numbers coming out of the OpenAI–Cerebras deal keep getting larger. What was initially reported as a roughly $10B commitment is now confirmed at double that — and the contract may come with equity in the wafer-scale chipmaker. Cerebras, for its part, is rushing to a public listing as early as today at a targeted $35B+ valuation, a 60% premium over its February mark.</p>
+<p>Read together, the two moves are the clearest signal yet that frontier AI labs view compute not as a cost line but as a strategic moat. OpenAI is already Nvidia's largest single customer; locking in Cerebras — whose wafer-scale chips trade lower flexibility for raw throughput — gives Sam Altman a second, differentiated supply that also inconveniences Microsoft (Nvidia-heavy) and anyone else hoping to catch up.</p>
+<p>The counter-signal: enterprise capture. PwC's 2026 AI performance study finds that just 20% of firms are capturing three-quarters of the economic gains from AI — and those leaders are spending on growth, not productivity. The gap is widening, not narrowing.</p>
+<p class="source">Sources: <a href="https://techstartups.com/2026/04/16/top-tech-news-today-april-16-2026/">Tech Startups</a> · <a href="https://www.pwc.com/gx/en/news-room/press-releases/2026/pwc-2026-ai-performance-study.html">PwC</a></p>
+</section>
+
+<section class="section">
+<h3>Silicon &amp; Infrastructure</h3>
+
+<div class="story">
+<h4>Cerebras races to IPO at $35B+ valuation</h4>
+<p>The wafer-scale chip maker could price as soon as Friday, aiming to raise more than $3B. At the midpoint, it would be one of the ten largest US tech IPOs since the pandemic.</p>
+<p class="source">Source: <a href="https://techstartups.com/2026/04/16/top-tech-news-today-april-16-2026/">Tech Startups</a></p>
 </div>
 
-<div class="container">
-<div class="byline">The Morning Wire — Tech & AI Edition</div>
-
-<div class="numbers-bar">
-<div class="stat"><div class="val">$297B</div><div class="lbl">Q1 VC Funding</div></div>
-<div class="stat"><div class="val">80%</div><div class="lbl">AI Share of VC</div></div>
-<div class="stat"><div class="val">16%</div><div class="lbl">Snap Workforce Cut</div></div>
+<div class="story">
+<h4>Sygaldry Technologies raises $105M Series A for quantum-accelerated AI servers</h4>
+<p>The deal adds to a growing subcategory — specialized silicon built around specific layers of the model stack, rather than general-purpose accelerators.</p>
+<p class="source">Source: <a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/">Crunchbase</a></p>
 </div>
 
-<div class="lead">
-<div class="tag">Lead Story</div>
-<h2>Snap Eliminates 1,000 Jobs as AI Reshapes Silicon Valley Workforces</h2>
-<p>Snap CEO Evan Spiegel announced the elimination of roughly 1,000 roles and the closure of over 300 open positions — representing 16% of the company's workforce — in what may become the defining restructuring story of 2026. Spiegel attributed the cuts directly to AI advances that reduce repetitive tasks and boost velocity across Snapchat+ development, ad platforms, and infrastructure.</p>
-<p>The restructuring is projected to save more than $500 million by the second half of 2026, signaling a new era where AI-driven efficiency doesn't just augment teams but replaces them entirely. The move follows similar patterns at Google, Meta, and Amazon, where AI tools have quietly absorbed tasks previously handled by mid-level engineers and content moderators.</p>
-<p>The broader question now looming over Silicon Valley: how many other companies are preparing similar cuts behind closed doors?</p>
-<div class="source">Source: <a href="https://techstartups.com/2026/04/16/top-tech-news-today-april-16-2026/">Tech Startups</a></div>
+<div class="story">
+<h4>nEye.ai lands $80M Series C for optical circuit switching</h4>
+<p>Optical switching is emerging as the bottleneck-breaker for hyperscale AI data centers, where electrical interconnects can no longer keep up with GPU-to-GPU bandwidth demands.</p>
+<p class="source">Source: <a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/">Crunchbase</a></p>
+</div>
+</section>
+
+<section class="section">
+<h3>Models &amp; Competition</h3>
+
+<div class="story">
+<h4>Anthropic leads the model leaderboard, xAI and Google close behind</h4>
+<p>As of March, Anthropic's Claude Opus 4.6 sits at the top of expert-benchmark tables, with xAI, Google's Gemini 3.1 Pro and OpenAI in a tight cluster behind. Chinese models from DeepSeek and Alibaba are only modestly behind the US frontier — a data point that reinforces why Washington sees compute as a national-security issue.</p>
+<p class="source">Source: <a href="https://www.technologyreview.com/2026/04/13/1135675/want-to-understand-the-current-state-of-ai-check-out-these-charts/">MIT Technology Review</a></p>
 </div>
 
-<div class="section-title">AI Models & Breakthroughs</div>
-
-<div class="card">
-<h3>Tesla Surges 8% After AI5 Chip Hits Major Engineering Milestone</h3>
-<p>Tesla shares jumped nearly 8% after Elon Musk revealed on X that the company's AI5 chip has hit a critical engineering milestone and is nearing production. The company plans two new "Terafab" facilities in Austin, Texas — one for vehicle and robot chips, another for orbital data centers — in partnership with SpaceX, with Intel now joining the ambitious project. The AI5 chip is designed to power Tesla's autonomous driving and humanoid robot programs at unprecedented scale.</p>
-<div class="source">Source: <a href="https://techstartups.com/2026/04/16/top-tech-news-today-april-16-2026/">Tech Startups</a></div>
+<div class="story">
+<h4>Stanford's AI Index 2026: the world adopted AI faster than the internet</h4>
+<p>Four in five university students now use AI regularly. Eighty-eight percent of organizations report using it in at least one function. The Index's authors call it "the fastest diffusion of any general-purpose technology ever measured."</p>
+<p class="source">Source: <a href="https://spectrum.ieee.org/state-of-ai-index-2026">IEEE Spectrum</a></p>
 </div>
 
-<div class="card">
-<h3>NVIDIA Releases Lyra 2.0: Persistent, Explorable 3D Worlds</h3>
-<p>NVIDIA released Lyra 2.0, a breakthrough system enabling persistent, explorable 3D worlds that solves the long-standing drift and consistency issues in AI-generated environments. The technology marks a significant step toward AI-generated virtual worlds that maintain coherence across user sessions, with major implications for gaming, simulation, and enterprise applications.</p>
-<div class="source">Source: <a href="https://www.cryptointegrat.com/p/ai-news-april-16-2026">Crypto Integrated AI News</a></div>
+<div class="story">
+<h4>Nature: human scientists still trounce the best AI agents on complex tasks</h4>
+<p>A counter-narrative to the hype. On a new benchmark of open-ended scientific problems, experienced researchers significantly outperform frontier agents — for now.</p>
+<p class="source">Source: <a href="https://www.nature.com/articles/d41586-026-01199-z">Nature</a></p>
+</div>
+</section>
+
+<section class="section">
+<h3>Funding &amp; Deals</h3>
+
+<div class="story">
+<h4>Q1 2026 shatters venture records: $300B across 6,000 startups</h4>
+<p>More than 63% of the quarter's capital flowed to just four companies: OpenAI ($122B), Anthropic ($30B), xAI ($20B), and Waymo ($16B). Everyone else is fighting for scraps of a still-record-large pile.</p>
+<p class="source">Source: <a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/">Crunchbase News</a></p>
 </div>
 
-<div class="card">
-<h3>AI Energy Breakthrough: 100x Reduction While Boosting Accuracy</h3>
-<p>Researchers unveiled a radically more efficient neuro-symbolic AI approach that could slash AI energy use by up to 100x while actually improving accuracy. The technique combines traditional neural networks with symbolic reasoning, mirroring how humans break problems into steps and categories. If validated at scale, it could dramatically reduce the environmental toll of AI infrastructure.</p>
-<div class="source">Source: <a href="https://www.sciencedaily.com/releases/2026/04/260405003952.htm">ScienceDaily</a></div>
+<div class="story">
+<h4>Manycore Tech pops 187% on Hong Kong IPO debut</h4>
+<p>The Hangzhou-based firm raised $156M and is pivoting from consumer software to selling AI training data for robot makers — a wedge into the embodied-AI data economy.</p>
+<p class="source">Source: <a href="https://techstartups.com/2026/04/16/top-tech-news-today-april-16-2026/">Tech Startups</a></p>
 </div>
 
-<div class="section-title">Funding & Industry</div>
+<div class="story">
+<h4>Glydways raises $170M Series C for autonomous guideway networks</h4>
+<p>The largest mobility round of the month goes to a company building small, on-demand autonomous vehicles on dedicated infrastructure — a bet that robotaxis on public roads will be beaten to market by private guideways.</p>
+<p class="source">Source: <a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/">Crunchbase News</a></p>
+</div>
+</section>
 
-<div class="card">
-<h3>Q1 2026 Venture Funding Shatters All Records at $297 Billion</h3>
-<p>Global startup investment hit $297 billion in Q1 2026, a staggering 2.5x increase over the $118 billion raised in the prior quarter. AI accounted for $242 billion — 80% of total global venture funding, up from 55% in Q1 2025. The numbers reflect an industry that has gone all-in on artificial intelligence, with capital flowing into AI infrastructure, vertical SaaS, and domain-specific models at an unprecedented clip.</p>
-<div class="source">Source: <a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/">Crunchbase</a> | <a href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/">TechCrunch</a></div>
+<section class="section">
+<h3>Policy &amp; Governance</h3>
+
+<div class="story">
+<h4>GSA aims to automate a million work hours with AI after 40% workforce cut</h4>
+<p>The General Services Administration, having lost nearly 40% of its workforce this year, is turning to AI to backfill capacity — a live experiment in what happens when government meets agent automation.</p>
+<p class="source">Source: <a href="https://federalnewsnetwork.com/artificial-intelligence/2026/04/gsa-looks-to-automate-a-million-work-hours-after-losing-nearly-40-of-its-workforce/">Federal News Network</a></p>
 </div>
 
-<div class="card">
-<h3>Google Chrome Gets AI Mode Upgrade for Seamless Web Exploration</h3>
-<p>Google released major upgrades to AI Mode in Chrome, transforming how users interact with the web. The new experience provides fast, seamless AI assistance while browsing without switching tabs — a direct challenge to standalone AI assistants and a signal that the browser wars are now AI wars.</p>
-<div class="source">Source: <a href="https://blog.google/products-and-platforms/products/search/ai-mode-chrome/">Google Blog</a></div>
+<div class="story">
+<h4>EU regulators still denied access to Anthropic "Mythos"</h4>
+<p>European authorities have been unable to obtain evaluation access to Anthropic's internal research model, raising questions about how the EU AI Act will be enforced against frontier labs in practice.</p>
+<p class="source">Source: <a href="https://www.csoonline.com/article/4158560/european-authorities-without-access-to-anthropics-ai-for-hacking.html">CSO Online</a></p>
+</div>
+</section>
+
+<section class="section">
+<h3>Open Source &amp; Tools</h3>
+
+<div class="story">
+<h4>Mozilla ships Thunderbolt, a self-hosted AI client</h4>
+<p>Open-source, designed for organizations that want to own their inference stack. Available today on GitHub — Mozilla's most ambitious move into the AI tooling space since it spun up Mozilla.ai.</p>
+<p class="source">Source: <a href="https://techstartups.com/2026/04/16/top-tech-news-today-april-16-2026/">Tech Startups</a></p>
 </div>
 
-<div class="card">
-<h3>Notable April Funding Rounds</h3>
-<p>Wealth.com raised $65M Series B led by Charles Schwab for AI-driven estate planning. STORM Therapeutics secured $56M Series C from Pfizer Ventures for drug discovery. Solidroad closed a $25M Series A from Hedosophia and Y Combinator for AI customer-support QA. The deals reflect sharp investor conviction in AI-native infrastructure and vertical-specific platforms.</p>
-<div class="source">Source: <a href="https://techstartups.com/2026/04/16/top-startup-and-tech-funding-news-april-16-2025/">Tech Startups</a></div>
+<div class="story">
+<h4>Curity pitches runtime authorization for AI agents</h4>
+<p>The IAM vendor argues identity-and-access management needs to be rebuilt for agents that act on a user's behalf with fluid, time-boxed permissions.</p>
+<p class="source">Source: <a href="https://www.csoonline.com/article/4158847/curity-looks-to-reinvent-iam-with-runtime-authorization-for-ai-agents.html">CSO Online</a></p>
 </div>
-
-<div class="section-title">Research & Frontiers</div>
-
-<div class="card">
-<h3>NVIDIA Isaac GR00T Models Push Physical AI Forward</h3>
-<p>During National Robotics Week, NVIDIA showcased new Isaac GR00T open models enabling robots to understand natural language instructions and perform complex, multistep tasks using vision-language-action reasoning. The new Cosmos world models for generating synthetic training data help robotic systems learn more efficiently, accelerating the path from lab to factory floor.</p>
-<div class="source">Source: <a href="https://blogs.nvidia.com/blog/national-robotics-week-2026/">NVIDIA Blog</a></div>
-</div>
-
-<div class="card">
-<h3>Forrester: AI Is No Longer Confined to Digital Workflows</h3>
-<p>Forrester's Top 10 Emerging Technologies for 2026 report highlights a pivotal shift: AI is moving from digital experimentation to real-world physical transformation. The report identifies agentic AI, digital twins, and spatial computing as technologies ready for mainstream enterprise adoption this year.</p>
-<div class="source">Source: <a href="https://finance.yahoo.com/sectors/technology/articles/forresters-top-10-emerging-technologies-063900629.html">Yahoo Finance / Forrester</a></div>
-</div>
+</section>
 
 <div class="quick-hits">
 <h3>Quick Hits</h3>
 <ul>
-<li><strong>Global Quantum + AI Challenge launched</strong> — $200,000 in prizes across five enterprise challenges to accelerate practical quantum computing use cases. <a href="https://thequantuminsider.com/2026/04/16/2026-global-quantum-and-ai-challenge-launches-to-accelerate-practical-enterprise-use-cases/" style="color:#7c3aed;text-decoration:none">Source</a></li>
-<li><strong>Stanford AI Index 2026 released</strong> — 12 key takeaways show AI models achieving breakthrough scientific results but at mounting environmental cost. <a href="https://hai.stanford.edu/news/inside-the-ai-index-12-takeaways-from-the-2026-report" style="color:#7c3aed;text-decoration:none">Source</a></li>
-<li><strong>Human scientists still beat AI agents</strong> — Nature study finds human researchers outperform the best AI agents on complex scientific tasks, though the gap is narrowing. <a href="https://www.nature.com/articles/d41586-026-01199-z" style="color:#7c3aed;text-decoration:none">Source</a></li>
-<li><strong>USGS unveils AI drought prediction</strong> — New technology predicts drought conditions up to 90 days in advance, potentially saving billions in agricultural losses. <a href="https://www.sciencedaily.com/" style="color:#7c3aed;text-decoration:none">Source</a></li>
-<li><strong>Google's TurboQuant presented at ICLR 2026</strong> — New algorithm dramatically reduces memory overhead in vector quantization for large-scale AI models. <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" style="color:#7c3aed;text-decoration:none">Source</a></li>
-<li><strong>U.S. government AI surveillance concerns</strong> — New report details how AI supercharges federal surveillance capabilities, raising civil liberties alarms. <a href="https://www.usnews.com/news/u-s-news-decision-points/articles/2026-04-16/ai-spy-americans-how-ai-supercharges-federal-surveillance" style="color:#7c3aed;text-decoration:none">Source</a></li>
+<li>OpenAI acquires TBPN (Technology Business Programming Network), pushing deeper into media. <a href="https://radicaldatascience.wordpress.com/2026/04/15/ai-news-briefs-bulletin-board-for-april-2026/">More →</a></li>
+<li>University of Chicago, Microsoft and NVIDIA partner on Midwest AI accelerator with up to $350K credits per startup. <a href="https://polsky.uchicago.edu/2026/04/14/university-of-chicago-announces-partnership-with-ai-research-commons-microsoft-nvidia-to-accelerate-midwest-ai-startups/">More →</a></li>
+<li>Wealth.com raises $65M Series B for AI-driven estate planning. <a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/">More →</a></li>
+<li>STORM Therapeutics closes $56M Series C for AI-led drug discovery. <a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/">More →</a></li>
+<li>PwC: just 20% of companies capture three-quarters of AI's realized economic gains. <a href="https://www.pwc.com/gx/en/news-room/press-releases/2026/pwc-2026-ai-performance-study.html">More →</a></li>
 </ul>
 </div>
 
-</div>
+</main>
 
-<div class="footer">
-<a href="daily-newsletter.html">← Back to The Morning Wire</a><br><br>
-The Morning Wire — Tech & AI Edition — Thursday, April 16, 2026
-</div>
+<footer class="footer">
+<p><a href="daily-newsletter.html">← Back to The Morning Wire</a></p>
+<p style="margin-top:8px">Tech &amp; AI Deep Dive · Friday, April 17, 2026</p>
+</footer>
+
 </body>
 </html>
