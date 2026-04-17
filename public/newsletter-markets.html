@@ -1,439 +1,139 @@
-<!DOCTYPE html>
+<\!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Morning Wire: Markets & Economy Edition - April 11, 2026</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 760px;
-            margin: 0 auto;
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .back-link {
-            display: block;
-            padding: 16px 24px;
-            background: linear-gradient(135deg, #052e16 0%, #166534 100%);
-            color: #fff;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: opacity 0.2s;
-        }
-
-        .back-link:hover {
-            opacity: 0.9;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #052e16 0%, #166534 100%);
-            color: white;
-            padding: 40px 24px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .header .subtitle {
-            font-size: 16px;
-            opacity: 0.95;
-            margin-bottom: 4px;
-        }
-
-        .header .date {
-            font-size: 14px;
-            opacity: 0.85;
-        }
-
-        .content {
-            padding: 40px 24px;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            color: #052e16;
-            margin-bottom: 20px;
-            font-weight: 700;
-            border-bottom: 2px solid #166534;
-            padding-bottom: 12px;
-        }
-
-        .snapshot {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-bottom: 20px;
-        }
-
-        .snapshot-card {
-            background: #f9faf8;
-            padding: 16px;
-            border-radius: 6px;
-            border-left: 4px solid #166534;
-        }
-
-        .snapshot-label {
-            font-size: 12px;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-
-        .snapshot-value {
-            font-size: 20px;
-            font-weight: 600;
-            color: #052e16;
-            margin-bottom: 4px;
-        }
-
-        .snapshot-change {
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        .up {
-            color: #16a34a;
-        }
-
-        .down {
-            color: #dc2626;
-        }
-
-        .story {
-            background: #fafafa;
-            padding: 24px;
-            margin-bottom: 16px;
-            border-radius: 6px;
-            border-left: 4px solid #e5e7eb;
-            transition: border-left-color 0.2s;
-        }
-
-        .story:hover {
-            border-left-color: #166534;
-            background: #f5f5f5;
-        }
-
-        .story.lead {
-            background: white;
-            border: 2px solid #166534;
-            border-left-width: 4px;
-            padding: 28px;
-        }
-
-        .story-headline {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            color: #052e16;
-            margin-bottom: 12px;
-            line-height: 1.4;
-            font-weight: 700;
-        }
-
-        .story.lead .story-headline {
-            font-size: 21px;
-        }
-
-        .story-text {
-            font-size: 15px;
-            color: #555;
-            margin-bottom: 12px;
-            line-height: 1.7;
-        }
-
-        .story-source {
-            font-size: 12px;
-            color: #999;
-        }
-
-        .story-source a {
-            color: #166534;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .story-source a:hover {
-            text-decoration: underline;
-        }
-
-        .quick-hits {
-            background: #f0fdf4;
-            padding: 20px;
-            border-radius: 6px;
-            border-left: 4px solid #16a34a;
-        }
-
-        .quick-hits h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 16px;
-            color: #052e16;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-
-        .quick-hits ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .quick-hits li {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .quick-hits li:before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: #16a34a;
-            font-weight: bold;
-        }
-
-        .footer {
-            background: #f9faf8;
-            padding: 24px;
-            border-top: 1px solid #e5e7eb;
-            text-align: center;
-            font-size: 13px;
-            color: #666;
-        }
-
-        .footer-link {
-            display: inline-block;
-            margin-bottom: 12px;
-        }
-
-        .footer-link a {
-            color: #166534;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .footer-link a:hover {
-            text-decoration: underline;
-        }
-
-        .copyright {
-            margin-top: 12px;
-            font-size: 12px;
-            color: #999;
-        }
-
-        @media (max-width: 600px) {
-            .snapshot {
-                grid-template-columns: 1fr;
-            }
-
-            .header h1 {
-                font-size: 24px;
-            }
-
-            .section-title {
-                font-size: 20px;
-            }
-
-            .story-headline {
-                font-size: 16px;
-            }
-
-            .story.lead .story-headline {
-                font-size: 18px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Markets & Economy Deep Dive — The Morning Wire</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#f8f9fa;color:#1a1a2e}
+.header{background:linear-gradient(135deg,#052e16,#166534);padding:32px 20px 24px;text-align:center}
+.header h1{font-family:'Playfair Display',serif;color:#fff;font-size:2rem;font-weight:900}
+.header .subtitle{color:rgba(255,255,255,.6);font-size:.85rem;margin-top:6px}
+.back-link{display:inline-block;color:rgba(255,255,255,.7);text-decoration:none;font-size:.82rem;margin-bottom:10px;font-weight:500}
+.back-link:hover{color:#fff}
+.container{max-width:760px;margin:0 auto;padding:20px 16px}
+.byline{text-align:center;color:#666;font-size:.82rem;margin-bottom:24px}
+.market-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.market-box{background:#fff;border-radius:10px;padding:16px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.market-box .name{font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:#666;margin-bottom:4px}
+.market-box .price{font-size:1.2rem;font-weight:800;color:#1a1a2e}
+.market-box .change{font-size:.8rem;font-weight:600;margin-top:2px}
+.market-box .up{color:#16a34a}
+.market-box .down{color:#dc2626}
+.lead{background:#fff;border-radius:12px;padding:28px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.08);border-left:4px solid #16a34a}
+.lead .tag{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:#16a34a;font-weight:700;margin-bottom:8px}
+.lead h2{font-family:'Playfair Display',serif;font-size:1.5rem;line-height:1.3;margin-bottom:12px}
+.lead p{color:#4a4a6a;line-height:1.7;font-size:.93rem;margin-bottom:10px}
+.section-title{font-family:'Playfair Display',serif;font-size:1.15rem;color:#052e16;margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid #e5e7eb}
+.card{background:#fff;border-radius:10px;padding:20px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.card h3{font-size:.95rem;font-weight:700;margin-bottom:6px;color:#1a1a2e}
+.card p{color:#4a4a6a;font-size:.88rem;line-height:1.6}
+.card .source{font-size:.75rem;color:#16a34a;margin-top:8px}
+.card .source a{color:#16a34a;text-decoration:none}
+.card .source a:hover{text-decoration:underline}
+.quick-hits{background:#dcfce7;border-radius:12px;padding:24px;margin:24px 0}
+.quick-hits h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:14px;color:#052e16}
+.quick-hits ul{list-style:none;padding:0}
+.quick-hits li{padding:8px 0;border-bottom:1px solid rgba(0,0,0,.06);font-size:.88rem;color:#4a4a6a;line-height:1.5}
+.quick-hits li:last-child{border-bottom:none}
+.quick-hits li strong{color:#1a1a2e}
+.footer{text-align:center;padding:30px 20px;color:#999;font-size:.8rem}
+.footer a{color:#16a34a;text-decoration:none}
+</style>
 </head>
 <body>
-    <div class="container">
-        <!-- Back Link -->
-        <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
+<div class="header">
+<a href="daily-newsletter.html" class="back-link">← Back to The Morning Wire</a>
+<h1>Markets & Economy Deep Dive</h1>
+<div class="subtitle">Thursday, April 16, 2026</div>
+</div>
 
-        <!-- Header -->
-        <div class="header">
-            <h1>The Morning Wire</h1>
-            <div class="subtitle">Markets & Economy Edition</div>
-            <div class="date">Saturday, April 11, 2026</div>
-        </div>
+<div class="container">
+<div class="byline">The Morning Wire — Markets Edition</div>
 
-        <!-- Main Content -->
-        <div class="content">
-            <!-- Market Snapshot Section -->
-            <div class="section">
-                <h2 class="section-title">Market Snapshot</h2>
-                <p style="font-size: 14px; color: #666; margin-bottom: 20px;">April 10 Close</p>
+<div class="market-grid">
+<div class="market-box"><div class="name">S&P 500</div><div class="price">7,041.28</div><div class="change up">+0.26%</div></div>
+<div class="market-box"><div class="name">Nasdaq</div><div class="price">24,102.70</div><div class="change up">+0.36%</div></div>
+<div class="market-box"><div class="name">Dow Jones</div><div class="price">48,578.72</div><div class="change up">+0.24%</div></div>
+<div class="market-box"><div class="name">Gold</div><div class="price">$4,821/oz</div><div class="change up">+0.63%</div></div>
+<div class="market-box"><div class="name">Oil (WTI)</div><div class="price">$94.62</div><div class="change up">+3.65%</div></div>
+<div class="market-box"><div class="name">Bitcoin</div><div class="price">$74,786</div><div class="change up">+0.67%</div></div>
+</div>
 
-                <div class="snapshot">
-                    <div class="snapshot-card">
-                        <div class="snapshot-label">S&P 500</div>
-                        <div class="snapshot-value">6,816.89</div>
-                        <div class="snapshot-change"><span class="down">▼ 0.11% daily</span> | <span class="up">▲ 3.6% weekly</span></div>
-                    </div>
-                    <div class="snapshot-card">
-                        <div class="snapshot-label">Nasdaq</div>
-                        <div class="snapshot-value">22,902.90</div>
-                        <div class="snapshot-change"><span class="up">▲ 0.35% daily</span> | <span class="up">▲ 4.7% weekly</span></div>
-                    </div>
-                    <div class="snapshot-card">
-                        <div class="snapshot-label">Dow Jones</div>
-                        <div class="snapshot-value">47,916.57</div>
-                        <div class="snapshot-change"><span class="down">▼ 0.56% daily (-269 pts)</span> | <span class="up">▲ 3.0% weekly</span></div>
-                    </div>
-                    <div class="snapshot-card">
-                        <div class="snapshot-label">Brent Crude</div>
-                        <div class="snapshot-value">$97.78/bbl</div>
-                        <div class="snapshot-change"><span class="up">▲ 4.3%</span></div>
-                    </div>
-                    <div class="snapshot-card">
-                        <div class="snapshot-label">Gold</div>
-                        <div class="snapshot-value">$4,749/oz</div>
-                        <div class="snapshot-change"><span class="up">▲ 2.0% weekly</span></div>
-                    </div>
-                    <div class="snapshot-card">
-                        <div class="snapshot-label">Bitcoin</div>
-                        <div class="snapshot-value">$72,204</div>
-                        <div class="snapshot-change"><span class="up">▲ 0.85%</span></div>
-                    </div>
-                </div>
-            </div>
+<div class="lead">
+<div class="tag">Lead Story</div>
+<h2>S&P 500 Hits Record as Nasdaq Posts Longest Winning Streak Since 2009</h2>
+<p>Wall Street reached new heights Thursday as the S&P 500 closed at a record 7,041.28, gaining 0.26%, while the Nasdaq surged to 24,102.70 for its 12th consecutive positive session — the longest daily winning streak since July 2009. The Dow Jones added 115 points to close at 48,578.72.</p>
+<p>The rally was fueled by President Trump's announcement of a 10-day Israel-Lebanon ceasefire, which eased geopolitical risk premiums that have weighed on markets for weeks. This week alone, the S&P 500 and Nasdaq have risen 3.3% and 5.2% respectively, while the Dow has advanced more than 1%.</p>
+<p>Leading the Dow's gains were Verizon (+3.93%), Cisco Systems (+2.56%), and IBM (+2.41%), while Boeing (-2.09%), Merck (-2.08%), and Johnson & Johnson (-1.77%) lagged.</p>
+<div class="source">Source: <a href="https://www.thestreet.com/latest-news/stock-market-today-apr-16-2026-futures-rise-after-sp-nasdaq-hit-record-highs">TheStreet</a> | <a href="https://www.cnbc.com/2026/04/15/stock-market-today-live-updates.html">CNBC</a></div>
+</div>
 
-            <!-- Lead Story -->
-            <div class="section">
-                <div class="story lead">
-                    <div class="story-headline">Wall Street Posts Best Week Since November on Ceasefire Rally</div>
-                    <div class="story-text">
-                        Despite a modest Friday pullback, the S&P 500 surged 3.6% for the week, Nasdaq rose 4.7%, and Dow gained 3%. The week was powered by the US-Iran ceasefire announced April 7, which sparked a massive relief rally — the Dow jumped 1,300 points that day alone, its best since April 2025. Semiconductor stocks including Nvidia and Broadcom led Nasdaq gains.
-                    </div>
-                    <div class="story-source">Source: <a href="https://www.cnbc.com/2026/04/09/stock-market-today-live-updates.html" target="_blank">CNBC</a></div>
-                </div>
-            </div>
+<div class="section-title">Energy & Commodities</div>
 
-            <!-- Stories Section -->
-            <div class="section">
-                <h2 class="section-title">Market Stories</h2>
+<div class="card">
+<h3>Oil Surges Past $94 as Iran Doubts Resurface and Inventories Plunge</h3>
+<p>WTI crude oil rose as much as 4% to above $95 per barrel as doubts resurfaced over ongoing US-Iran negotiations, with peace talks now focused on securing a temporary memorandum to avoid renewed conflict. Adding fuel to the fire: US crude inventories fell by 9.13 million barrels last week, far exceeding analysts' expectations for a modest 154,000-barrel build. Brent crude reached $97.06, about $31 above its price a year ago.</p>
+<div class="source">Source: <a href="https://fortune.com/article/price-of-oil-04-16-2026/">Fortune</a> | <a href="https://tradingeconomics.com/commodity/crude-oil">Trading Economics</a></div>
+</div>
 
-                <div class="story">
-                    <div class="story-headline">Oil Volatile Near $98 as Strait of Hormuz Remains Effectively Closed</div>
-                    <div class="story-text">
-                        Brent crude at $97.78, up $31 from a year ago. Despite ceasefire, Iran has not fully reopened the Strait of Hormuz — only 2 ships passed through on April 11, none carrying oil. Saudi Arabia reports attacks reduced production capacity by 600K bpd and East-West Pipeline throughput by 700K bpd.
-                    </div>
-                    <div class="story-source">Source: <a href="https://fortune.com/article/price-of-oil-04-10-2026/" target="_blank">Fortune</a></div>
-                </div>
+<div class="card">
+<h3>Strait of Hormuz Remains the Market's Biggest Wild Card</h3>
+<p>Physical crude oil prices have surged to record levels near $150/bbl in spot markets — far above futures prices — as the Strait of Hormuz supply disruption continues to ripple through global energy markets. The IEA forecasts a drop in consumption this year as the conflict pushes up fuel costs, while some analysts warn oil could spike to $200 if infrastructure damage worsens.</p>
+<div class="source">Source: <a href="https://www.devere-group.com/is-oil-expected-to-go-up-or-down-experts-warn-peak-prices-yet-to-come/">deVere Group</a> | <a href="https://www.iea.org/reports/oil-market-report-april-2026">IEA</a></div>
+</div>
 
-                <div class="story">
-                    <div class="story-headline">Gold Stabilizes at $4,749 After Volatile Week</div>
-                    <div class="story-text">
-                        Gold maintained its third consecutive weekly gain of ~2%, settling at $4,749/oz. Prices have been driven by geopolitical uncertainty and dollar weakness as US-Iran ceasefire talks weaken the greenback.
-                    </div>
-                    <div class="story-source">Source: <a href="https://sundayguardianlive.com/business/gold-rate-today-11-april-2026-gold-stabilizes-at-4749-after-volatile-week-domestic-rates-recover-to-152-lakh10g-check-city-wise-price-of-24k-22k-18k-183064/" target="_blank">Sunday Guardian Live</a></div>
-                </div>
+<div class="card">
+<h3>Gold Holds Above $4,800 as Safe-Haven Demand Persists</h3>
+<p>Gold edged higher to $4,821 per ounce, up 0.63% on the day and $1,489 higher than one year ago. The precious metal continues to benefit from safe-haven demand amid Middle East tensions, persistent inflation fears, and central bank buying. The ceasefire announcement provided a slight headwind, but analysts note structural demand remains robust.</p>
+<div class="source">Source: <a href="https://fortune.com/article/current-price-of-gold-04-16-2026/">Fortune</a></div>
+</div>
 
-                <div class="story">
-                    <div class="story-headline">Consumer Sentiment Plunges as Inflation Expectations Surge</div>
-                    <div class="story-text">
-                        Consumer sentiment slumped 10.7% in April. Year-ahead inflation expectations surged to 4.8% from 3.8% in March, the highest in years. Rising oil prices and geopolitical uncertainty are weighing heavily on consumers.
-                    </div>
-                    <div class="story-source">Source: <a href="https://finance.yahoo.com/news/live/stock-market-today-dow-sp-500-nasdaq-futures-inch-down-as-strait-of-hormuz-remains-closed-ahead-of-peace-talks-230420974.html" target="_blank">Yahoo Finance</a></div>
-                </div>
+<div class="section-title">Earnings & Corporate</div>
 
-                <div class="story">
-                    <div class="story-headline">Dow Surges 1,300 Points on Ceasefire Day — Best Day Since April 2025</div>
-                    <div class="story-text">
-                        On April 7, the Dow jumped 1,300 points after the US-Iran ceasefire was announced, with oil crashing and risk assets surging. It was the best single-day performance since April 2025.
-                    </div>
-                    <div class="story-source">Source: <a href="https://www.cnbc.com/2026/04/07/stock-market-today-live-updates.html" target="_blank">CNBC</a></div>
-                </div>
+<div class="card">
+<h3>Abbott Labs Falls 5% on Flu-Season Revenue Miss</h3>
+<p>Abbott Laboratories shares dropped 5% after reporting results that fell short of expectations due to a weaker-than-anticipated flu season. The diagnostics and medical device maker saw lower demand for respiratory testing kits, dragging overall revenue below analyst estimates despite strength in other business segments.</p>
+<div class="source">Source: <a href="https://www.fool.com/investing/2026/04/16/stock-market-today-live-coverage/">Motley Fool</a></div>
+</div>
 
-                <div class="story">
-                    <div class="story-headline">Oil Prices Surged Sharply in Q1 2026, EIA Reports</div>
-                    <div class="story-text">
-                        The US Energy Information Administration confirmed crude oil and petroleum prices increased sharply in Q1, driven by the Middle East conflict and Strait of Hormuz disruptions. Brent is up 49% YoY.
-                    </div>
-                    <div class="story-source">Source: <a href="https://www.eia.gov/todayinenergy/detail.php?id=67424" target="_blank">US Energy Information Administration</a></div>
-                </div>
+<div class="card">
+<h3>Charles Schwab Plunges 10% Despite Record Revenue</h3>
+<p>Schwab shares fell sharply despite posting record revenue numbers, as investors focused on margin compression and slower-than-expected client asset growth. The disconnect between top-line strength and stock performance highlights the market's increasingly exacting standards during earnings season.</p>
+<div class="source">Source: <a href="https://www.fool.com/investing/2026/04/16/stock-market-today-live-coverage/">Motley Fool</a></div>
+</div>
 
-                <div class="story">
-                    <div class="story-headline">AI Stocks Continue to Drive Market Returns</div>
-                    <div class="story-text">
-                        Nvidia remains Wall Street's most discussed stock. The Motley Fool predicts two AI stocks will finish 2026 higher. Semiconductor stocks led Nasdaq's 4.7% weekly gain.
-                    </div>
-                    <div class="story-source">Source: <a href="https://finance.yahoo.com/markets/stocks/articles/ai-stock-wall-street-cant-062000518.html" target="_blank">Yahoo Finance</a></div>
-                </div>
+<div class="section-title">Economic Data</div>
 
-                <div class="story">
-                    <div class="story-headline">Markets Eye Weekend Peace Talks for Direction</div>
-                    <div class="story-text">
-                        Futures inched down Friday evening as traders positioned ahead of Saturday's US-Iran talks in Islamabad. The ceasefire's durability and Hormuz reopening remain the key catalysts for next week.
-                    </div>
-                    <div class="story-source">Source: <a href="https://finance.yahoo.com/news/live/stock-market-today-dow-sp-500-nasdaq-futures-inch-down-as-strait-of-hormuz-remains-closed-ahead-of-peace-talks-230420974.html" target="_blank">Yahoo Finance</a></div>
-                </div>
+<div class="card">
+<h3>Unemployment Claims Drop to 207,000 — Labor Market Stays Resilient</h3>
+<p>Weekly jobless claims fell by 11,000 to 207,000, indicating continued strength in the labor market despite elevated oil prices and geopolitical uncertainty. The reading came in below the consensus estimate, reinforcing the narrative that the U.S. economy remains remarkably resilient even as energy costs weigh on consumer spending.</p>
+<div class="source">Source: <a href="https://www.cnbc.com/2026/04/15/stock-market-today-live-updates.html">CNBC</a></div>
+</div>
 
-                <div class="story">
-                    <div class="story-headline">Russell 2000 Posts Strong Weekly Performance</div>
-                    <div class="story-text">
-                        The Russell 2000 ended at 2,636.31, also posting strong weekly gains alongside the broader market rally. The small-cap index benefited from the ceasefire relief and technology sector strength throughout the week.
-                    </div>
-                    <div class="story-source">Source: Market Data</div>
-                </div>
-            </div>
+<div class="card">
+<h3>IMF Releases World Economic Outlook: "Global Economy in the Shadow of War"</h3>
+<p>The International Monetary Fund published its April 2026 World Economic Outlook, titled "Global Economy in the Shadow of War," warning that the Iran conflict and energy price spikes are the dominant risks to global growth. The report downgraded growth forecasts for oil-importing nations while noting windfall gains for energy exporters.</p>
+<div class="source">Source: <a href="https://www.imf.org/en/publications/weo/issues/2026/04/14/world-economic-outlook-april-2026">IMF</a></div>
+</div>
 
-            <!-- Quick Hits Section -->
-            <div class="section">
-                <div class="quick-hits">
-                    <h3>Quick Hits</h3>
-                    <ul>
-                        <li>Best weekly performance for all three major indexes since November</li>
-                        <li>Tech-heavy Nasdaq bolstered by Nvidia and Broadcom gains</li>
-                        <li>Brent crude up 5.09% for the month despite ceasefire-driven pullbacks</li>
-                        <li>Gold's third consecutive week of gains fueled by geopolitical uncertainty</li>
-                        <li>Oil market awaits clarity on Strait of Hormuz reopening timeline</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+<div class="quick-hits">
+<h3>Quick Hits</h3>
+<ul>
+<li><strong>Iran ceasefire boosts market sentiment</strong> — Trump's 10-day Israel-Lebanon ceasefire may ease oil risk premiums, though traders remain cautious on broader Iran deal prospects. <a href="https://finance.yahoo.com/news/live/stock-market-today-sp-500-nasdaq-steady-after-record-high-closes-amid-hopes-for-renewed-iran-truce-230116905.html" style="color:#16a34a;text-decoration:none">Source</a></li>
+<li><strong>Oil companies' windfall profits</strong> — Top 100 oil and gas companies banked $30M+ per hour in the first month of the US-Israeli war in Iran, per The Guardian analysis. <a href="https://www.democracynow.org/2026/4/16/headlines" style="color:#16a34a;text-decoration:none">Source</a></li>
+<li><strong>Stocks wiped out Iran war losses</strong> — Monday's big comeback saw the S&P 500 erase all losses from the initial Iran conflict, with the index now firmly in record territory. <a href="https://www.cnbc.com/2026/04/12/stock-market-today-live-updates.html" style="color:#16a34a;text-decoration:none">Source</a></li>
+<li><strong>US blockades Strait of Hormuz</strong> — Trump ordered a naval blockade against Iran at the Strait of Hormuz, a move that continues to inject volatility into energy markets. <a href="https://finance.yahoo.com/news/live/stock-market-today-dow-sp-500-nasdaq-mixed-after-trump-orders-hormuz-blockade-against-iran-145712025.html" style="color:#16a34a;text-decoration:none">Source</a></li>
+</ul>
+</div>
 
-        <!-- Footer -->
-        <div class="footer">
-            <div class="footer-link">
-                <a href="daily-newsletter.html">← Back to Daily Newsletter</a>
-            </div>
-            <div class="copyright">
-                © 2026 The Morning Wire. All rights reserved.
-            </div>
-        </div>
-    </div>
+</div>
+
+<div class="footer">
+<a href="daily-newsletter.html">← Back to The Morning Wire</a><br><br>
+The Morning Wire — Markets Edition — Thursday, April 16, 2026
+</div>
 </body>
 </html>

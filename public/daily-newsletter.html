@@ -1,398 +1,159 @@
-<!DOCTYPE html>
+<\!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Morning Wire - Daily Newsletter - Saturday, April 11, 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
-            color: #1f2937;
-            line-height: 1.6;
-        }
-
-        header {
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%);
-            color: white;
-            padding: 40px 16px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-
-        header .date {
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 500;
-        }
-
-        header .tagline {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-top: 12px;
-            font-weight: 400;
-        }
-
-        .ticker-wrap {
-            background: #111827;
-            overflow: hidden;
-            padding: 12px 0;
-        }
-
-        .ticker {
-            display: flex;
-            gap: 32px;
-            justify-content: center;
-            flex-wrap: wrap;
-            white-space: nowrap;
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 0 16px;
-        }
-
-        .ticker .item {
-            font-size: 0.82rem;
-            color: rgba(255, 255, 255, 0.85);
-            font-weight: 500;
-        }
-
-        .ticker .item .label {
-            color: rgba(255, 255, 255, 0.5);
-            margin-right: 6px;
-        }
-
-        .ticker .item .up {
-            color: #22c55e;
-        }
-
-        .ticker .item .down {
-            color: #ef4444;
-        }
-
-        .container {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 40px 16px;
-        }
-
-        .top-story {
-            background: white;
-            padding: 32px;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
-            border-left: 4px solid #0f0f23;
-        }
-
-        .top-story h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.75rem;
-            line-height: 1.3;
-            margin-bottom: 16px;
-            color: #0f0f23;
-        }
-
-        .top-story p {
-            color: #4b5563;
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 24px;
-            gap: 12px;
-        }
-
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: #0f0f23;
-        }
-
-        .section-indicator {
-            display: inline-block;
-            width: 4px;
-            height: 28px;
-            border-radius: 2px;
-        }
-
-        .section-indicator.tech {
-            background-color: #7c3aed;
-        }
-
-        .section-indicator.crypto {
-            background-color: #b45309;
-        }
-
-        .section-indicator.markets {
-            background-color: #166534;
-        }
-
-        .section-indicator.world {
-            background-color: #b91c1c;
-        }
-
-        .section-indicator.science {
-            background-color: #0284c7;
-        }
-
-        .story-card {
-            background: white;
-            padding: 24px;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            margin-bottom: 16px;
-        }
-
-        .story-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.15rem;
-            line-height: 1.4;
-            color: #0f0f23;
-            margin-bottom: 12px;
-        }
-
-        .story-card p {
-            color: #4b5563;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .section-footer {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .deep-dive-btn {
-            display: inline-block;
-            padding: 10px 24px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: white;
-            transition: opacity 0.2s ease;
-        }
-
-        .deep-dive-btn:hover {
-            opacity: 0.9;
-        }
-
-        .deep-dive-btn.tech {
-            background-color: #7c3aed;
-        }
-
-        .deep-dive-btn.crypto {
-            background-color: #b45309;
-        }
-
-        .deep-dive-btn.markets {
-            background-color: #166534;
-        }
-
-        .deep-dive-btn.world {
-            background-color: #b91c1c;
-        }
-
-        .deep-dive-btn.science {
-            background-color: #0284c7;
-        }
-
-        footer {
-            background-color: #f9fafb;
-            padding: 32px 16px;
-            text-align: center;
-            color: #6b7280;
-            font-size: 0.85rem;
-            border-top: 1px solid #e5e7eb;
-        }
-
-        footer p {
-            max-width: 760px;
-            margin: 0 auto;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Morning Wire — Thursday, April 16, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#f8f9fa;color:#1a1a2e}
+.header{background:linear-gradient(135deg,#0f0f23,#1a1a3e);padding:40px 20px 30px;text-align:center}
+.header h1{font-family:'Playfair Display',serif;color:#fff;font-size:2.6rem;font-weight:900;letter-spacing:1px}
+.header .date{color:rgba(255,255,255,.6);font-size:.9rem;margin-top:8px;font-weight:500}
+.accent-bar{height:4px;display:flex}
+.accent-bar span{flex:1}
+.accent-bar .tech{background:#7c3aed}
+.accent-bar .crypto{background:#d97706}
+.accent-bar .markets{background:#16a34a}
+.accent-bar .world{background:#dc2626}
+.accent-bar .science{background:#0284c7}
+.ticker-wrap{background:#111827;overflow:hidden;padding:12px 0}
+.ticker{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;white-space:nowrap;max-width:760px;margin:0 auto;padding:0 16px}
+.ticker .item{font-size:.82rem;color:rgba(255,255,255,.85);font-weight:500}
+.ticker .item .label{color:rgba(255,255,255,.5);margin-right:6px}
+.ticker .item .up{color:#22c55e}
+.ticker .item .down{color:#ef4444}
+.container{max-width:760px;margin:0 auto;padding:20px 16px}
+.top-story{background:#fff;border-radius:12px;padding:28px;margin-bottom:24px;box-shadow:0 1px 3px rgba(0,0,0,.08);border-left:4px solid #7c3aed}
+.top-story .label{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:#7c3aed;font-weight:700;margin-bottom:8px}
+.top-story h2{font-family:'Playfair Display',serif;font-size:1.6rem;line-height:1.3;margin-bottom:12px;color:#0f0f23}
+.top-story p{color:#4a4a6a;line-height:1.7;font-size:.95rem}
+.section{margin-bottom:28px}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.section-dot{width:10px;height:10px;border-radius:50%}
+.section-header h3{font-family:'Playfair Display',serif;font-size:1.25rem;color:#0f0f23}
+.story-card{background:#fff;border-radius:10px;padding:20px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.story-card h4{font-size:1rem;font-weight:700;margin-bottom:6px;color:#1a1a2e}
+.story-card p{color:#4a4a6a;font-size:.88rem;line-height:1.6}
+.deep-dive-link{display:inline-block;margin-top:10px;padding:10px 20px;border-radius:8px;color:#fff;text-decoration:none;font-weight:600;font-size:.85rem;transition:opacity .2s}
+.deep-dive-link:hover{opacity:.85}
+.deep-dive-link.tech{background:#7c3aed}
+.deep-dive-link.crypto{background:#d97706}
+.deep-dive-link.markets{background:#16a34a}
+.deep-dive-link.world{background:#dc2626}
+.deep-dive-link.science{background:#0284c7}
+.footer{text-align:center;padding:30px 20px;color:#999;font-size:.8rem}
+</style>
 </head>
 <body>
-    <header>
-        <h1>The Morning Wire</h1>
-        <p class="tagline">Your Daily Brief on Markets, Tech & World Events</p>
-        <p class="date">Saturday, April 11, 2026</p>
-    </header>
+<div class="header">
+<h1>The Morning Wire</h1>
+<div class="date">Thursday, April 16, 2026</div>
+</div>
+<div class="accent-bar"><span class="tech"></span><span class="crypto"></span><span class="markets"></span><span class="world"></span><span class="science"></span></div>
+<div class="ticker-wrap">
+<div class="ticker">
+<div class="item"><span class="label">S&P 500</span><span>7,041.28</span> <span class="up">+0.26%</span></div>
+<div class="item"><span class="label">Nasdaq</span><span>24,102.70</span> <span class="up">+0.36%</span></div>
+<div class="item"><span class="label">Dow</span><span>48,578.72</span> <span class="up">+0.24%</span></div>
+<div class="item"><span class="label">Bitcoin</span><span>$74,786</span> <span class="up">+0.67%</span></div>
+<div class="item"><span class="label">Gold</span><span>$4,821/oz</span> <span class="up">+0.63%</span></div>
+<div class="item"><span class="label">Oil (WTI)</span><span>$94.62</span> <span class="up">+3.65%</span></div>
+</div>
+</div>
 
-    <div class="ticker-wrap">
-        <div class="ticker">
-            <div class="item">
-                <span class="label">S&P 500:</span>
-                6,816.89 <span class="down">▼ 0.11%</span>
-            </div>
-            <div class="item">
-                <span class="label">Nasdaq:</span>
-                22,902.90 <span class="up">▲ 0.35%</span>
-            </div>
-            <div class="item">
-                <span class="label">Dow:</span>
-                47,916.57 <span class="down">▼ 0.56%</span>
-            </div>
-            <div class="item">
-                <span class="label">Bitcoin:</span>
-                $72,204 <span class="up">▲ 0.85%</span>
-            </div>
-            <div class="item">
-                <span class="label">Gold:</span>
-                $4,749/oz <span class="up">▲ 2.0%</span>
-            </div>
-            <div class="item">
-                <span class="label">Oil (Brent):</span>
-                $97.78 <span class="up">▲ 4.3%</span>
-            </div>
-        </div>
-    </div>
+<div class="container">
 
-    <div class="container">
-        <div class="top-story">
-            <h2>High-Stakes Peace Talks Begin in Islamabad as Iran Ceasefire Holds</h2>
-            <p>VP JD Vance arrives in Pakistan for US-Iran peace negotiations. The two-week ceasefire, brokered by Pakistan, is being tested as Iran refuses to fully reopen the Strait of Hormuz. Oil prices remain elevated near $98/barrel while markets posted their best week since November on ceasefire hopes.</p>
-        </div>
+<div class="top-story">
+<div class="label">Top Story</div>
+<h2>Markets Hit Record Highs as Trump Brokers 10-Day Israel-Lebanon Ceasefire</h2>
+<p>Wall Street rallied to fresh all-time highs Thursday as President Trump announced a 10-day ceasefire between Israel and Hezbollah in Lebanon, easing regional tensions that have kept oil prices elevated near $95 a barrel. The S&P 500 closed at a record 7,041.28 while the Nasdaq notched its 12th consecutive daily gain — the longest winning streak since July 2009. The diplomatic breakthrough, set to begin at 5 p.m. ET, could mark a critical step toward a broader Iran peace deal, though Lebanese President Joseph Aoun declined to speak directly with Israeli PM Netanyahu, underscoring the fragility of negotiations.</p>
+</div>
 
-        <div class="section">
-            <div class="section-header">
-                <div class="section-indicator tech"></div>
-                <h2>Tech & AI</h2>
-            </div>
+<\!-- TECH & AI -->
+<div class="section">
+<div class="section-header"><div class="section-dot" style="background:#7c3aed"></div><h3>Tech & AI</h3></div>
+<div class="story-card">
+<h4>Snap Cuts 1,000 Jobs as AI Reshapes the Company</h4>
+<p>CEO Evan Spiegel announced the elimination of roughly 1,000 roles — 16% of Snap's workforce — citing AI advances that reduce repetitive tasks. The restructuring aims to save over $500 million by H2 2026, with resources redirected toward Snapchat+ and ad platform development.</p>
+</div>
+<div class="story-card">
+<h4>Tesla Surges 8% on AI5 Chip Milestone</h4>
+<p>Shares jumped after Elon Musk revealed the AI5 chip hit a major engineering milestone and is nearing production. Tesla plans two new "Terafab" facilities in Austin with Intel joining the project.</p>
+</div>
+<div class="story-card">
+<h4>Q1 Startup Funding Shatters Records at $297 Billion</h4>
+<p>Global startup investment hit an all-time high, with AI accounting for 80% of total venture funding — a massive 2.5x increase over the prior quarter, signaling unprecedented investor conviction in artificial intelligence.</p>
+</div>
+<a href="newsletter-tech-ai.html" class="deep-dive-link tech">Read the full Tech & AI deep dive →</a>
+</div>
 
-            <div class="story-card">
-                <h3>Meta Debuts Muse Spark Model, Commits Up to $135B in AI Capex</h3>
-                <p>Meta's first major model from its Superintelligence Labs after hiring Scale AI's Alexandr Wang. AI capex planned at $115-135B for 2026.</p>
-            </div>
+<\!-- CRYPTO -->
+<div class="section">
+<div class="section-header"><div class="section-dot" style="background:#d97706"></div><h3>Crypto & Web3</h3></div>
+<div class="story-card">
+<h4>SEC Ships "Regulation Crypto" to the White House</h4>
+<p>SEC Chair Paul Atkins confirmed the commission's landmark "Regulation Crypto" proposal has been sent to the White House for review, signaling imminent publication of the most comprehensive crypto rulemaking in U.S. history.</p>
+</div>
+<div class="story-card">
+<h4>Bitcoin Hovers Near $75K as BIP-361 Proposes Quantum Wallet Freeze</h4>
+<p>Bitcoin developers proposed freezing quantum-vulnerable wallets — potentially locking Satoshi's 1.1 million BTC worth $74 billion — before quantum computers can crack them. Meanwhile, Bitcoin tested resistance at $76,000.</p>
+</div>
+<a href="newsletter-crypto.html" class="deep-dive-link crypto">Read the full Crypto deep dive →</a>
+</div>
 
-            <div class="story-card">
-                <h3>Q1 Venture Funding Shatters Records at $300B as AI Claims 80%</h3>
-                <p>Four of the five largest venture rounds ever: OpenAI ($122B), Anthropic ($30B), xAI ($20B), Waymo ($16B).</p>
-            </div>
+<\!-- MARKETS -->
+<div class="section">
+<div class="section-header"><div class="section-dot" style="background:#16a34a"></div><h3>Markets & Economy</h3></div>
+<div class="story-card">
+<h4>Nasdaq Posts 12th Straight Gain — Longest Streak Since 2009</h4>
+<p>The tech-heavy index closed at 24,102.70, extending a remarkable run as ceasefire hopes and strong earnings bolster sentiment. The S&P 500 and Nasdaq are up 3.3% and 5.2% respectively this week.</p>
+</div>
+<div class="story-card">
+<h4>Oil Surges 3.65% as Iran Tensions Flare and Inventories Plunge</h4>
+<p>WTI crude jumped to $94.62 as doubts over US-Iran negotiations resurfaced and crude inventories fell 9.13 million barrels — far exceeding the expected 154,000-barrel build.</p>
+</div>
+<a href="newsletter-markets.html" class="deep-dive-link markets">Read the full Markets deep dive →</a>
+</div>
 
-            <div class="story-card">
-                <h3>DeepSeek V4 Drops With Open Weights, Rivaling US Frontier Models</h3>
-                <p>One-trillion-parameter MoE model trained for just $5.2M under Apache 2.0.</p>
-            </div>
+<\!-- WORLD -->
+<div class="section">
+<div class="section-header"><div class="section-dot" style="background:#dc2626"></div><h3>World Affairs</h3></div>
+<div class="story-card">
+<h4>Senate Rejects War Powers Resolution on Iran</h4>
+<p>All Senate Republicans except Rand Paul voted against reining in Trump's ability to wage war against Iran, with the measure failing 47-52. The vote comes as oil companies bank over $30 million per hour in windfall profits from the conflict.</p>
+</div>
+<div class="story-card">
+<h4>Russia Hammers Ukraine with Massive Drone and Missile Barrage</h4>
+<p>Hundreds of drones and dozens of missiles struck civilian areas across Ukraine in an hours-long attack, killing at least 16 people in one of the heaviest bombardments of the year.</p>
+</div>
+<div class="story-card">
+<h4>Hungary's Orbán Falls in Historic Election Upset</h4>
+<p>Opposition leader Péter Magyar claimed a supermajority, ending Viktor Orbán's 16-year grip on power. The result could reshape Hungary's role in NATO and European integration.</p>
+</div>
+<a href="newsletter-world.html" class="deep-dive-link world">Read the full World Affairs deep dive →</a>
+</div>
 
-            <div class="section-footer">
-                <a href="newsletter-tech-ai.html" class="deep-dive-btn tech">Read Full Coverage</a>
-            </div>
-        </div>
+<\!-- SCIENCE -->
+<div class="section">
+<div class="section-header"><div class="section-dot" style="background:#0284c7"></div><h3>Science & Health</h3></div>
+<div class="story-card">
+<h4>CRISPR-GPT Designs Gene-Editing Experiments in Months, Not Years</h4>
+<p>Stanford researchers unveiled an AI "copilot" that dramatically accelerates CRISPR experiment design, while separately, the first fully personalized CRISPR treatment was administered to a six-year-old child — proving individualized medicine is within reach.</p>
+</div>
+<div class="story-card">
+<h4>Lithium Discovery in Pyrite Could Reshape Battery Supply Chains</h4>
+<p>Researchers found lithium hidden in pyrite within ancient shale rocks — an unexpected discovery that could open entirely new sources of the critical battery material needed for the EV revolution.</p>
+</div>
+<a href="newsletter-science.html" class="deep-dive-link science">Read the full Science & Health deep dive →</a>
+</div>
 
-        <div class="section">
-            <div class="section-header">
-                <div class="section-indicator crypto"></div>
-                <h2>Crypto</h2>
-            </div>
+</div>
 
-            <div class="story-card">
-                <h3>Bitcoin Holds Above $72K as Ceasefire Optimism Battles Inflation Fears</h3>
-                <p>BTC at $72,204, global crypto market at $2.55T, sentiment in extreme fear.</p>
-            </div>
-
-            <div class="story-card">
-                <h3>SEC Sends 'Reg Crypto' Proposal to White House as Japan Reclassifies Digital Assets</h3>
-                <p>SEC's framework for crypto regulation advances; Japan puts crypto on par with stocks and bonds.</p>
-            </div>
-
-            <div class="section-footer">
-                <a href="newsletter-crypto.html" class="deep-dive-btn crypto">Read Full Coverage</a>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <div class="section-indicator markets"></div>
-                <h2>Markets</h2>
-            </div>
-
-            <div class="story-card">
-                <h3>Wall Street Posts Best Week Since November Despite Friday Pullback</h3>
-                <p>S&P 500 up 3.6% for week, Nasdaq +4.7%, powered by ceasefire relief rally.</p>
-            </div>
-
-            <div class="story-card">
-                <h3>Oil Volatile Near $98 as Strait of Hormuz Remains Effectively Closed</h3>
-                <p>Saudi production cut 600K bpd from attacks; consumer sentiment drops 10.7%.</p>
-            </div>
-
-            <div class="section-footer">
-                <a href="newsletter-markets.html" class="deep-dive-btn markets">Read Full Coverage</a>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <div class="section-indicator world"></div>
-                <h2>World</h2>
-            </div>
-
-            <div class="story-card">
-                <h3>Vance Lands in Pakistan for Historic US-Iran Peace Talks</h3>
-                <p>High-stakes negotiations in Islamabad with Witkoff and Kushner; Iran demands Lebanon ceasefire and asset release.</p>
-            </div>
-
-            <div class="story-card">
-                <h3>Japan Deploys First Long-Range Missiles Capable of Reaching China</h3>
-                <p>Historic shift in Japan's defense posture with 1,000km-range missiles in southwest bases.</p>
-            </div>
-
-            <div class="story-card">
-                <h3>Macron Calls for 'Coalition of Independents' to Counter US-China Hegemony</h3>
-                <p>French president urges middle powers to band together during Asian tour.</p>
-            </div>
-
-            <div class="section-footer">
-                <a href="newsletter-world.html" class="deep-dive-btn world">Read Full Coverage</a>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <div class="section-indicator science"></div>
-                <h2>Science</h2>
-            </div>
-
-            <div class="story-card">
-                <h3>AI-Powered Stool Test Detects 90% of Colorectal Cancers Without Colonoscopy</h3>
-                <p>Microbiome breakthrough uses AI to map gut bacteria patterns linked to cancer.</p>
-            </div>
-
-            <div class="story-card">
-                <h3>Cornell Researchers Close In on 'Holy Grail' of Male Contraception</h3>
-                <p>Safe, reversible, nonhormonal method that completely halts sperm production.</p>
-            </div>
-
-            <div class="section-footer">
-                <a href="newsletter-science.html" class="deep-dive-btn science">Read Full Coverage</a>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 The Morning Wire. All rights reserved.</p>
-    </footer>
+<div class="footer">
+<p>The Morning Wire — Your daily briefing, delivered every morning.<br>
+Thursday, April 16, 2026</p>
+</div>
 </body>
 </html>

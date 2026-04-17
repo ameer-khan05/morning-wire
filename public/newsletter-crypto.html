@@ -1,386 +1,125 @@
-<!DOCTYPE html>
+<\!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Morning Wire: Crypto Edition - April 11, 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #f8f8f8;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #451a03 0%, #b45309 100%);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .header-content {
-            max-width: 760px;
-            margin: 0 auto;
-        }
-
-        .header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5em;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .header-subtitle {
-            font-size: 1.1em;
-            opacity: 0.95;
-            margin-bottom: 8px;
-        }
-
-        .header-date {
-            font-size: 0.95em;
-            opacity: 0.9;
-        }
-
-        .container {
-            max-width: 760px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            padding: 8px 16px;
-            background: #f0f0f0;
-            text-decoration: none;
-            color: #451a03;
-            font-weight: 500;
-            border-radius: 4px;
-            font-size: 0.95em;
-            transition: background 0.2s;
-        }
-
-        .back-link:hover {
-            background: #e0e0e0;
-        }
-
-        .card {
-            background: white;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 6px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            transition: box-shadow 0.2s;
-        }
-
-        .card:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8em;
-            font-weight: 700;
-            color: #451a03;
-            margin-bottom: 20px;
-            margin-top: 30px;
-        }
-
-        .story-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3em;
-            font-weight: 700;
-            color: #451a03;
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-
-        .story-content {
-            margin-bottom: 12px;
-            color: #555;
-            font-size: 0.95em;
-            line-height: 1.7;
-        }
-
-        .story-source {
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid #eee;
-        }
-
-        .source-link {
-            color: #b45309;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9em;
-            word-break: break-word;
-        }
-
-        .source-link:hover {
-            text-decoration: underline;
-        }
-
-        .market-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .market-item {
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 4px;
-            border-left: 3px solid #b45309;
-        }
-
-        .market-label {
-            font-size: 0.85em;
-            color: #999;
-            text-transform: uppercase;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .market-value {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4em;
-            font-weight: 700;
-            color: #451a03;
-            margin-bottom: 4px;
-        }
-
-        .market-change {
-            font-size: 0.9em;
-            font-weight: 500;
-        }
-
-        .positive {
-            color: #10b981;
-        }
-
-        .negative {
-            color: #ef4444;
-        }
-
-        .full-width {
-            grid-column: 1 / -1;
-        }
-
-        .quick-hits {
-            list-style: none;
-            padding: 0;
-        }
-
-        .quick-hits li {
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .quick-hits li:last-child {
-            border-bottom: none;
-        }
-
-        .footer {
-            background: #f0f0f0;
-            padding: 30px 20px;
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .footer-content {
-            max-width: 760px;
-            margin: 0 auto;
-        }
-
-        .footer-copyright {
-            font-size: 0.9em;
-            color: #666;
-            margin-top: 20px;
-        }
-
-        @media (max-width: 600px) {
-            .header h1 {
-                font-size: 1.8em;
-            }
-
-            .market-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .story-title {
-                font-size: 1.1em;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crypto Deep Dive — The Morning Wire</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#f8f9fa;color:#1a1a2e}
+.header{background:linear-gradient(135deg,#451a03,#b45309);padding:32px 20px 24px;text-align:center}
+.header h1{font-family:'Playfair Display',serif;color:#fff;font-size:2rem;font-weight:900}
+.header .subtitle{color:rgba(255,255,255,.6);font-size:.85rem;margin-top:6px}
+.back-link{display:inline-block;color:rgba(255,255,255,.7);text-decoration:none;font-size:.82rem;margin-bottom:10px;font-weight:500}
+.back-link:hover{color:#fff}
+.container{max-width:760px;margin:0 auto;padding:20px 16px}
+.byline{text-align:center;color:#666;font-size:.82rem;margin-bottom:24px}
+.numbers-bar{background:linear-gradient(135deg,#451a03,#78350f);border-radius:12px;padding:24px;margin-bottom:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center}
+.numbers-bar .stat{color:#fff}
+.numbers-bar .stat .val{font-size:1.5rem;font-weight:800}
+.numbers-bar .stat .lbl{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+.lead{background:#fff;border-radius:12px;padding:28px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.08);border-left:4px solid #d97706}
+.lead .tag{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:#d97706;font-weight:700;margin-bottom:8px}
+.lead h2{font-family:'Playfair Display',serif;font-size:1.5rem;line-height:1.3;margin-bottom:12px}
+.lead p{color:#4a4a6a;line-height:1.7;font-size:.93rem;margin-bottom:10px}
+.section-title{font-family:'Playfair Display',serif;font-size:1.15rem;color:#451a03;margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid #e5e7eb}
+.card{background:#fff;border-radius:10px;padding:20px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.card h3{font-size:.95rem;font-weight:700;margin-bottom:6px;color:#1a1a2e}
+.card p{color:#4a4a6a;font-size:.88rem;line-height:1.6}
+.card .source{font-size:.75rem;color:#d97706;margin-top:8px}
+.card .source a{color:#d97706;text-decoration:none}
+.card .source a:hover{text-decoration:underline}
+.quick-hits{background:#fef3c7;border-radius:12px;padding:24px;margin:24px 0}
+.quick-hits h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:14px;color:#451a03}
+.quick-hits ul{list-style:none;padding:0}
+.quick-hits li{padding:8px 0;border-bottom:1px solid rgba(0,0,0,.06);font-size:.88rem;color:#4a4a6a;line-height:1.5}
+.quick-hits li:last-child{border-bottom:none}
+.quick-hits li strong{color:#1a1a2e}
+.footer{text-align:center;padding:30px 20px;color:#999;font-size:.8rem}
+.footer a{color:#d97706;text-decoration:none}
+</style>
 </head>
 <body>
-    <div class="header">
-        <div class="header-content">
-            <h1>The Morning Wire</h1>
-            <div class="header-subtitle">Crypto Edition</div>
-            <div class="header-date">Saturday, April 11, 2026</div>
-        </div>
-    </div>
+<div class="header">
+<a href="daily-newsletter.html" class="back-link">← Back to The Morning Wire</a>
+<h1>Crypto & Web3 Deep Dive</h1>
+<div class="subtitle">Thursday, April 16, 2026</div>
+</div>
 
-    <div class="container">
-        <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
+<div class="container">
+<div class="byline">The Morning Wire — Crypto Edition</div>
 
-        <!-- Market Snapshot -->
-        <div class="card">
-            <h2 class="section-title">Market Snapshot</h2>
-            <div class="market-grid">
-                <div class="market-item">
-                    <div class="market-label">Bitcoin</div>
-                    <div class="market-value">$72,204</div>
-                    <div class="market-change positive">+0.85%</div>
-                </div>
-                <div class="market-item">
-                    <div class="market-label">Market Cap</div>
-                    <div class="market-value">$1.45T</div>
-                    <div class="market-change"></div>
-                </div>
-                <div class="market-item">
-                    <div class="market-label">Ethereum Dominance</div>
-                    <div class="market-value">~10.6%</div>
-                    <div class="market-change"></div>
-                </div>
-                <div class="market-item">
-                    <div class="market-label">Global Market Cap</div>
-                    <div class="market-value">$2.55T</div>
-                    <div class="market-change positive">+0.9%</div>
-                </div>
-                <div class="market-item full-width">
-                    <div class="market-label">24h Trading Volume</div>
-                    <div class="market-value">$89.4B</div>
-                    <div class="market-change"></div>
-                </div>
-                <div class="market-item full-width">
-                    <div class="market-label">Sentiment</div>
-                    <div class="market-value" style="color: #ef4444;">Extreme Fear</div>
-                    <div class="market-change" style="color: #999;">Top Gainers: Polkadot, XRP Ledger Ecosystem</div>
-                </div>
-            </div>
-        </div>
+<div class="numbers-bar">
+<div class="stat"><div class="val">$74,786</div><div class="lbl">Bitcoin Price</div></div>
+<div class="stat"><div class="val">$76K</div><div class="lbl">Key Resistance</div></div>
+<div class="stat"><div class="val">4 Days</div><div class="lbl">MS ETF Inflows</div></div>
+</div>
 
-        <!-- Lead Story -->
-        <div class="card">
-            <h2 class="section-title">Lead Story</h2>
-            <h3 class="story-title">Bitcoin Holds Above $72K as Ceasefire Optimism Battles Inflation Fears</h3>
-            <div class="story-content">
-                Bitcoin reached $72,885 before settling around $72,204 on April 11. The global crypto market gained to $2.55T, but sentiment remains in extreme fear territory. BTC surged past $72K when the US-Iran ceasefire was announced on April 8, as oil crashed. TD Cowen predicts BTC could hit $140K by late 2026, calling it "digital gold." The market's volatile reaction underscores crypto's sensitivity to macroeconomic factors and geopolitical developments.
-            </div>
-            <div class="story-source">
-                <strong>Source:</strong> <a href="https://www.coingabbar.com/en/crypto-currency-news/latest-crypto-market-update-april-11-bitcoin-price-today" class="source-link">Coin Gabbar - Latest Crypto Market Update</a>
-            </div>
-        </div>
+<div class="lead">
+<div class="tag">Lead Story</div>
+<h2>SEC Ships "Regulation Crypto" to the White House — The Most Sweeping Rulemaking in Crypto History</h2>
+<p>SEC Chair Paul Atkins confirmed that the commission's landmark "Regulation Crypto" proposal has been sent to the White House Office of Information and Regulatory Affairs, signaling imminent publication. The rulemaking focuses on the Securities Act of 1933 and addresses fundraising and startup exemptions — a framework that could finally give the industry the regulatory clarity it has sought for years.</p>
+<p>Separately, the SEC plans to release its long-awaited "innovation exemption," which would create a regulatory sandbox for crypto startups to operate with lighter compliance requirements during their early stages. Combined with the Digital Asset Market Clarity Act nearing final passage in Congress, the U.S. crypto regulatory landscape is undergoing its most significant transformation since the inception of digital assets.</p>
+<p>The question is no longer whether regulation is coming — it's whether the industry can absorb the compliance costs. As Bloomberg Law noted: "Crypto's rules are here. 2026 will be about making them work."</p>
+<div class="source">Source: <a href="https://www.pymnts.com/cryptocurrency/2026/sec-sends-regulation-crypto-proposal-to-white-house/">PYMNTS</a></div>
+</div>
 
-        <!-- Story 2 -->
-        <div class="card">
-            <h3 class="story-title">SEC Sends 'Reg Crypto' Proposal to White House</h3>
-            <div class="story-content">
-                SEC Chair Paul Atkins confirmed the "regulation crypto" proposal has been sent to the White House Office of Information and Regulatory Affairs. It addresses how to regulate crypto and distinguish between securities and non-securities transactions, including startup exemptions. This landmark development represents the SEC's effort to create a cohesive regulatory framework after years of piecemeal guidance.
-            </div>
-            <div class="story-source">
-                <strong>Source:</strong> <a href="https://www.coindesk.com/policy/2026/04/07/sec-close-to-putting-out-reg-crypto-for-fundraising-questions-chair-atkins-says" class="source-link">CoinDesk - SEC Regulation Crypto Proposal</a>
-            </div>
-        </div>
+<div class="section-title">Legislation & Regulation</div>
 
-        <!-- Story 3 -->
-        <div class="card">
-            <h3 class="story-title">Japan Reclassifies Crypto Under Financial Instruments Act</h3>
-            <div class="story-content">
-                Japan's cabinet approved legislation on April 10 putting crypto in the same legal category as stocks and bonds, upgrading from the Payment Services Act. Penalties increase to 10 years in prison and 10 million yen fines for operating without registration. This significant reclassification positions Japan as a leader in bringing crypto into mainstream financial regulation.
-            </div>
-            <div class="story-source">
-                <strong>Source:</strong> <a href="https://en.cryptonomist.ch/2026/04/10/crypto-regulation-japan-markets/" class="source-link">Cryptonomist - Japan Crypto Regulation</a>
-            </div>
-        </div>
+<div class="card">
+<h3>Digital Asset Market Clarity Act Nears the Finish Line</h3>
+<p>Lawmakers are closing in on a final agreement, with JPMorgan noting negotiations have entered their "late stage." Most disputes have been resolved, narrowing contentious issues from a dozen to just two or three. A key sticking point: whether stablecoin issuers can offer yield. The emerging compromise would prohibit passive yield while allowing activity-based rewards tied to payments and platform usage.</p>
+<div class="source">Source: <a href="https://bitcoinmagazine.com/news/crypto-legislation-nears-finish-line">Bitcoin Magazine</a> | <a href="https://finance.yahoo.com/news/top-us-crypto-bills-watch-100215687.html">Yahoo Finance</a></div>
+</div>
 
-        <!-- Story 4 -->
-        <div class="card">
-            <h3 class="story-title">CLARITY Act Could Reach Senate Floor This Month</h3>
-            <div class="story-content">
-                Senator Bill Hagerty says the cryptocurrency CLARITY Act could advance through Senate Banking Committee and reach full Senate vote before end of April. The act aims to provide clarity on digital asset taxation and regulatory classification, addressing long-standing questions from the crypto industry.
-            </div>
-            <div class="story-source">
-                <strong>Source:</strong> <a href="https://coinpedia.org/news/us-crypto-regulation-in-2026-key-laws-sec-changes-and-what-comes-next/" class="source-link">Coinpedia - US Crypto Regulation 2026</a>
-            </div>
-        </div>
+<div class="card">
+<h3>PARITY Act Reintroduced for Crypto Tax Reform</h3>
+<p>Congressmen Steven Horsford (D-Nev.) and Max Miller (R-Ohio) reintroduced the Digital Asset Protection, Accountability, Regulation, Innovation, Taxation and Yields (PARITY) Act, aiming to bring clarity to crypto taxation. First released in draft form last December, the revised bill addresses long-standing confusion over how digital assets are taxed across different transaction types.</p>
+<div class="source">Source: <a href="https://www.coindesk.com/policy/2026/04/13/u-s-lawmakers-take-another-swing-at-crypto-tax-policy-with-revised-bill/">CoinDesk</a></div>
+</div>
 
-        <!-- Story 5 -->
-        <div class="card">
-            <h3 class="story-title">SEC and CFTC Issue Joint Crypto Interpretation Framework</h3>
-            <div class="story-content">
-                On March 17, the SEC and CFTC issued a comprehensive interpretation clarifying how federal securities laws apply to cryptoassets, following a March 11 Memorandum of Understanding establishing coordination between both agencies. This joint framework represents a major step toward unified regulatory clarity in the digital asset space.
-            </div>
-            <div class="story-source">
-                <strong>Source:</strong> <a href="https://www.lw.com/en/us-crypto-policy-tracker/regulatory-developments" class="source-link">Latham & Watkins - US Crypto Policy Tracker</a>
-            </div>
-        </div>
+<div class="card">
+<h3>Japan Reclassifies Crypto as Securities — Prison Terms for Violators</h3>
+<p>Japan's cabinet approved legislation putting cryptocurrencies in the same legal category as stocks and bonds under the Financial Instruments and Exchange Act. The move carries real teeth: up to 10 years in prison and fines up to 10 million yen for operating without registration. Japan becomes the first major economy to fully align crypto regulation with traditional securities law.</p>
+<div class="source">Source: <a href="https://www.spotedcrypto.com/global-crypto-regulation-wave-2026/">Spoted Crypto</a></div>
+</div>
 
-        <!-- Story 6 -->
-        <div class="card">
-            <h3 class="story-title">Bitcoin's Next Move Hinges on Oil Prices</h3>
-            <div class="story-content">
-                Analysts say BTC's trajectory is closely linked to oil markets. The US-Iran ceasefire sent oil crashing and BTC surging, but the Strait of Hormuz remaining closed keeps both markets on edge. This correlation highlights how traditional commodity markets and geopolitical factors can significantly impact crypto price movements.
-            </div>
-            <div class="story-source">
-                <strong>Source:</strong> <a href="https://www.coindesk.com/markets/2026/04/09/bitcoin-s-next-big-move-hinges-on-oil-and-right-now-it-s-a-total-coin-flip" class="source-link">CoinDesk - Bitcoin and Oil Market Correlation</a>
-            </div>
-        </div>
+<div class="section-title">Bitcoin & Markets</div>
 
-        <!-- Story 7 -->
-        <div class="card">
-            <h3 class="story-title">Global Regulatory Wave Hits Crypto in Single Week</h3>
-            <div class="story-content">
-                Japan, Hong Kong, South Korea, and the US all took major crypto regulatory action in a single week in April 2026, signaling coordinated global movement toward comprehensive frameworks. This synchronized regulatory push suggests a shift toward institutionalization of digital assets across major financial centers worldwide.
-            </div>
-            <div class="story-source">
-                <strong>Source:</strong> <a href="https://www.spotedcrypto.com/global-crypto-regulation-wave-2026/" class="source-link">Spotted Crypto - Global Regulation Wave</a>
-            </div>
-        </div>
+<div class="card">
+<h3>Bitcoin Tests $76K Resistance as Institutional Demand Remains Strong</h3>
+<p>Bitcoin hovered near $74,786 with heavy liquidity clustered between $75,000 and $76,000 on the price chart. Despite a surge in short positioning, past episodes of negative funding rates have often aligned with local market bottoms. The options market remains biased toward downside hedges, suggesting traders are cautious despite the bullish price action.</p>
+<div class="source">Source: <a href="https://www.newsbtc.com/news/bitcoin/next-key-bitcoin-price-resistance/">NewsBTC</a> | <a href="https://fortune.com/article/price-of-bitcoin-04-16-2026/">Fortune</a></div>
+</div>
 
-        <!-- Story 8 -->
-        <div class="card">
-            <h3 class="story-title">Crypto Industry Embraces 'Regulator-in-the-Loop' Strategy</h3>
-            <div class="story-content">
-                As federal rules roll out, crypto firms are proactively engaging regulators rather than fighting them, marking a cultural shift in the industry. This collaborative approach reflects maturation of the sector and recognition that regulatory clarity benefits long-term market development and consumer protection.
-            </div>
-            <div class="story-source">
-                <strong>Source:</strong> <a href="https://www.pymnts.com/cryptocurrency/2026/crypto-embraces-regulator-in-the-loop-strategy-as-federal-rules-roll-out/" class="source-link">PYMNTS - Regulator-in-the-Loop Strategy</a>
-            </div>
-        </div>
+<div class="card">
+<h3>Morgan Stanley Bitcoin ETF Records Fourth Straight Day of Strong Inflows</h3>
+<p>Morgan Stanley's spot Bitcoin ETF continued its momentum with strong inflows for the fourth consecutive trading day. Institutional allocation enthusiasm remains high, with the ETF becoming a preferred vehicle for traditional finance players seeking Bitcoin exposure without direct custody concerns.</p>
+<div class="source">Source: <a href="https://www.coindesk.com/">CoinDesk</a></div>
+</div>
 
-        <!-- Quick Hits -->
-        <div class="card">
-            <h2 class="section-title">Quick Hits</h2>
-            <ul class="quick-hits">
-                <li><strong>TD Cowen Strategy:</strong> Keeps Strategy (formerly MicroStrategy) rated Buy, predicts BTC at $140K by late 2026</li>
-                <li><strong>Daily Gainers:</strong> Polkadot and XRP Ledger Ecosystem lead daily gains among major assets</li>
-                <li><strong>Trading Volume:</strong> Crypto market volume fell to $89.4B from $94.9B despite market cap gains</li>
-                <li><strong>BTC Dominance:</strong> Bitcoin dominance holds strong at 57.2%, maintaining market leadership</li>
-            </ul>
-        </div>
-    </div>
+<div class="card">
+<h3>BIP-361: Freezing Quantum-Vulnerable Wallets Before It's Too Late</h3>
+<p>Bitcoin developers proposed BIP-361 to freeze quantum-vulnerable wallets — a move that could lock dormant BTC including Satoshi Nakamoto's estimated 1.1 million coins, now worth roughly $74 billion. The proposal addresses the growing concern that quantum computers could eventually crack the elliptic curve cryptography protecting early Bitcoin wallets, potentially enabling theft of billions in assets.</p>
+<div class="source">Source: <a href="https://bitcoinnewsdigest.substack.com/p/bitcoin-news-digest-april-16-2026">Bitcoin News Digest</a></div>
+</div>
 
-    <div class="footer">
-        <div class="footer-content">
-            <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
-            <div class="footer-copyright">
-                © 2026 The Morning Wire. All rights reserved.
-            </div>
-        </div>
-    </div>
+<div class="quick-hits">
+<h3>Quick Hits</h3>
+<ul>
+<li><strong>Crypto PACs ramp up 2026 election spending</strong> — The Sentinel Action Fund pledged $8 million against Ohio Senator Sherrod Brown, backing Republican Jon Husted. The crypto industry is becoming a major political donor class. <a href="https://www.democracynow.org/2026/4/16/headlines" style="color:#d97706;text-decoration:none">Source</a></li>
+<li><strong>Compliance is crypto's new cost of doing business</strong> — PYMNTS reports that regulatory compliance costs are overtaking gas fees as the biggest expense for crypto firms, reshaping business models across the industry. <a href="https://www.pymnts.com/cryptocurrency/2026/forget-gas-fees-compliance-is-cryptos-new-cost-of-doing-business/" style="color:#d97706;text-decoration:none">Source</a></li>
+<li><strong>XRP, Plasma, DOGE in focus</strong> — Analysts recommend watching altcoins as Bitcoin drifts in a range, with XRP showing relative strength and meme coins seeing renewed retail interest. <a href="https://coinspectator.com/other/2026/04/16/keep-an-eye-on-xrp-plasma-doge-as-bitcoin-drifts/" style="color:#d97706;text-decoration:none">Source</a></li>
+<li><strong>SEC innovation exemption coming soon</strong> — Alongside Regulation Crypto, the SEC plans to release a regulatory sandbox for crypto startups with lighter early-stage compliance. <a href="https://coinpedia.org/news/us-crypto-regulation-in-2026-key-laws-sec-changes-and-what-comes-next/" style="color:#d97706;text-decoration:none">Source</a></li>
+</ul>
+</div>
+
+</div>
+
+<div class="footer">
+<a href="daily-newsletter.html">← Back to The Morning Wire</a><br><br>
+The Morning Wire — Crypto Edition — Thursday, April 16, 2026
+</div>
 </body>
 </html>

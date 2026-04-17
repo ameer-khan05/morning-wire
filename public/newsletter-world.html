@@ -1,327 +1,123 @@
-<!DOCTYPE html>
+<\!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Morning Wire: World Edition - April 11, 2026</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 30px;
-            padding: 10px 16px;
-            background-color: #fff;
-            border: 1px solid #e5e7eb;
-            border-radius: 6px;
-            text-decoration: none;
-            color: #6b7280;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .back-link:hover {
-            background-color: #f9fafb;
-            border-color: #d1d5db;
-            color: #374151;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #450a0a 0%, #b91c1c 100%);
-            color: white;
-            padding: 50px 30px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 12px;
-            line-height: 1.1;
-        }
-
-        .header .subtitle {
-            font-size: 16px;
-            font-weight: 500;
-            opacity: 0.95;
-            margin-bottom: 8px;
-        }
-
-        .header .date {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        .stories-container {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            margin-bottom: 40px;
-        }
-
-        .story-card {
-            background: white;
-            padding: 28px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .story-card:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
-        }
-
-        .story-card h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 12px;
-            line-height: 1.2;
-        }
-
-        .story-card.lead h2 {
-            color: #b91c1c;
-            font-size: 32px;
-        }
-
-        .story-card p {
-            color: #4b5563;
-            font-size: 15px;
-            margin-bottom: 12px;
-            line-height: 1.7;
-        }
-
-        .story-card .source {
-            font-size: 13px;
-            color: #6b7280;
-            margin-top: 16px;
-            padding-top: 12px;
-            border-top: 1px solid #e5e7eb;
-        }
-
-        .story-card .source a {
-            color: #b91c1c;
-            text-decoration: none;
-            font-weight: 500;
-            word-break: break-word;
-        }
-
-        .story-card .source a:hover {
-            text-decoration: underline;
-        }
-
-        .quick-hits {
-            background: white;
-            padding: 28px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-        }
-
-        .quick-hits h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 18px;
-        }
-
-        .quick-hits ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .quick-hits li {
-            padding: 10px 0;
-            padding-left: 20px;
-            position: relative;
-            color: #4b5563;
-            font-size: 15px;
-            line-height: 1.6;
-        }
-
-        .quick-hits li:before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: #b91c1c;
-            font-weight: bold;
-        }
-
-        .footer {
-            margin-top: 40px;
-            padding-top: 24px;
-            border-top: 1px solid #e5e7eb;
-            text-align: center;
-            color: #6b7280;
-            font-size: 14px;
-        }
-
-        .footer .back-link {
-            display: inline-block;
-            margin-bottom: 16px;
-        }
-
-        .copyright {
-            font-size: 13px;
-            color: #9ca3af;
-            margin-top: 12px;
-        }
-
-        @media (max-width: 600px) {
-            .header h1 {
-                font-size: 36px;
-            }
-
-            .story-card h2 {
-                font-size: 22px;
-            }
-
-            .story-card.lead h2 {
-                font-size: 26px;
-            }
-
-            .quick-hits h3 {
-                font-size: 20px;
-            }
-
-            .container {
-                padding: 12px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Affairs Deep Dive — The Morning Wire</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#f8f9fa;color:#1a1a2e}
+.header{background:linear-gradient(135deg,#450a0a,#b91c1c);padding:32px 20px 24px;text-align:center}
+.header h1{font-family:'Playfair Display',serif;color:#fff;font-size:2rem;font-weight:900}
+.header .subtitle{color:rgba(255,255,255,.6);font-size:.85rem;margin-top:6px}
+.back-link{display:inline-block;color:rgba(255,255,255,.7);text-decoration:none;font-size:.82rem;margin-bottom:10px;font-weight:500}
+.back-link:hover{color:#fff}
+.container{max-width:760px;margin:0 auto;padding:20px 16px}
+.byline{text-align:center;color:#666;font-size:.82rem;margin-bottom:24px}
+.lead{background:#fff;border-radius:12px;padding:28px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.08);border-left:4px solid #dc2626}
+.lead .tag{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:#dc2626;font-weight:700;margin-bottom:8px}
+.lead h2{font-family:'Playfair Display',serif;font-size:1.5rem;line-height:1.3;margin-bottom:12px}
+.lead p{color:#4a4a6a;line-height:1.7;font-size:.93rem;margin-bottom:10px}
+.section-title{font-family:'Playfair Display',serif;font-size:1.15rem;color:#450a0a;margin:24px 0 12px;padding-bottom:6px;border-bottom:2px solid #e5e7eb}
+.card{background:#fff;border-radius:10px;padding:20px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.card h3{font-size:.95rem;font-weight:700;margin-bottom:6px;color:#1a1a2e}
+.card p{color:#4a4a6a;font-size:.88rem;line-height:1.6}
+.card .source{font-size:.75rem;color:#dc2626;margin-top:8px}
+.card .source a{color:#dc2626;text-decoration:none}
+.card .source a:hover{text-decoration:underline}
+.quick-hits{background:#fee2e2;border-radius:12px;padding:24px;margin:24px 0}
+.quick-hits h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:14px;color:#450a0a}
+.quick-hits ul{list-style:none;padding:0}
+.quick-hits li{padding:8px 0;border-bottom:1px solid rgba(0,0,0,.06);font-size:.88rem;color:#4a4a6a;line-height:1.5}
+.quick-hits li:last-child{border-bottom:none}
+.quick-hits li strong{color:#1a1a2e}
+.footer{text-align:center;padding:30px 20px;color:#999;font-size:.8rem}
+.footer a{color:#dc2626;text-decoration:none}
+</style>
 </head>
 <body>
-    <div class="container">
-        <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
+<div class="header">
+<a href="daily-newsletter.html" class="back-link">← Back to The Morning Wire</a>
+<h1>World Affairs Deep Dive</h1>
+<div class="subtitle">Thursday, April 16, 2026</div>
+</div>
 
-        <div class="header">
-            <div class="subtitle">THE MORNING WIRE</div>
-            <h1>World Edition</h1>
-            <div class="date">Saturday, April 11, 2026</div>
-        </div>
+<div class="container">
+<div class="byline">The Morning Wire — World Affairs Edition</div>
 
-        <div class="stories-container">
-            <!-- LEAD STORY -->
-            <div class="story-card lead">
-                <h2>Vance Lands in Pakistan for Historic US-Iran Peace Talks</h2>
-                <p>VP JD Vance arrived in Islamabad on Saturday for high-stakes negotiations to reach a permanent peace agreement. Senior envoys Steve Witkoff and Jared Kushner accompany him in what marks a critical moment in efforts to resolve the escalating Middle Eastern conflict.</p>
-                <p>The war, now in its sixth week (Day 42), has claimed more than 5,000 lives across nearly a dozen countries, including 1,600+ civilians in Iran. Pakistan's military chief Field Marshal Asim Munir and PM Shehbaz Sharif brokered the two-week ceasefire on April 7. The US has agreed to release Iranian frozen assets held in Qatar and foreign banks—a significant concession aimed at incentivizing a lasting settlement.</p>
-                <div class="source">Source: <a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-trump-iran-hormuz-israel-lebanon-ceasefire-talks-rcna273610" target="_blank">NBC News</a></div>
-            </div>
+<div class="lead">
+<div class="tag">Lead Story</div>
+<h2>Trump Brokers 10-Day Israel-Lebanon Ceasefire, but Cracks Already Show</h2>
+<p>President Trump announced a 10-day ceasefire between Israel and Iran-backed Hezbollah in Lebanon, set to begin at 5 p.m. ET Thursday. The agreement came after Trump confirmed he spoke with both Lebanese President Joseph Aoun and Israeli Prime Minister Benjamin Netanyahu, calling it a critical step toward a broader Middle East peace framework.</p>
+<p>However, the deal showed immediate cracks. Lebanese President Aoun declined to speak directly with Netanyahu, contradicting earlier claims by Israeli officials and Trump himself that the two leaders would hold historic talks. The disconnect underscores the deep mistrust between the parties and the fragility of any diplomatic progress in the region.</p>
+<p>The ceasefire attempts to build on the two-week truce between Iran and the U.S. announced on April 7, though that agreement has been strained by Israel's continued bombing campaign against Iranian proxy groups in Lebanon — a move Tehran argues violates the spirit of the truce. The question now is whether 10 days is enough to create momentum toward a durable peace, or whether it merely delays the next escalation.</p>
+<div class="source">Source: <a href="https://edition.cnn.com/2026/04/16/world/live-news/iran-war-trump-us-israel">CNN</a> | <a href="https://www.aljazeera.com/news/2026/4/16/trump-says-israel-and-lebanons-leaders-will-speak-on-thursday">Al Jazeera</a></div>
+</div>
 
-            <!-- STORY 2 -->
-            <div class="story-card">
-                <h2>Strait of Hormuz Remains Effectively Closed Despite Ceasefire</h2>
-                <p>Just two ships passed through the Strait of Hormuz on April 11, neither carrying oil or gas tankers—the lowest number since the ceasefire was announced. Iran is charging tolls exceeding $1 million per vessel, effectively strangling the world's critical energy corridor.</p>
-                <p>Trump accused Iran of "doing a very poor job" of reopening the waterway. One-fifth of the world's oil and gas passes through the Strait, making its closure a global economic concern. The blockade threatens shipping schedules and energy prices worldwide.</p>
-                <div class="source">Source: <a href="https://www.nbcnews.com/world/iran/strait-hormuz-shipping-traffic-effectively-standstill-iran-ceasefire-rcna267391" target="_blank">NBC News</a></div>
-            </div>
+<div class="section-title">Middle East & Iran</div>
 
-            <!-- STORY 3 -->
-            <div class="story-card">
-                <h2>Israel Authorizes Direct Negotiations With Lebanon</h2>
-                <p>After a massive bombardment drawing international criticism, PM Netanyahu authorized direct talks between Israeli and Lebanese governments. The US State Department will host the negotiators, seeking to de-escalate tensions that threaten to erupt into full-scale conflict.</p>
-                <p>Talks focus on disarming Hezbollah and establishing peaceful relations between the two nations. This represents a significant diplomatic shift following months of cross-border attacks and military posturing.</p>
-                <div class="source">Source: <a href="https://www.foreignexchanges.news/p/world-roundup-april-9-2026" target="_blank">Foreign Exchanges</a></div>
-            </div>
+<div class="card">
+<h3>Senate Rejects War Powers Resolution on Iran, 47-52</h3>
+<p>The U.S. Senate rejected a resolution seeking to rein in President Trump's ability to wage war against Iran. All Senate Republicans except Kentucky's Rand Paul voted against the measure, effectively granting the administration continued latitude in the Iran theater. The vote comes amid growing debate over congressional war powers and executive authority in the conflict.</p>
+<div class="source">Source: <a href="https://www.democracynow.org/2026/4/16/headlines">Democracy Now\!</a></div>
+</div>
 
-            <!-- STORY 4 -->
-            <div class="story-card">
-                <h2>Japan Deploys First Long-Range Missiles Capable of Reaching China</h2>
-                <p>Japan deployed missiles with 1,000km range to a southwest military base—the first time in Japan's history it has adopted offensive strike capability. The missiles can reach targets in mainland China, marking a historic shift in Japan's defense posture.</p>
-                <p>The deployment signals Japan's growing concerns about Chinese military expansion in the region and reflects a broader realignment of security alliances in Asia.</p>
-                <div class="source">Source: <a href="https://www.foreignexchanges.news/p/world-roundup-april-9-2026" target="_blank">Foreign Exchanges</a></div>
-            </div>
+<div class="card">
+<h3>Oil Companies Bank $30M Per Hour in Iran War Windfall Profits</h3>
+<p>A Guardian analysis reveals the world's top 100 oil and gas companies banked more than $30 million in windfall profits per hour during the first month of the US-Israeli war in Iran. Saudi Aramco, Gazprom, and ExxonMobil were among the biggest beneficiaries, raising urgent questions about war profiteering and the politics of energy markets during conflict.</p>
+<div class="source">Source: <a href="https://www.democracynow.org/2026/4/16/headlines">Democracy Now\! / The Guardian</a></div>
+</div>
 
-            <!-- STORY 5 -->
-            <div class="story-card">
-                <h2>Macron Calls for 'Coalition of Independents' to Counter US-China</h2>
-                <p>During his Asian tour in Seoul on April 3, France's Macron urged South Korea, Japan, India, Brazil, Canada, Australia and others to create a "coalition of medium forces" to counter American and Chinese hegemony.</p>
-                <p>The proposal reflects Europe's growing frustration with being sidelined in major geopolitical decisions and seeks to build a third pole of power independent of Washington and Beijing.</p>
-                <div class="source">Source: <a href="https://usa.news-pravda.com/world/2026/04/05/728293.html" target="_blank">Pravda</a></div>
-            </div>
+<div class="card">
+<h3>Iran-US Negotiations Continue in Islamabad</h3>
+<p>Negotiators arrived in Islamabad for high-stakes ceasefire talks between the U.S. and Iran amid allegations of bad faith and ceasefire violations from both sides. The central dispute: Israel and the US maintain the Lebanon campaign falls outside the Iran-US ceasefire framework, while Tehran insists it is integral to any deal. Pakistan is emerging as a neutral broker in the delicate negotiations.</p>
+<div class="source">Source: <a href="https://internationalaffairsreview.com/2026/04/">International Affairs Review</a></div>
+</div>
 
-            <!-- STORY 6 -->
-            <div class="story-card">
-                <h2>Iran's Khamenei Reportedly Injured, Offstage During Talks</h2>
-                <p>Reports indicate Supreme Leader Ali Khamenei has been injured and is offstage as US-Iran peace talks are set to begin, adding uncertainty to the negotiations. The news raises questions about leadership continuity and decision-making authority at a critical diplomatic moment.</p>
-                <p>Khamenei's absence during such pivotal peace talks has sparked speculation about his health and capacity to negotiate binding agreements.</p>
-                <div class="source">Source: <a href="https://thefederal.com/category/international/today-world-india-important-news-238494" target="_blank">The Federal</a></div>
-            </div>
+<div class="section-title">Europe & Eastern Europe</div>
 
-            <!-- STORY 7 -->
-            <div class="story-card">
-                <h2>Kuwait Attacked With Drones as Regional Tensions Persist</h2>
-                <p>Kuwait was hit by drone attacks, testing the fragile ceasefire. Israel and Hezbollah also traded strikes in Lebanon, underscoring the wider regional instability that threatens the nascent peace process.</p>
-                <p>The continued military engagements highlight how deeply entrenched the various factions remain despite international peace efforts and the fragility of the current ceasefire arrangements.</p>
-                <div class="source">Source: <a href="https://www.cbsnews.com/live-updates/iran-war-trump-strait-of-hormuz-israel-ceasefire-talks/" target="_blank">CBS News</a></div>
-            </div>
+<div class="card">
+<h3>Hungary's Orbán Suffers Historic Electoral Defeat</h3>
+<p>Longtime Hungarian Prime Minister Viktor Orbán suffered a massive defeat in national elections, with opposition leader Péter Magyar's party claiming a supermajority. After 16 years of increasingly illiberal governance, Hungary now has the chance to realign with European democratic norms and play a constructive role in NATO and European integration. The result is being hailed as the most significant democratic reversal in Central Europe since the fall of communism.</p>
+<div class="source">Source: <a href="https://www.foreignaffairs.com/">Foreign Affairs</a></div>
+</div>
 
-            <!-- STORY 8 -->
-            <div class="story-card">
-                <h2>UN Warns of $428 Million Shortfall in Sudan Refugee Operations</h2>
-                <p>The World Food Program faces a massive funding gap threatening support for 1.3 million Sudanese refugees in Chad. The humanitarian crisis continues as the Sudanese civil war grinds on, with no immediate resolution in sight.</p>
-                <p>Without urgent funding, refugees face severe food insecurity and potential malnutrition. The crisis represents one of the world's largest ongoing humanitarian emergencies.</p>
-                <div class="source">Source: <a href="https://www.foreignexchanges.news/p/world-roundup-april-9-2026" target="_blank">Foreign Exchanges</a></div>
-            </div>
+<div class="card">
+<h3>Russia Launches Massive Drone and Missile Attack on Ukraine</h3>
+<p>Russia hammered civilian areas of Ukraine with hundreds of drones and dozens of missiles in an attack that stretched for hours, killing at least 16 people. The barrage was one of the heaviest bombardments of the year, targeting residential neighborhoods and critical infrastructure across multiple Ukrainian cities. The attack came as international attention remained focused on the Middle East.</p>
+<div class="source">Source: <a href="https://www.democracynow.org/2026/4/16/headlines">Democracy Now\!</a></div>
+</div>
 
-            <!-- STORY 9 -->
-            <div class="story-card">
-                <h2>Peru Heads to Polls With 35 Candidates for 9th President in a Decade</h2>
-                <p>Amid rising corruption and crime, Peru's fractured democracy tries again. Voters ask whether this election can break the cycle of instability that has plagued the nation.</p>
-                <p>The 35 candidates reflect the deep political fragmentation in Peru, where no single leader or party commands broad support. The election is seen as crucial for restoring institutional credibility.</p>
-                <div class="source">Source: <a href="https://www.npr.org/sections/world/" target="_blank">NPR World News</a></div>
-            </div>
+<div class="section-title">Global Governance & Diplomacy</div>
 
-            <!-- STORY 10 -->
-            <div class="story-card">
-                <h2>Xi Jinping and KMT's Cheng Li-wun Discuss Taiwan Peace</h2>
-                <p>China's president and Taiwan's opposition KMT party agreed to pursue peace, but Taiwan's ruling party worries Beijing will use the talks to undermine its democracy.</p>
-                <p>The cross-strait dialogue represents diplomatic progress, but deep suspicions remain about Beijing's ultimate intentions toward the self-governing island.</p>
-                <div class="source">Source: <a href="https://www.foreignexchanges.news/p/world-roundup-april-9-2026" target="_blank">Foreign Exchanges</a></div>
-            </div>
+<div class="card">
+<h3>Pope Leo XIV Condemns "Tyrants" Fueling War During Africa Visit</h3>
+<p>Pope Leo XIV delivered a forceful condemnation of "tyrants" fueling war with billions during his ongoing trip to Africa. His calls for global peace come amid rising tensions with President Trump, with the Vatican increasingly positioning itself as a moral counterweight to great power politics. The Pope's remarks were widely interpreted as addressing both the Iran conflict and the global arms trade.</p>
+<div class="source">Source: <a href="https://www.democracynow.org/2026/4/16/headlines">Democracy Now\!</a></div>
+</div>
 
-            <!-- QUICK HITS -->
-            <div class="quick-hits">
-                <h3>Quick Hits</h3>
-                <ul>
-                    <li>NPR visits last ISIS detention camp in northeastern Syria</li>
-                    <li>Iranian Parliament speaker demands Lebanon ceasefire and asset release before negotiations</li>
-                    <li>Trump warns Iran: "Don't try to play the U.S. in peace talks"</li>
-                    <li>Oil disruptions from conflict have caused widespread economic damage globally</li>
-                </ul>
-            </div>
-        </div>
+<div class="card">
+<h3>IMF Warns: "Global Economy in the Shadow of War"</h3>
+<p>The International Monetary Fund released its April 2026 World Economic Outlook from Washington, D.C., with the stark title "Global Economy in the Shadow of War." The report highlights the Iran conflict and energy price spikes as the dominant risks to global growth, downgrading forecasts for oil-importing nations. The G-24 ministers met to discuss how developing nations can weather the storm.</p>
+<div class="source">Source: <a href="https://www.imf.org/en/publications/weo/issues/2026/04/14/world-economic-outlook-april-2026">IMF</a></div>
+</div>
 
-        <div class="footer">
-            <a href="daily-newsletter.html" class="back-link">← Back to Daily Newsletter</a>
-            <div class="copyright">© 2026 The Morning Wire</div>
-        </div>
-    </div>
+<div class="quick-hits">
+<h3>Quick Hits</h3>
+<ul>
+<li><strong>Turkey school shooting kills 9</strong> — A 14-year-old armed with five guns opened fire at a middle school in southern Turkey, killing at least nine people and wounding 13 before reportedly taking his own life. <a href="https://www.democracynow.org/2026/4/16/headlines" style="color:#dc2626;text-decoration:none">Source</a></li>
+<li><strong>WEF Global Risks Report</strong> — The World Economic Forum's 2026 report warns geopolitical and economic risks are rising in a "new age of competition," with state fragmentation and resource nationalism among top concerns. <a href="https://www.weforum.org/press/2026/01/global-risks-report-2026-geopolitical-and-economic-risks-rise-in-new-age-of-competition/" style="color:#dc2626;text-decoration:none">Source</a></li>
+<li><strong>Lebanon's Aoun refuses Netanyahu call</strong> — The Lebanese president's refusal to speak with the Israeli PM undercuts Trump's narrative of diplomatic progress and reveals deep fractures in the peace process. <a href="https://www.aljazeera.com/news/2026/4/16/trump-says-israel-and-lebanons-leaders-will-speak-on-thursday" style="color:#dc2626;text-decoration:none">Source</a></li>
+<li><strong>Strait of Hormuz blockade continues</strong> — The US naval blockade against Iran at the critical shipping chokepoint continues to disrupt global oil flows and drive energy prices higher. <a href="https://finance.yahoo.com/news/live/stock-market-today-dow-sp-500-nasdaq-mixed-after-trump-orders-hormuz-blockade-against-iran-145712025.html" style="color:#dc2626;text-decoration:none">Source</a></li>
+</ul>
+</div>
+
+</div>
+
+<div class="footer">
+<a href="daily-newsletter.html">← Back to The Morning Wire</a><br><br>
+The Morning Wire — World Affairs Edition — Thursday, April 16, 2026
+</div>
 </body>
 </html>
