@@ -2,23 +2,23 @@
   "rewrites": [
     {
       "source": "/tech",
-      "destination": "/newsletter-tech-ai.html"
+      "destination": "/tech-ai.html"
     },
     {
       "source": "/crypto",
-      "destination": "/newsletter-crypto.html"
+      "destination": "/crypto.html"
     },
     {
       "source": "/markets",
-      "destination": "/newsletter-markets.html"
+      "destination": "/markets.html"
     },
     {
       "source": "/world",
-      "destination": "/newsletter-world.html"
+      "destination": "/world.html"
     },
     {
       "source": "/science",
-      "destination": "/newsletter-science.html"
+      "destination": "/science.html"
     }
   ]
 }
