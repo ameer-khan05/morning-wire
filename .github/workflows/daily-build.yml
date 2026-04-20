@@ -45,7 +45,7 @@ jobs:
             --print \
             --dangerously-skip-permissions \
             --allowed-tools "Read,Write,Edit,Bash,WebSearch,WebFetch,Glob,Grep" \
-            "$(cat .github/prompts/daily-build.md)"
+            < .github/prompts/daily-build.md
 
       - name: Commit and push if changed
         run: |
