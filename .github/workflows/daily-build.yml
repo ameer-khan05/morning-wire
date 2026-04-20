@@ -1,0 +1,61 @@
+name: Daily Morning Wire Build
+
+on:
+  schedule:
+    # 11:00 UTC = 07:00 America/New_York during EDT (Mar–Nov),
+    # 06:00 America/New_York during EST (Nov–Mar).
+    # Accept the 1-hour winter drift, or edit this when DST flips.
+    - cron: '0 11 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-build
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Show today's date (America/New_York)
+        run: TZ='America/New_York' date
+
+      - name: Generate today's edition
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          claude \
+            --print \
+            --dangerously-skip-permissions \
+            --allowed-tools "Read,Write,Edit,Bash,WebSearch,WebFetch,Glob,Grep" \
+            "$(cat .github/prompts/daily-build.md)"
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "morning-wire-bot"
+          git config user.email "bot@morning-wire.local"
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "No changes produced by build — skipping commit."
+            exit 0
+          fi
+          git add -A
+          DATE=$(TZ='America/New_York' date +'%A, %B %-d, %Y')
+          git commit -m "The Morning Wire — ${DATE}"
+          git push origin main
