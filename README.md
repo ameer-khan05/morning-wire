@@ -13,11 +13,14 @@ GitHub (main branch)  ──┐
 GitHub Actions cron  ───┘
   (07:00 ET daily)
   generates HTML via
-  Claude Code OAuth
+  Claude Code OAuth,
+  validates the edition,
+  optionally sends email
 ```
 
 - **Hosting:** Vercel (project `prj_Lwd9L4htNgSMAVIpsUPc5AcPZyJ8`). Any push to `main` auto-deploys to the production alias.
-- **Daily content build:** `.github/workflows/daily-build.yml` runs on GitHub Actions at 11:00 UTC (7 AM ET during EDT, 6 AM ET during EST — accept the 1-hour drift in winter or adjust the cron seasonally). It installs the Claude Code CLI, reads the prompt at `.github/prompts/daily-build.md`, regenerates the 6 HTML files with today's real news (via Claude's web search tool), and pushes the commit. Vercel takes it from there.
+- **Daily content build:** `.github/workflows/daily-build.yml` runs on GitHub Actions at 11:00 UTC (7 AM ET during EDT, 6 AM ET during EST — accept the 1-hour drift in winter or adjust the cron seasonally). It installs the Claude Code CLI, reads the prompt at `.github/prompts/daily-build.md`, regenerates the 6 HTML files with today's real news (via Claude's web search tool), validates the edition with `scripts/validate-edition.mjs`, and pushes the commit. Vercel takes it from there.
+- **Morning email:** after a successful generated commit, the workflow runs `scripts/send-newsletter-email.mjs`. It only sends when `EMAIL_ENABLED=true` is present in GitHub Actions secrets.
 - **Manual trigger:** The workflow also has `workflow_dispatch` enabled. Go to GitHub → Actions → "Daily Morning Wire Build" → Run workflow to fire a rebuild on demand.
 
 ## Repo layout
@@ -35,6 +38,14 @@ vercel.json          # Rewrites: /tech → /tech-ai.html, /crypto → /crypto.ht
 .github/
   workflows/daily-build.yml    # Scheduled + manual build workflow
   prompts/daily-build.md       # Instruction prompt Claude Code runs each morning
+scripts/
+  validate-edition.mjs         # Structural/date/ticker validation
+  send-newsletter-email.mjs    # Optional Resend email delivery
+docs/
+  editorial-policy.md          # Editorial standards for generated editions
+AGENTS.md                      # Codex project instructions
+.agents/
+  skills/newsletter-quality-review/SKILL.md
 ```
 
 ## Design system
@@ -63,6 +74,18 @@ To provision it:
 
 After that: GitHub → Actions → "Daily Morning Wire Build" → Run workflow to test. You should see a new commit on `main` within ~2 minutes and a fresh Vercel deploy shortly after.
 
+### Optional email delivery
+
+Email delivery uses Resend and is disabled unless explicitly enabled. Add these GitHub Actions secrets to send the daily newsletter after a successful generated commit:
+
+- **`EMAIL_ENABLED`** — set to `true` to allow live email sends.
+- **`RESEND_API_KEY`** — Resend API key.
+- **`NEWSLETTER_FROM`** — verified sender address, for example `Morning Wire <news@yourdomain.com>`.
+- **`NEWSLETTER_TO`** — comma-separated recipient list.
+- **`NEWSLETTER_REPLY_TO`** — optional reply-to address.
+
+If `EMAIL_ENABLED` is missing or anything other than `true`, the workflow skips email sending.
+
 ## Operations
 
 **Rotating the OAuth token.** Re-run `/install-github-app` — it overwrites the existing secret.
@@ -72,6 +95,20 @@ After that: GitHub → Actions → "Daily Morning Wire Build" → Run workflow t
 **Editing the design.** CSS lives in `public/styles.css`. The daily prompt is instructed not to touch CSS — if you change design, do it manually and commit it; the next daily build will keep your changes.
 
 **Editing the content prompt.** `.github/prompts/daily-build.md`. This is the brief Claude follows each morning — beats, tone, sourcing rules, format constraints. Edit and commit; the next run picks it up.
+
+**Validating an edition locally.** Run:
+
+```bash
+node scripts/validate-edition.mjs
+```
+
+Use `node scripts/validate-edition.mjs --strict-date` in CI or when validating a freshly generated current-day edition.
+
+**Testing email locally without sending.** Run:
+
+```bash
+DRY_RUN_EMAIL=true EMAIL_ENABLED=true RESEND_API_KEY=dummy NEWSLETTER_FROM='Morning Wire <news@example.com>' NEWSLETTER_TO='you@example.com' node scripts/send-newsletter-email.mjs
+```
 
 **Killing a bad build.** If a daily build ships something broken, revert the commit:
 

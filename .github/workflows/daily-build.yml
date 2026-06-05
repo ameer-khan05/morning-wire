@@ -47,15 +47,44 @@ jobs:
             --allowed-tools "Read,Write,Edit,Bash,WebSearch,WebFetch,Glob,Grep" \
             < .github/prompts/daily-build.md
 
+      - name: Validate generated edition
+        run: node scripts/validate-edition.mjs --strict-date
+
+      - name: Ensure protected files were not changed
+        run: |
+          git diff --exit-code -- \
+            README.md \
+            vercel.json \
+            .github \
+            .agents \
+            AGENTS.md \
+            docs \
+            scripts \
+            public/styles.css
+
       - name: Commit and push if changed
+        id: commit
         run: |
           git config user.name "morning-wire-bot"
           git config user.email "bot@morning-wire.local"
           if git diff --quiet && git diff --cached --quiet; then
             echo "No changes produced by build — skipping commit."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git add -A
           DATE=$(TZ='America/New_York' date +'%A, %B %-d, %Y')
           git commit -m "The Morning Wire — ${DATE}"
           git push origin main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Send newsletter email
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          EMAIL_ENABLED: ${{ secrets.EMAIL_ENABLED }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          NEWSLETTER_FROM: ${{ secrets.NEWSLETTER_FROM }}
+          NEWSLETTER_TO: ${{ secrets.NEWSLETTER_TO }}
+          NEWSLETTER_REPLY_TO: ${{ secrets.NEWSLETTER_REPLY_TO }}
+          NEWSLETTER_BASE_URL: https://morning-wire-rho.vercel.app
+        run: node scripts/send-newsletter-email.mjs
