@@ -99,9 +99,8 @@ jobs:
             gh issue comment "$EXISTING" --repo "${{ github.repository }}" \
               --body "Failed again on ${DATE}. Logs: ${RUN_URL}"
           else
+            BODY=$(printf 'The morning edition did not publish. Check the **Generate today'"'"'s edition** step in the logs: %s\n\nCommon causes: the run exceeded its 50-minute budget (look at the last logged tool call), or Claude authentication failed (an error will be printed at the top of the step).' "$RUN_URL")
             gh issue create --repo "${{ github.repository }}" \
               --title "Daily Morning Wire build failed — ${DATE}" \
-              --body "The morning edition did not publish. Check the **Generate today's edition** step in the logs: ${RUN_URL}
-
-Common causes: the run exceeded its 50-minute budget (look at the last logged tool call), or Claude authentication failed (an error will be printed at the top of the step)."
+              --body "$BODY"
           fi
