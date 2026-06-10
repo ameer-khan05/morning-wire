@@ -2,14 +2,15 @@ name: Daily Morning Wire Build
 
 on:
   schedule:
-    # 11:00 UTC = 07:00 America/New_York during EDT (Mar–Nov),
-    # 06:00 America/New_York during EST (Nov–Mar).
-    # Accept the 1-hour winter drift, or edit this when DST flips.
-    - cron: '0 11 * * *'
+    # 09:37 UTC = 05:37 America/New_York during EDT (04:37 during EST).
+    # GitHub fires scheduled runs 1–5 hours late on congested days, so an
+    # early, off-the-hour slot still lands the edition before mid-morning.
+    - cron: '37 9 * * *'
   workflow_dispatch: {}
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: daily-build
@@ -18,7 +19,10 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # Backstop only — the Generate step enforces its own 50-minute cap so a
+    # slow run fails as "failure" (which triggers the alert step) rather than
+    # being cancelled silently by the job-level limit.
+    timeout-minutes: 55
 
     steps:
       - name: Check out main
@@ -31,8 +35,12 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Claude Code CLI
-        run: npm install -g @anthropic-ai/claude-code
+      - name: Install Claude Code CLI (pinned)
+        # Pinned so a new CLI release can't silently change behavior or speed.
+        # Bump deliberately, and check the run duration after bumping.
+        run: |
+          npm install -g @anthropic-ai/claude-code@2.1.170
+          claude --version
 
       - name: Show today's date (America/New_York)
         run: TZ='America/New_York' date
@@ -40,12 +48,29 @@ jobs:
       - name: Generate today's edition
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        # stream-json + jq turns the formerly-silent 20+ minute wait into a
+        # live progress log (each tool call and message as it happens), so a
+        # stuck or slow run is diagnosable from the logs alone.
         run: |
-          claude \
+          set -o pipefail
+          timeout --signal=TERM 50m claude \
             --print \
+            --verbose \
+            --output-format stream-json \
+            --model claude-sonnet-4-6 \
             --dangerously-skip-permissions \
             --allowed-tools "Read,Write,Edit,Bash,WebSearch,WebFetch,Glob,Grep" \
-            < .github/prompts/daily-build.md
+            < .github/prompts/daily-build.md \
+            | jq --unbuffered -r '
+                if .type == "assistant" then
+                  (.message.content[]? |
+                    if .type == "text" then .text
+                    elif .type == "tool_use" then "⏵ tool: " + .name
+                    else empty end)
+                elif .type == "result" then
+                  "■ finished (" + (.subtype // "unknown") + ") after " +
+                  ((.duration_ms // 0) / 60000 * 10 | floor / 10 | tostring) + " min"
+                else empty end'
 
       - name: Commit and push if changed
         run: |
@@ -59,3 +84,24 @@ jobs:
           DATE=$(TZ='America/New_York' date +'%A, %B %-d, %Y')
           git commit -m "The Morning Wire — ${DATE}"
           git push origin main
+
+      - name: Open a GitHub issue if the build failed
+        if: failure() || cancelled()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          DATE=$(TZ='America/New_York' date +'%A, %B %-d, %Y')
+          EXISTING=$(gh issue list --repo "${{ github.repository }}" --state open \
+            --search "Daily Morning Wire build failed in:title" \
+            --json number --jq '.[0].number // empty')
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --repo "${{ github.repository }}" \
+              --body "Failed again on ${DATE}. Logs: ${RUN_URL}"
+          else
+            gh issue create --repo "${{ github.repository }}" \
+              --title "Daily Morning Wire build failed — ${DATE}" \
+              --body "The morning edition did not publish. Check the **Generate today's edition** step in the logs: ${RUN_URL}
+
+Common causes: the run exceeded its 50-minute budget (look at the last logged tool call), or Claude authentication failed (an error will be printed at the top of the step)."
+          fi

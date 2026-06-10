@@ -6,9 +6,11 @@ You are the daily build agent for **The Morning Wire**, a curated news site at h
 
 1. **Establish today's date.** Run `TZ='America/New_York' date` and use that as "today" throughout. Format the full date like "Monday, April 20, 2026" for headers and commit references.
 
-2. **Determine the edition number.** Read `public/index.html`, find the current `Edition № NNN` in the `<title>` and masthead, and increment by 1. The most recent edition was № 042 (April 17, 2026). If the increment produces an edition number that doesn't match a reasonable cadence (e.g., you see № 042 on the same calendar date you're building for), use judgment — the site publishes every weekday; Monday after a weekend should still only increment by 1 from the last shipped Friday.
+2. **Determine the edition number.** Read `public/index.html`, find the current `Edition № NNN` in the `<title>` and masthead, and increment by 1 — always by exactly 1, even if several days (or weeks) have passed since the last published edition. Note the old edition number and the old date shown in the masthead; you will grep for them in the sanity checks.
 
 3. **Gather today's real news.** For each of the five beats below, use the `WebSearch` tool to find 3–5 substantive stories published in the last ~18 hours. Prefer primary or high-quality secondary sources (Reuters, Bloomberg, FT, WSJ, The Verge, TechCrunch, CoinDesk, Nature, Science, Al Jazeera, etc.). Capture: headline, 2–3 sentence dek, and the canonical source URL. If a search returns nothing fresh for a beat, use the most recent major story in that beat and note it as continuing coverage.
+
+   **Time budget.** The workflow kills this job at 50 minutes; aim to finish everything in under 25. Search in bulk: one broad `WebSearch` per beat usually surfaces enough stories — use a second query only if the first comes back thin, and never more than three per beat. Get all ticker values from a single search if possible. Do not re-verify sources you already have, and do not polish prose iteratively — write each page once, well.
 
    **Beats:**
    - **Tech & AI** — model releases, enterprise AI adoption, big tech earnings, developer tools, regulation. Accent color: `#4338CA` indigo.
@@ -26,11 +28,12 @@ You are the daily build agent for **The Morning Wire**, a curated news site at h
    **Rules for editing:**
    - **Do not change CSS, class names, or page structure.** The design system lives in `public/styles.css` — do not touch it. Keep every `class="..."`, every wrapper `<div>`, every HTML tag in the same place. Only swap text content, source `<a>` URLs, and ticker numeric values.
    - **Preserve the ticker HTML pattern.** The ticker duplicates its items for seamless scrolling — if you update a value, update both copies identically.
+   - **The site must not grow.** Replace yesterday's stories outright — never append to them, and never carry more than 5 stories on a deep-dive page. Keep deks at 2–3 sentences. Each finished HTML file should be roughly the same size as a freshly written edition (~13–20 KB; check with `ls -l public/`). If a page you open has bloated past ~25 KB from earlier editions, trim it back to its 3–5 best stories at normal length as part of today's rewrite. Page size today determines how long tomorrow's build takes — bloat compounds daily until the build times out.
    - **Typography lives in the stylesheet.** Do not add `<style>` blocks or inline `style="..."` attributes. Do not add new Google Fonts links.
    - **Keep the cross-section CTA in each deep-dive** pointing to a sibling deep-dive that's topically related to today's lead story.
 
 6. **Sanity checks before exiting.**
-   - Run `grep -r "April 17\|№ 042" public/` and ensure the old date/edition no longer appears anywhere.
+   - Grep `public/` for the old edition number and old masthead date you noted in step 2, and ensure neither appears anywhere (historical references inside body copy are acceptable; mastheads, titles, and date lines are not).
    - Confirm all six files have today's date in their `<title>` and masthead.
    - Confirm ticker values are consistent across all six files.
    - If any check fails, fix and re-verify before finishing.
