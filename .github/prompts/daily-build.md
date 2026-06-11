@@ -6,7 +6,7 @@ You are the daily build agent for **The Morning Wire**, a curated news site at h
 
 1. **Establish today's date.** Run `TZ='America/New_York' date` and use that as "today" throughout. Format the full date like "Monday, April 20, 2026" for headers and commit references.
 
-2. **Determine the edition number.** Read `public/index.html`, find the current `Edition № NNN` in the `<title>` and masthead, and increment by 1 — always by exactly 1, even if several days (or weeks) have passed since the last published edition. Note the old edition number and the old date shown in the masthead; you will grep for them in the sanity checks.
+2. **Determine the edition number.** Read `public/site-config.js` to find the current edition number and date. Increment the edition by exactly 1. Note the old edition number and old date for sanity checks.
 
 3. **Gather today's real news.** For each of the five beats below, use the `WebSearch` tool to find 3–5 substantive stories published in the last ~18 hours. Prefer primary or high-quality secondary sources (Reuters, Bloomberg, FT, WSJ, The Verge, TechCrunch, CoinDesk, Nature, Science, Al Jazeera, etc.). Capture: headline, 2–3 sentence dek, and the canonical source URL. If a search returns nothing fresh for a beat, use the most recent major story in that beat and note it as continuing coverage.
 
@@ -21,30 +21,39 @@ You are the daily build agent for **The Morning Wire**, a curated news site at h
 
 4. **Fetch current market values.** Use `WebSearch` to get today's values for the ticker: S&P 500, Nasdaq, Dow, Russell 2000, BTC, ETH, WTI Crude, Brent, Gold, UST 10Y. Capture latest level and daily % change (green ▲ for up, red ▼ for down). Use roughly the last close if markets haven't opened yet for today's run.
 
-5. **Update the six HTML files** in `public/`:
-   - `index.html` — Daily Hub. Contains the ticker, masthead with today's date and edition number, "The Brief" lede, a stat card, and five section cards linking to the deep dives.
-   - `tech-ai.html`, `crypto.html`, `markets.html`, `world.html`, `science.html` — deep-dive pages. Each has `<body class="theme-{section}">`, a headline, lede/dek, 3–5 stories with sources, and a cross-section CTA.
+5. **Update `public/site-config.js` first.** This file holds edition-wide data used by the shared utilities (`shared.js`). Update:
+   - `edition` — the new edition number.
+   - `date`, `dateShort`, `dateMeta` — today's date in all three formats.
+   - `sections` — each section's `label` and short CTA `title` (headline + emphasis) for cross-page links.
+
+   The shared utilities automatically render the **topbar**, **breadcrumb**, **cross-section CTA**, and **footer** on every page from this config. You do not need to edit those components in the HTML files.
+
+6. **Update the six HTML files** in `public/`:
+   - `index.html` — Daily Hub. Contains the ticker, masthead with today's date and edition number, "The Brief" lede, a stat card, and five section cards.
+   - `tech-ai.html`, `crypto.html`, `markets.html`, `world.html`, `science.html` — deep-dive pages. Each has `<body class="theme-{section}">`, a `window.PAGE` config, a headline, lede/dek, and 3–5 stories with sources.
 
    **Rules for editing:**
-   - **Do not change CSS, class names, or page structure.** The design system lives in `public/styles.css` — do not touch it. Keep every `class="..."`, every wrapper `<div>`, every HTML tag in the same place. Only swap text content, source `<a>` URLs, and ticker numeric values.
-   - **Preserve the ticker HTML pattern.** The ticker duplicates its items for seamless scrolling — if you update a value, update both copies identically.
-   - **The site must not grow.** Replace yesterday's stories outright — never append to them, and never carry more than 5 stories on a deep-dive page. Keep deks at 2–3 sentences. Each finished HTML file should be roughly the same size as a freshly written edition (~13–20 KB; check with `ls -l public/`). If a page you open has bloated past ~25 KB from earlier editions, trim it back to its 3–5 best stories at normal length as part of today's rewrite. Page size today determines how long tomorrow's build takes — bloat compounds daily until the build times out.
+   - **Do not change CSS, class names, or page structure.** The design system lives in `public/styles.css` — do not touch it. Only swap text content, source `<a>` URLs, and ticker numeric values.
+   - **Do not touch `shared.js`.** The shared utilities handle topbar, breadcrumb, cross-CTA, footer, and ticker duplication automatically.
+   - **Ticker items are written once per page.** Do NOT duplicate them — `shared.js` clones them automatically for the seamless CSS scroll loop.
+   - **The `window.PAGE` config** at the top of each deep-dive `<body>` may need its `footerTagline` updated if you change the footer text.
+   - **The site must not grow.** Replace yesterday's stories outright — never append to them, and never carry more than 5 stories on a deep-dive page. Keep deks at 2–3 sentences. Each finished HTML file should be roughly the same size as a freshly written edition. If a page has bloated past ~25 KB, trim it back to 3–5 best stories at normal length.
    - **Typography lives in the stylesheet.** Do not add `<style>` blocks or inline `style="..."` attributes. Do not add new Google Fonts links.
-   - **Keep the cross-section CTA in each deep-dive** pointing to a sibling deep-dive that's topically related to today's lead story.
 
-6. **Sanity checks before exiting.**
+7. **Sanity checks before exiting.**
    - Grep `public/` for the old edition number and old masthead date you noted in step 2, and ensure neither appears anywhere (historical references inside body copy are acceptable; mastheads, titles, and date lines are not).
-   - Confirm all six files have today's date in their `<title>` and masthead.
+   - Confirm `site-config.js` has today's date and the new edition number.
+   - Confirm all six HTML files have today's date in their `<title>` and masthead.
    - Confirm ticker values are consistent across all six files.
    - If any check fails, fix and re-verify before finishing.
 
-7. **Exit.** Do not run `git add`, `git commit`, or `git push` — the workflow wraps this step and will commit any changes you made. Just leave the working tree dirty and return.
+8. **Exit.** Do not run `git add`, `git commit`, or `git push` — the workflow wraps this step and will commit any changes you made. Just leave the working tree dirty and return.
 
 ## What not to do
 
-- Do not create new files. The site is exactly six HTML files plus a shared stylesheet.
+- Do not create new files. The site is six HTML files, two JS files (`site-config.js`, `shared.js`), and a shared stylesheet.
 - Do not delete files.
-- Do not edit `vercel.json`, `README.md`, `.github/**`, or `styles.css`.
+- Do not edit `vercel.json`, `README.md`, `.github/**`, `styles.css`, or `shared.js`.
 - Do not add tracking scripts, analytics, ads, or third-party embeds.
 - Do not invent sources. Every story's source link must be a real URL you retrieved via web search.
 - Do not use markdown — you are writing HTML into HTML files.
