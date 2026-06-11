@@ -1,0 +1,16 @@
+{
+  "name": "morning-wire",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The Morning Wire — daily AI-curated news site",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "cheerio": "^1.0.0",
+    "css-tree": "^3.1.0",
+    "js-yaml": "^4.1.0",
+    "vitest": "^3.2.1"
+  }
+}
