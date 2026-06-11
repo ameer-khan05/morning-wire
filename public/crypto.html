@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body class="theme-crypto">
+<script>window.PAGE={section:'crypto',breadcrumb:'Crypto',footerTagline:'Five beats a day. Crypto is the second. Nothing you didn\'t need.'};</script>
 
 <div class="ticker-wrap" aria-label="Crypto ticker">
   <div class="ticker-track">
@@ -22,35 +23,11 @@
     <span class="ticker-item"><span class="lbl">BTC.D</span> 61.6% <span class="down">▼ 0.20 pt</span></span>
     <span class="ticker-item"><span class="lbl">MSTR</span> 429.40 <span class="up">▲ 0.96%</span></span>
     <span class="ticker-item"><span class="lbl">COIN</span> 282.50 <span class="up">▲ 0.82%</span></span>
-    <!-- Duplicated for seamless loop -->
-    <span class="ticker-item"><span class="lbl">BTC</span> $74,054 <span class="up">▲ 0.92%</span></span>
-    <span class="ticker-item"><span class="lbl">ETH</span> $2,016 <span class="up">▲ 0.45%</span></span>
-    <span class="ticker-item"><span class="lbl">SOL</span> $143.20 <span class="up">▲ 1.20%</span></span>
-    <span class="ticker-item"><span class="lbl">XRP</span> $1.412 <span class="up">▲ 1.00%</span></span>
-    <span class="ticker-item"><span class="lbl">DOGE</span> $0.165 <span class="up">▲ 1.23%</span></span>
-    <span class="ticker-item"><span class="lbl">BTC.D</span> 61.6% <span class="down">▼ 0.20 pt</span></span>
-    <span class="ticker-item"><span class="lbl">MSTR</span> 429.40 <span class="up">▲ 0.96%</span></span>
-    <span class="ticker-item"><span class="lbl">COIN</span> 282.50 <span class="up">▲ 0.82%</span></span>
   </div>
 </div>
 
-<header class="topbar">
-  <div class="topbar-inner">
-    <a class="topbar-brand" href="index.html">The Morning <em>Wire</em></a>
-    <nav class="topbar-nav" aria-label="Sections">
-      <a href="tech-ai.html">Tech &amp; AI</a>
-      <a class="is-active" href="crypto.html">Crypto</a>
-      <a href="markets.html">Markets</a>
-      <a href="world.html">World</a>
-      <a href="science.html">Science</a>
-    </nav>
-    <span class="topbar-meta">Sun · May 31 · № 065</span>
-  </div>
-</header>
-
-<nav class="breadcrumb" aria-label="Breadcrumb">
-  <a href="index.html">The Wire</a><span class="sep">/</span><span class="current">Crypto</span>
-</nav>
+<div id="topbar-mount"></div>
+<div id="breadcrumb-mount"></div>
 
 <section class="deep-hero">
   <div class="h-body">
@@ -177,42 +154,10 @@
   </ul>
 </section>
 
-<section class="cross-cta">
-  <h4>Keep reading across the Wire</h4>
-  <div class="cross-grid">
-    <a class="cross-link" href="world.html" data-section="world">
-      <span class="cc-label">World</span>
-      <span class="cc-title">Iran: <em>Day 92</em></span>
-    </a>
-    <a class="cross-link" href="markets.html" data-section="markets">
-      <span class="cc-label">Markets</span>
-      <span class="cc-title">S&amp;P <em>Record</em></span>
-    </a>
-    <a class="cross-link" href="tech-ai.html" data-section="tech">
-      <span class="cc-label">Tech &amp; AI</span>
-      <span class="cc-title">Dell <em>+32%</em></span>
-    </a>
-    <a class="cross-link" href="science.html" data-section="science">
-      <span class="cc-label">Science</span>
-      <span class="cc-title">CKD <em>788M</em></span>
-    </a>
-    <a class="cross-link" href="index.html" data-section="crypto">
-      <span class="cc-label">Back</span>
-      <span class="cc-title">Return to the <em>Hub</em></span>
-    </a>
-  </div>
-</section>
+<div id="cross-cta-mount"></div>
+<div id="footer-mount"></div>
 
-<footer class="site-foot">
-  <div class="inner">
-    <div class="brand">The Morning <em>Wire</em></div>
-    <span class="meta">Crypto · № 065</span>
-  </div>
-  <div class="inner" style="margin-top:14px">
-    <p>Five beats a day. Crypto is the second. Nothing you didn't need.</p>
-    <span class="meta">May 31, 2026</span>
-  </div>
-</footer>
-
+<script src="site-config.js"></script>
+<script src="shared.js"></script>
 </body>
 </html>

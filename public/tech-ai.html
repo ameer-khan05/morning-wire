@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body class="theme-tech">
+<script>window.PAGE={section:'tech',breadcrumb:'Tech &amp; AI',footerTagline:'Five beats a day. Tech &amp; AI is the first. Nothing you didn\'t need.'};</script>
 
 <!-- Scrolling ticker -->
 <div class="ticker-wrap" aria-label="Market ticker">
@@ -23,37 +24,11 @@
     <span class="ticker-item"><span class="lbl">AI Trifecta</span> Nvidia $81.6B Chip Layer · Snowflake $1.39B Data Layer · Dell $16.1B Hardware Layer</span>
     <span class="ticker-item"><span class="lbl">DELL ISG</span> Infrastructure Solutions Group $29.0B +181% YoY · EPS $5.24 +282% · FY Rev $167B Midpoint</span>
     <span class="ticker-item"><span class="lbl">Gemini Spark</span> Personal Agent · Takes Actions on Users' Behalf · Google AI Ultra $100/mo · Available Next Week</span>
-    <!-- Duplicated for seamless loop -->
-    <span class="ticker-item"><span class="lbl">DELL</span> +32% Fri · Q1 FY2027 $43.8B +88% YoY · AI Server $16.1B +757% · AI Orders $24.4B · $60B FY Guidance · 31 May</span>
-    <span class="ticker-item"><span class="lbl">Nasdaq</span> 26,972.62 <span class="up">▲ 0.20%</span></span>
-    <span class="ticker-item"><span class="lbl">Google I/O</span> Gemini Omni · Gemini 3.5 Flash · Gemini Spark Personal Agent · Antigravity Agent Platform</span>
-    <span class="ticker-item"><span class="lbl">Anthropic</span> Milan Office Opens May 28 · EMEA 9x Run-Rate Revenue Growth · Fastest-Growing Region</span>
-    <span class="ticker-item"><span class="lbl">AMD Venice</span> 6th Gen EPYC · 2nm TSMC Process · First 2nm HPC Chip In Production</span>
-    <span class="ticker-item"><span class="lbl">AI Trifecta</span> Nvidia $81.6B Chip Layer · Snowflake $1.39B Data Layer · Dell $16.1B Hardware Layer</span>
-    <span class="ticker-item"><span class="lbl">DELL ISG</span> Infrastructure Solutions Group $29.0B +181% YoY · EPS $5.24 +282% · FY Rev $167B Midpoint</span>
-    <span class="ticker-item"><span class="lbl">Gemini Spark</span> Personal Agent · Takes Actions on Users' Behalf · Google AI Ultra $100/mo · Available Next Week</span>
   </div>
 </div>
 
-<!-- Sticky topbar -->
-<header class="topbar">
-  <div class="topbar-inner">
-    <a class="topbar-brand" href="index.html">The Morning <em>Wire</em></a>
-    <nav class="topbar-nav" aria-label="Sections">
-      <a class="is-active" href="tech-ai.html">Tech &amp; AI</a>
-      <a href="crypto.html">Crypto</a>
-      <a href="markets.html">Markets</a>
-      <a href="world.html">World</a>
-      <a href="science.html">Science</a>
-    </nav>
-    <span class="topbar-meta">Sun · May 31 · № 065</span>
-  </div>
-</header>
-
-<!-- Breadcrumb -->
-<nav class="breadcrumb" aria-label="Breadcrumb">
-  <a href="index.html">The Wire</a><span class="sep">/</span><span class="current">Tech &amp; AI</span>
-</nav>
+<div id="topbar-mount"></div>
+<div id="breadcrumb-mount"></div>
 
 <!-- Deep hero -->
 <section class="deep-hero">
@@ -172,44 +147,10 @@
   </ul>
 </section>
 
-<!-- Cross-cta -->
-<section class="cross-cta">
-  <h4>Keep reading across the Wire</h4>
-  <div class="cross-grid">
-    <a class="cross-link" href="markets.html" data-section="markets">
-      <span class="cc-label">Markets</span>
-      <span class="cc-title">S&amp;P <em>Record</em></span>
-    </a>
-    <a class="cross-link" href="world.html" data-section="world">
-      <span class="cc-label">World</span>
-      <span class="cc-title">Iran: <em>Day 92</em></span>
-    </a>
-    <a class="cross-link" href="crypto.html" data-section="crypto">
-      <span class="cc-label">Crypto</span>
-      <span class="cc-title">BTC <em>$74,054</em></span>
-    </a>
-    <a class="cross-link" href="science.html" data-section="science">
-      <span class="cc-label">Science</span>
-      <span class="cc-title">CKD <em>788M</em></span>
-    </a>
-    <a class="cross-link" href="index.html" data-section="tech">
-      <span class="cc-label">Back</span>
-      <span class="cc-title">Return to the <em>Hub</em></span>
-    </a>
-  </div>
-</section>
+<div id="cross-cta-mount"></div>
+<div id="footer-mount"></div>
 
-<!-- Footer -->
-<footer class="site-foot">
-  <div class="inner">
-    <div class="brand">The Morning <em>Wire</em></div>
-    <span class="meta">Tech &amp; AI · № 065</span>
-  </div>
-  <div class="inner" style="margin-top:14px">
-    <p>Five beats a day. Tech &amp; AI is the first. Nothing you didn't need.</p>
-    <span class="meta">May 31, 2026</span>
-  </div>
-</footer>
-
+<script src="site-config.js"></script>
+<script src="shared.js"></script>
 </body>
 </html>

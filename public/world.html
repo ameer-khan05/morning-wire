@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body class="theme-world">
+<script>window.PAGE={section:'world',breadcrumb:'World',footerTagline:'Five beats a day. World is the fourth. Nothing you didn\'t need.'};</script>
 
 <div class="ticker-wrap" aria-label="Global ticker">
   <div class="ticker-track">
@@ -22,35 +23,11 @@
     <span class="ticker-item"><span class="lbl">Colombia</span> Presidential Election May 31 · Armed Groups Escalate Violence in Southwest</span>
     <span class="ticker-item"><span class="lbl">WTI</span> $87.20 <span class="down">▼ 3.48%</span></span>
     <span class="ticker-item"><span class="lbl">Brent</span> $93.10 <span class="down">▼ 0.37%</span></span>
-    <!-- Duplicated for seamless loop -->
-    <span class="ticker-item"><span class="lbl">Conflict Day</span> 92-93 · Situation Room Without Signature · New Demands · Iranian Rejection</span>
-    <span class="ticker-item"><span class="lbl">Trump Demands</span> Never-Nuclear · Open Hormuz Immediately No Tolls · ~900 lbs HEU Destroyed</span>
-    <span class="ticker-item"><span class="lbl">Iranian Response</span> Adviser: "Betraying Diplomacy Third Time" · Supreme Leader Silent · State Media: Not Finalized</span>
-    <span class="ticker-item"><span class="lbl">Hegseth</span> US "More Than Capable" of Resuming Strikes · Weapons Stockpiles "Enough to Get Job Done"</span>
-    <span class="ticker-item"><span class="lbl">Shangri-La</span> Singapore May 29-31 · Asia-Pacific Security Realignment · AUKUS + Quad Reassessed</span>
-    <span class="ticker-item"><span class="lbl">Colombia</span> Presidential Election May 31 · Armed Groups Escalate Violence in Southwest</span>
-    <span class="ticker-item"><span class="lbl">WTI</span> $87.20 <span class="down">▼ 3.48%</span></span>
-    <span class="ticker-item"><span class="lbl">Brent</span> $93.10 <span class="down">▼ 0.37%</span></span>
   </div>
 </div>
 
-<header class="topbar">
-  <div class="topbar-inner">
-    <a class="topbar-brand" href="index.html">The Morning <em>Wire</em></a>
-    <nav class="topbar-nav" aria-label="Sections">
-      <a href="tech-ai.html">Tech &amp; AI</a>
-      <a href="crypto.html">Crypto</a>
-      <a href="markets.html">Markets</a>
-      <a class="is-active" href="world.html">World</a>
-      <a href="science.html">Science</a>
-    </nav>
-    <span class="topbar-meta">Sun · May 31 · № 065</span>
-  </div>
-</header>
-
-<nav class="breadcrumb" aria-label="Breadcrumb">
-  <a href="index.html">The Wire</a><span class="sep">/</span><span class="current">World</span>
-</nav>
+<div id="topbar-mount"></div>
+<div id="breadcrumb-mount"></div>
 
 <section class="deep-hero">
   <div class="h-body">
@@ -177,42 +154,10 @@
   </ul>
 </section>
 
-<section class="cross-cta">
-  <h4>Keep reading across the Wire</h4>
-  <div class="cross-grid">
-    <a class="cross-link" href="markets.html" data-section="markets">
-      <span class="cc-label">Markets</span>
-      <span class="cc-title">S&amp;P <em>Record</em></span>
-    </a>
-    <a class="cross-link" href="crypto.html" data-section="crypto">
-      <span class="cc-label">Crypto</span>
-      <span class="cc-title">BTC <em>$74,054</em></span>
-    </a>
-    <a class="cross-link" href="tech-ai.html" data-section="tech">
-      <span class="cc-label">Tech &amp; AI</span>
-      <span class="cc-title">Dell <em>+32%</em></span>
-    </a>
-    <a class="cross-link" href="science.html" data-section="science">
-      <span class="cc-label">Science</span>
-      <span class="cc-title">CKD <em>788M</em></span>
-    </a>
-    <a class="cross-link" href="index.html" data-section="world">
-      <span class="cc-label">Back</span>
-      <span class="cc-title">Return to the <em>Hub</em></span>
-    </a>
-  </div>
-</section>
+<div id="cross-cta-mount"></div>
+<div id="footer-mount"></div>
 
-<footer class="site-foot">
-  <div class="inner">
-    <div class="brand">The Morning <em>Wire</em></div>
-    <span class="meta">World · № 065</span>
-  </div>
-  <div class="inner" style="margin-top:14px">
-    <p>Five beats a day. World is the fourth. Nothing you didn't need.</p>
-    <span class="meta">May 31, 2026</span>
-  </div>
-</footer>
-
+<script src="site-config.js"></script>
+<script src="shared.js"></script>
 </body>
 </html>
