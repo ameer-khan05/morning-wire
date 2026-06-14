@@ -63,6 +63,23 @@ To provision it:
 
 After that: GitHub → Actions → "Daily Morning Wire Build" → Run workflow to test. You should see a new commit on `main` within ~2 minutes and a fresh Vercel deploy shortly after.
 
+## Daily email notification (optional)
+
+After each successful build, the workflow emails the live site link so you get a "today's edition is live" ping every morning. It only fires when a fresh edition was actually published, and if the secrets below are missing the step is skipped (the build never fails over email).
+
+It needs two GitHub repo secrets:
+
+- **`MAIL_USERNAME`** — your Gmail address. Used as both the sender and the recipient.
+- **`MAIL_PASSWORD`** — a Google **app password** (a 16-character token), *not* your normal account password.
+
+To provision them:
+
+1. Enable 2-Step Verification on your Google account (required for app passwords): Google Account → Security.
+2. Create an app password: Google Account → Security → **App passwords** → name it e.g. "Morning Wire" → copy the 16-character value.
+3. In GitHub → the repo → Settings → Secrets and variables → Actions → New repository secret, add `MAIL_USERNAME` (your Gmail address) and `MAIL_PASSWORD` (the app password).
+
+The link is always `https://morning-wire-rho.vercel.app` (the site rebuilds in place), so the email is the same URL each day — your cue that today's edition is ready. To send to a different inbox than the sender, change the `to:` field in the "Email the new edition link" step of `.github/workflows/daily-build.yml`.
+
 ## Operations
 
 **Rotating the OAuth token.** Re-run `/install-github-app` — it overwrites the existing secret.
