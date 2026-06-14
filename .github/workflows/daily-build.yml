@@ -73,17 +73,59 @@ jobs:
                 else empty end'
 
       - name: Commit and push if changed
+        id: publish
         run: |
           git config user.name "morning-wire-bot"
           git config user.email "bot@morning-wire.local"
           if git diff --quiet && git diff --cached --quiet; then
             echo "No changes produced by build — skipping commit."
+            echo "published=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git add -A
           DATE=$(TZ='America/New_York' date +'%A, %B %-d, %Y')
           git commit -m "The Morning Wire — ${DATE}"
           git push origin main
+          # Signal the notification step that a fresh edition went live.
+          echo "published=true" >> "$GITHUB_OUTPUT"
+          echo "date=${DATE}" >> "$GITHUB_OUTPUT"
+
+      - name: Email the new edition link
+        # Only fires when a fresh edition was actually published. Both the
+        # sender and recipient are MAIL_USERNAME, so you only need two secrets:
+        # MAIL_USERNAME (your Gmail address) and MAIL_PASSWORD (a Google
+        # app password — NOT your account password). If the secrets are
+        # missing the step is skipped, so the build never fails over email.
+        if: steps.publish.outputs.published == 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          from: The Morning Wire <${{ secrets.MAIL_USERNAME }}>
+          to: ${{ secrets.MAIL_USERNAME }}
+          subject: "The Morning Wire — ${{ steps.publish.outputs.date }}"
+          html_body: |
+            <div style="font-family: -apple-system, Segoe UI, Roboto, sans-serif; max-width: 480px;">
+              <h2 style="margin-bottom: 4px;">The Morning Wire</h2>
+              <p style="color: #555; margin-top: 0;">${{ steps.publish.outputs.date }}</p>
+              <p>This morning's edition is live.</p>
+              <p>
+                <a href="https://morning-wire-rho.vercel.app"
+                   style="display: inline-block; padding: 10px 18px; background: #0B0F14;
+                          color: #FBF8F3; text-decoration: none; border-radius: 6px;">
+                  Read today's edition →
+                </a>
+              </p>
+              <p style="color: #888; font-size: 13px;">https://morning-wire-rho.vercel.app</p>
+            </div>
+          body: |
+            The Morning Wire — ${{ steps.publish.outputs.date }}
+
+            This morning's edition is live:
+            https://morning-wire-rho.vercel.app
 
       - name: Open a GitHub issue if the build failed
         if: failure() || cancelled()
