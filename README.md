@@ -7,18 +7,24 @@ A daily AI-curated news site that rebuilds itself every morning at 7 AM ET with 
 ## Architecture
 
 ```
-GitHub (main branch)  ──┐
-                        ├──►  Vercel auto-deploy  ──►  morning-wire-rho.vercel.app
-                        │
-GitHub Actions cron  ───┘
-  (07:00 ET daily)
-  generates HTML via
-  Claude Code OAuth
+Vercel Cron ──► /api/rebuild ──► GitHub API (workflow_dispatch)
+  (11:00 UTC daily)                        │
+                                           ▼
+                              GitHub Actions: daily-build.yml
+                                generates HTML via Claude Code OAuth
+                                pushes commit to main
+                                           │
+                                           ▼
+                              Vercel auto-deploy ──► morning-wire-rho.vercel.app
 ```
 
-- **Hosting:** Vercel (project `prj_Lwd9L4htNgSMAVIpsUPc5AcPZyJ8`). Any push to `main` auto-deploys to the production alias.
-- **Daily content build:** `.github/workflows/daily-build.yml` runs on GitHub Actions at 11:00 UTC (7 AM ET during EDT, 6 AM ET during EST — accept the 1-hour drift in winter or adjust the cron seasonally). It installs the Claude Code CLI, reads the prompt at `.github/prompts/daily-build.md`, regenerates the 6 HTML files with today's real news (via Claude's web search tool), and pushes the commit. Vercel takes it from there.
+- **Hosting:** Vercel. Any push to `main` auto-deploys to the production alias. (Project config lives in the Vercel dashboard.)
+- **Daily trigger (primary):** a **Vercel Cron** fires `/api/rebuild` at **11:00 UTC** (7 AM ET during EDT, 6 AM ET during EST). That function calls the GitHub API to dispatch the build workflow. We use Vercel Cron instead of GitHub's own `schedule:` because GitHub scheduled runs were landing **2–7 hours late every day** — scheduled events are best-effort and heavily throttled. API-triggered (`workflow_dispatch`) runs skip that queue and start within seconds. See `api/rebuild.js` and the `crons` block in `vercel.json`.
+- **Daily trigger (fallback):** `daily-build.yml` also keeps a GitHub `schedule:` trigger (09:37 UTC) as a safety net, so the edition still builds — late — if the Vercel cron is ever down. An idempotency guard in the workflow makes whichever trigger fires second a no-op, so the two never double-publish.
+- **Daily content build:** `.github/workflows/daily-build.yml` installs the Claude Code CLI, reads the prompt at `.github/prompts/daily-build.md`, regenerates the 6 HTML files with today's real news (via Claude's web search tool), pushes the commit, and emails the live link. Vercel takes it from there.
 - **Manual trigger:** The workflow also has `workflow_dispatch` enabled. Go to GitHub → Actions → "Daily Morning Wire Build" → Run workflow to fire a rebuild on demand.
+
+> **Vercel plan note:** on the Hobby plan, cron jobs run at most once per day and fire **within an hour** of the scheduled time (so ~11:00–12:00 UTC). That's dramatically tighter than GitHub's 2–7h drift. For to-the-minute timing, the Vercel Pro plan runs crons exactly on schedule.
 
 ## Repo layout
 
@@ -31,9 +37,11 @@ public/
   world.html         # World deep dive
   science.html       # Science & Health deep dive
   styles.css         # Shared stylesheet (Fraunces / Inter / JetBrains Mono)
-vercel.json          # Rewrites: /tech → /tech-ai.html, /crypto → /crypto.html, etc.
+vercel.json          # Rewrites (/tech → /tech-ai.html …) + daily "crons" entry
+api/
+  rebuild.js         # Vercel Cron target — dispatches the build via the GitHub API
 .github/
-  workflows/daily-build.yml    # Scheduled + manual build workflow
+  workflows/daily-build.yml    # Build workflow (Vercel-triggered; GitHub schedule fallback)
   prompts/daily-build.md       # Instruction prompt Claude Code runs each morning
 ```
 
@@ -63,6 +71,17 @@ To provision it:
 
 After that: GitHub → Actions → "Daily Morning Wire Build" → Run workflow to test. You should see a new commit on `main` within ~2 minutes and a fresh Vercel deploy shortly after.
 
+## Reliable daily trigger (Vercel Cron)
+
+The on-time trigger is a Vercel Cron that calls `/api/rebuild`, which dispatches the build via the GitHub API. It needs two **Vercel** environment variables (Vercel dashboard → the project → Settings → Environment Variables, **Production** scope):
+
+- **`GITHUB_DISPATCH_TOKEN`** — a GitHub token allowed to start the workflow. Create a **fine-grained personal access token** (GitHub → Settings → Developer settings → Fine-grained tokens): resource owner `ameer-khan05`, repository `morning-wire` only, permission **Actions: Read and write**. Copy the token.
+- **`CRON_SECRET`** — any random string (e.g. from a password generator). Vercel automatically sends it as `Authorization: Bearer <CRON_SECRET>` on cron invocations; `api/rebuild.js` rejects any request without it, so nobody else can trigger a rebuild.
+
+After adding both, **redeploy** (the `crons` block only activates on a production deploy that includes it). To verify: Vercel dashboard → the project → **Cron Jobs** shows `/api/rebuild` with its next run; hitting **Run** there should kick off a GitHub Actions build within seconds. If it doesn't, check the function logs — a 401 means `CRON_SECRET` is missing/mismatched, a 500 means `GITHUB_DISPATCH_TOKEN` isn't set, and a 502 shows GitHub's rejection (usually a token-permission problem).
+
+Until these are set, the workflow's GitHub `schedule:` fallback still builds the edition each day — just 2–7 hours late.
+
 ## Daily email notification (optional)
 
 After each successful build, the workflow emails the live site link so you get a "today's edition is live" ping every morning. It only fires when a fresh edition was actually published, and if the secrets below are missing the step is skipped (the build never fails over email).
@@ -84,7 +103,7 @@ The link is always `https://morning-wire-rho.vercel.app` (the site rebuilds in p
 
 **Rotating the OAuth token.** Re-run `/install-github-app` — it overwrites the existing secret.
 
-**Changing the build time.** Edit the `cron` line in `.github/workflows/daily-build.yml`. Cron expressions in GitHub Actions are UTC-only; convert from ET manually, or leave the 1-hour seasonal drift.
+**Changing the build time.** Edit the `schedule` in the `crons` block of `vercel.json` — that's the real trigger. (Optionally also bump the `schedule:` cron in `.github/workflows/daily-build.yml`, the late fallback.) Both are UTC-only; convert from ET manually, and expect a 1-hour seasonal drift across DST.
 
 **Editing the design.** CSS lives in `public/styles.css`. The daily prompt is instructed not to touch CSS — if you change design, do it manually and commit it; the next daily build will keep your changes.
 

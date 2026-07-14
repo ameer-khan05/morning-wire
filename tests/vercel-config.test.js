@@ -64,3 +64,28 @@ describe('vercel.json — routing configuration', () => {
     }
   });
 });
+
+describe('vercel.json — daily build cron', () => {
+  const config = JSON.parse(repoFile('vercel.json'));
+
+  it('defines a crons array', () => {
+    expect(Array.isArray(config.crons)).toBe(true);
+    expect(config.crons.length).toBeGreaterThan(0);
+  });
+
+  it('triggers the rebuild function once a day', () => {
+    const job = config.crons.find((c) => c.path === '/api/rebuild');
+    expect(job).toBeTruthy();
+    // Five-field cron expression, fixed hour (not "*") so it runs once daily.
+    const parts = job.schedule.split(' ');
+    expect(parts.length).toBe(5);
+    expect(parts[1]).not.toBe('*');
+  });
+
+  it('cron path is backed by a serverless function file', () => {
+    const job = config.crons.find((c) => c.path === '/api/rebuild');
+    const fnPath = resolve(import.meta.dirname, '..', 'api', 'rebuild.js');
+    expect(existsSync(fnPath), 'missing api/rebuild.js').toBe(true);
+    expect(job.path).toBe('/api/rebuild');
+  });
+});

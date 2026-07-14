@@ -1,10 +1,18 @@
 name: Daily Morning Wire Build
 
 on:
+  # PRIMARY trigger is an external Vercel Cron that calls this workflow via the
+  # GitHub API (workflow_dispatch) at 11:00 UTC (7 AM ET during EDT). API
+  # dispatches skip GitHub's scheduled-event queue, so they fire on time —
+  # unlike `schedule:` below, which was landing 2–7 hours late every day.
+  # See api/rebuild.js and the "crons" block in vercel.json.
+  #
+  # FALLBACK: the `schedule:` trigger is kept as a safety net so the edition
+  # still builds (late) if the Vercel cron is ever misconfigured or down. The
+  # "Skip if today's edition already published" guard below makes whichever
+  # trigger fires second a no-op, so keeping both never double-publishes.
   schedule:
     # 09:37 UTC = 05:37 America/New_York during EDT (04:37 during EST).
-    # GitHub fires scheduled runs 1–5 hours late on congested days, so an
-    # early, off-the-hour slot still lands the edition before mid-morning.
     - cron: '37 9 * * *'
   workflow_dispatch: {}
 
@@ -45,7 +53,24 @@ jobs:
       - name: Show today's date (America/New_York)
         run: TZ='America/New_York' date
 
+      - name: Skip if today's edition already published
+        id: guard
+        # Idempotency: if the latest commit on main is already today's edition,
+        # a second trigger fired for the same day (e.g. Vercel cron + the
+        # GitHub schedule fallback). Skip generation so we never double-build
+        # or send a duplicate email.
+        run: |
+          DATE=$(TZ='America/New_York' date +'%A, %B %-d, %Y')
+          LAST=$(git log -1 --pretty=%s)
+          if [ "$LAST" = "The Morning Wire — ${DATE}" ]; then
+            echo "Today's edition (${DATE}) is already published — skipping."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Generate today's edition
+        if: steps.guard.outputs.skip != 'true'
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         # stream-json + jq turns the formerly-silent 20+ minute wait into a
@@ -74,6 +99,7 @@ jobs:
 
       - name: Commit and push if changed
         id: publish
+        if: steps.guard.outputs.skip != 'true'
         run: |
           git config user.name "morning-wire-bot"
           git config user.email "bot@morning-wire.local"
