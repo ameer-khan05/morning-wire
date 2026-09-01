@@ -82,7 +82,7 @@ jobs:
             echo "published=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          git add -A
+          git add public/
           DATE=$(TZ='America/New_York' date +'%A, %B %-d, %Y')
           git commit -m "The Morning Wire — ${DATE}"
           git push origin main
