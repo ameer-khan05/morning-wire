@@ -16,7 +16,7 @@ GitHub Actions cron  ───┘
   Claude Code OAuth
 ```
 
-- **Hosting:** Vercel (project `prj_Lwd9L4htNgSMAVIpsUPc5AcPZyJ8`). Any push to `main` auto-deploys to the production alias.
+- **Hosting:** Vercel. Any push to `main` auto-deploys to the production alias.
 - **Daily content build:** `.github/workflows/daily-build.yml` runs on GitHub Actions at 11:00 UTC (7 AM ET during EDT, 6 AM ET during EST — accept the 1-hour drift in winter or adjust the cron seasonally). It installs the Claude Code CLI, reads the prompt at `.github/prompts/daily-build.md`, regenerates the 6 HTML files with today's real news (via Claude's web search tool), and pushes the commit. Vercel takes it from there.
 - **Manual trigger:** The workflow also has `workflow_dispatch` enabled. Go to GitHub → Actions → "Daily Morning Wire Build" → Run workflow to fire a rebuild on demand.
 
