@@ -53,7 +53,7 @@ jobs:
         # stuck or slow run is diagnosable from the logs alone.
         run: |
           set -o pipefail
-          timeout --signal=TERM 50m claude \
+          timeout --signal=TERM --kill-after=2m 50m claude \
             --print \
             --verbose \
             --output-format stream-json \
@@ -70,7 +70,40 @@ jobs:
                 elif .type == "result" then
                   "■ finished (" + (.subtype // "unknown") + ") after " +
                   ((.duration_ms // 0) / 60000 * 10 | floor / 10 | tostring) + " min"
-                else empty end'
+                elif .type == "error" then
+                  "⚠ ERROR: " + (.error.message // .message // "unknown error")
+                else
+                  "⚠ unexpected event type: " + .type
+                end'
+
+      - name: Validate generated output
+        run: |
+          set -euo pipefail
+          EXPECTED_FILES="index.html tech-ai.html crypto.html markets.html world.html science.html"
+          MIN_SIZE=4096   # a valid edition page is ≥13 KB; 4 KB catches truncated/empty files
+          ERRORS=0
+          for f in $EXPECTED_FILES; do
+            path="public/$f"
+            if [ ! -f "$path" ]; then
+              echo "::error::Missing expected file: $path"
+              ERRORS=$((ERRORS + 1))
+              continue
+            fi
+            size=$(stat --format='%s' "$path")
+            if [ "$size" -lt "$MIN_SIZE" ]; then
+              echo "::error::$path is suspiciously small (${size} bytes, min ${MIN_SIZE})"
+              ERRORS=$((ERRORS + 1))
+            fi
+            if ! grep -qi '<html' "$path"; then
+              echo "::error::$path does not look like valid HTML (missing <html tag)"
+              ERRORS=$((ERRORS + 1))
+            fi
+          done
+          if [ "$ERRORS" -gt 0 ]; then
+            echo "::error::Output validation failed with $ERRORS error(s) — aborting before commit."
+            exit 1
+          fi
+          echo "All 6 HTML files present and valid."
 
       - name: Commit and push if changed
         id: publish
@@ -82,7 +115,7 @@ jobs:
             echo "published=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          git add -A
+          git add public/
           DATE=$(TZ='America/New_York' date +'%A, %B %-d, %Y')
           git commit -m "The Morning Wire — ${DATE}"
           git push origin main
@@ -127,22 +160,46 @@ jobs:
             This morning's edition is live:
             https://morning-wire-rho.vercel.app
 
+      - name: Write job summary
+        if: always()
+        run: |
+          DATE=$(TZ='America/New_York' date +'%A, %B %-d, %Y')
+          echo "## The Morning Wire — ${DATE}" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          if [ "${{ job.status }}" = "success" ]; then
+            echo "Build succeeded." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "**Build status: ${{ job.status }}**" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "| File | Size |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|------|------|" >> "$GITHUB_STEP_SUMMARY"
+          for f in public/*.html; do
+            if [ -f "$f" ]; then
+              size=$(stat --format='%s' "$f")
+              echo "| $f | ${size} bytes |" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
+
       - name: Open a GitHub issue if the build failed
         if: failure() || cancelled()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          set -uo pipefail
           RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           DATE=$(TZ='America/New_York' date +'%A, %B %-d, %Y')
           EXISTING=$(gh issue list --repo "${{ github.repository }}" --state open \
             --search "Daily Morning Wire build failed in:title" \
-            --json number --jq '.[0].number // empty')
+            --json number --jq '.[0].number // empty') || true
           if [ -n "$EXISTING" ]; then
             gh issue comment "$EXISTING" --repo "${{ github.repository }}" \
-              --body "Failed again on ${DATE}. Logs: ${RUN_URL}"
+              --body "Failed again on ${DATE}. Logs: ${RUN_URL}" \
+            || echo "::warning::Failed to comment on issue #${EXISTING} — check token permissions."
           else
-            BODY=$(printf 'The morning edition did not publish. Check the **Generate today'"'"'s edition** step in the logs: %s\n\nCommon causes: the run exceeded its 50-minute budget (look at the last logged tool call), or Claude authentication failed (an error will be printed at the top of the step).' "$RUN_URL")
+            BODY=$(printf 'The morning edition did not publish. Check the logs: %s\n\nCommon causes:\n- The run exceeded its 50-minute budget (look at the last logged tool call).\n- Claude authentication failed (an error will be printed at the top of the Generate step).\n- Output validation failed (one or more HTML files were missing, empty, or malformed).\n- `git push` was rejected (merge conflict or permissions).' "$RUN_URL")
             gh issue create --repo "${{ github.repository }}" \
               --title "Daily Morning Wire build failed — ${DATE}" \
-              --body "$BODY"
+              --body "$BODY" \
+            || echo "::warning::Failed to create issue — check token permissions."
           fi
