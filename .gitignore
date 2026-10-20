@@ -1,1 +1,26 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Node
 node_modules/
+npm-debug.log*
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Temp files
+*.tmp
+*.bak
